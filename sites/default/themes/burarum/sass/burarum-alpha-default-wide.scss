@@ -1,0 +1,9 @@
+/* This file will hold styles that are loaded using the same media query as the wide grid. */
+
+/* Associated stylesheets as determined by different screen width
+ * 0px to 740px wide: global.css
+ * 741px to 979px wide: global.css + default.css + narrow.css
+ * 980px to 1219px wide: global.css + default.css + narrow.css + normal.css
+ * 1220px and wider: global.css + default.css + narrow.css + normal.css + wide.css */
+ 
+@import "base";

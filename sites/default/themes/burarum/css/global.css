@@ -1,2 +1,1 @@
-/* This file will hold styles for the mobile version of your website (mobile first). */
-/* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
+body{font-family:"Open Sans, Arial";color:#aaa;font-size:0.875em}#zone-menu{box-shadow:0px 0px 4px rgba(0,0,0,0.6);border-radius:2px}

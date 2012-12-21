@@ -1,0 +1,44 @@
+/* GLOBAL DEFAULTS 
+ * 
+ * Default values stored in variables for fonts, links and boxes
+ * Usage: $variable_name
+ *
+ */
+
+/* Text defaults */
+$fontFamily: 'Open Sans, Arial';
+$fontSize: 0.875em;
+$fontColor: #aaaaaa;
+$lineHeight: 1.25em;
+$textShadow: 0px 0px 4px #aaaaaa;
+
+/* Link defaults */
+$linkColor: #0099ff;
+$linkHoverColor: #ff9900;
+$linkFocusColor: #000000;
+
+/* Box defaults */
+
+$bordersRadius: 2px;
+$boxShadow: 0px 0px 4px rgba(0,0,0,0.6);
+
+/* GLOBAL MIXINS 
+ *
+ * Usage wth default value: @mixin_name;
+ * Usage with overridden value: @mixin_name($argument: value);
+ *
+ */
+
+@mixin text-shadow($shadow: $textShadow) {
+  text-shadow: $shadow;
+}
+
+@mixin rounded-borders($radius: $bordersRadius) {
+  border-radius:$radius;
+}
+
+@mixin box-shadow($shadow: $boxShadow) {
+  box-shadow: $shadow;
+}
+
+
