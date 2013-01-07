@@ -1,0 +1,23 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the Ajax links API module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function ajax_links_api_install() {
+  if(user_access('access overlay')){
+    drupal_set_message("Overlay module is not compatible with Ajax links API module.Try to avoid using ajax links api for overlay paths.", 'warning');
+  }
+  drupal_set_message(t('<a href="@var">Configure</a> Ajax links API.', array ('@var' => url('admin/config/development/ajax-links-api'))));
+}
+/**
+ * Implements hook_uninstall().
+ */
+function ajax_links_api_uninstall() {
+  // Delete variables.
+  variable_del('ajax_links_api_selector'); // Default selector.
+  variable_del('ajax_links_api_trigger'); // Trigger classes/IDs.
+}

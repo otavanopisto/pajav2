@@ -17,8 +17,3 @@ body {
   color: $fontColor;
   font-size:$fontSize;
 }
-
-#zone-menu {
-  @include box-shadow;
-  @include rounded-borders;
-}
