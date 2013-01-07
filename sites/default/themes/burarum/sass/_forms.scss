@@ -1,0 +1,41 @@
+form input[type='text'] {
+  @include rounded-borders;
+  @include box-shadow;
+  @include form-field-padding;
+  height: auto;
+  background: $fieldBackgroundColor;
+  border: $fieldBorder;
+  font-family: $fontFamily;
+  color: $fontColor;
+  font-size: inherit;
+}
+
+form input[type='submit'],
+form input[type='reset']  {
+  @include rounded-borders;
+  @include box-shadow;
+  @include form-field-padding;
+  height: auto;
+  background: #000000;
+  border: none;
+  font-family: $fontFamily;
+  color: $buttonFontColor;
+  font-size: inherit;
+  text-shadow: none;
+  font-weight: normal;
+}
+
+form input[type='submit']:hover,
+form input[type='reset']:hover {
+  @include rounded-borders;
+  @include box-shadow;
+  @include form-field-padding;
+  height: auto;
+  background: $buttonHoverBackgroundColor;
+  border: none;
+  font-family: $fontFamily;
+  color: $buttonFontColor;
+  font-size: inherit;
+  text-shadow: none;
+  font-weight: normal;
+}
