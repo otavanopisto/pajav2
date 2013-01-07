@@ -1,14 +1,13 @@
-/* GLOBAL DEFAULTS 
- * 
- * Default values stored in variables for fonts, links and boxes
- * Usage: $variable_name
+/* DEFAULTS 
+ *
+ * Usage $variable
  *
  */
 
 /* Text defaults */
-$fontFamily: 'Open Sans, Arial';
+$fontFamily: 'Arial';
 $fontSize: 0.875em;
-$fontColor: #aaaaaa;
+$fontColor: #222222;
 $lineHeight: 1.25em;
 $textShadow: 0px 0px 4px #aaaaaa;
 
@@ -18,14 +17,20 @@ $linkHoverColor: #ff9900;
 $linkFocusColor: #000000;
 
 /* Box defaults */
+$bordersRadius: 3px;
+$boxShadow: 0px 0px 4px rgba(0,0,0,0.3);
 
-$bordersRadius: 2px;
-$boxShadow: 0px 0px 4px rgba(0,0,0,0.6);
+/* Form defaults */
+$fieldPadding: 6px;
+$fieldBorder: 1px solid #aaaaaa;
+$fieldBackgroundColor: #ffffff;
+$buttonHoverBackgroundColor: #0099ff;
+$buttonFontColor: #ffffff;
 
-/* GLOBAL MIXINS 
+/* MIXINS 
  *
- * Usage wth default value: @mixin_name;
- * Usage with overridden value: @mixin_name($argument: value);
+ * Usage with default value: @include mixin_name;
+ * Usage with overridden value: @include mixin_name($argument: value);
  *
  */
 
@@ -39,6 +44,10 @@ $boxShadow: 0px 0px 4px rgba(0,0,0,0.6);
 
 @mixin box-shadow($shadow: $boxShadow) {
   box-shadow: $shadow;
+}
+
+@mixin form-field-padding($fieldPadding: $fieldPadding) {
+  padding: $fieldPadding;
 }
 
 
