@@ -9,7 +9,7 @@ $fontFamily: 'Arial';
 $fontSize: 0.875em;
 $fontColor: #222222;
 $lineHeight: 1.25em;
-$textShadow: 0px 0px 4px #aaaaaa;
+$textShadow: 0px 0px 2px #000000;
 
 /* Link defaults */
 $linkColor: #0099ff;
@@ -17,15 +17,21 @@ $linkHoverColor: #ff9900;
 $linkFocusColor: #000000;
 
 /* Box defaults */
-$bordersRadius: 3px;
+$boxBorderRadius: 3px;
+$boxBorder: 1px solid #aaaaaa;
 $boxShadow: 0px 0px 4px rgba(0,0,0,0.3);
+$boxPadding: 6px;
 
 /* Form defaults */
-$fieldPadding: 6px;
-$fieldBorder: 1px solid #aaaaaa;
+$fieldBorder: 4px solid #66ccff;
 $fieldBackgroundColor: #ffffff;
-$buttonHoverBackgroundColor: #0099ff;
+$fieldPadding: 6px;
+
+$buttonBackgroundColor: #0099ff;
+$buttonHoverBackgroundColor: #000000;
 $buttonFontColor: #ffffff;
+$buttonBorder: 4px solid #0099ff;
+$buttonBorderHover: 4px solid #000000;
 
 /* MIXINS 
  *
@@ -38,12 +44,16 @@ $buttonFontColor: #ffffff;
   text-shadow: $shadow;
 }
 
-@mixin rounded-borders($radius: $bordersRadius) {
-  border-radius:$radius;
+@mixin rounded-borders($radius: $boxBorderRadius) {
+  border-radius: $radius;
 }
 
 @mixin box-shadow($shadow: $boxShadow) {
   box-shadow: $shadow;
+}
+
+@mixin box-padding($padding: $boxPadding) {
+  padding: $padding;
 }
 
 @mixin form-field-padding($fieldPadding: $fieldPadding) {

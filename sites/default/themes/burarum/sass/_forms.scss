@@ -16,8 +16,8 @@ form input[type='reset']  {
   @include box-shadow;
   @include form-field-padding;
   height: auto;
-  background: #000000;
-  border: none;
+  background: $buttonBackgroundColor;
+  border: $buttonBorder;
   font-family: $fontFamily;
   color: $buttonFontColor;
   font-size: inherit;
@@ -27,15 +27,6 @@ form input[type='reset']  {
 
 form input[type='submit']:hover,
 form input[type='reset']:hover {
-  @include rounded-borders;
-  @include box-shadow;
-  @include form-field-padding;
-  height: auto;
   background: $buttonHoverBackgroundColor;
-  border: none;
-  font-family: $fontFamily;
-  color: $buttonFontColor;
-  font-size: inherit;
-  text-shadow: none;
-  font-weight: normal;
+  border: $buttonBorderHover;
 }
