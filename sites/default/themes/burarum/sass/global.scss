@@ -11,14 +11,20 @@
  */
  
 @import "base";
+@import "forms";
 
 body {
   font-family: $fontFamily;
   color: $fontColor;
-  font-size:$fontSize;
+  font-size: $fontSize;
 }
 
-#zone-menu {
+.zone {
+  margin: 5px 0px;
   @include box-shadow;
+  @include box-padding;
   @include rounded-borders;
 }
+
+
+

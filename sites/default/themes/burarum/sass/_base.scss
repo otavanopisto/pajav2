@@ -1,16 +1,15 @@
-/* GLOBAL DEFAULTS 
- * 
- * Default values stored in variables for fonts, links and boxes
- * Usage: $variable_name
+/* DEFAULTS 
+ *
+ * Usage $variable
  *
  */
 
 /* Text defaults */
-$fontFamily: 'Open Sans, Arial';
+$fontFamily: 'Arial';
 $fontSize: 0.875em;
-$fontColor: #aaaaaa;
+$fontColor: #222222;
 $lineHeight: 1.25em;
-$textShadow: 0px 0px 4px #aaaaaa;
+$textShadow: 0px 0px 2px #000000;
 
 /* Link defaults */
 $linkColor: #0099ff;
@@ -18,14 +17,26 @@ $linkHoverColor: #ff9900;
 $linkFocusColor: #000000;
 
 /* Box defaults */
+$boxBorderRadius: 3px;
+$boxBorder: 1px solid #aaaaaa;
+$boxShadow: 0px 0px 4px rgba(0,0,0,0.3);
+$boxPadding: 6px;
 
-$bordersRadius: 2px;
-$boxShadow: 0px 0px 4px rgba(0,0,0,0.6);
+/* Form defaults */
+$fieldBorder: 4px solid #66ccff;
+$fieldBackgroundColor: #ffffff;
+$fieldPadding: 6px;
 
-/* GLOBAL MIXINS 
+$buttonBackgroundColor: #0099ff;
+$buttonHoverBackgroundColor: #000000;
+$buttonFontColor: #ffffff;
+$buttonBorder: 4px solid #0099ff;
+$buttonBorderHover: 4px solid #000000;
+
+/* MIXINS 
  *
- * Usage wth default value: @mixin_name;
- * Usage with overridden value: @mixin_name($argument: value);
+ * Usage with default value: @include mixin_name;
+ * Usage with overridden value: @include mixin_name($argument: value);
  *
  */
 
@@ -33,12 +44,20 @@ $boxShadow: 0px 0px 4px rgba(0,0,0,0.6);
   text-shadow: $shadow;
 }
 
-@mixin rounded-borders($radius: $bordersRadius) {
-  border-radius:$radius;
+@mixin rounded-borders($radius: $boxBorderRadius) {
+  border-radius: $radius;
 }
 
 @mixin box-shadow($shadow: $boxShadow) {
   box-shadow: $shadow;
+}
+
+@mixin box-padding($padding: $boxPadding) {
+  padding: $padding;
+}
+
+@mixin form-field-padding($fieldPadding: $fieldPadding) {
+  padding: $fieldPadding;
 }
 
 
