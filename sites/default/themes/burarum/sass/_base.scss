@@ -17,21 +17,21 @@ $linkHoverColor: #ff9900;
 $linkFocusColor: #000000;
 
 /* Box defaults */
-$boxBorderRadius: 3px;
+$boxBorderRadius: 2px;
 $boxBorder: 1px solid #aaaaaa;
 $boxShadow: 0px 0px 4px rgba(0,0,0,0.3);
 $boxPadding: 6px;
 
 /* Form defaults */
-$fieldBorder: 4px solid #66ccff;
+$fieldBorder: 1px solid #000000;
 $fieldBackgroundColor: #ffffff;
-$fieldPadding: 6px;
+$fieldPadding: 3px;
 
-$buttonBackgroundColor: #0099ff;
-$buttonHoverBackgroundColor: #000000;
+$buttonBackgroundColor: #000000;
+$buttonHoverBackgroundColor: #0099ff;
 $buttonFontColor: #ffffff;
-$buttonBorder: 4px solid #0099ff;
-$buttonBorderHover: 4px solid #000000;
+$buttonBorder: 1px solid #000000;
+$buttonBorderHover: 1px solid #0099ff;
 
 /* MIXINS 
  *

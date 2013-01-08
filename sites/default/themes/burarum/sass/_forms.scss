@@ -1,7 +1,6 @@
 form input[type='text'] {
-  @include rounded-borders;
-  @include box-shadow;
   @include form-field-padding;
+  @include box-shadow;  
   height: auto;
   background: $fieldBackgroundColor;
   border: $fieldBorder;
