@@ -26,5 +26,56 @@ body {
   @include rounded-borders;
 }
 
+/* SEARCH */
+
+div#block-search-form {
+  float: right;
+}
+
+form#search-block-form .form-actions input {
+  margin-right: 0;
+}
+
+form#search-block-form input.form-text {
+  width: 250px;
+  background: url('../gfx/search_icon.gif') no-repeat 5px center;
+  padding-left: 30px;
+}
+
+
+/* LOGIN, SIGNUP, USERIFNO AND LOGOUT */
+
+#block-login-signup ,
+#block-userinfo-logout {
+  margin-right:300px;
+  padding:4px;
+}
+
+#block-login-signup a,
+#block-userinfo-logout a  {
+  color: $linkColorHeader;
+  @include header-link-defaults;
+}
+
+#block-login-signup a:hover,
+#block-userinfo-logout a:hover {
+  color: $linkHoverColorHeader;
+  @include header-link-defaults;
+}
+
+#block-login-signup a:focus,
+#block-userinfo-logout a:focus {
+  color: $linkFocusColorHeader;
+  @include header-link-defaults;
+}
+
+#block-userinfo-logout span,
+#block-login-signup span {
+  display: inline-block;
+  padding: 0px 4px;
+}
+
+
+
 
 

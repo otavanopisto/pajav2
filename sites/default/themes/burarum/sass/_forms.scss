@@ -1,4 +1,5 @@
-form input[type='text'] {
+form input[type='text'],
+form input[type='password']  {
   @include form-field-padding;
   @include box-shadow;  
   height: auto;

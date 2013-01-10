@@ -11,21 +11,26 @@ $fontColor: #222222;
 $lineHeight: 1.25em;
 $textShadow: 0px 0px 2px #000000;
 
-/* Link defaults */
+/* Content Link defaults */
 $linkColor: #0099ff;
 $linkHoverColor: #ff9900;
 $linkFocusColor: #000000;
 
+/* Header Links Defaults */
+$linkColorHeader: #000000;
+$linkHoverColorHeader: #ff9900;
+$linkFocusColorHeader: #000000;
+
 /* Box defaults */
 $boxBorderRadius: 2px;
 $boxBorder: 1px solid #aaaaaa;
-$boxShadow: 0px 0px 4px rgba(0,0,0,0.3);
+$boxShadow: 0px 0px 6px rgba(0,0,0,0.2);
 $boxPadding: 6px;
 
 /* Form defaults */
 $fieldBorder: 1px solid #000000;
 $fieldBackgroundColor: #ffffff;
-$fieldPadding: 3px;
+$fieldPadding: 5px;
 
 $buttonBackgroundColor: #000000;
 $buttonHoverBackgroundColor: #0099ff;
@@ -58,6 +63,10 @@ $buttonBorderHover: 1px solid #0099ff;
 
 @mixin form-field-padding($fieldPadding: $fieldPadding) {
   padding: $fieldPadding;
+}
+@mixin header-link-defaults($padding: 2px 4px, $decoration: none) {
+  padding: $padding;
+  text-decoration: $decoration;
 }
 
 
