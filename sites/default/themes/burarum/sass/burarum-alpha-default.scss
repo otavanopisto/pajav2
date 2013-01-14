@@ -7,3 +7,9 @@
  * 1220px and wider: global.css + default.css + narrow.css + normal.css + wide.css */
  
 @import "base";
+
+#page-container {
+  margin:0 auto;
+  @include box-shadow($shadow: 0 0 30px rgba(0,0,0,0.3));
+  border: $boxBorder;
+}
