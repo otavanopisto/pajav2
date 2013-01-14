@@ -1,0 +1,38 @@
+<?php
+/**
+ * Implements hook_preprocess_field
+ * @param mixed $vars
+ */
+function oo_alterations_preprocess_field(&$vars){
+  if($vars['element']['#field_name'] == 'field_hinta'){
+    $entity_type = $vars['element']['#entity_type'];
+    $entity = $vars['element']['#object'];
+    $price_type = array_pop(array_pop(field_get_items($entity_type, $entity, 'field_hinnan_tyyppi')));
+    $gid = $entity->nid;
+    if(isset($price_type)){
+      if($price_type == 0){
+        $price = array_pop(array_pop(field_get_items($entity_type, $entity, 'field_hinta')));
+        $min_participants = array_pop(array_pop(field_get_items($entity_type, $entity, 'field_minimi_osallistujat')));
+        $price_calculated = $price .'€';
+        //       $price_calculated = &drupal_static(__FUNCTION__);
+        //       if(!isset($price_calculated)){
+        $query = db_select('users', 'u');
+        $query
+        ->condition('u.uid', 0, '<>')
+        ->condition('u.status', 1, '=')
+        ->fields('u', array('uid', 'name'))
+        ->join('og_membership', 'ogm', "ogm.gid = :gid AND u.uid = ogm.etid AND ogm.entity_type = 'user'", array(':gid' => $gid));
+        $result = $query->execute();
+        $memberCount = $result->rowCount();
+        if (($price/$memberCount) < ($price/$min_participants)) {
+          $price_calculated = ($price/$memberCount);
+        }else {
+          $price_calculated = ($price/$min_participants);
+        }
+        $vars['items'][0]['#markup'] = filter_xss(round($price_calculated, 2, PHP_ROUND_HALF_UP) . '€');
+  //       $vars['content']['field_hinta'][0]['#markup'] = round($price_calculated, 2, PHP_ROUND_HALF_UP) . '€';
+      }
+    }
+  }
+}
+?>

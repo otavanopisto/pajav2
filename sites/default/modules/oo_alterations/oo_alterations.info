@@ -1,0 +1,4 @@
+; $Id$
+name = OO Alterations
+description = Minor hacks and hookings for desired functionality (Otavan Opisto)
+core = 7.x
