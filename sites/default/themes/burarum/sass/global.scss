@@ -14,66 +14,124 @@
 @import "forms";
 
 body {
-  font-family: $fontFamily;
-  color: $fontColor;
-  font-size: $fontSize;
+  font-family:$fontFamily;
+  color:$fontColor;
+  font-size:$fontSize;
+}
+#page {
+
 }
 
-.zone {
-  margin: 5px 0px;
-  @include box-shadow;
-  @include box-padding;
-  @include rounded-borders;
+#page-container {
+  padding:0 10px 10px 10px;
 }
+
+.header-black-spacer {
+  height:5px;
+  background:#000000;
+  margin:0 0 10px 0;
+}
+
+#zone-header {
+  margin:0 0 5px 0;
+  background:#ffffff;
+}
+
+.region-header-second-inner {
+  text-align:right;
+}
+
+/* BACKGROUNDS */
+
+#zone-branding-wrapper {
+  height:231px;
+  background:url('../gfx/header-background.jpg') no-repeat;
+}
+
+#zone-menu-wrapper {
+  padding:8px 0 28px 0;
+  background:url('../gfx/navigation-background.jpg') no-repeat;
+}
+
+#zone-content-wrapper {
+  background:url('../gfx/content-background.jpg') no-repeat;
+}
+
+/* NAVIGATION */
+
+#zone-menu {
+    background:#000000;
+  padding:4px 0;}
+
+#region-menu .navigation {
+
+}
+
+#region-menu .navigation ul a {
+  color:#ffffff;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-weight:bold;
+}
+
 
 /* SEARCH */
 
 div#block-search-form {
-  float: right;
+  display:inline-block;
+  margin:0 0 0 20px
 }
 
 form#search-block-form .form-actions input {
-  margin-right: 0;
+  margin-right:0;
 }
 
 form#search-block-form input.form-text {
-  width: 250px;
-  background: url('../gfx/search_icon.gif') no-repeat 5px center;
-  padding-left: 30px;
+  width:220px;
+  background:url('../gfx/search_icon.gif') no-repeat 5px center;
+  padding-left:30px;
 }
 
 
 /* LOGIN, SIGNUP, USERIFNO AND LOGOUT */
 
+#block-block-1,
+#block-block-2 {
+  display:inline-block;
+  margin:0;
+  padding:0 4px;
+}
+
 #block-login-signup ,
 #block-userinfo-logout {
-  margin-right:300px;
-  padding:4px;
+  padding:4px 0;
+  white-space:nowrap;
 }
 
 #block-login-signup a,
 #block-userinfo-logout a  {
-  color: $linkColorHeader;
+  color:$linkColorHeader;
   @include header-link-defaults;
+  display:inline-block;
 }
 
 #block-login-signup a:hover,
 #block-userinfo-logout a:hover {
-  color: $linkHoverColorHeader;
+  color:$linkHoverColorHeader;
   @include header-link-defaults;
 }
 
 #block-login-signup a:focus,
 #block-userinfo-logout a:focus {
-  color: $linkFocusColorHeader;
+  color:$linkFocusColorHeader;
   @include header-link-defaults;
 }
 
 #block-userinfo-logout span,
 #block-login-signup span {
-  display: inline-block;
-  padding: 0px 4px;
+  display:inline-block;
 }
+
 
 
 
