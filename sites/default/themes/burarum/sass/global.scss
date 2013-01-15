@@ -132,7 +132,12 @@ form#search-block-form input.form-text {
   display:inline-block;
 }
 
+/* TABS */
 
+#region-content .tabs,
+#region-content .node-page .submitted {
+  display:none;
+}
 
 
 
