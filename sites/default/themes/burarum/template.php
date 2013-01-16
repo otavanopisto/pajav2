@@ -10,3 +10,10 @@
  * for your subtheme grows. Please read the README.txt in the /preprocess and /process subfolders
  * for more information on this topic.
  */
+function burarum_preprocess_page(&$vars) {
+  if($vars['is_front'] == true){
+    $vars['title_hidden'] = 1;
+    unset($vars['page']['content']['content']['content']['system_main']['default_message']);
+  }
+      
+}
