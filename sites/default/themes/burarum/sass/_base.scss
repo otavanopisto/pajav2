@@ -38,12 +38,25 @@ $buttonFontColor:#ffffff;
 $buttonBorder:1px solid #000000;
 $buttonBorderHover:1px solid #0099ff;
 
+/* H1 - H2 DEFAULTS */
+$headerPadding:4px 10px 4px 15px;
+$headerBackground:url('../gfx/title-background.jpg');
+$headerBorder:2px solid #000;
+
 /* MIXINS 
  *
  * Usage with default value: @include mixin_name;
  * Usage with overridden value: @include mixin_name($argument: value);
  *
  */
+
+@mixin h1h2-defaults($padding: $headerPadding, $background: $headerBackground, $border: $headerBorder) {
+  padding:$padding;
+  background:$background;
+  border-top:$border;
+  border-bottom:$border;
+  border-right:$border;
+}
 
 @mixin text-shadow($shadow: $textShadow) {
   text-shadow:$shadow;
@@ -67,6 +80,12 @@ $buttonBorderHover:1px solid #0099ff;
 @mixin header-link-defaults($padding: 2px 4px, $decoration: none) {
   padding:$padding;
   text-decoration:$decoration;
+}
+
+@mixin carousel-controls {
+  display:inline-block;
+  position:relative;
+  background:#7c7b7a;
 }
 
 

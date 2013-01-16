@@ -18,8 +18,38 @@ body {
   color:$fontColor;
   font-size:$fontSize;
 }
-#page {
 
+h1, h2, h3, h4, h5, h6 {
+  font-family:$fontFamily;
+  text-transform:uppercase;
+  letter-spacing:0;
+}
+
+#page h1 {
+  font-size:1.3em;
+  @include h1h2-defaults;
+  @include box-shadow($shadow: 6px 6px 0 rgba(124,123,122,1.0));
+  margin:0 6px 0 0;
+}
+
+#page h2 {
+  font-size:1.2em;
+  @include h1h2-defaults;
+  @include box-shadow($shadow: 6px 6px 0 rgba(124,123,122,1.0));
+  margin:0 6px 0 0;
+}
+
+#page .node-page .content {
+  margin-top:20px;
+}
+
+#page h3 {
+  font-size:1.1em;
+}
+
+#page .container-16 .grid-16 { /* NOT PREFERED WAY TO DO THIS! REMOVE IF EVEN SLIGHTLY POSSIBLE */
+  width:100%;
+  margin:0;
 }
 
 #page-container {
@@ -60,11 +90,11 @@ body {
 /* NAVIGATION */
 
 #zone-menu {
-    background:#000000;
+  background:#000000;
   padding:4px 0;}
 
 #region-menu .navigation {
-
+  padding:0px 10px;
 }
 
 #region-menu .navigation ul a {
@@ -94,6 +124,28 @@ form#search-block-form input.form-text {
 
 
 /* LOGIN, SIGNUP, USERIFNO AND LOGOUT */
+
+#login-register .panel-panel h2 {
+  background:url('../gfx/title-background.jpg');
+  padding:5px 5px 5px 20px;
+  border:2px solid #000;
+}
+
+#user-login input.form-text,
+#user-register-form input.form-text {
+  max-width:100%;
+  min-width:95%;
+}
+
+#login-register .panel-panel {
+  max-width:340px;
+  min-width:340px;
+  margin:0 5px;
+}
+
+#login-register .panel-panel .inside {
+  margin:0;
+}
 
 #block-block-1,
 #block-block-2 {
@@ -132,7 +184,133 @@ form#search-block-form input.form-text {
   display:inline-block;
 }
 
+/* FRONTPAGE CAROUSEL */
 
+.views-slideshow-cycle-main-frame-row {
+  padding:0 5px 5px 5px;
+}
+
+.view-frontpage-carousel-of-groups  {
+  margin:6px 0 0 0;
+}
+
+.view-frontpage-carousel-of-groups .views-row {
+  float:left;
+  max-width:264px;
+  padding:8px;
+  margin:0 7px 0 7px;
+  @include box-shadow;
+  background:#ffffff;
+  border:1px solid #ffffff;
+}
+
+.view-frontpage-carousel-of-groups .views-row:hover {
+  border:1px solid #dddddd;
+}
+
+.view-frontpage-carousel-of-groups .views-row-first {
+  margin:0 7px 0 9px;
+}
+
+.view-frontpage-carousel-of-groups .views-row .views-field-field-kurssin-kuva {
+  width:100%;
+  overflow:hidden;
+}
+
+.view-frontpage-carousel-of-groups .views-row img {
+  width:100%;
+  height:auto;
+}
+
+.view-frontpage-carousel-of-groups .views-row .views-field-title {
+  margin:10px 0 3px 0;
+}
+
+.view-frontpage-carousel-of-groups .views-row .views-field-title a {
+  text-transform:uppercase;
+  font-size:1.1em;
+  color:#af6700;
+  text-decoration:none;
+}
+
+.view-frontpage-carousel-of-groups .views-row .views-field-body .field-content {
+  margin:0;
+  padding:0 0 10px 0;
+  min-height:155px;
+  max-height:155px;
+  border-bottom:1px solid #f2f2f2;
+}
+
+.view-frontpage-carousel-of-groups .views-row span.views-label {
+  text-transform:uppercase;
+  margin:5px 0 0 0;
+  padding:5px 0 0 0;
+  display:block;
+  font-size:0.925em;
+}
+
+.view-frontpage-carousel-of-groups .views-row .field-content {
+  font-size:0.925em;
+  color:#757575;
+}
+
+#views_slideshow_controls_text_frontpage_carousel_of_groups-block {
+  display:block;
+  clear:both;
+  height:2.5em;
+  margin:0 15px 5px 15px;
+}
+
+.view-frontpage-carousel-of-groups #views_slideshow_controls_text_frontpage_carousel_of_groups-block a {
+  text-decoration:none;
+  color:#fff;
+  text-transform:uppercase;
+}
+
+#views_slideshow_controls_text_frontpage_carousel_of_groups-block a:hover,
+#views_slideshow_controls_text_frontpage_carousel_of_groups-block span:hover {
+  text-decoration:none;
+  color:#fff;
+  text-transform:uppercase;
+}
+
+#views_slideshow_controls_text_previous_frontpage_carousel_of_groups-block {
+  @include carousel-controls;
+  padding:2px 12px 2px 24px
+}
+
+#views_slideshow_controls_text_next_frontpage_carousel_of_groups-block {
+  @include carousel-controls;
+  padding:2px 24px 2px 12px;
+}
+
+#views_slideshow_controls_text_previous_frontpage_carousel_of_groups-block:before {
+  content:'.';
+  text-indent:-9999px;
+  color:#ffffff;
+  width:11px;
+  height:11px;
+  background:url('../gfx/previous-arrow.png');
+  position:absolute;
+  top:7px;
+  left:7px;
+}
+
+#views_slideshow_controls_text_next_frontpage_carousel_of_groups-block:before {
+  content:'.';
+  text-indent:-9999px;
+  color:#ffffff;
+  width:11px;
+  height:11px;
+  background:url('../gfx/next-arrow.png');
+  position:absolute;
+  top:7px;
+  right:7px;
+}
+
+#views_slideshow_controls_text_pause_frontpage_carousel_of_groups-block {
+  display:none;
+}
 
 
 
