@@ -385,6 +385,7 @@ form#search-block-form input.form-text {
 #page #node-kurssi-panel .pane-node-field-kurssin-kuva img {
   width:100%;
   height:auto;
+  @include box-shadow;
 }
 
 #mini-panel-kurssi_minipanel ul {
@@ -413,3 +414,12 @@ form#search-block-form input.form-text {
   color:#757575;
 }
 
+#page #node-kurssi-panel .join-course-link {
+  margin:10px 0 0 0;
+}
+
+#page #node-kurssi-panel .join-course-link a {
+  @include buttonized-link;
+  @include box-shadow;
+  @include rounded-borders;
+}
