@@ -98,4 +98,13 @@ $headerBorder:2px solid #000;
   background:#7c7b7a;
 }
 
+@mixin buttonized-link($padding: 2px 6px, $background: #0099ff, $color: #ffffff) {
+  display:inline-block;
+  position:relative;
+  background:$background;
+  color:$color;
+  padding:$padding;
+  text-decoration:none;
+}
+
 
