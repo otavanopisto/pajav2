@@ -56,6 +56,16 @@ $headerBorder:2px solid #000;
   border-top:$border;
   border-bottom:$border;
   border-right:$border;
+  border-left:0;
+}
+
+@mixin h1h2-defaults-rtl($padding: $headerPadding, $background: $headerBackground, $border: $headerBorder) {
+  padding:$padding;
+  background:$background;
+  border-top:$border;
+  border-bottom:$border;
+  border-left:$border;
+  border-right:0;
 }
 
 @mixin text-shadow($shadow: $textShadow) {

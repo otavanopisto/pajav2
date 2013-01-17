@@ -13,10 +13,17 @@
 @import "base";
 @import "forms";
 
+/* REMOVE THE PESKY STRICT PHP MESSAGES */
+
+.messages.error {
+  display:none;
+}
+
 body {
   font-family:$fontFamily;
   color:$fontColor;
   font-size:$fontSize;
+  background:url('../gfx/view-port-background.gif') repeat-x left top;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -39,8 +46,8 @@ h1, h2, h3, h4, h5, h6 {
   margin:0 6px 0 0;
 }
 
-#page .node-page .content {
-  margin-top:20px;
+#page .node-page {
+  margin:20px 0 10px 0;
 }
 
 #page h3 {
@@ -184,17 +191,31 @@ form#search-block-form input.form-text {
   display:inline-block;
 }
 
-/* FRONTPAGE CAROUSEL */
+/* FRONTPAGE CAROUSEL / NOT STARTED COURSES LISTING / STARTED COURSES LISTING  */
 
-.views-slideshow-cycle-main-frame-row {
-  padding:0 5px 5px 5px;
+#views_slideshow_cycle_main_courses_not_started-block_slider,
+#views_slideshow_cycle_main_courses_started-block_slider {
+  padding:0 5px 10px 7px;
 }
 
-.view-frontpage-carousel-of-groups  {
+.views-slideshow-cycle-main-frame-row {
+  padding:0 0 5px 0;
+}
+
+.view-courses-not-started.view-display-id-block_slider,
+.view-courses-started.view-display-id-block_slider {
   margin:6px 0 0 0;
 }
 
-.view-frontpage-carousel-of-groups .views-row {
+.view-courses-not-started.view-display-id-page_list_all,
+.view-courses-started.view-display-id-page_list_all {
+  margin:6px 0 0 0;
+  display:table;
+  padding:0 5px 10px 7px;
+}
+
+.view-courses-not-started .views-row,
+.view-courses-started .views-row {
   float:left;
   max-width:264px;
   padding:8px;
@@ -204,36 +225,49 @@ form#search-block-form input.form-text {
   border:1px solid #ffffff;
 }
 
-.view-frontpage-carousel-of-groups .views-row:hover {
+.view-courses-not-started .views-row.courses-not-started-page-row,
+.view-courses-started .views-row.courses-started-page-row {
+  margin:20px 7px 0 7px;
+}
+
+.view-courses-not-started .views-row:hover,
+.view-courses-started .views-row:hover {
   border:1px solid #dddddd;
 }
 
-.view-frontpage-carousel-of-groups .views-row-first {
+.view-courses-not-started .views-row-first,
+.view-courses-started .views-row-first {
   margin:0 7px 0 9px;
 }
 
-.view-frontpage-carousel-of-groups .views-row .views-field-field-kurssin-kuva {
+.view-courses-not-started .views-row .views-field-field-kurssin-kuva,
+.view-courses-started .views-row .views-field-field-kurssin-kuva {
   width:100%;
   overflow:hidden;
+  max-height:176px;
 }
 
-.view-frontpage-carousel-of-groups .views-row img {
+.view-courses-not-started .views-row img,
+.view-courses-started .views-row img {
   width:100%;
   height:auto;
 }
 
-.view-frontpage-carousel-of-groups .views-row .views-field-title {
+.view-courses-not-started .views-row .views-field-title,
+.view-courses-started .views-row .views-field-title {
   margin:10px 0 3px 0;
 }
 
-.view-frontpage-carousel-of-groups .views-row .views-field-title a {
+.view-courses-not-started .views-row .views-field-title a,
+.view-courses-started .views-row .views-field-title a {
   text-transform:uppercase;
   font-size:1.1em;
   color:#af6700;
   text-decoration:none;
 }
 
-.view-frontpage-carousel-of-groups .views-row .views-field-body .field-content {
+.view-courses-not-started .views-row .views-field-body .field-content,
+.view-courses-started .views-row .views-field-body .field-content {
   margin:0;
   padding:0 0 10px 0;
   min-height:155px;
@@ -241,7 +275,8 @@ form#search-block-form input.form-text {
   border-bottom:1px solid #f2f2f2;
 }
 
-.view-frontpage-carousel-of-groups .views-row span.views-label {
+.view-courses-not-started .views-row span.views-label,
+ .view-courses-started .views-row span.views-label {
   text-transform:uppercase;
   margin:5px 0 0 0;
   padding:5px 0 0 0;
@@ -249,42 +284,50 @@ form#search-block-form input.form-text {
   font-size:0.925em;
 }
 
-.view-frontpage-carousel-of-groups .views-row .field-content {
+.view-courses-not-started .views-row .field-content,
+.view-courses-started .views-row .field-content {
   font-size:0.925em;
   color:#757575;
 }
 
-#views_slideshow_controls_text_frontpage_carousel_of_groups-block {
+#views_slideshow_controls_text_courses_not_started-block_slider,
+#views_slideshow_controls_text_courses_started-block_slider {
   display:block;
   clear:both;
   height:2.5em;
   margin:0 15px 5px 15px;
 }
 
-.view-frontpage-carousel-of-groups #views_slideshow_controls_text_frontpage_carousel_of_groups-block a {
+.view-courses-not-started #views_slideshow_controls_text_courses_not_started-block_slider a,
+.view-courses-started #views_slideshow_controls_text_courses_started-block_slider a {
   text-decoration:none;
   color:#fff;
   text-transform:uppercase;
 }
 
-#views_slideshow_controls_text_frontpage_carousel_of_groups-block a:hover,
-#views_slideshow_controls_text_frontpage_carousel_of_groups-block span:hover {
+#views_slideshow_controls_text_courses_not_started-block_slider a:hover,
+#views_slideshow_controls_text_courses_started-block_slider a:hover,
+#views_slideshow_controls_text_courses_not_started-block_slider span:hover,
+#views_slideshow_controls_text_courses_started-block_slider span:hover {
   text-decoration:none;
   color:#fff;
   text-transform:uppercase;
 }
 
-#views_slideshow_controls_text_previous_frontpage_carousel_of_groups-block {
+#views_slideshow_controls_text_previous_courses_not_started-block_slider,
+#views_slideshow_controls_text_previous_courses_started-block_slider {
   @include carousel-controls;
   padding:2px 12px 2px 24px
 }
 
-#views_slideshow_controls_text_next_frontpage_carousel_of_groups-block {
+#views_slideshow_controls_text_next_courses_not_started-block_slider,
+#views_slideshow_controls_text_next_courses_started-block_slider {
   @include carousel-controls;
   padding:2px 24px 2px 12px;
 }
 
-#views_slideshow_controls_text_previous_frontpage_carousel_of_groups-block:before {
+#views_slideshow_controls_text_previous_courses_not_started-block_slider:before,
+#views_slideshow_controls_text_previous_courses_started-block_slider:before {
   content:'.';
   text-indent:-9999px;
   color:#ffffff;
@@ -296,7 +339,8 @@ form#search-block-form input.form-text {
   left:7px;
 }
 
-#views_slideshow_controls_text_next_frontpage_carousel_of_groups-block:before {
+#views_slideshow_controls_text_next_courses_not_started-block_slider:before,
+#views_slideshow_controls_text_next_courses_started-block_slider:before {
   content:'.';
   text-indent:-9999px;
   color:#ffffff;
@@ -308,9 +352,64 @@ form#search-block-form input.form-text {
   right:7px;
 }
 
-#views_slideshow_controls_text_pause_frontpage_carousel_of_groups-block {
+#views_slideshow_controls_text_pause_courses_not_started-block_slider,
+#views_slideshow_controls_text_pause_courses_started-block_slider {
   display:none;
 }
 
+/* COURSE PAGE */
 
+#page #node-kurssi-panel .panel-panel.grid-4 {
+  float:right;
+}
+
+#page #node-kurssi-panel #mini-panel-kurssi_minipanel .panel-panel.grid-4 {
+  float:left;
+}
+
+#page #node-kurssi-panel h2 {
+  margin:0 0 20px 0;
+}
+
+#page #node-kurssi-panel .pane-og-members-panel-pane-1 h2 {
+  font-size:1.2em;
+  @include h1h2-defaults-rtl;
+  @include box-shadow($shadow: 6px 6px 0 rgba(124,123,122,1.0));
+  margin:0 6px 20px 0;
+}
+
+#page #node-kurssi-panel .pane-og-members-panel-pane-1 .pane-content {
+  margin:0 6px 0 6px;
+}
+
+#page #node-kurssi-panel .pane-node-field-kurssin-kuva img {
+  width:100%;
+  height:auto;
+}
+
+#mini-panel-kurssi_minipanel ul {
+  margin:0;
+}
+
+#mini-panel-kurssi_minipanel ul li {
+  margin:0;
+}
+
+#page #node-kurssi-panel .field-label {
+  text-transform:uppercase;
+  margin:5px 0 0 0;
+  padding:5px 0 0 0;
+  display:block;
+  font-size:0.925em;
+}
+
+#page #node-kurssi-panel .field-name-body .field-items {
+  font-size:1em;
+  color:#000000;
+}
+
+#page #node-kurssi-panel .field-items {
+  font-size:1em;
+  color:#757575;
+}
 
