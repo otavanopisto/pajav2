@@ -15,7 +15,8 @@
 }
 
 #page-container {
-  max-width:1200px;
+  /* max-width:1200px; */
+  width:1200px;
 }
 
 #zone-branding-wrapper {
@@ -39,6 +40,17 @@
 #user-register-form input.form-text {
   max-width:100%;
   min-width:100%;
+}
+
+/* NAVIGATION */
+
+#region-menu .navigation.fixedPosition {
+  position:fixed;
+  z-index:9999;
+  display:block;
+  width:1192px;
+  @include box-shadow($shadow: 0px 2px 4px rgba(0,0,0,0.5));
+  border-bottom:1px solid #333333;
 }
 
 /* FRONTPAGE CAROUSEL */

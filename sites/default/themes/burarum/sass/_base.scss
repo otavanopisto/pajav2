@@ -21,6 +21,11 @@ $linkColorHeader:#326f47;
 $linkHoverColorHeader:#ff9900;
 $linkFocusColorHeader:#000000;
 
+/* User Links Defaults */
+$linkColorUser:#222222;
+$linkHoverColorUser:#ff9900;
+$linkFocusColorUser:#ff9900;
+
 /* Box defaults */
 $boxBorderRadius:2px;
 $boxBorder:1px solid #c4c4c0;
@@ -105,6 +110,28 @@ $headerBorder:2px solid #000;
   color:$color;
   padding:$padding;
   text-decoration:none;
+}
+
+@mixin previous-arrow {
+  content:'.';
+  text-indent:-9999px;
+  width:11px;
+  height:11px;
+  background:url('../gfx/previous-arrow.png');
+  position:absolute;
+  top:7px;
+  left:7px;
+}
+
+@mixin next-arrow {
+  content:'.';
+  text-indent:-9999px;
+  width:11px;
+  height:11px;
+  background:url('../gfx/next-arrow.png');
+  position:absolute;
+  top:7px;
+  right:7px;
 }
 
 
