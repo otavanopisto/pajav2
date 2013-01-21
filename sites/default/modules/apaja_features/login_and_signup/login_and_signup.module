@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Login and Signup feature.
- */
-
-include_once 'login_and_signup.features.inc';
