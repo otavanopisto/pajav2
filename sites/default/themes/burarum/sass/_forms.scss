@@ -30,3 +30,15 @@ form input[type='reset']:hover {
   background: $buttonHoverBackgroundColor;
   border: $buttonBorderHover;
 }
+
+html.js input.form-autocomplete {
+  background-image: url("../gfx/throbber.gif");
+  background-position: 100% 8px;
+  background-repeat: no-repeat;
+}
+
+html.js input.form-autocomplete.throbbing {
+  background-image: url("../gfx/throbber.gif");
+  background-position: 100% -12px;
+  background-repeat: no-repeat;
+}
