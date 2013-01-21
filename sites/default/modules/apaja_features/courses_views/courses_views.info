@@ -1,0 +1,14 @@
+name = Courses views
+description = Views for started and not started courses. Provides frontpage carousel and individual pages.
+core = 7.x
+package = Features
+dependencies[] = context
+dependencies[] = views
+dependencies[] = views_slideshow
+features[context][] = frontpage
+features[ctools][] = context:context:3
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:1
+features[views_view][] = courses_not_started
+features[views_view][] = courses_started
+features_exclude[dependencies][ctools] = ctools
