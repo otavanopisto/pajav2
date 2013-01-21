@@ -323,18 +323,37 @@ form#search-block-form input.form-text {
 }
 
 .view-courses-not-started .views-row span.views-label,
- .view-courses-started .views-row span.views-label {
+ .view-courses-started .views-row span.views-label,
+ .view-courses-not-started .views-row .field-content span.views-label {
   text-transform:uppercase;
   margin:5px 0 0 0;
   padding:5px 0 0 0;
   display:block;
   font-size:0.925em;
+  color:$fontColor;
 }
 
 .view-courses-not-started .views-row .field-content,
 .view-courses-started .views-row .field-content {
   font-size:0.925em;
   color:#757575;
+}
+
+.view-courses-not-started .views-row .field-content .attendancies-indicator-wrapper {
+  width:100%;
+  background:#f8f8f8;
+  margin:4px 0 0 0;
+  @include rounded-borders;
+}
+
+.view-courses-not-started .views-row .field-content .attendancies-indicator {
+  text-align:right;
+  background:#3bf210;
+  @include rounded-borders;
+}
+
+.view-courses-not-started .views-row .field-content .attendancies-percent {
+  padding:2px 4px 2px 0px;
 }
 
 #views_slideshow_controls_text_courses_not_started-block_slider,
@@ -423,7 +442,7 @@ form#search-block-form input.form-text {
 }
 
 #mini-panel-kurssi_minipanel ul {
-  margin:0 0 0 14px;
+  margin:0 0 14px 14px;
 }
 
 #mini-panel-kurssi_minipanel ul li {

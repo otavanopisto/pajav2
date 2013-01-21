@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * login_and_signup.features.fe_block_boxes.inc
+ * global_header.features.fe_block_boxes.inc
  */
 
 /**
  * Implements hook_default_fe_block_boxes().
  */
-function login_and_signup_default_fe_block_boxes() {
+function global_header_default_fe_block_boxes() {
   $export = array();
 
   $fe_block_boxes = new stdClass();
@@ -25,6 +25,14 @@ function login_and_signup_default_fe_block_boxes() {
   $fe_block_boxes->body = '<?php  print drupal_render(drupal_get_form(\'user_register_form\'));  ?> ';
 
   $export['custom_register_form'] = $fe_block_boxes;
+
+  $fe_block_boxes = new stdClass();
+  $fe_block_boxes->info = 'Global links for header';
+  $fe_block_boxes->format = 'php_code';
+  $fe_block_boxes->machine_name = 'header_links';
+  $fe_block_boxes->body = '<div class="header-links"><a href="http://www.otavanopisto.fi" target="top">Otavan Opisto</a></div><div class="header-links"><a href="http://www.ooosuuskunta.fi/" target="top">Otavan Opiston Osuuskunta</a></div>';
+
+  $export['header_links'] = $fe_block_boxes;
 
   $fe_block_boxes = new stdClass();
   $fe_block_boxes->info = 'Login and register links';

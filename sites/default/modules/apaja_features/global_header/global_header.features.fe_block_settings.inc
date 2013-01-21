@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * login_and_signup.features.fe_block_settings.inc
+ * global_header.features.fe_block_settings.inc
  */
 
 /**
  * Implements hook_default_fe_block_settings().
  */
-function login_and_signup_default_fe_block_settings() {
+function global_header_default_fe_block_settings() {
   $export = array();
 
   $export['version'] = '1.0';
@@ -20,6 +20,10 @@ function login_and_signup_default_fe_block_settings() {
     ),
     'block-custom_register_form' => array(
       'machine_name' => 'custom_register_form',
+      'module' => 'block',
+    ),
+    'block-header_links' => array(
+      'machine_name' => 'header_links',
       'module' => 'block',
     ),
     'block-login_and_register_links' => array(
@@ -89,6 +93,20 @@ function login_and_signup_default_fe_block_settings() {
     'title' => 'Luo tunnukset',
     'cache' => -1,
     'machine_name' => 'custom_register_form',
+  );
+
+  $theme['block-header_links'] = array(
+    'module' => 'block',
+    'theme' => 'burarum',
+    'status' => 0,
+    'weight' => '0',
+    'region' => '',
+    'custom' => '0',
+    'visibility' => '0',
+    'pages' => '',
+    'title' => '',
+    'cache' => -1,
+    'machine_name' => 'header_links',
   );
 
   $export['theme']['burarum'] = $theme;
