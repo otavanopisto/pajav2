@@ -666,6 +666,15 @@ if($memberCount != 0){
   $handler->display->display_options['filters']['type']['value'] = array(
     'kurssi' => 'kurssi',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Kurssi loppuu (field_kurssi_loppuu) */
+  $handler->display->display_options['filters']['field_kurssi_loppuu_value']['id'] = 'field_kurssi_loppuu_value';
+  $handler->display->display_options['filters']['field_kurssi_loppuu_value']['table'] = 'field_data_field_kurssi_loppuu';
+  $handler->display->display_options['filters']['field_kurssi_loppuu_value']['field'] = 'field_kurssi_loppuu_value';
+  $handler->display->display_options['filters']['field_kurssi_loppuu_value']['operator'] = '>';
+  $handler->display->display_options['filters']['field_kurssi_loppuu_value']['group'] = 1;
+  $handler->display->display_options['filters']['field_kurssi_loppuu_value']['form_type'] = 'date_text';
+  $handler->display->display_options['filters']['field_kurssi_loppuu_value']['default_date'] = 'now';
   /* Filter criterion: Content: Kurssi alkaa (field_kurssi_alkaa) */
   $handler->display->display_options['filters']['field_kurssi_alkaa_value']['id'] = 'field_kurssi_alkaa_value';
   $handler->display->display_options['filters']['field_kurssi_alkaa_value']['table'] = 'field_data_field_kurssi_alkaa';
@@ -673,13 +682,6 @@ if($memberCount != 0){
   $handler->display->display_options['filters']['field_kurssi_alkaa_value']['operator'] = '<';
   $handler->display->display_options['filters']['field_kurssi_alkaa_value']['form_type'] = 'date_text';
   $handler->display->display_options['filters']['field_kurssi_alkaa_value']['default_date'] = 'now';
-  /* Filter criterion: Content: Kurssi loppuu (field_kurssi_loppuu) */
-  $handler->display->display_options['filters']['field_kurssi_loppuu_value']['id'] = 'field_kurssi_loppuu_value';
-  $handler->display->display_options['filters']['field_kurssi_loppuu_value']['table'] = 'field_data_field_kurssi_loppuu';
-  $handler->display->display_options['filters']['field_kurssi_loppuu_value']['field'] = 'field_kurssi_loppuu_value';
-  $handler->display->display_options['filters']['field_kurssi_loppuu_value']['operator'] = '<';
-  $handler->display->display_options['filters']['field_kurssi_loppuu_value']['form_type'] = 'date_text';
-  $handler->display->display_options['filters']['field_kurssi_loppuu_value']['default_date'] = 'now';
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_slider');
