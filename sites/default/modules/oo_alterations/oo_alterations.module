@@ -14,8 +14,6 @@ function oo_alterations_preprocess_field(&$vars){
         $price = array_pop(array_pop(field_get_items($entity_type, $entity, 'field_hinta')));
         $min_participants = array_pop(array_pop(field_get_items($entity_type, $entity, 'field_minimi_osallistujat')));
         $price_calculated = $price .'€';
-        //       $price_calculated = &drupal_static(__FUNCTION__);
-        //       if(!isset($price_calculated)){
         $query = db_select('users', 'u');
         $query
         ->condition('u.uid', 0, '<>')
@@ -24,14 +22,25 @@ function oo_alterations_preprocess_field(&$vars){
         ->join('og_membership', 'ogm', "ogm.gid = :gid AND u.uid = ogm.etid AND ogm.entity_type = 'user'", array(':gid' => $gid));
         $result = $query->execute();
         $memberCount = $result->rowCount();
-        if (($price/$memberCount) < ($price/$min_participants)) {
-          $price_calculated = ($price/$memberCount);
-        }else {
-          $price_calculated = ($price/$min_participants);
+        if($memberCount != 0){
+          if (($price/$memberCount) < ($price/$min_participants)) {
+            $price_calculated = ($price/$memberCount);
+          }else {
+            $price_calculated = ($price/$min_participants);
+          }
         }
         $vars['items'][0]['#markup'] = filter_xss(round($price_calculated, 2, PHP_ROUND_HALF_UP) . '€');
-  //       $vars['content']['field_hinta'][0]['#markup'] = round($price_calculated, 2, PHP_ROUND_HALF_UP) . '€';
       }
+    }
+  }
+  elseif($vars['element']['#field_name'] == 'field_kurssi_alkaa'){
+    $entity_type = $vars['element']['#entity_type'];
+    $entity = $vars['element']['#object'];
+    $begins_date = array_pop(field_get_items($entity_type, $entity, 'field_kurssi_alkaa'));
+    $begins_date = $begins_date['value'];
+    $begins_date = strtotime($begins_date);
+    if($begins_date < time()){
+      $vars['items'][0]['#markup'] = t("Kurssi on käynnissä");
     }
   }
 }
