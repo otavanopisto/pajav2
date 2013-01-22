@@ -421,6 +421,10 @@ form#search-block-form input.form-text {
   margin:0 0 20px 0;
 }
 
+#mini-panel-kurssi_minipanel {
+  display:table;
+}
+
 #page #node-kurssi-panel .pane-og-members-panel-pane-1 h2 {
   font-size:1.2em;
   @include h1h2-defaults-rtl;
@@ -441,6 +445,10 @@ form#search-block-form input.form-text {
   @include box-shadow;
 }
 
+#page #node-kurssi-panel .field-type-fivestar {
+  margin:10px 0 5px 0;
+}
+
 #mini-panel-kurssi_minipanel ul {
   margin:0 0 14px 14px;
 }
@@ -455,6 +463,15 @@ form#search-block-form input.form-text {
   padding:5px 0 0 0;
   display:block;
   font-size:0.925em;
+}
+
+#page #node-kurssi-panel .pane-node-body {
+  height:400px;
+  overflow:hidden;
+}
+
+#page #node-kurssi-panel .field-name-body {
+
 }
 
 #page #node-kurssi-panel .field-name-body .field-items {
@@ -480,8 +497,8 @@ form#search-block-form input.form-text {
 #page #node-kurssi-panel .view-og-members .views-row {
   clear:both;
   height:32px;
-  padding:6px;
-  display:inline-block;
+  padding:4px;
+  display:block;
 }
 
 #page #node-kurssi-panel .view-og-members .views-row:hover .views-field-field-sukunimi a {
@@ -527,3 +544,37 @@ form#search-block-form input.form-text {
   text-decoration:none;
 }
 
+/* STATUSES */
+
+.statuses-chars {
+  color:$altFontColor;
+  font-size:0.9em;
+}
+
+.pane-statuses-statuses {
+  margin:20px 0 10px 0; 
+}
+
+.statuses-textarea-wrapper {
+  border:0;
+  box-shadow:none;
+  margin:0 0 10px 14px;
+  padding:0;
+}
+
+/* LOGIN and SIGNUP FORM */
+
+#user-login label {
+  text-transform:uppercase;
+  font-weight:normal;
+}
+
+#user-login h3 {
+  text-transform:none;
+  padding:0;
+  margin:0 0 5px 0;
+}
+
+#user-login .item-list ul.hybridauth-widget li {
+  margin:1px 8px 1px 1px;
+}
