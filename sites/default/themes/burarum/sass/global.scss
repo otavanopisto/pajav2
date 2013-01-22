@@ -421,7 +421,7 @@ form#search-block-form input.form-text {
   margin:0 0 20px 0;
 }
 
-#mini-panel-kurssi_minipanel {
+.pane-kurssi-minipanel {
   display:table;
 }
 
@@ -544,6 +544,12 @@ form#search-block-form input.form-text {
   text-decoration:none;
 }
 
+/* FIVESTAR RATING */
+
+#page form #edit-fivestar-submit {
+  display:none;
+}
+
 /* STATUSES */
 
 .statuses-chars {
@@ -560,6 +566,14 @@ form#search-block-form input.form-text {
   box-shadow:none;
   margin:0 0 10px 14px;
   padding:0;
+}
+
+.statuses-update input.statuses-submit {
+  margin-left:auto;
+}
+
+.view-statuses-stream  {
+  margin:20px 0 0 14px;
 }
 
 /* LOGIN and SIGNUP FORM */
