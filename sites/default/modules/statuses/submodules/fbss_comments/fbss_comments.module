@@ -670,7 +670,7 @@ function _fbss_comments_user_picture($account) {
       'type' => 'image',
       'label' => 'hidden',
       'settings' => array(
-          'image_style' => 'avatar',
+          'image_style' => 'avatar_thumbnail',
           'image_link' => 'none', // file or content.
       ),
   ));
