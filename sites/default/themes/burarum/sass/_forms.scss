@@ -10,8 +10,8 @@ form input[type='password']  {
   font-size: inherit;
 }
 
-form input[type='submit'],
-form input[type='reset']  {
+#page form input[type='submit'],
+#page form input[type='reset'] {
   @include rounded-borders;
   @include box-shadow;
   @include form-field-padding;
@@ -23,12 +23,20 @@ form input[type='reset']  {
   font-size: inherit;
   text-shadow: none;
   font-weight: normal;
+  @include text-shadow($shadow: $textShadow);
 }
 
-form input[type='submit']:hover,
-form input[type='reset']:hover {
+#page form input[type='submit']:hover,
+#page form input[type='reset']:hover{
   background: $buttonHoverBackgroundColor;
   border: $buttonBorderHover;
+}
+
+#page form textarea {
+  @include rounded-borders;
+  @include box-shadow;
+  border:1px solid #aaa;
+  @include form-field-padding;
 }
 
 html.js input.form-autocomplete {
