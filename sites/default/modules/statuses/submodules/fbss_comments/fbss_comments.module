@@ -662,8 +662,22 @@ function _fbss_comments_use_autogrow() {
  */
 function _fbss_comments_user_picture($account) {
   $preset = variable_get('fbss_comments_user_pictures', 0);
-  $picture = statuses_display_user_picture($account, $preset);
-  return empty($picture) ? '' : '<div class="fbss-comments-picture user-picture">'. $picture .'</div>';
+//   Petja. Pois.
+// TODO: Poista kovakoodaukset ja lisää image style optiot yms.
+//   $picture = statuses_display_user_picture($account, $preset);
+// Petja. Lisaa
+  $custom_image_field = field_view_field('user', $account, 'field_kuva', array(
+      'type' => 'image',
+      'label' => 'hidden',
+      'settings' => array(
+          'image_style' => 'avatar',
+          'image_link' => 'none', // file or content.
+      ),
+  ));
+//   Lisaa
+  return $picture = '<div class="fbss-comments-picture user-picture">'. drupal_render($custom_image_field) . '</div>';
+// Pois
+  //   return empty($picture) ? '' : '<div class="fbss-comments-picture user-picture">'. $picture .'</div>';
 }
 
 //=================

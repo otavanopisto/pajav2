@@ -249,6 +249,17 @@ function statuses_views_data() {
       'click sortable' => FALSE,
     ),
   );
+// Petja
+  $data['statuses']['sender_custom_pic'] = array(
+      'title' => t('Sender custom picture'),
+      'help' => t('The custom picture of the user who sent the status message.'),
+      'field' => array(
+          'field' => 'sender',
+          'handler' => 'statuses_views_handler_field_user_custom_picture',
+          'click sortable' => FALSE,
+      ),
+  );
+// Petja
   $data['statuses']['user_contextual_pic'] = array(
     'title' => t('Users with Pictures'),
     'help' => t('The themed username(s) and pictures of either the owner or the sender and recipient of the status, depending on the context.'),
