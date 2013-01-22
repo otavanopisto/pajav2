@@ -38,7 +38,7 @@ class statuses_views_handler_field_user_custom_picture extends views_handler_fie
   function render($values) {
     $account = user_load($values->{$this->field_alias});
     $options = $this->options;
-    $custom_image_field = field_view_field('user', $account, 'field_kuva', array(
+    $custom_image_field = field_view_field('user', $account, 'field_account_kuva', array(
         'type' => 'image',
         'label' => 'hidden',
         'settings' => array(

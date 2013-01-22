@@ -666,7 +666,7 @@ function _fbss_comments_user_picture($account) {
 // TODO: Poista kovakoodaukset ja lisää image style optiot yms.
 //   $picture = statuses_display_user_picture($account, $preset);
 // Petja. Lisaa
-  $custom_image_field = field_view_field('user', $account, 'field_kuva', array(
+  $custom_image_field = field_view_field('user', $account, 'field_account_kuva', array(
       'type' => 'image',
       'label' => 'hidden',
       'settings' => array(

@@ -501,12 +501,12 @@ form#search-block-form input.form-text {
   display:block;
 }
 
-#page #node-kurssi-panel .view-og-members .views-row:hover .views-field-field-sukunimi a {
+#page #node-kurssi-panel .view-og-members .views-row:hover .views-field-field-account-sukunimi a {
   color:$linkHoverColorUser;
   text-decoration:none;
 }
 
-#page #node-kurssi-panel .view-og-members .views-row .views-field-field-kuva {
+#page #node-kurssi-panel .view-og-members .views-row .views-field-field-account-kuva {
   float:left;
   height:32px;
   width:32px;
@@ -515,16 +515,16 @@ form#search-block-form input.form-text {
   border:1px solid #f2f2f2;
 }
 
-#page #node-kurssi-panel .view-og-members .views-row .views-field-field-kuva img {
+#page #node-kurssi-panel .view-og-members .views-row .views-field-field-account-kuva img {
   height:32px;
   width:32px;
 }
 
-#page #node-kurssi-panel .view-og-members .views-row .views-field-field-sukunimi {
+#page #node-kurssi-panel .view-og-members .views-row .views-field-field-account-sukunimi {
   float:left;
 }
 
-#page #node-kurssi-panel .view-og-members .views-row .views-field-field-sukunimi a {
+#page #node-kurssi-panel .view-og-members .views-row .views-field-field-account-sukunimi a {
   color:$linkColorUser;
   text-decoration:none;
   padding:6px 3px 14px 3px;
@@ -534,12 +534,12 @@ form#search-block-form input.form-text {
 }
 
 
-#page #node-kurssi-panel .view-og-members .views-row .views-field-field-sukunimi a:hover {
+#page #node-kurssi-panel .view-og-members .views-row .views-field-field-account-sukunimi a:hover {
   color:$linkHoverColorUser;
   text-decoration:none;
 }
 
-#page #node-kurssi-panel .view-og-members .views-row .views-field-field-sukunimi a:focus {
+#page #node-kurssi-panel .view-og-members .views-row .views-field-field-account-sukunimi a:focus {
   color:$linkFocusColorUser;
   text-decoration:none;
 }
