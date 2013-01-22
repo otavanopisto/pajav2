@@ -42,7 +42,7 @@ class statuses_views_handler_field_user_custom_picture extends views_handler_fie
         'type' => 'image',
         'label' => 'hidden',
         'settings' => array(
-            'image_style' => 'avatar',
+            'image_style' => 'avatar_thumbnail',
             'image_link' => 'none', // file or content.
           ),
         ));
