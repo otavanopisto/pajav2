@@ -24,10 +24,13 @@ form input[type='password']  {
   text-shadow: none;
   font-weight: normal;
   @include text-shadow($shadow: $textShadow);
+  float:none;
+  clear:both;
+  display:block;
 }
 
 #page form input[type='submit']:hover,
-#page form input[type='reset']:hover{
+#page form input[type='reset']:hover {
   background: $buttonHoverBackgroundColor;
   border: $buttonBorderHover;
 }
