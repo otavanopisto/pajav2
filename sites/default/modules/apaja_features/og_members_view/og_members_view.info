@@ -1,0 +1,11 @@
+name = OG Members view
+core = 7.x
+package = Features
+version = 7.x-1.0
+project = og_members_view
+dependencies[] = og
+dependencies[] = views
+dependencies[] = views_content
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:1
+features_exclude[dependencies][ctools] = ctools
