@@ -193,7 +193,7 @@ ul.tabs.primary li a {
   text-transform:uppercase;
   color:$linkColor;
   border:0;
-  @include box-shadow($shadow: 0 -2px 4px rgba(0,0,0,0.2));
+  @include box-shadow($shadow: 0 -2px 4px rgba(0,0,0,0.1));
 }
 
 ul.tabs.primary li a:hover {
@@ -452,14 +452,14 @@ ul.tabs.primary li.active a {
   display:table;
 }
 
-#page #node-kurssi-panel .pane-course-members-panel-pane-1 h2 {
+#page #node-kurssi-panel .pane-course-members h2 {
   font-size:1.2em;
   @include h1h2-defaults-rtl;
   @include box-shadow($shadow: 6px 6px 0 rgba(124,123,122,1.0));
   margin:0 6px 20px 0;
 }
 
-#page #node-kurssi-panel .pane-course-members-panel-pane-1 .pane-content {
+#page #node-kurssi-panel .pane-course-members .pane-content {
   @include box-padding;
   @include box-shadow;
   background:#fff;
