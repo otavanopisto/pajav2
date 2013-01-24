@@ -425,14 +425,14 @@ form#search-block-form input.form-text {
   display:table;
 }
 
-#page #node-kurssi-panel .pane-og-members-panel-pane-1 h2 {
+#page #node-kurssi-panel .pane-course-members-panel-pane-1 h2 {
   font-size:1.2em;
   @include h1h2-defaults-rtl;
   @include box-shadow($shadow: 6px 6px 0 rgba(124,123,122,1.0));
   margin:0 6px 20px 0;
 }
 
-#page #node-kurssi-panel .pane-og-members-panel-pane-1 .pane-content {
+#page #node-kurssi-panel .pane-course-members-panel-pane-1 .pane-content {
   @include box-padding;
   @include box-shadow;
   background:#fff;
@@ -494,19 +494,19 @@ form#search-block-form input.form-text {
   @include rounded-borders;
 }
 
-#page #node-kurssi-panel .view-og-members .views-row {
+#page #node-kurssi-panel .view-course-members .views-row {
   clear:both;
   height:32px;
   padding:4px;
   display:block;
 }
 
-#page #node-kurssi-panel .view-og-members .views-row:hover .views-field-field-account-sukunimi a {
+#page #node-kurssi-panel .view-course-members .views-row:hover .views-field-field-account-sukunimi a {
   color:$linkHoverColorUser;
   text-decoration:none;
 }
 
-#page #node-kurssi-panel .view-og-members .views-row .views-field-field-account-kuva {
+#page #node-kurssi-panel .view-course-members .views-row .views-field-field-account-kuva {
   float:left;
   height:32px;
   width:32px;
@@ -515,16 +515,16 @@ form#search-block-form input.form-text {
   border:1px solid #f2f2f2;
 }
 
-#page #node-kurssi-panel .view-og-members .views-row .views-field-field-account-kuva img {
+#page #node-kurssi-panel .view-course-members .views-row .views-field-field-account-kuva img {
   height:32px;
   width:32px;
 }
 
-#page #node-kurssi-panel .view-og-members .views-row .views-field-field-account-sukunimi {
+#page #node-kurssi-panel .view-course-members .views-row .views-field-field-account-sukunimi {
   float:left;
 }
 
-#page #node-kurssi-panel .view-og-members .views-row .views-field-field-account-sukunimi a {
+#page #node-kurssi-panel .view-course-members .views-row .views-field-field-account-sukunimi a {
   color:$linkColorUser;
   text-decoration:none;
   padding:6px 3px 14px 3px;
@@ -534,12 +534,12 @@ form#search-block-form input.form-text {
 }
 
 
-#page #node-kurssi-panel .view-og-members .views-row .views-field-field-account-sukunimi a:hover {
+#page #node-kurssi-panel .view-course-members .views-row .views-field-field-account-sukunimi a:hover {
   color:$linkHoverColorUser;
   text-decoration:none;
 }
 
-#page #node-kurssi-panel .view-og-members .views-row .views-field-field-account-sukunimi a:focus {
+#page #node-kurssi-panel .view-course-members .views-row .views-field-field-account-sukunimi a:focus {
   color:$linkFocusColorUser;
   text-decoration:none;
 }

@@ -1,0 +1,12 @@
+name = Course members view
+description = Course members view and block
+core = 7.x
+package = Features
+version = 7.x-1.0
+project = course_members_view
+dependencies[] = views
+dependencies[] = views_content
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:1
+features[views_view][] = course_members
+features_exclude[dependencies][ctools] = ctools
