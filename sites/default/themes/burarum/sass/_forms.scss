@@ -1,5 +1,5 @@
-form input[type='text'],
-form input[type='password']  {
+#page form input[type='text'],
+#page form input[type='password']  {
   @include form-field-padding;
   @include box-shadow;  
   height: auto;
@@ -26,7 +26,7 @@ form input[type='password']  {
   @include text-shadow($shadow: $textShadow);
   float:none;
   clear:both;
-  display:block;
+  display:inline-block;
 }
 
 #page form input[type='submit']:hover,
