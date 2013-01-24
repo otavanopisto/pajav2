@@ -178,8 +178,35 @@ form#search-block-form input.form-text {
   padding-left:30px;
 }
 
+/* CONTENT EDITING TABS */
 
-/* LOGIN, SIGNUP, USERIFNO AND LOGOUT */
+ul.tabs.primary,
+ul.tabs.primary li {
+  margin:0;
+  border:0;
+}
+
+ul.tabs.primary li a {
+  display:inline-block;
+  padding:6px 20px;
+  background:#eee;
+  text-transform:uppercase;
+  color:$linkColor;
+  border:0;
+  @include box-shadow($shadow: 0 -2px 4px rgba(0,0,0,0.2));
+}
+
+ul.tabs.primary li a:hover {
+  color:$linkHoverColor;
+  background:#ffffff;
+}
+
+ul.tabs.primary li.active a {
+  color:#ffffff;
+  background:$linkColor;
+}
+
+/* LOGIN, SIGNUP, USERINFO AND LOGOUT */
 
 #login-register .panel-panel h2 {
   background:url('../gfx/title-background.jpg');
@@ -474,6 +501,35 @@ form#search-block-form input.form-text {
 
 }
 
+#page #node-kurssi-panel .desc-control-wrapper {
+  height:20px;
+  padding:5px;
+  text-align:right;
+}
+
+#page #node-kurssi-panel .show-more-link,
+#page #node-kurssi-panel .show-less-link {
+  color:#ffffff;
+  display:inline-block;
+  padding:2px 12px 2px 6px;
+  border-right:8px solid #7c7b7a;
+  text-transform:uppercase;
+  font-size:0.9em;
+  cursor:pointer;
+}
+
+#page #node-kurssi-panel .show-less-link {
+  background:url('../gfx/show-less-arrow.png') no-repeat center right #7c7b7a;
+}
+
+#page #node-kurssi-panel .show-more-link {
+  background:url('../gfx/show-more-arrow.png') no-repeat center right #7c7b7a;
+}
+
+#page #node-kurssi-panel .hiddenControl {
+  display:none;
+}
+
 #page #node-kurssi-panel .field-name-body .field-items {
   font-size:1em;
   color:#000000;
@@ -568,8 +624,9 @@ form#search-block-form input.form-text {
   padding:0;
 }
 
-.statuses-update input.statuses-submit {
+#page .statuses-update input.statuses-submit {
   margin-left:auto;
+  display:block;
 }
 
 .view-statuses-stream  {
