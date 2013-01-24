@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the OG Members view feature.
- */
-
-include_once 'og_members_view.features.inc';
