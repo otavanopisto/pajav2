@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Statuses views and account fields feature.
+ */
+
+include_once 'statuses_views_and_account_fields.features.inc';
