@@ -60,7 +60,7 @@ function course_members_view_views_default_views() {
   $handler->display->display_options['fields']['field_account_kuva']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_account_kuva']['settings'] = array(
     'image_style' => 'avatar_thumbnail',
-    'image_link' => '',
+    'image_link' => 'content',
   );
   /* Field: User: Sukunimi */
   $handler->display->display_options['fields']['field_account_sukunimi']['id'] = 'field_account_sukunimi';
@@ -132,6 +132,23 @@ function course_members_view_views_default_views() {
       'fixed' => '',
       'label' => 'OG membership: Group ID',
     ),
+  );
+  $translatables['course_members'] = array(
+    t('Defaults'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('OG membership from user'),
+    t('[field_account_etunimi] [field_account_sukunimi]'),
+    t('All'),
+    t('%1 members'),
+    t('Block'),
+    t('Content pane'),
+    t('OG members'),
+    t('View panes'),
   );
   $export['course_members'] = $view;
 

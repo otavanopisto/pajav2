@@ -189,11 +189,11 @@ ul.tabs.primary li {
 ul.tabs.primary li a {
   display:inline-block;
   padding:6px 20px;
-  background:#eee;
+  background:#ffffff;
   text-transform:uppercase;
   color:$linkColor;
   border:0;
-  @include box-shadow($shadow: 0 -2px 4px rgba(0,0,0,0.1));
+  @include box-shadow;
 }
 
 ul.tabs.primary li a:hover {
@@ -203,7 +203,7 @@ ul.tabs.primary li a:hover {
 
 ul.tabs.primary li.active a {
   color:#ffffff;
-  background:$linkColor;
+  background:#000000;
 }
 
 /* LOGIN, SIGNUP, USERINFO AND LOGOUT */
@@ -346,7 +346,19 @@ ul.tabs.primary li.active a {
   padding:0 0 10px 0;
   min-height:190px;
   max-height:190px;
+}
+
+.view-courses-not-started .views-row .views-field-field-arvio .field-content, 
+.view-courses-started .views-row .views-field-field-arvio .field-content {
+  margin:0 0 5px 0;
+  padding:0 0 10px 0;
   border-bottom:1px solid #f2f2f2;
+}
+
+.view-courses-not-started .views-row .views-field-field-arvio .fivestar-widget-static,
+.view-courses-started .views-row .views-field-field-arvio .fivestar-widget-static {
+  display:inline-block;
+  float:right;
 }
 
 .view-courses-not-started .views-row span.views-label,
@@ -505,6 +517,7 @@ ul.tabs.primary li.active a {
   height:20px;
   padding:5px;
   text-align:right;
+  margin-top:5px;
 }
 
 #page #node-kurssi-panel .show-more-link,
@@ -555,6 +568,7 @@ ul.tabs.primary li.active a {
   height:32px;
   padding:4px;
   display:block;
+  cursor:pointer;
 }
 
 #page #node-kurssi-panel .view-course-members .views-row:hover .views-field-field-account-sukunimi a {
@@ -631,6 +645,117 @@ ul.tabs.primary li.active a {
 
 .view-statuses-stream  {
   margin:20px 0 0 14px;
+}
+
+.view-statuses-stream .views-row {
+  margin:0 0 10px 0;
+  border-top:1px solid #f2f2f2;
+  padding:10px;
+}
+
+.statuses-sender-picture {
+  float:left;
+  height:48px;
+  width:48px;
+  padding:0px;
+  @include box-shadow;
+}
+
+.fbss-comments-comment  .fbss-comments-author-picture {
+  float:left;
+  height:32px;
+  width:32px;
+}
+
+.fbss-comments-author-picture img {
+  height:32px;
+  width:32px;
+}
+
+.statuses-item .statuses-participants,
+.statuses-item .fbss-comments-author {
+  margin:0 0 5px 0;
+}
+
+.view-statuses-stream .statuses-item .statuses-sender a {
+  text-decoration:none;
+  font-size:1.3em;
+}
+
+.view-statuses-stream .statuses-item .fbss-comments-author a {
+  text-decoration:none;
+  font-size:1.1em;
+}
+
+.statuses-item .content {
+  margin-left:66px;
+}
+
+.statuses-comments .content {
+  margin-left:48px;
+}
+
+.view-statuses-stream .statuses-item .statuses-content {
+  font-size:1em;
+}
+
+.view-statuses-stream .statuses-item .fbss-comments-text {
+  font-size:0.9em;
+}
+
+.fbss-comments-text br {
+  display:none;
+}
+
+.view-statuses-stream .statuses-item .statuses-content p,
+.view-statuses-stream .statuses-item .fbss-comments-text p {
+  margin:0 0 10px 0;
+}
+
+.view-statuses-stream .statuses-item .statuses-details,
+.view-statuses-stream .statuses-item .fbss-comments-closure {
+  font-size:0.9em;
+  font-style:italic;
+  color:$altFontColor;
+}
+
+ .statuses-details .statuses-links span,
+ .fbss-comments-closure .fbss-comments-links li {
+  display:inline-block;
+  margin:0 4px 0 4px;
+}
+
+.view-statuses-stream .statuses-item .statuses-comments {
+  border:0;
+}
+
+.statuses-comments .fbss-comments-comment {
+  padding:10px;
+  @include rounded-borders;
+}
+
+.statuses-comments .statuses-subitem {
+  background:#f2f2f2;
+  margin-top:2px;
+  border:0;
+}
+
+.statuses-comments .statuses-subitem.form-piece {
+  background:#f2f2f2;
+  margin:0;
+  border:0;
+}
+
+.statuses-comments .statuses-textarea-wrapper {
+  margin:0 0 10px 0;
+}
+
+.statuses-subitem {
+  padding:15px;
+}
+
+.fbss-comments-form.statuses-subitem {
+  padding:0;
 }
 
 /* LOGIN and SIGNUP FORM */
