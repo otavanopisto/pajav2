@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the User profile page feature.
+ */
+
+include_once 'user_profile_page.features.inc';
