@@ -23,6 +23,7 @@ features[field][] = user-user-field_account_sukunimi
 features[image][] = avatar_normal
 features[image][] = avatar_thumbnail
 features[views_view][] = statuses_conversation_profile
+features[views_view][] = statuses_stream_custom
 features[views_view][] = user_profile_block
 features_exclude[dependencies][ctools] = ctools
 features_exclude[dependencies][image] = image

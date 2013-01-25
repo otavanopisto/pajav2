@@ -176,6 +176,138 @@ function statuses_views_and_account_fields_views_default_views() {
   $export['statuses_conversation_profile'] = $view;
 
   $view = new view();
+  $view->name = 'statuses_stream_custom';
+  $view->description = 'Displays status updates that match the current recipient context.';
+  $view->tag = 'Statuses';
+  $view->base_table = 'statuses';
+  $view->human_name = 'statuses_stream_custom';
+  $view->core = 0;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Defaults */
+  $handler = $view->new_display('default', 'Defaults', 'default');
+  $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['perm'] = 'view all statuses';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['style_plugin'] = 'table';
+  /* Field: Statuses: Sender custom picture */
+  $handler->display->display_options['fields']['sender_custom_pic']['id'] = 'sender_custom_pic';
+  $handler->display->display_options['fields']['sender_custom_pic']['table'] = 'statuses';
+  $handler->display->display_options['fields']['sender_custom_pic']['field'] = 'sender_custom_pic';
+  $handler->display->display_options['fields']['sender_custom_pic']['exclude'] = TRUE;
+  /* Field: Statuses: Status ID */
+  $handler->display->display_options['fields']['sid']['id'] = 'sid';
+  $handler->display->display_options['fields']['sid']['table'] = 'statuses';
+  $handler->display->display_options['fields']['sid']['field'] = 'sid';
+  $handler->display->display_options['fields']['sid']['label'] = '';
+  $handler->display->display_options['fields']['sid']['exclude'] = TRUE;
+  /* Field: Statuses: HTML classes */
+  $handler->display->display_options['fields']['classes']['id'] = 'classes';
+  $handler->display->display_options['fields']['classes']['table'] = 'statuses';
+  $handler->display->display_options['fields']['classes']['field'] = 'classes';
+  $handler->display->display_options['fields']['classes']['label'] = '';
+  $handler->display->display_options['fields']['classes']['exclude'] = TRUE;
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['text'] = '<span class="statuses-sender">[name]</span>';
+  /* Field: Statuses: Status message */
+  $handler->display->display_options['fields']['message']['id'] = 'message';
+  $handler->display->display_options['fields']['message']['table'] = 'statuses';
+  $handler->display->display_options['fields']['message']['field'] = 'message';
+  $handler->display->display_options['fields']['message']['label'] = '';
+  $handler->display->display_options['fields']['message']['exclude'] = TRUE;
+  /* Field: Statuses: Edit */
+  $handler->display->display_options['fields']['edit']['id'] = 'edit';
+  $handler->display->display_options['fields']['edit']['table'] = 'statuses';
+  $handler->display->display_options['fields']['edit']['field'] = 'edit';
+  $handler->display->display_options['fields']['edit']['label'] = '';
+  $handler->display->display_options['fields']['edit']['exclude'] = TRUE;
+  /* Field: Statuses: Delete */
+  $handler->display->display_options['fields']['delete']['id'] = 'delete';
+  $handler->display->display_options['fields']['delete']['table'] = 'statuses';
+  $handler->display->display_options['fields']['delete']['field'] = 'delete';
+  $handler->display->display_options['fields']['delete']['label'] = '';
+  $handler->display->display_options['fields']['delete']['exclude'] = TRUE;
+  /* Field: Statuses: Re-post */
+  $handler->display->display_options['fields']['repost']['id'] = 'repost';
+  $handler->display->display_options['fields']['repost']['table'] = 'statuses';
+  $handler->display->display_options['fields']['repost']['field'] = 'repost';
+  $handler->display->display_options['fields']['repost']['label'] = '';
+  $handler->display->display_options['fields']['repost']['exclude'] = TRUE;
+  /* Field: Statuses: Created time */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'statuses';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = '';
+  $handler->display->display_options['fields']['created']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['created']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['created']['alter']['path'] = 'statuses/[sid]';
+  /* Field: Statuses: Status comment box */
+  $handler->display->display_options['fields']['comment-box']['id'] = 'comment-box';
+  $handler->display->display_options['fields']['comment-box']['table'] = 'statuses';
+  $handler->display->display_options['fields']['comment-box']['field'] = 'comment-box';
+  $handler->display->display_options['fields']['comment-box']['label'] = '';
+  $handler->display->display_options['fields']['comment-box']['exclude'] = TRUE;
+  /* Field: Statuses: The word "<em>(Private)</em>" if the status message is private */
+  $handler->display->display_options['fields']['private']['id'] = 'private';
+  $handler->display->display_options['fields']['private']['table'] = 'statuses';
+  $handler->display->display_options['fields']['private']['field'] = 'private';
+  $handler->display->display_options['fields']['private']['label'] = '';
+  $handler->display->display_options['fields']['private']['exclude'] = TRUE;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div id="statuses-item-[sid]" class="[classes]">
+  [sender_custom_pic]
+  <div class="content">
+    <div class="statuses-participants">[name] [private]</div>
+    [message]
+    <div class="statuses-details">
+      <div class="statuses-links">[edit] [delete]</div> [created]
+    </div>
+    <!-- meta -->[comment-box]
+  </div>
+</div>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Sort criterion: Statuses: Status ID */
+  $handler->display->display_options['sorts']['sid']['id'] = 'sid';
+  $handler->display->display_options['sorts']['sid']['table'] = 'statuses';
+  $handler->display->display_options['sorts']['sid']['field'] = 'sid';
+  $handler->display->display_options['sorts']['sid']['order'] = 'DESC';
+  /* Filter criterion: Statuses: Status message */
+  $handler->display->display_options['filters']['message']['id'] = 'message';
+  $handler->display->display_options['filters']['message']['table'] = 'statuses';
+  $handler->display->display_options['filters']['message']['field'] = 'message';
+  $handler->display->display_options['filters']['message']['operator'] = '!=';
+  $handler->display->display_options['filters']['message']['group'] = '0';
+  $handler->display->display_options['filters']['message']['expose']['operator'] = FALSE;
+  /* Filter criterion: Statuses: Use current context */
+  $handler->display->display_options['filters']['auto-type']['id'] = 'auto-type';
+  $handler->display->display_options['filters']['auto-type']['table'] = 'statuses';
+  $handler->display->display_options['filters']['auto-type']['field'] = 'auto-type';
+  $handler->display->display_options['filters']['auto-type']['group'] = '0';
+  $handler->display->display_options['filters']['auto-type']['expose']['operator'] = FALSE;
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block_1');
+  $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['block_description'] = 'Statuses: Context-sensitive stream';
+  $export['statuses_stream_custom'] = $view;
+
+  $view = new view();
   $view->name = 'user_profile_block';
   $view->description = '';
   $view->tag = 'default';
