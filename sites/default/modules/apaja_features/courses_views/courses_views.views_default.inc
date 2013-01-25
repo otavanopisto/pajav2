@@ -133,6 +133,21 @@ function courses_views_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '300',
   );
+  /* Field: Content: Arvio */
+  $handler->display->display_options['fields']['field_arvio']['id'] = 'field_arvio';
+  $handler->display->display_options['fields']['field_arvio']['table'] = 'field_data_field_arvio';
+  $handler->display->display_options['fields']['field_arvio']['field'] = 'field_arvio';
+  $handler->display->display_options['fields']['field_arvio']['label'] = '';
+  $handler->display->display_options['fields']['field_arvio']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_arvio']['click_sort_column'] = 'rating';
+  $handler->display->display_options['fields']['field_arvio']['settings'] = array(
+    'widget' => array(
+      'fivestar_widget' => 'sites/default/modules/fivestar/widgets/basic/basic.css',
+    ),
+    'expose' => 0,
+    'style' => 'average',
+    'text' => 'none',
+  );
   /* Field: Content: Kurssin vetäjä */
   $handler->display->display_options['fields']['field_kurssin_vetaja']['id'] = 'field_kurssin_vetaja';
   $handler->display->display_options['fields']['field_kurssin_vetaja']['table'] = 'field_data_field_kurssin_vetaja';
@@ -412,6 +427,26 @@ return max(array($value,0));';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
+  $translatables['courses_not_started'] = array(
+    t('Master'),
+    t('Valmisteilla olevat kurssit'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Kurssin vetäjä'),
+    t('Kurssin ajankohta'),
+    t('[field_kurssi_alkaa] - [field_kurssi_loppuu]'),
+    t('Minimi osallistujamäärä'),
+    t('Maksimi osallistujamäärä'),
+    t('Member count'),
+    t('<span class="views-label">Osallistujamäärä [php_1] / [field_minimi_osallistujat] (enintään [field_maksimi_osallistujat])</span>'),
+    t('Hinta / osallistuja'),
+    t('Block'),
+    t('Page'),
+  );
   $export['courses_not_started'] = $view;
 
   $view = new view();
@@ -539,6 +574,21 @@ return max(array($value,0));';
   $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '300',
+  );
+  /* Field: Content: Arvio */
+  $handler->display->display_options['fields']['field_arvio']['id'] = 'field_arvio';
+  $handler->display->display_options['fields']['field_arvio']['table'] = 'field_data_field_arvio';
+  $handler->display->display_options['fields']['field_arvio']['field'] = 'field_arvio';
+  $handler->display->display_options['fields']['field_arvio']['label'] = '';
+  $handler->display->display_options['fields']['field_arvio']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_arvio']['click_sort_column'] = 'rating';
+  $handler->display->display_options['fields']['field_arvio']['settings'] = array(
+    'widget' => array(
+      'fivestar_widget' => 'sites/default/modules/fivestar/widgets/basic/basic.css',
+    ),
+    'expose' => 0,
+    'style' => 'average',
+    'text' => 'none',
   );
   /* Field: Content: Kurssin vetäjä */
   $handler->display->display_options['fields']['field_kurssin_vetaja']['id'] = 'field_kurssin_vetaja';
@@ -679,7 +729,7 @@ if($memberCount != 0){
   $handler->display->display_options['filters']['field_kurssi_alkaa_value']['id'] = 'field_kurssi_alkaa_value';
   $handler->display->display_options['filters']['field_kurssi_alkaa_value']['table'] = 'field_data_field_kurssi_alkaa';
   $handler->display->display_options['filters']['field_kurssi_alkaa_value']['field'] = 'field_kurssi_alkaa_value';
-  $handler->display->display_options['filters']['field_kurssi_alkaa_value']['operator'] = '<';
+  $handler->display->display_options['filters']['field_kurssi_alkaa_value']['operator'] = '<=';
   $handler->display->display_options['filters']['field_kurssi_alkaa_value']['form_type'] = 'date_text';
   $handler->display->display_options['filters']['field_kurssi_alkaa_value']['default_date'] = 'now';
 
@@ -704,6 +754,24 @@ if($memberCount != 0){
   $handler->display->display_options['menu']['weight'] = '2';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
+  $translatables['courses_started'] = array(
+    t('Master'),
+    t('Käynnissä olevat kurssit'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Kurssin vetäjä'),
+    t('Kurssin ajankohta'),
+    t('[field_kurssi_alkaa] - [field_kurssi_loppuu]'),
+    t('Minimi osallistujamäärä'),
+    t('Maksimi osallistujamäärä'),
+    t('Hinta'),
+    t('Block'),
+    t('Page'),
+  );
   $export['courses_started'] = $view;
 
   return $export;

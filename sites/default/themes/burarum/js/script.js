@@ -63,6 +63,24 @@
       
     }
   };
+  
+  Drupal.behaviors.ViewRowClickable = {
+	attach: function(context, settings)	{
+	  
+	  $('.view-course-members .views-row').click(function() {
+	    var href = $(this).find("a").attr("href");
+	    if(href) {
+	      window.location = href;
+		}
+	  });
+	
+	}  	  
+  };
+  
+
+
+	  
+
 
 }(jQuery));
 ;

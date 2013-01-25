@@ -40,6 +40,7 @@ function courses_views_context_default_contexts() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Frontpage');
+  t('Site frontpage');
   $export['frontpage'] = $context;
 
   return $export;
