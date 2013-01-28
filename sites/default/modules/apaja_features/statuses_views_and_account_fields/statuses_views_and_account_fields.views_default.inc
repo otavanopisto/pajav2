@@ -32,7 +32,8 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Statuses: Status ID */
   $handler->display->display_options['fields']['sid']['id'] = 'sid';
   $handler->display->display_options['fields']['sid']['table'] = 'statuses';
@@ -119,12 +120,12 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private] [private] [private]</div>
       [message]
       <div class="statuses-details">
         <div class="statuses-links">[edit] [delete] [repost]</div> [created]
       </div>
-      <!-- meta -->[comment-box][comment-box]
+      <!-- meta -->[comment-box][comment-box][comment-box]
     </div>
   </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
@@ -193,12 +194,12 @@ function statuses_views_and_account_fields_views_default_views() {
     t('<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private] [private] [private]</div>
       [message]
       <div class="statuses-details">
         <div class="statuses-links">[edit] [delete] [repost]</div> [created]
       </div>
-      <!-- meta -->[comment-box][comment-box]
+      <!-- meta -->[comment-box][comment-box][comment-box]
     </div>
   </div>'),
     t('All'),
@@ -320,12 +321,12 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div id="statuses-item-[sid]" class="[classes]">
   [sender_custom_pic]
   <div class="content">
-    <div class="statuses-participants">[name] [private]</div>
+    <div class="statuses-participants">[name] [private] [private]</div>
     [message]
     <div class="statuses-details">
       <div class="statuses-links">[edit] [delete]</div> [created]
     </div>
-    <!-- meta -->[comment-box]
+    <!-- meta -->[comment-box][comment-box]
   </div>
 </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
@@ -366,12 +367,12 @@ function statuses_views_and_account_fields_views_default_views() {
     t('<div id="statuses-item-[sid]" class="[classes]">
   [sender_custom_pic]
   <div class="content">
-    <div class="statuses-participants">[name] [private]</div>
+    <div class="statuses-participants">[name] [private] [private]</div>
     [message]
     <div class="statuses-details">
       <div class="statuses-links">[edit] [delete]</div> [created]
     </div>
-    <!-- meta -->[comment-box]
+    <!-- meta -->[comment-box][comment-box]
   </div>
 </div>'),
     t('Block'),

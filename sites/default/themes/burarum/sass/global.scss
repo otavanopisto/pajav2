@@ -792,10 +792,6 @@ ul.tabs.primary li.active a {
   float:right;
 }
 
-#page #node-user-panel #mini-panel-kurssi_minipanel .panel-panel.grid-4 {
-  float:left;
-}
-
 #page #node-user-panel h2 {
   margin:0 0 20px 0;
 }
@@ -805,4 +801,27 @@ ul.tabs.primary li.active a {
   @include h1h2-defaults-rtl;
   @include box-shadow($shadow: 6px 6px 0 rgba(124,123,122,1.0));
   margin:0 6px 20px 0;
+}
+
+#page #node-user-panel .view-user-information {
+  margin:0 0 14px 14px;
+}
+
+#page #node-user-panel .views-field-field-account-kuva {
+  margin:0 10px 0 0;
+  float:left;
+  width:160px;
+}
+
+#page #node-user-panel .views-field-field-account-kuva img {
+  width:100%;
+  height:auto;
+  @include box-shadow;
+}
+
+#page #node-user-panel .pane-user-courses .pane-content {
+  @include box-padding;
+  @include box-shadow;
+  background:#fff;
+  margin:0 14px 0 0;
 }
