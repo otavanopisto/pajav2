@@ -119,12 +119,12 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private] [private] [private] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private]</div>
       [message]
       <div class="statuses-details">
         <div class="statuses-links">[edit] [delete] [repost]</div> [created]
       </div>
-      <!-- meta -->[comment-box]
+      [comment-box]
     </div>
   </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
@@ -193,12 +193,12 @@ function user_profile_page_views_default_views() {
     t('<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private] [private] [private] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private]</div>
       [message]
       <div class="statuses-details">
         <div class="statuses-links">[edit] [delete] [repost]</div> [created]
       </div>
-      <!-- meta -->[comment-box][comment-box][comment-box][comment-box]
+      [comment-box]
     </div>
   </div>'),
     t('All'),
