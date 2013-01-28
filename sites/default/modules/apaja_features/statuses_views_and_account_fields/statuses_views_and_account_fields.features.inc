@@ -5,6 +5,16 @@
  */
 
 /**
+ * Implements hook_ctools_plugin_api().
+ */
+function statuses_views_and_account_fields_ctools_plugin_api() {
+  list($module, $api) = func_get_args();
+  if ($module == "panels_mini" && $api == "panels_default") {
+    return array("version" => "1");
+  }
+}
+
+/**
  * Implements hook_views_api().
  */
 function statuses_views_and_account_fields_views_api() {

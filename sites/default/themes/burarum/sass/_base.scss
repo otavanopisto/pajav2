@@ -13,7 +13,7 @@ $lineHeight: 1.25em;
 $textShadow: 0 0 2px #000000;
 
 /* Content Link defaults */
-$linkColor: #0099ff;
+$linkColor: #0062a0;
 $linkHoverColor: #ff9900;
 $linkFocusColor: #000000;
 
@@ -23,9 +23,14 @@ $linkHoverColorHeader:#ff9900;
 $linkFocusColorHeader:#000000;
 
 /* User Links Defaults */
-$linkColorUser:#222222;
+$linkColorUser:#0062a0;
 $linkHoverColorUser:#ff9900;
-$linkFocusColorUser:#ff9900;
+$linkFocusColorUser:#000000;
+
+/* Course Links Defaults */
+$linkColorCourse:#af6700;
+$linkHoverColorCourse:#000000;
+$linkFocusColorCourse:#000000;
 
 /* Box defaults */
 $boxBorderRadius:2px;

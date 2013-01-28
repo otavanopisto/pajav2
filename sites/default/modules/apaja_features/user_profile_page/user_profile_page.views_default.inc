@@ -119,12 +119,12 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private] [private] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private] [private] [private] [private]</div>
       [message]
       <div class="statuses-details">
         <div class="statuses-links">[edit] [delete] [repost]</div> [created]
       </div>
-      <!-- meta -->[comment-box][comment-box][comment-box]
+      <!-- meta -->[comment-box][comment-box][comment-box][comment-box]
     </div>
   </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
@@ -173,6 +173,37 @@ function user_profile_page_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_1');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $translatables['statuses_conversation_user_profile'] = array(
+    t('Defaults'),
+    t('Statuses Conversation'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('<span class="statuses-sender">[name]</span>'),
+    t('<div id="statuses-item-[sid]" class="[classes]">
+    [sender_custom_pic]
+    <div class="content">
+      <div class="statuses-participants">[user_contextual] [private] [private] [private] [private]</div>
+      [message]
+      <div class="statuses-details">
+        <div class="statuses-links">[edit] [delete] [repost]</div> [created]
+      </div>
+      <!-- meta -->[comment-box][comment-box][comment-box][comment-box]
+    </div>
+  </div>'),
+    t('All'),
+    t('Block'),
+  );
   $export['statuses_conversation_user_profile'] = $view;
 
   $view = new view();
@@ -195,27 +226,10 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['style_plugin'] = 'table';
-  $handler->display->display_options['style_options']['columns'] = array(
-    'title' => 'title',
-    'state' => 'state',
-  );
-  $handler->display->display_options['style_options']['default'] = '-1';
-  $handler->display->display_options['style_options']['info'] = array(
-    'title' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-    ),
-    'state' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-    ),
-  );
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
@@ -225,20 +239,26 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['relationships']['og_membership_related_node_group']['id'] = 'og_membership_related_node_group';
   $handler->display->display_options['relationships']['og_membership_related_node_group']['table'] = 'og_membership';
   $handler->display->display_options['relationships']['og_membership_related_node_group']['field'] = 'og_membership_related_node_group';
+  /* Field: Content: Kurssin kuva */
+  $handler->display->display_options['fields']['field_kurssin_kuva']['id'] = 'field_kurssin_kuva';
+  $handler->display->display_options['fields']['field_kurssin_kuva']['table'] = 'field_data_field_kurssin_kuva';
+  $handler->display->display_options['fields']['field_kurssin_kuva']['field'] = 'field_kurssin_kuva';
+  $handler->display->display_options['fields']['field_kurssin_kuva']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['fields']['field_kurssin_kuva']['label'] = '';
+  $handler->display->display_options['fields']['field_kurssin_kuva']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_kurssin_kuva']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_kurssin_kuva']['settings'] = array(
+    'image_style' => 'group-thumbnail',
+    'image_link' => 'content',
+  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['relationship'] = 'og_membership_related_node_group';
-  $handler->display->display_options['fields']['title']['label'] = 'Group';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['hide_alter_empty'] = FALSE;
-  /* Field: OG membership: Created */
-  $handler->display->display_options['fields']['created']['id'] = 'created';
-  $handler->display->display_options['fields']['created']['table'] = 'og_membership';
-  $handler->display->display_options['fields']['created']['field'] = 'created';
-  $handler->display->display_options['fields']['created']['label'] = 'Member since';
-  $handler->display->display_options['fields']['created']['hide_alter_empty'] = FALSE;
-  $handler->display->display_options['fields']['created']['date_format'] = 'time ago';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -295,6 +315,23 @@ function user_profile_page_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_1');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $translatables['user_courses'] = array(
+    t('Master'),
+    t('Käyttäjän kurssit'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('User is not a member of any group.'),
+    t('Group node from OG membership'),
+    t('All'),
+    t('%1 groups'),
+    t('Content pane'),
+    t('View panes'),
+    t('Block'),
+  );
   $export['user_courses'] = $view;
 
   $view = new view();
@@ -344,12 +381,15 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['fields']['field_account_etunimi']['table'] = 'field_data_field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['field'] = 'field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['label'] = '';
+  $handler->display->display_options['fields']['field_account_etunimi']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_account_etunimi']['element_label_colon'] = FALSE;
   /* Field: User: Sukunimi */
   $handler->display->display_options['fields']['field_account_sukunimi']['id'] = 'field_account_sukunimi';
   $handler->display->display_options['fields']['field_account_sukunimi']['table'] = 'field_data_field_account_sukunimi';
   $handler->display->display_options['fields']['field_account_sukunimi']['field'] = 'field_account_sukunimi';
   $handler->display->display_options['fields']['field_account_sukunimi']['label'] = '';
+  $handler->display->display_options['fields']['field_account_sukunimi']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_account_sukunimi']['alter']['text'] = '[field_account_etunimi] [field_account_sukunimi]';
   $handler->display->display_options['fields']['field_account_sukunimi']['element_label_colon'] = FALSE;
   /* Field: User: Kuvaus */
   $handler->display->display_options['fields']['field_account_kuvaus']['id'] = 'field_account_kuvaus';
@@ -357,8 +397,7 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['fields']['field_account_kuvaus']['field'] = 'field_account_kuvaus';
   $handler->display->display_options['fields']['field_account_kuvaus']['label'] = '';
   $handler->display->display_options['fields']['field_account_kuvaus']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_account_kuvaus']['alter']['text'] = '<div class="user-description-label">Kuvaus</div>
-<div class="user-description">[field_account_kuvaus-value]</div>';
+  $handler->display->display_options['fields']['field_account_kuvaus']['alter']['text'] = '<div class="user-description">[field_account_kuvaus-value]</div>';
   $handler->display->display_options['fields']['field_account_kuvaus']['element_label_colon'] = FALSE;
   /* Contextual filter: User: Uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
@@ -383,6 +422,20 @@ function user_profile_page_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $translatables['user_information'] = array(
+    t('Master'),
+    t('Käyttäjän tiedot'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('[field_account_etunimi] [field_account_sukunimi]'),
+    t('<div class="user-description">[field_account_kuvaus-value]</div>'),
+    t('All'),
+    t('Block'),
+  );
   $export['user_information'] = $view;
 
   return $export;

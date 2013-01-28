@@ -73,6 +73,13 @@
 	      window.location = href;
 		}
 	  });
+	  
+	  $('.pane-user-courses .views-row').click(function() {
+		var href = $(this).find("a").attr("href");
+		if(href) {
+	      window.location = href;
+	    }
+	  });
 	
 	}  	  
   };

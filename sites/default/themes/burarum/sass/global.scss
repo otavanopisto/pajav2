@@ -26,6 +26,19 @@ body {
   background:url('../gfx/view-port-background.gif') repeat-x left top;
 }
 
+a,
+a:visited {
+  color:$linkColor;
+}
+
+a:hover {
+  color:$linkHoverColor;
+}
+
+a:focus {
+  color:$linkFocusColor;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family:$fontFamily;
   text-transform:uppercase;
@@ -347,8 +360,18 @@ ul.tabs.primary li.active a {
 .view-courses-started .views-row .views-field-title a {
   text-transform:uppercase;
   font-size:1.1em;
-  color:#af6700;
+  color:$linkColorCourse;
   text-decoration:none;
+}
+
+.view-courses-not-started .views-row .views-field-title a:hover,
+.view-courses-started .views-row .views-field-title a:hover {
+  color:$linkHoverColorCourse;
+}
+
+.view-courses-not-started .views-row .views-field-title a:focus,
+.view-courses-started .views-row .views-field-title a:focus {
+  color:$linkFocusColorCourse;
 }
 
 .view-courses-not-started .views-row .views-field-body .field-content,
@@ -614,7 +637,6 @@ ul.tabs.primary li.active a {
   display:inline-block;
 }
 
-
 #page #node-course-panel .view-course-members .views-row .views-field-field-account-sukunimi a:hover {
   color:$linkHoverColorUser;
   text-decoration:none;
@@ -654,11 +676,13 @@ ul.tabs.primary li.active a {
   display:block;
 }
 
-.view-statuses-stream-custom  {
+.view-statuses-stream-custom,
+.view-statuses-conversation-profile  {
   margin:20px 0 0 14px;
 }
 
-.view-statuses-stream-custom .views-row {
+.view-statuses-stream-custom .views-row,
+.view-statuses-conversation-profile .views-row {
   margin:0 0 10px 0;
   border-top:1px solid #f2f2f2;
   padding:10px;
@@ -674,8 +698,8 @@ ul.tabs.primary li.active a {
 
 .fbss-comments-comment  .fbss-comments-author-picture {
   float:left;
-  height:32px;
   width:32px;
+  height:32px;
 }
 
 .fbss-comments-author-picture img {
@@ -688,12 +712,40 @@ ul.tabs.primary li.active a {
   margin:0 0 5px 0;
 }
 
-.view-statuses-stream-custom .statuses-item .statuses-sender a {
+.view-statuses-stream-custom .statuses-item .statuses-sender a,
+.view-statuses-conversation-profile .statuses-item .statuses-sender a {
   text-decoration:none;
   font-size:1.3em;
+  color:$linkColorUser;
 }
 
-.view-statuses-stream-custom .statuses-item .fbss-comments-author a {
+.view-statuses-stream-custom .statuses-item .statuses-sender a:hover,
+.view-statuses-conversation-profile .statuses-item .statuses-sender a:hover {
+  color:$linkHoverColorUser;
+}
+
+.view-statuses-stream-custom .statuses-item .statuses-sender a:focus,
+.view-statuses-conversation-profile .statuses-item .statuses-sender a:focus {
+  color:$linkFocusColorUser;
+}
+
+.view-statuses-conversation-profile .statuses-item .statuses-recipient a {
+  text-decoration:none;
+  font-size:1.1em;
+  color:$linkColorCourse;
+  font-style:italic;
+}
+
+.view-statuses-conversation-profile .statuses-item .statuses-recipient a:hover {
+  color:$linkHoverColorCourse;
+}
+
+.view-statuses-conversation-profile .statuses-item .statuses-recipient a:focus {
+  color:$linkFocusColorCourse;
+}
+
+.view-statuses-stream-custom .statuses-item .fbss-comments-author a,
+.view-statuses-conversation-profile .statuses-item .fbss-comments-author a {
   text-decoration:none;
   font-size:1.1em;
 }
@@ -706,11 +758,13 @@ ul.tabs.primary li.active a {
   margin-left:48px;
 }
 
-.view-statuses-stream-custom .statuses-item .statuses-content {
+.view-statuses-stream-custom .statuses-item .statuses-content,
+.view-statuses-conversation-profile .statuses-item .statuses-content {
   font-size:1em;
 }
 
-.view-statuses-stream-custom .statuses-item .fbss-comments-text {
+.view-statuses-stream-custom .statuses-item .fbss-comments-text,
+.view-statuses-conversation-profile .statuses-item .fbss-comments-text {
   font-size:0.9em;
 }
 
@@ -719,12 +773,16 @@ ul.tabs.primary li.active a {
 }
 
 .view-statuses-stream-custom .statuses-item .statuses-content p,
-.view-statuses-stream-custom .statuses-item .fbss-comments-text p {
+.view-statuses-stream-custom .statuses-item .fbss-comments-text p,
+.view-statuses-conversation-profile .statuses-item .statuses-content p,
+.view-statuses-conversation-profile .statuses-item .fbss-comments-text p {
   margin:0 0 10px 0;
 }
 
 .view-statuses-stream-custom .statuses-item .statuses-details,
-.view-statuses-stream-custom .statuses-item .fbss-comments-closure {
+.view-statuses-stream-custom .statuses-item .fbss-comments-closure,
+.view-statuses-conversation-profile .statuses-item .statuses-details,
+.view-statuses-conversation-profile .statuses-item .fbss-comments-closure {
   font-size:0.9em;
   font-style:italic;
   color:$altFontColor;
@@ -736,7 +794,8 @@ ul.tabs.primary li.active a {
   margin:0 4px 0 4px;
 }
 
-.view-statuses-stream-custom .statuses-item .statuses-comments {
+.view-statuses-stream-custom .statuses-item .statuses-comments,
+.view-statuses-conversation-profile .statuses-item .statuses-comments {
   border:0;
 }
 
@@ -803,6 +862,11 @@ ul.tabs.primary li.active a {
   margin:0 6px 20px 0;
 }
 
+.pane-user-information {
+  display:table;
+  margin:0 0 20px 0;
+}
+
 #page #node-user-panel .view-user-information {
   margin:0 0 14px 14px;
 }
@@ -819,9 +883,68 @@ ul.tabs.primary li.active a {
   @include box-shadow;
 }
 
+#page #node-user-panel .views-field-field-account-sukunimi,
+#page #node-user-panel .views-field-field-account-kuvaus {
+  margin:0 0 10px 180px;
+}
+
+#page #node-user-panel .views-field-field-account-sukunimi {
+  font-size:1.4em;
+}
+
 #page #node-user-panel .pane-user-courses .pane-content {
   @include box-padding;
   @include box-shadow;
   background:#fff;
   margin:0 14px 0 0;
+}
+
+#page #node-user-panel .pane-user-courses .views-row {
+  clear:both;
+  height:32px;
+  padding:4px;
+  display:block;
+  cursor:pointer;
+}
+
+#page #node-user-panel .pane-user-courses .views-field-field-kurssin-kuva {
+  width:32px;
+  height:32px;
+  overflow:hidden;
+  float:left;
+  margin-right:5px;
+  border:1px solid #f2f2f2;
+}
+
+#page #node-user-panel .pane-user-courses .views-field-field-kurssin-kuva img {
+  width:auto;
+  height:32px;
+}
+
+#page #node-user-panel .pane-user-courses .views-row .views-field-title {
+  float:left;
+}
+
+#page #node-user-panel .pane-user-courses .views-row:hover .views-field-title a {
+  color:$linkHoverColorUser;
+  text-decoration:none;
+}
+
+#page #node-user-panel .pane-user-courses .views-row .views-field-title a {
+  color:$linkColorCourse;
+  text-decoration:none;
+  padding:6px 3px 14px 3px;
+  height:1em;  
+  @include text-shadow($shadow: 0 0 2px #ffffff);
+  display:inline-block;
+}
+
+#page #node-user-panel .pane-user-courses .views-row .views-field-title a:hover {
+  color:$linkHoverColorCourse;
+  text-decoration:none;
+}
+
+#page #node-user-panel .pane-user-courses .views-row .views-field-title a:focus {
+  color:$linkFocusColorCourse;
+  text-decoration:none;
 }
