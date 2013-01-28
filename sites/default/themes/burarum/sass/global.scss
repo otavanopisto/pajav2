@@ -77,6 +77,14 @@ h1, h2, h3, h4, h5, h6 {
   text-align:right;
 }
 
+/* GENERIC STUFF */
+
+.generic-empty-text-wrapper {
+  text-align:center;
+  font-style:italic;
+  color:$altFontColor;
+}
+
 /* BACKGROUNDS */
 
 #zone-branding-wrapper {
@@ -135,8 +143,11 @@ h1, h2, h3, h4, h5, h6 {
 
 #region-menu .navigation ul a:hover, 
 #region-menu .navigation.fixedPosition ul a:hover {
-  background:#333333;
- @include rounded-borders; 
+  transition-property:background;
+  transition-duration:0.75s;
+  background:#7c7b7a;
+  @include rounded-borders;
+  @include text-shadow;
 }
 
 /* HEADER LINKS */
@@ -643,11 +654,11 @@ ul.tabs.primary li.active a {
   display:block;
 }
 
-.view-statuses-stream  {
+.view-statuses-stream-custom  {
   margin:20px 0 0 14px;
 }
 
-.view-statuses-stream .views-row {
+.view-statuses-stream-custom .views-row {
   margin:0 0 10px 0;
   border-top:1px solid #f2f2f2;
   padding:10px;
@@ -677,12 +688,12 @@ ul.tabs.primary li.active a {
   margin:0 0 5px 0;
 }
 
-.view-statuses-stream .statuses-item .statuses-sender a {
+.view-statuses-stream-custom .statuses-item .statuses-sender a {
   text-decoration:none;
   font-size:1.3em;
 }
 
-.view-statuses-stream .statuses-item .fbss-comments-author a {
+.view-statuses-stream-custom .statuses-item .fbss-comments-author a {
   text-decoration:none;
   font-size:1.1em;
 }
@@ -695,11 +706,11 @@ ul.tabs.primary li.active a {
   margin-left:48px;
 }
 
-.view-statuses-stream .statuses-item .statuses-content {
+.view-statuses-stream-custom .statuses-item .statuses-content {
   font-size:1em;
 }
 
-.view-statuses-stream .statuses-item .fbss-comments-text {
+.view-statuses-stream-custom .statuses-item .fbss-comments-text {
   font-size:0.9em;
 }
 
@@ -707,13 +718,13 @@ ul.tabs.primary li.active a {
   display:none;
 }
 
-.view-statuses-stream .statuses-item .statuses-content p,
-.view-statuses-stream .statuses-item .fbss-comments-text p {
+.view-statuses-stream-custom .statuses-item .statuses-content p,
+.view-statuses-stream-custom .statuses-item .fbss-comments-text p {
   margin:0 0 10px 0;
 }
 
-.view-statuses-stream .statuses-item .statuses-details,
-.view-statuses-stream .statuses-item .fbss-comments-closure {
+.view-statuses-stream-custom .statuses-item .statuses-details,
+.view-statuses-stream-custom .statuses-item .fbss-comments-closure {
   font-size:0.9em;
   font-style:italic;
   color:$altFontColor;
@@ -725,7 +736,7 @@ ul.tabs.primary li.active a {
   margin:0 4px 0 4px;
 }
 
-.view-statuses-stream .statuses-item .statuses-comments {
+.view-statuses-stream-custom .statuses-item .statuses-comments {
   border:0;
 }
 
