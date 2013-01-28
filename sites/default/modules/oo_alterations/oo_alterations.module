@@ -44,4 +44,21 @@ function oo_alterations_preprocess_field(&$vars){
     }
   }
 }
+
+/**
+ * Implementation of hook_form_alter
+ **/
+function oo_alterations_form_alter(&$form, $form_state, $form_id) {
+  if($form_id = 'user_profile_form'){
+    $form['field_account_lahiosoite']['user_field_privacy']['#default_value'] = true;
+    $form['field_account_lahiosoite']['user_field_privacy']['#attributes']['disabled'] = true;
+    $form['field_account_lahiosoite']['user_field_privacy']['#type'] = 'hidden';
+    $form['field_account_postinumero']['user_field_privacy']['#default_value'] = true;
+    $form['field_account_postinumero']['user_field_privacy']['#attributes']['disabled'] = true;
+    $form['field_account_postinumero']['user_field_privacy']['#type'] = 'hidden';
+    $form['field_account_postitoimipaikka']['user_field_privacy']['#default_value'] = true;
+    $form['field_account_postitoimipaikka']['user_field_privacy']['#attributes']['disabled'] = true;
+    $form['field_account_postitoimipaikka']['user_field_privacy']['#type'] = 'hidden';
+  }
+}
 ?>
