@@ -96,7 +96,7 @@ function user_profile_page_default_page_manager_handlers() {
     $pane->pid = 'new-2';
     $pane->panel = 'left';
     $pane->type = 'views';
-    $pane->subtype = 'statuses_conversation_user_profile';
+    $pane->subtype = 'statuses_conversation_profile';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -111,7 +111,7 @@ function user_profile_page_default_page_manager_handlers() {
       'link_to_view' => 0,
       'args' => '',
       'url' => '',
-      'display' => 'default',
+      'display' => 'block_1',
       'context' => array(
         0 => 'argument_entity_id:user_1.uid',
       ),

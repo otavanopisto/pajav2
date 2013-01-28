@@ -119,12 +119,12 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private] [private] [private]</div>
       [message]
       <div class="statuses-details">
         <div class="statuses-links">[edit] [delete] [repost]</div> [created]
       </div>
-      <!-- meta -->[comment-box][comment-box]
+      <!-- meta -->[comment-box][comment-box][comment-box]
     </div>
   </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
@@ -173,37 +173,6 @@ function user_profile_page_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_1');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $translatables['statuses_conversation_user_profile'] = array(
-    t('Defaults'),
-    t('Statuses Conversation'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('<span class="statuses-sender">[name]</span>'),
-    t('<div id="statuses-item-[sid]" class="[classes]">
-    [sender_custom_pic]
-    <div class="content">
-      <div class="statuses-participants">[user_contextual] [private] [private]</div>
-      [message]
-      <div class="statuses-details">
-        <div class="statuses-links">[edit] [delete] [repost]</div> [created]
-      </div>
-      <!-- meta -->[comment-box][comment-box]
-    </div>
-  </div>'),
-    t('All'),
-    t('Block'),
-  );
   $export['statuses_conversation_user_profile'] = $view;
 
   $view = new view();
@@ -326,32 +295,6 @@ function user_profile_page_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_1');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $translatables['user_courses'] = array(
-    t('Master'),
-    t('Käyttäjän kurssit'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('User is not a member of any group.'),
-    t('Group node from OG membership'),
-    t('Group'),
-    t('Member since'),
-    t('All'),
-    t('%1 groups'),
-    t('Content pane'),
-    t('View panes'),
-    t('Block'),
-  );
   $export['user_courses'] = $view;
 
   $view = new view();
@@ -440,20 +383,6 @@ function user_profile_page_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $translatables['user_information'] = array(
-    t('Master'),
-    t('Käyttäjän tiedot'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('<div class="user-description-label">Kuvaus</div>
-<div class="user-description">[field_account_kuvaus-value]</div>'),
-    t('All'),
-    t('Block'),
-  );
   $export['user_information'] = $view;
 
   return $export;
