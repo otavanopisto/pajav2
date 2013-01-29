@@ -174,37 +174,6 @@ function statuses_views_and_account_fields_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_1');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $translatables['statuses_conversation_profile'] = array(
-    t('Defaults'),
-    t('Statuses Conversation Custom'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('<span class="statuses-sender">[name]</span>'),
-    t('<div id="statuses-item-[sid]" class="[classes]">
-    [sender_custom_pic]
-    <div class="content">
-      <div class="statuses-participants">[user_contextual] [private]</div>
-      [message]
-      <div class="statuses-details">
-        <div class="statuses-links">[edit] [delete]</div> [created]
-      </div>
-        [comment-box]
-    </div>
-  </div>'),
-    t('All'),
-    t('Block'),
-  );
   $export['statuses_conversation_profile'] = $view;
 
   $view = new view();
@@ -353,31 +322,6 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'block_1');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['block_description'] = 'Statuses: Context-sensitive stream';
-  $translatables['statuses_stream_custom'] = array(
-    t('Defaults'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Sender custom picture'),
-    t('<span class="statuses-sender">[name]</span>'),
-    t('Share'),
-    t('<div id="statuses-item-[sid]" class="[classes]">
-  [sender_custom_pic]
-  <div class="content">
-    <div class="statuses-participants">[name] [private]</div>
-    [message]
-    <div class="statuses-details">
-      <div class="statuses-links">[edit] [delete]</div> [created]
-    </div>
-    [comment-box]
-  </div>
-</div>'),
-    t('Block'),
-    t('Statuses: Context-sensitive stream'),
-  );
   $export['statuses_stream_custom'] = $view;
 
   $view = new view();
@@ -466,20 +410,6 @@ function statuses_views_and_account_fields_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $translatables['user_profile_block'] = array(
-    t('Master'),
-    t('Käyttäjän tiedot'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('<div class="user-description-label">Kuvaus</div>
-<div class="user-description">[field_account_kuvaus-value]</div>'),
-    t('All'),
-    t('Block'),
-  );
   $export['user_profile_block'] = $view;
 
   return $export;
