@@ -98,6 +98,32 @@ h1, h2, h3, h4, h5, h6 {
   color:$altFontColor;
 }
 
+.view-empty {
+  text-align:center;
+  font-style:italic;
+  color:$altFontColor;
+}
+
+.imagefield-crop-widget {
+  margin:0 0 0 0;
+}
+
+.imagefield-crop-preview {
+  margin:0 0 20px 0;
+}
+
+.imagefield-crop-preview img {
+  @include box-shadow;
+}
+
+.imagefield-crop-cropbox {
+  margin:0;
+}
+
+.imagefield-crop-cropbox img {
+  @include box-shadow;
+}
+
 /* BACKGROUNDS */
 
 #zone-branding-wrapper {
@@ -830,7 +856,8 @@ ul.tabs.primary li.active a {
 
 /* LOGIN and SIGNUP FORM */
 
-#user-login label {
+#user-login label,
+#user-register-form label {
   text-transform:uppercase;
   font-weight:normal;
 }
@@ -865,6 +892,7 @@ ul.tabs.primary li.active a {
 .pane-user-information {
   display:table;
   margin:0 0 20px 0;
+  width:100%;
 }
 
 #page #node-user-panel .view-user-information {

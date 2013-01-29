@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Course view variant feature.
+ */
+
+include_once 'course_view_variant.features.inc';
