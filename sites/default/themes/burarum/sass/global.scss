@@ -185,7 +185,7 @@ h1, h2, h3, h4, h5, h6 {
 #region-menu .navigation.fixedPosition ul a:hover {
   transition-property:background;
   transition-duration:0.75s;
-  background:#7c7b7a;
+  background:#424242;
   @include rounded-borders;
   @include text-shadow;
 }
@@ -913,8 +913,15 @@ ul.tabs.primary li.active a {
 }
 
 #page #node-user-panel .views-field-field-account-sukunimi,
-#page #node-user-panel .views-field-field-account-kuvaus {
+#page #node-user-panel .views-field-field-account-kuvaus,
+#page #node-user-panel .views-field-field-account-tahdon-oppia,
+#page #node-user-panel .views-field-field-account-taitoni {
   margin:0 0 10px 180px;
+}
+
+.view-user-information .views-field .views-label {
+  text-transform:uppercase;
+  font-weight:normal;
 }
 
 #page #node-user-panel .views-field-field-account-sukunimi {
@@ -934,6 +941,12 @@ ul.tabs.primary li.active a {
   padding:4px;
   display:block;
   cursor:pointer;
+  position:relative;
+}
+
+#page #node-user-panel .pane-user-courses .views-row:hover {
+  border-left:2px solid #000000;
+  padding:4px 4px 4px 2px;
 }
 
 #page #node-user-panel .pane-user-courses .views-field-field-kurssin-kuva {
@@ -955,7 +968,7 @@ ul.tabs.primary li.active a {
 }
 
 #page #node-user-panel .pane-user-courses .views-row:hover .views-field-title a {
-  color:$linkHoverColorUser;
+  color:$linkHoverColorCourse;
   text-decoration:none;
 }
 
@@ -977,3 +990,118 @@ ul.tabs.primary li.active a {
   color:$linkFocusColorCourse;
   text-decoration:none;
 }
+
+/* USERS COURSES TOOLTIP */
+
+#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-image {
+  width:48px;
+  height:48px;
+  overflow:hidden;
+  float:left;
+}
+
+#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper img{
+  width:auto;
+  height:48px;
+}
+
+#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-title {
+  margin:0 0 5px 63px;
+
+}
+
+#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-title a {
+  color:$linkColorCourse;
+  text-decoration:none;
+  text-transform:uppercase;
+}
+
+#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-desc {
+  margin:0 0 5px 63px;
+  max-height:115px;
+  overflow:hidden;
+  font-size:0.9em;
+  color:$altFontColor;
+}
+
+#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-rating {
+  margin:0 0 5px 63px;
+}
+
+#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-rating input {
+  display:none;
+}
+
+#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-admin {
+  margin:0 0 0 63px;
+  font-size:0.9em;
+  color:$altFontColor;
+}
+
+#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-admin:before {
+  content:'Kurssin vetäjä';
+  text-transform:uppercase;
+  font-weight:normal;
+  font-size:1em;
+  display:block;
+  color:$fontColor;
+  margin:10px 0 0 0;
+}
+
+#page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapper {
+  opacity:0;
+  visibility:hidden;
+  position:absolute;
+  left:0;
+  top:-60px;
+  margin-left:-370px;
+  display:block;
+  padding:15px;
+  width:350px;
+  height:210px;
+  @include box-shadow(-4px 0 20px rgba(0,0,0,0.3));
+  @include rounded-borders;
+  
+  /* Animation */
+  transition-property:margin-left,opacity,visibility;
+  transition-duration:300ms,10ms,1ms;
+  transition-timing-function:linear;
+  /* Firefox 4 */
+  -moz-transition-property:margin-left,opacity,visibility;
+  -moz-transition-duration:300ms,10ms,1ms;
+  -moz-transition-timing-function:linear;
+  /* Safari and Chrome */
+  -webkit-transition-property:margin-left,opacity,visibility;
+  -webkit-transition-duration:300ms,10ms,1ms;
+  -webkit-transition-timing-function:linear;
+  /* Opera */
+  -o-transition-property:margin-left,opacity,visibility;
+  -o-transition-duration:300ms,10ms,1ms;
+  -o-transition-timing-function:linear;
+  /* IE */
+  -ms-transition-property:margin-left,opacity,visibility;
+  -ms-transition-duration:300ms,10ms,1ms;
+  -ms-transition-timing-function:linear;
+
+}
+
+#page #node-user-panel .pane-user-courses .views-row:hover .generic-tooltip-wrapper {
+  visibility:visible;
+  background:#ffffff;
+  position:absolute;
+  left:0;
+  top:-60px;
+  margin-left:-384px;
+  border:1px solid #aaaaaa;
+  z-index:99;
+  opacity:1;
+  
+
+}
+
+
+
+
+
+
+

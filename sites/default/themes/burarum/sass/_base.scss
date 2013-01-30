@@ -42,6 +42,7 @@ $boxPadding:6px;
 $fieldBorder:1px solid #000000;
 $fieldBackgroundColor:#ffffff;
 $fieldPadding:5px 10px;
+$fieldFocusShadow:0 0 5px rgba(0,153,255,1);
 
 $buttonBackgroundColor:#000000;
 $buttonHoverBackgroundColor:#0099ff;
@@ -54,12 +55,24 @@ $headerPadding:4px 10px 4px 15px;
 $headerBackground:url('../gfx/title-background.jpg');
 $headerBorder:2px solid #000;
 
+/* Transitions */
+$transitionAnimation: all 300ms ease-in-out;
+$fieldFocusAnimation: all 300ms linear;
+
 /* MIXINS 
  *
  * Usage with default value: @include mixin_name;
  * Usage with overridden value: @include mixin_name($argument: value);
  *
  */
+ 
+@mixin field-focus-animation() {
+  transition:$fieldFocusAnimation;
+  -moz-transition:$fieldFocusAnimation;
+  -webkit-transition:$fieldFocusAnimation;
+  -o-transition:$fieldFocusAnimation;
+  -ms-transition: $fieldFocusAnimation;
+}
 
 @mixin h1h2-defaults($padding: $headerPadding, $background: $headerBackground, $border: $headerBorder) {
   padding:$padding;

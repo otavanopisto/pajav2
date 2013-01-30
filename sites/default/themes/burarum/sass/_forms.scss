@@ -8,6 +8,11 @@
   font-family: $fontFamily;
   color: $fontColor;
   font-size: inherit;
+  @include field-focus-animation;
+}
+
+#page form input:focus {
+  @include box-shadow($shadow: $fieldFocusShadow);
 }
 
 #page form input[type='submit'],
@@ -38,8 +43,13 @@
 #page form textarea {
   @include rounded-borders;
   @include box-shadow;
-  border:1px solid #aaa;
+  border: $fieldBorder;
   @include form-field-padding;
+  @include field-focus-animation;
+}
+
+#page form textarea:focus {
+  @include box-shadow($shadow: $fieldFocusShadow);
 }
 
 html.js input.form-autocomplete {
