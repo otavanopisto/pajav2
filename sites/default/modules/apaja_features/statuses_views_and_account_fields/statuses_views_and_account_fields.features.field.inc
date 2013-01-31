@@ -69,7 +69,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '0',
+        'weight' => '1',
       ),
     ),
   );
@@ -98,7 +98,7 @@ function statuses_views_and_account_fields_field_default_fields() {
       'locked' => '0',
       'module' => 'image',
       'settings' => array(
-        'default_image' => '66',
+        'default_image' => '83',
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -126,7 +126,7 @@ function statuses_views_and_account_fields_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'alt_field' => 0,
-        'default_image' => '67',
+        'default_image' => '82',
         'file_directory' => '',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
@@ -149,7 +149,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'resolution' => '160x160',
         ),
         'type' => 'imagefield_crop_widget',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
@@ -200,7 +200,7 @@ function statuses_views_and_account_fields_field_default_fields() {
       'label' => 'Kuvaus',
       'required' => 0,
       'settings' => array(
-        'text_processing' => '0',
+        'text_processing' => '1',
         'user_field_privacy' => 0,
         'user_register_form' => 1,
       ),
@@ -211,7 +211,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '2',
+        'weight' => '3',
       ),
     ),
   );
@@ -249,7 +249,7 @@ function statuses_views_and_account_fields_field_default_fields() {
       'bundle' => 'user',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Ei näytetä muille käyttäjille.',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -275,7 +275,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '4',
+        'weight' => '5',
       ),
     ),
   );
@@ -313,7 +313,7 @@ function statuses_views_and_account_fields_field_default_fields() {
       'bundle' => 'user',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Ei näytetä muille käyttäjille.',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -339,7 +339,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '5',
+        'weight' => '6',
       ),
     ),
   );
@@ -377,7 +377,7 @@ function statuses_views_and_account_fields_field_default_fields() {
       'bundle' => 'user',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Ei näytetä muille käyttäjille.',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -403,7 +403,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '6',
+        'weight' => '7',
       ),
     ),
   );
@@ -467,7 +467,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '1',
+        'weight' => '2',
       ),
     ),
   );
@@ -536,7 +536,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '7',
+        'weight' => '8',
       ),
     ),
   );
@@ -605,13 +605,14 @@ function statuses_views_and_account_fields_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '8',
+        'weight' => '9',
       ),
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Ei näytetä muille käyttäjille.');
   t('Etunimi');
   t('Kuva');
   t('Kuvaus');

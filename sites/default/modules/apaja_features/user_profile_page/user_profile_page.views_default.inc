@@ -259,6 +259,52 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['hide_alter_empty'] = FALSE;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  /* Field: Content: Arvio */
+  $handler->display->display_options['fields']['field_arvio']['id'] = 'field_arvio';
+  $handler->display->display_options['fields']['field_arvio']['table'] = 'field_data_field_arvio';
+  $handler->display->display_options['fields']['field_arvio']['field'] = 'field_arvio';
+  $handler->display->display_options['fields']['field_arvio']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['fields']['field_arvio']['label'] = '';
+  $handler->display->display_options['fields']['field_arvio']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_arvio']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_arvio']['click_sort_column'] = 'rating';
+  $handler->display->display_options['fields']['field_arvio']['settings'] = array(
+    'widget' => array(
+      'fivestar_widget' => 'sites/default/modules/fivestar/widgets/basic/basic.css',
+    ),
+    'expose' => 0,
+    'style' => 'average',
+    'text' => 'none',
+  );
+  /* Field: Content: Kurssin vetäjä */
+  $handler->display->display_options['fields']['field_kurssin_vetaja']['id'] = 'field_kurssin_vetaja';
+  $handler->display->display_options['fields']['field_kurssin_vetaja']['table'] = 'field_data_field_kurssin_vetaja';
+  $handler->display->display_options['fields']['field_kurssin_vetaja']['field'] = 'field_kurssin_vetaja';
+  $handler->display->display_options['fields']['field_kurssin_vetaja']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['fields']['field_kurssin_vetaja']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_kurssin_vetaja']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_kurssin_vetaja']['delta_offset'] = '0';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="generic-tooltip-wrapper">
+  <div class="users-courses-tooltip-image">[field_kurssin_kuva]</div>
+  <div class="users-courses-tooltip-title">[title]</div>
+  <div class="users-courses-tooltip-desc">[body]</div>
+  <div class="users-courses-tooltip-rating">[field_arvio]</div>
+  <div class="users-courses-tooltip-admin">[field_kurssin_vetaja]</div>
+</div>';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
@@ -326,6 +372,14 @@ function user_profile_page_views_default_views() {
     t('Desc'),
     t('User is not a member of any group.'),
     t('Group node from OG membership'),
+    t('Kurssin vetäjä'),
+    t('<div class="generic-tooltip-wrapper">
+  <div class="users-courses-tooltip-image">[field_kurssin_kuva]</div>
+  <div class="users-courses-tooltip-title">[title]</div>
+  <div class="users-courses-tooltip-desc">[body]</div>
+  <div class="users-courses-tooltip-rating">[field_arvio]</div>
+  <div class="users-courses-tooltip-admin">[field_kurssin_vetaja]</div>
+</div>'),
     t('All'),
     t('%1 groups'),
     t('Content pane'),
@@ -399,6 +453,18 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['fields']['field_account_kuvaus']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_account_kuvaus']['alter']['text'] = '<div class="user-description">[field_account_kuvaus-value]</div>';
   $handler->display->display_options['fields']['field_account_kuvaus']['element_label_colon'] = FALSE;
+  /* Field: User: Tahdon oppia */
+  $handler->display->display_options['fields']['field_account_tahdon_oppia']['id'] = 'field_account_tahdon_oppia';
+  $handler->display->display_options['fields']['field_account_tahdon_oppia']['table'] = 'field_data_field_account_tahdon_oppia';
+  $handler->display->display_options['fields']['field_account_tahdon_oppia']['field'] = 'field_account_tahdon_oppia';
+  $handler->display->display_options['fields']['field_account_tahdon_oppia']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_account_tahdon_oppia']['delta_offset'] = '0';
+  /* Field: User: Taitoni */
+  $handler->display->display_options['fields']['field_account_taitoni']['id'] = 'field_account_taitoni';
+  $handler->display->display_options['fields']['field_account_taitoni']['table'] = 'field_data_field_account_taitoni';
+  $handler->display->display_options['fields']['field_account_taitoni']['field'] = 'field_account_taitoni';
+  $handler->display->display_options['fields']['field_account_taitoni']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_account_taitoni']['delta_offset'] = '0';
   /* Contextual filter: User: Uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
   $handler->display->display_options['arguments']['uid']['table'] = 'users';
@@ -433,6 +499,8 @@ function user_profile_page_views_default_views() {
     t('Desc'),
     t('[field_account_etunimi] [field_account_sukunimi]'),
     t('<div class="user-description">[field_account_kuvaus-value]</div>'),
+    t('Tahdon oppia'),
+    t('Taitoni'),
     t('All'),
     t('Block'),
   );
