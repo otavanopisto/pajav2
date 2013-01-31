@@ -157,6 +157,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #region-menu .navigation.fixedPosition {
   position:fixed;
+  top:0;
   z-index:9999;
   display:block;
   width:1192px;
@@ -343,11 +344,12 @@ ul.tabs.primary li.active a {
 .view-courses-started .views-row  {
   float:left;
   max-width:205px;
-  padding:8px;
+  padding:6px;
   margin:0 7px 0 7px;
   @include box-shadow;
   background:#ffffff;
   border:1px solid #ffffff;
+  @include carousel-hover-transition;
 }
 
 .view-courses-not-started .views-row.courses-not-started-page-row,
@@ -357,7 +359,9 @@ ul.tabs.primary li.active a {
 
 .view-courses-not-started .views-row:hover,
 .view-courses-started .views-row:hover {
-  border:1px solid #dddddd;
+  border:1px solid #7ca246;
+  @include box-shadow($shadow: 0 0 10px rgba(191,214,130,0.9));
+  background:#fff;
 }
 
 .view-courses-not-started .views-row-first,
@@ -1052,51 +1056,39 @@ ul.tabs.primary li.active a {
   opacity:0;
   visibility:hidden;
   position:absolute;
-  left:0;
-  top:-60px;
-  margin-left:-370px;
+  margin-top:-50px;
+  margin-left:-376px;
   display:block;
   padding:15px;
   width:350px;
   height:210px;
   @include box-shadow(-4px 0 20px rgba(0,0,0,0.3));
   @include rounded-borders;
-  
-  /* Animation */
-  transition-property:margin-left,opacity,visibility;
-  transition-duration:300ms,10ms,1ms;
-  transition-timing-function:linear;
-  /* Firefox 4 */
-  -moz-transition-property:margin-left,opacity,visibility;
-  -moz-transition-duration:300ms,10ms,1ms;
-  -moz-transition-timing-function:linear;
-  /* Safari and Chrome */
-  -webkit-transition-property:margin-left,opacity,visibility;
-  -webkit-transition-duration:300ms,10ms,1ms;
-  -webkit-transition-timing-function:linear;
-  /* Opera */
-  -o-transition-property:margin-left,opacity,visibility;
-  -o-transition-duration:300ms,10ms,1ms;
-  -o-transition-timing-function:linear;
-  /* IE */
-  -ms-transition-property:margin-left,opacity,visibility;
-  -ms-transition-duration:300ms,10ms,1ms;
-  -ms-transition-timing-function:linear;
-
+  @include tooltip-rtl-animation;
 }
 
 #page #node-user-panel .pane-user-courses .views-row:hover .generic-tooltip-wrapper {
   visibility:visible;
   background:#ffffff;
   position:absolute;
-  left:0;
-  top:-60px;
-  margin-left:-384px;
+  margin-left:-386px;
   border:1px solid #aaaaaa;
   z-index:99;
   opacity:1;
-  
+}
 
+body #page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapper.preventOverLappingTop {
+  position:fixed;
+  z-index:9999;
+  margin-top:38px;
+  top:0;
+}
+
+body #page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapper.preventOverLappingBottom {
+  position:fixed;
+  z-index:9999;
+  margin-bottom:5px;
+  bottom:0;
 }
 
 
