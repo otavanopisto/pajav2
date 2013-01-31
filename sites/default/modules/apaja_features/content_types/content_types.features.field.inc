@@ -98,8 +98,7 @@ function content_types_field_default_fields() {
       'locked' => '0',
       'module' => 'fivestar',
       'settings' => array(
-        'axis' => 'vote',
-        'profile2_private' => FALSE,
+          'axis' => 'vote',
       ),
       'translatable' => '0',
       'type' => 'fivestar',
@@ -301,8 +300,6 @@ function content_types_field_default_fields() {
           'second' => 0,
           'year' => 'year',
         ),
-        'profile2_private' => FALSE,
-        'repeat' => 0,
         'timezone_db' => '',
         'todate' => '',
         'tz_handling' => 'none',
@@ -324,7 +321,6 @@ function content_types_field_default_fields() {
             'multiple_from' => '',
             'multiple_number' => '',
             'multiple_to' => '',
-            'show_repeat_rule' => 'show',
           ),
           'type' => 'date_default',
           'weight' => '6',
@@ -352,12 +348,10 @@ function content_types_field_default_fields() {
         'active' => 1,
         'module' => 'date',
         'settings' => array(
-          'display_all_day' => 0,
           'increment' => '15',
           'input_format' => 'd.m.Y - H:i:s',
           'input_format_custom' => '',
           'label_position' => 'above',
-          'repeat_collapsed' => 0,
           'text_parts' => array(),
           'year_range' => '-3:+3',
         ),
@@ -390,8 +384,6 @@ function content_types_field_default_fields() {
           'second' => 0,
           'year' => 'year',
         ),
-        'profile2_private' => FALSE,
-        'repeat' => 0,
         'timezone_db' => '',
         'todate' => '',
         'tz_handling' => 'none',
@@ -413,7 +405,6 @@ function content_types_field_default_fields() {
             'multiple_from' => '',
             'multiple_number' => '',
             'multiple_to' => '',
-            'show_repeat_rule' => 'show',
           ),
           'type' => 'date_default',
           'weight' => '7',
@@ -441,12 +432,10 @@ function content_types_field_default_fields() {
         'active' => 1,
         'module' => 'date',
         'settings' => array(
-          'display_all_day' => 0,
           'increment' => '15',
           'input_format' => 'd.m.Y - H:i:s',
           'input_format_custom' => '',
           'label_position' => 'above',
-          'repeat_collapsed' => 0,
           'text_parts' => array(),
           'year_range' => '-3:+3',
         ),
@@ -481,7 +470,6 @@ function content_types_field_default_fields() {
       'module' => 'image',
       'settings' => array(
         'default_image' => 0,
-        'profile2_private' => FALSE,
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -512,7 +500,7 @@ function content_types_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_kurssin_kuva',
       'label' => 'Kurssin kuva',
-      'required' => 0,
+      'required' => 1,
       'settings' => array(
         'alt_field' => 1,
         'default_image' => 0,
@@ -520,7 +508,7 @@ function content_types_field_default_fields() {
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
         'max_resolution' => '1024x1024',
-        'min_resolution' => '400x267',
+        'min_resolution' => '200x200',
         'title_field' => 1,
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
@@ -530,10 +518,10 @@ function content_types_field_default_fields() {
         'module' => 'imagefield_crop',
         'settings' => array(
           'collapsible' => '2',
-          'croparea' => '1024x1024',
+          'croparea' => '500x500',
           'enforce_minimum' => 1,
           'enforce_ratio' => 1,
-          'preview_image_style' => 'group-thumbnail',
+          'preview_image_style' => 'thumbnail',
           'progress_indicator' => 'throbber',
           'resolution' => '400x267',
         ),
@@ -751,14 +739,14 @@ function content_types_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-kurssi-field_tags'.
-  $fields['node-kurssi-field_tags'] = array(
+  // Exported field: 'node-kurssi-field_tagit'.
+  $fields['node-kurssi-field_tagit'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_tags',
+      'field_name' => 'field_tagit',
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -777,11 +765,10 @@ function content_types_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           0 => array(
-            'vocabulary' => 'tags',
-            'parent' => 0,
+            'vocabulary' => 'tahdon_oppia',
+            'parent' => '0',
           ),
         ),
-        'profile2_private' => FALSE,
       ),
       'translatable' => '0',
       'type' => 'taxonomy_term_reference',
@@ -790,14 +777,14 @@ function content_types_field_default_fields() {
       'bundle' => 'kurssi',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Enter a comma-separated list of words to describe your content.',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'above',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '10',
+          'weight' => 21,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -807,7 +794,7 @@ function content_types_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_tags',
+      'field_name' => 'field_tagit',
       'label' => 'Tagit',
       'required' => 0,
       'settings' => array(
@@ -827,173 +814,9 @@ function content_types_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-tapahtuma-body'.
-  $fields['node-tapahtuma-body'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(
-        0 => 'node',
-      ),
-      'field_name' => 'body',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'text',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'text_with_summary',
-    ),
-    'field_instance' => array(
-      'bundle' => 'tapahtuma',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'hidden',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 1,
-        ),
-        'teaser' => array(
-          'label' => 'hidden',
-          'module' => 'text',
-          'settings' => array(
-            'trim_length' => 600,
-          ),
-          'type' => 'text_summary_or_trimmed',
-          'weight' => 1,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'body',
-      'label' => 'Body',
-      'required' => FALSE,
-      'settings' => array(
-        'display_summary' => TRUE,
-        'text_processing' => 1,
-        'user_field_privacy' => FALSE,
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'module' => 'text',
-        'settings' => array(
-          'rows' => 20,
-          'summary_rows' => 5,
-        ),
-        'type' => 'text_textarea_with_summary',
-        'weight' => '2',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-tapahtuma-field_tapahtuma_aika'.
-  $fields['node-tapahtuma-field_tapahtuma_aika'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_tapahtuma_aika',
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'locked' => '0',
-      'module' => 'date',
-      'settings' => array(
-        'cache_count' => '4',
-        'cache_enabled' => 0,
-        'granularity' => array(
-          'day' => 'day',
-          'hour' => 'hour',
-          'minute' => 'minute',
-          'month' => 'month',
-          'second' => 0,
-          'year' => 'year',
-        ),
-        'repeat' => 0,
-        'timezone_db' => 'UTC',
-        'todate' => 'optional',
-        'tz_handling' => 'site',
-      ),
-      'translatable' => '0',
-      'type' => 'datetime',
-    ),
-    'field_instance' => array(
-      'bundle' => 'tapahtuma',
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'date',
-          'settings' => array(
-            'format_type' => 'long',
-            'fromto' => 'both',
-            'multiple_from' => '',
-            'multiple_number' => '',
-            'multiple_to' => '',
-            'show_repeat_rule' => 'show',
-          ),
-          'type' => 'date_default',
-          'weight' => 2,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_tapahtuma_aika',
-      'label' => 'Tapahtuma aika',
-      'required' => 1,
-      'settings' => array(
-        'default_value' => 'blank',
-        'default_value2' => 'same',
-        'default_value_code' => '',
-        'default_value_code2' => '',
-        'user_field_privacy' => FALSE,
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'date',
-        'settings' => array(
-          'display_all_day' => 0,
-          'increment' => '1',
-          'input_format' => 'd.m.Y - H:i:s',
-          'input_format_custom' => '',
-          'label_position' => 'above',
-          'repeat_collapsed' => 0,
-          'text_parts' => array(),
-          'year_range' => '-3:+3',
-        ),
-        'type' => 'date_popup',
-        'weight' => '1',
-      ),
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
   t('Arvio');
-  t('Body');
-  t('Enter a comma-separated list of words to describe your content.');
   t('Hinnan tyyppi');
   t('Hinta');
   t('Kurssi alkaa');
@@ -1004,7 +827,6 @@ function content_types_field_default_fields() {
   t('Maksimi osallistujamäärä');
   t('Minimi osallistujamäärä');
   t('Tagit');
-  t('Tapahtuma aika');
 
   return $fields;
 }
