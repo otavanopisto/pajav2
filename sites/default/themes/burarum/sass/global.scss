@@ -325,7 +325,7 @@ ul.tabs.primary li.active a {
 }
 
 .views-slideshow-cycle-main-frame-row {
-  padding:0 0 5px 0;
+  padding:5px 0 5px 0;
 }
 
 .view-courses-not-started.view-display-id-block_slider,
@@ -345,7 +345,7 @@ ul.tabs.primary li.active a {
   float:left;
   max-width:205px;
   padding:6px;
-  margin:0 7px 0 7px;
+  margin:2px 7px 0 7px;
   @include box-shadow;
   background:#ffffff;
   border:1px solid #ffffff;
@@ -360,13 +360,13 @@ ul.tabs.primary li.active a {
 .view-courses-not-started .views-row:hover,
 .view-courses-started .views-row:hover {
   border:1px solid #7ca246;
-  @include box-shadow($shadow: 0 0 10px rgba(191,214,130,0.9));
-  background:#fff;
+  @include box-shadow($shadow: 0 0 8px rgba(167,196,90,0.9));
+  background:#ffffff;
 }
 
 .view-courses-not-started .views-row-first,
 .view-courses-started .views-row-first {
-  margin:0 7px 0 9px;
+  margin:2px 7px 0 9px;
 }
 
 .view-courses-not-started .views-row .views-field-field-kurssin-kuva,
@@ -465,7 +465,7 @@ ul.tabs.primary li.active a {
   display:block;
   clear:both;
   height:2.5em;
-  margin:0 15px 5px 15px;
+  margin:0 15px 0 15px;
 }
 
 .view-courses-not-started #views_slideshow_controls_text_courses_not_started-block_slider a,

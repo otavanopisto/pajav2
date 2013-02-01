@@ -57,13 +57,7 @@
 
 .view-courses-not-started .views-row,
 .view-courses-started .views-row {
-  float:left;
   max-width:264px;
-  padding:8px;
-  margin:0 7px 0 7px;
-  @include box-shadow;
-  background:#ffffff;
-  border:1px solid #ffffff;
 }
 
 .view-courses-not-started .views-row .views-field-field-kurssin-kuva,
