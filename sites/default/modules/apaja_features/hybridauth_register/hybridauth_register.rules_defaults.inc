@@ -30,7 +30,7 @@ function hybridauth_register_default_rules_configuration() {
         },
         { "path_alias" : {
             "source" : "user\\/[hybridauth-user:uid]",
-            "alias" : "users\\/[hybridauth:firstName].[hybridauth:lastName]"
+            "alias" : "kayttajat\\/[hybridauth:firstName].[hybridauth:lastName]"
           }
         }
       ]
