@@ -44,6 +44,15 @@ function course_members_view_views_default_views() {
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
+  /* Field: User: Uid */
+  $handler->display->display_options['fields']['uid']['id'] = 'uid';
+  $handler->display->display_options['fields']['uid']['table'] = 'users';
+  $handler->display->display_options['fields']['uid']['field'] = 'uid';
+  $handler->display->display_options['fields']['uid']['label'] = '';
+  $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
   /* Field: User: Etunimi */
   $handler->display->display_options['fields']['field_account_etunimi']['id'] = 'field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['table'] = 'field_data_field_account_etunimi';
@@ -60,7 +69,7 @@ function course_members_view_views_default_views() {
   $handler->display->display_options['fields']['field_account_kuva']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_account_kuva']['settings'] = array(
     'image_style' => 'avatar_thumbnail',
-    'image_link' => 'content',
+    'image_link' => '',
   );
   /* Field: User: Sukunimi */
   $handler->display->display_options['fields']['field_account_sukunimi']['id'] = 'field_account_sukunimi';
@@ -70,7 +79,7 @@ function course_members_view_views_default_views() {
   $handler->display->display_options['fields']['field_account_sukunimi']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_account_sukunimi']['alter']['text'] = '[field_account_etunimi] [field_account_sukunimi]';
   $handler->display->display_options['fields']['field_account_sukunimi']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_account_sukunimi']['alter']['path'] = 'users/[name]';
+  $handler->display->display_options['fields']['field_account_sukunimi']['alter']['path'] = 'user/[uid]';
   $handler->display->display_options['fields']['field_account_sukunimi']['element_label_colon'] = FALSE;
   /* Sort criterion: OG membership: Created */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
