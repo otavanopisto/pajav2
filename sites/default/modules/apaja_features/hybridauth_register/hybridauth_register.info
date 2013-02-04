@@ -1,0 +1,11 @@
+name = HybridAuth register
+core = 7.x
+package = Features
+version = 7.x-1.0
+project = hybridauth_register
+dependencies[] = entity
+dependencies[] = hybridauth
+dependencies[] = path
+dependencies[] = rules
+features[features_api][] = api:1
+features[rules_config][] = rules_hybridauth_register
