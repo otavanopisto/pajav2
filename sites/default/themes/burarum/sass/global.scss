@@ -283,7 +283,9 @@ ul.tabs.primary li.active a {
 }
 
 #block-block-1,
-#block-block-2 {
+#block-block-2,
+#block-block-3, 
+#block-block-4 {
   display:inline-block;
   margin:0;
   padding:0 4px;
@@ -328,14 +330,15 @@ ul.tabs.primary li.active a {
   padding:5px 0 5px 0;
 }
 
-.view-courses-not-started.view-display-id-block_slider,
-.view-courses-started.view-display-id-block_slider {
-  margin:6px 0 0 0;
+.view-courses-not-started.view-display-id-block_slider #views_slideshow_cycle_main_courses_not_started-block_slider,
+.view-courses-started.view-display-id-block_slider #views_slideshow_cycle_main_courses_not_started-block_slider {
+  margin:15px 0 0 0;
+  display:table;
 }
 
 .view-courses-not-started.view-display-id-page_list_all,
 .view-courses-started.view-display-id-page_list_all {
-  margin:6px 0 0 0;
+  margin:5px 0 0 0;
   display:table;
   padding:0 5px 10px 7px;
 }
@@ -345,7 +348,7 @@ ul.tabs.primary li.active a {
   float:left;
   max-width:205px;
   padding:6px;
-  margin:2px 7px 0 7px;
+  margin:0 7px 0 10px;
   @include box-shadow;
   background:#ffffff;
   border:1px solid #ffffff;
@@ -354,7 +357,7 @@ ul.tabs.primary li.active a {
 
 .view-courses-not-started .views-row.courses-not-started-page-row,
 .view-courses-started .views-row.courses-started-page-row {
-  margin:20px 7px 0 7px;
+  margin:15px 7px 0 10px;
 }
 
 .view-courses-not-started .views-row:hover,
@@ -362,11 +365,6 @@ ul.tabs.primary li.active a {
   border:1px solid #7ca246;
   @include box-shadow($shadow: 0 0 8px rgba(167,196,90,0.9));
   background:#ffffff;
-}
-
-.view-courses-not-started .views-row-first,
-.view-courses-started .views-row-first {
-  margin:2px 7px 0 9px;
 }
 
 .view-courses-not-started .views-row .views-field-field-kurssin-kuva,
@@ -464,8 +462,7 @@ ul.tabs.primary li.active a {
 #views_slideshow_controls_text_courses_started-block_slider {
   display:block;
   clear:both;
-  height:2.5em;
-  margin:0 15px 0 15px;
+  margin:0 15px 0 17px;
 }
 
 .view-courses-not-started #views_slideshow_controls_text_courses_not_started-block_slider a,
