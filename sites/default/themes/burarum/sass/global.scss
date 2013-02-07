@@ -52,7 +52,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size:1.2em;
   @include h1h2-defaults;
   @include box-shadow($shadow: 6px 6px 0 rgba(124,123,122,1.0));
-  margin:0 6px 0 0;
+  margin:0 6px 20px 0;
 }
 
 #page-container {
@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #page .node-page,
 #page #user-profile-form  {
-  margin:20px 14px 10px 14px;
+  margin:0 14px 10px 14px;
 }
 
 #page h3 {
@@ -340,7 +340,7 @@ ul.tabs.primary li.active a {
 .view-courses-started.view-display-id-page_list_all {
   margin:5px 0 0 0;
   display:table;
-  padding:0 5px 10px 7px;
+  padding:0 5px 0 7px;
 }
 
 .view-courses-not-started .views-row,
@@ -357,7 +357,7 @@ ul.tabs.primary li.active a {
 
 .view-courses-not-started .views-row.courses-not-started-page-row,
 .view-courses-started .views-row.courses-started-page-row {
-  margin:15px 7px 0 10px;
+  margin:0 7px 15px 10px;
 }
 
 .view-courses-not-started .views-row:hover,
@@ -425,20 +425,14 @@ ul.tabs.primary li.active a {
 }
 
 .view-courses-not-started .views-row span.views-label,
- .view-courses-started .views-row span.views-label,
- .view-courses-not-started .views-row .field-content span.views-label {
-  text-transform:uppercase;
-  margin:5px 0 0 0;
-  padding:5px 0 0 0;
-  display:block;
-  font-size:0.925em;
-  color:$fontColor;
+.view-courses-started .views-row span.views-label,
+.view-courses-not-started .views-row .field-content span.views-label {
+  @include generic-course-meta-info-label;
 }
 
 .view-courses-not-started .views-row .field-content,
 .view-courses-started .views-row .field-content {
-  font-size:0.925em;
-  color:#757575;
+   @include generic-course-meta-info-field;
 }
 
 .view-courses-not-started .views-row .field-content .attendancies-indicator-wrapper {
@@ -559,20 +553,12 @@ ul.tabs.primary li.active a {
 }
 
 #page #node-course-panel .field-label {
-  text-transform:uppercase;
-  margin:5px 0 0 0;
-  padding:5px 0 0 0;
-  display:block;
-  font-size:0.925em;
+  @include generic-course-meta-info-label;
 }
 
 #page #node-course-panel .pane-node-body {
   height:400px;
   overflow:hidden;
-}
-
-#page #node-course-panel .field-name-body {
-
 }
 
 #page #node-course-panel .desc-control-wrapper {
@@ -611,8 +597,7 @@ ul.tabs.primary li.active a {
 }
 
 #page #node-course-panel .field-items {
-  font-size:1em;
-  color:#757575;
+  @include generic-course-meta-info-field;
 }
 
 #page #node-course-panel .join-course-link {
@@ -1089,9 +1074,91 @@ body #page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapp
   bottom:0;
 }
 
+/* TAXONOMY TERMS VIEW */
 
+#page .view-taxonomy-term .views-row {
+  clear:both;
+  display:table;
+  margin:0 14px 10px 14px;
+  border-bottom:1px solid #eee;
+  padding:5px 0 10px 0;
+}
 
+#page .view-taxonomy-term .views-row .views-field-field-kurssin-kuva {
+  float:left;
+  width:266px;
+}
 
+#page .view-taxonomy-term .views-row .views-field-field-kurssin-kuva img {
+  width:100%;
+  height:auto;
+  @include box-shadow;
+}
 
+#page .view-taxonomy-term .views-row .views-field-title,
+#page .view-taxonomy-term .views-row .views-field-body {
+  margin:0 20px 5px 290px;
+}
+
+#page .view-taxonomy-term .views-row .views-field-body {
+  height:150px;
+  overflow:hidden;
+}
+
+#page .view-taxonomy-term .views-row .views-field-title a {
+  text-transform:uppercase;
+  font-size:1.1em;
+  color:$linkColorCourse;
+  text-decoration:none;
+}
+
+#page .view-taxonomy-term .views-row .views-field-field-arvio {
+  margin:10px 0 5px 0;
+}
+
+#page .view-taxonomy-term .views-row .views-field-field-kurssin-vetaja .views-label-field-kurssin-vetaja,
+#page .view-taxonomy-term .views-row .views-field-field-kurssi-loppuu .views-label-field-kurssi-loppuu {
+  @include generic-course-meta-info-label;
+}
+
+#page .view-taxonomy-term .views-row .views-field-field-kurssin-vetaja .field-content,
+#page .view-taxonomy-term .views-row .views-field-field-kurssi-loppuu .field-content {
+  @include generic-course-meta-info-field;
+}
+
+/* GLOBAL PAGER */
+
+.item-list .pager ul {
+  margin:10px 0 5px 0;
+}
+
+.item-list .pager ul li {
+  margin:0 0.25em 0 0.25em;
+  display:inline-block;
+}
+
+.item-list .pager li a {
+  display:inline-block;
+  width:20px;
+  height:20px;
+  padding:5px;
+}
+
+.item-list .pager li a:hover {
+  background:#88cfff;
+  border-radius:15px;
+  color:#ffffff;
+}
+
+.item-list .pager li.pager-current {
+  color:#ffffff;
+  font-weight:normal;
+  background:#0099ff;
+  border-radius:15px;
+  display:inline-block;
+  width:20px;
+  height:20px;
+  padding:5px;
+}
 
 
