@@ -117,10 +117,12 @@ function hybridauth_schema() {
         'not null' => TRUE,
         'default' => '',
       ),
+//  Petja. 8.2.2013
+//  Changed lenght of this field 32->256 since we get long url from google as provider_identifier
       'provider_identifier' => array(
         'description' => 'The authentication provider UID for this HybridAuth identity.',
         'type' => 'varchar',
-        'length' => 32,
+        'length' => 256,
         'not null' => TRUE,
         'default' => '',
       ),
