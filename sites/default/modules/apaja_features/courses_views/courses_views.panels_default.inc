@@ -301,6 +301,45 @@ function courses_views_default_panels_mini() {
     $pane->locks = array();
     $display->content['new-8'] = $pane;
     $display->panels['right'][1] = 'new-8';
+    $pane = new stdClass();
+    $pane->pid = 'new-9';
+    $pane->panel = 'right';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_tagit';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'above',
+      'formatter' => 'textformatter_list',
+      'delta_limit' => '0',
+      'delta_offset' => '0',
+      'delta_reversed' => 0,
+      'formatter_settings' => array(
+        'textformatter_type' => 'comma',
+        'textformatter_class' => 'textformatter-list',
+        'textformatter_comma_full_stop' => 0,
+        'textformatter_comma_and' => 0,
+        'textformatter_comma_tag' => 'span',
+        'textformatter_term_plain' => 0,
+        'textformatter_comma_override' => 0,
+        'textformatter_separator_custom' => '',
+        'textformatter_separator_custom_tag' => 'span',
+        'textformatter_separator_custom_class' => 'textformatter-separator',
+      ),
+      'context' => 'requiredcontext_entity:node_1',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $display->content['new-9'] = $pane;
+    $display->panels['right'][2] = 'new-9';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-1';
   $mini->display = $display;
