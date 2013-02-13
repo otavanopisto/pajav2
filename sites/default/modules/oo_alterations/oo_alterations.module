@@ -4,7 +4,7 @@ function oo_alterations_init() {
     // Load in Drupal core AJAX library.
     drupal_add_library('system', 'drupal.ajax');
     // Load in our custom JavaScript.
-    drupal_add_js(drupal_get_path('module', 'oo_alterations') . '/js/oo_alterations.js', array('weight' => 99));
+    drupal_add_js(drupal_get_path('module', 'oo_alterations') . '/js/oo_alterations.js', array('weight' => 97));
   }
 }
 
@@ -13,13 +13,15 @@ function oo_alterations_menu(){
   $items['login/ajax'] = array(
     'title' => 'ajax callback',
     'page callback' => 'oo_alterations_login_ajax_callback',
+    'page arguments' => array(1),
     'access callback' => 'user_is_anonymous',
     'type' => MENU_CALLBACK,
   );
   // Returns a Non-JavaScript alternative.
   $items['login/nojs'] = array(
     'title' => 'non-javascript callback',
-    'page callback' => 'oo_alterations_login_nojs_callback',
+    'page callback' => 'oo_alterations_login_ajax_callback',
+    'page arguments' => array(1),
     'access callback' => 'user_is_anonymous',
     'type' => MENU_CALLBACK,
   );
@@ -30,7 +32,11 @@ function oo_alterations_menu(){
 /**
  * AJAX callback for inline login.
  */
-function oo_alterations_login_ajax_callback() {
+function oo_alterations_login_ajax_callback($js) {
+  if($js == 'nojs'){
+    drupal_goto("login", array("destination" => $_GET['q']));
+    return;
+  }
   // Define a new array to hold our AJAX commands.
   $ajax_commands = array();
 
@@ -49,14 +55,6 @@ function oo_alterations_login_ajax_callback() {
 //   $page = array('#type' => 'ajax', '#commands' => $ajax_commands);
 //   ajax_deliver($page);
   return drupal_json_output($ajax_commands);
-}
-
-/**
- * Non-JavaScript callback that returns hello world.
- */
-function oo_alterations_login_nojs_callback() {
-  drupal_goto("login", array("destination" => $_GET['q']));
-  return;
 }
 
 /**
