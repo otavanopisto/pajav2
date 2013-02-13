@@ -54,16 +54,24 @@
 			var descControlWrapper = $('.desc-control-wrapper');
 			var showMoreLink = $('.show-more-link');
 			var showLessLink = $('.show-less-link');
-			var descElementWrapper = $('.pane-node-body');
-			var descELementHeight = $('.field-name-body').outerHeight();
+			var descElementWrapper = $('#mini-panel-kurssi_minipanel .pane-node-body');
+			var descELementHeight = $('#mini-panel-kurssi_minipanel .field-name-body').outerHeight();
+			
+			if (descELementHeight > '500') {
+				
+	            var fader = document.createElement("div"); 
 
-			if (descELementHeight >= '400') {
+	            descElementWrapper.append(fader);
+	            $(fader).addClass("description-fader");
+
+				descElementWrapper.css('height','400');
 				showMoreLink.click(function() {
 					descElementWrapper.animate({
 						height : descELementHeight + 'px'
 					}, 500, 'linear', function() {
 						showMoreLink.addClass('hiddenControl');
 						showLessLink.removeClass('hiddenControl');
+						$(fader).addClass("hidden-fader");
 					});
 				});
 			} else {
@@ -88,6 +96,7 @@
 				}, 500, 'linear', function() {
 					showMoreLink.removeClass('hiddenControl');
 					showLessLink.addClass('hiddenControl');
+					$('#mini-panel-kurssi_minipanel .description-fader').removeClass("hidden-fader");
 				});
 			});
 

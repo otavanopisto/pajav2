@@ -557,16 +557,70 @@ ul.tabs.primary li.active a {
 }
 
 #page #node-course-panel .pane-node-body {
-  height:400px;
   overflow:hidden;
+  position:relative;
 }
 
+#page #node-course-panel .pane-node-body .description-fader {
+  position:absolute;
+  display:block;
+  bottom:0;
+  left:0;
+  right:0;
+  height:80px;
+  border-bottom:8px solid #fff;
+  /* fallback */ 
+  background: transparent; 
+  /* Safari 4-5, Chrome 1-9 */ 
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255,255,255,0)), to(rgba(255,255,255,1))); 
+  /* Safari 5.1, Chrome 10+ */ 
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,1)); 
+  /* Firefox 3.6+ */ 
+  background: -moz-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,1)); 
+  /* IE 10 */ 
+  background: -ms-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,1)); 
+  /* Opera 11.10+ */ 
+  background: -o-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,1));
+}
+
+#page #node-course-panel .pane-node-body .description-fader.hidden-fader {
+  display:none;
+}  
+  
 #page #node-course-panel .desc-control-wrapper {
   height:20px;
   padding:5px;
   text-align:right;
   margin-top:5px;
 }
+
+#page #node-course-panel .pane-node-body .bodyFadeElement {
+  height:60px;
+  position:abslute;
+  bottom:0;
+  left:0;
+  right:0;
+  border:1px solid #000;
+  
+  /* fallback */ 
+  background-color:#000; 
+  
+  /* Safari 4-5, Chrome 1-9 */ 
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(transparent), to(#ffffff)); 
+  
+  /* Safari 5.1, Chrome 10+ */ 
+  background: -webkit-linear-gradient(top, transparent, #ffffff); 
+  
+  /* Firefox 3.6+ */ 
+  background: -moz-linear-gradient(top, transparent, #ffffff); 
+  
+  /* IE 10 */ 
+  background: -ms-linear-gradient(top, transparent, #ffffff); 
+  
+  /* Opera 11.10+ */ 
+  background: -o-linear-gradient(top, transparent, #ffffff);
+}
+
 
 #page #node-course-panel .show-more-link,
 #page #node-course-panel .show-less-link {
