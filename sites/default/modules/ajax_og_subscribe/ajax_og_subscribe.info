@@ -1,0 +1,6 @@
+; $Id$
+name = Ajax OG subscribe
+description = Provides ajax powered OG subscribe block(Otavan Opisto)
+core = 7.x
+dependencies[] = oo_alterations
+dependencies[] = og_ui

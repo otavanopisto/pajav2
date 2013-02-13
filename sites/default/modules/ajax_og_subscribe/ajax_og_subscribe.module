@@ -1,0 +1,235 @@
+<?php
+function ajax_og_subscribe_init() {
+  if (!drupal_installation_attempted() && (arg(0) == 'node' && arg(1) != '')) {
+    // Load in Drupal core AJAX library.
+    drupal_add_library('system', 'drupal.ajax');
+    // Load in our custom JavaScript.
+    drupal_add_js(drupal_get_path('module', 'ajax_og_subscribe') . '/ajax_og_subscribe.js', array('weight' => 98));
+  }
+}
+
+function ajax_og_subscribe_menu(){
+  $items['course/%/subscribe/ajax'] = array(
+    'title' => 'ajax callback for joining the course',
+    'page callback' => 'ajax_og_subscribe_join_course_callback',
+    'page arguments' => array(1,3),
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  
+  $items['course/%/subscribe/nojs'] = array(
+    'title' => 'non ajax callback for joining the course',
+    'page callback' => 'ajax_og_subscribe_join_course_callback',
+    'page arguments' => array(1,3),
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  
+  return $items; 
+}
+
+function ajax_og_subscribe_join_course_callback($etid, $js){
+  if($js == 'nojs'){
+    drupal_set_message('Sinulla täytyy olla javascript päällä selaimessasi, jotta sivusto toimisi oikein.', 'error');
+    drupal_goto("group/node/$etid/subscribe/og_user_node");
+    return;
+  }
+  global $user;
+  if (!$user->uid) {
+    // Anonymous user can't request membership.
+    $dest = drupal_get_destination();
+    if (variable_get('user_register', 1)) {
+      $login_link = l("Kirjaudu sisään", "login/nojs", array("attributes" => array("class" => array("subscribe-ajax-login"))));
+      $register_link = l(t('Luo tunnukset'), 'signup');
+      $join_html = '<span class="generic-empty-text">' . $login_link . '</span>';
+      $join_html .= '<span class="generic-empty-text"> tai </span>';
+      $join_html .= '<span class="generic-empty-text">' . $register_link . '</span>';
+      $join_html .= '<span class="generic-empty-text"> Liittyäksesi jäseneksi. </span>';
+    }
+    else {
+      $join_html = '<span class="generic-empty-text">' . $login_link . '</span>';
+    }
+    $ajax_commands[] = ajax_command_replace('#join-course-block', "<div id='join-course-form-block'>$join_html</div>", array(array("effect" => 'fade')));
+    return drupal_json_output($ajax_commands);
+  }
+  module_load_include('inc', 'og_ui', 'og_ui.pages');
+  $entity = entity_load_single('node', $etid);
+  list($id, $vid, $bundle) = entity_extract_ids('node', $entity);
+  if (empty($field_name)) {
+    $field_name = og_get_best_group_audience_field('user', $user->uid, 'node', $bundle);
+    if (empty($field_name)) {
+      // User entity has no group audience field.
+      drupal_set_message('User entity has no group audience field.', 'error');
+      return;
+    }
+  }
+  // Define a new array to hold our AJAX commands.
+  $ajax_commands = array();
+  $join_html = drupal_render(drupal_get_form('og_ui_confirm_subscribe', 'node', $id, $user, $field_name));
+  $ajax_commands[] = ajax_command_before('#join-course-block', "<div id='join-course-form-block'>$join_html</div>", array(array("effect" => 'fade')));
+  return drupal_json_output($ajax_commands);
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function ajax_og_subscribe_block_info() {
+  $blocks = array();
+  $blocks['ajax_og_subscribe_block'] = array(
+      'info' => t('Ajax OG subscribe block'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function ajax_og_subscribe_block_configure($delta='') {
+  $form = array();
+
+  switch($delta) {
+    case 'ajax_og_subscribe_block' :
+
+      break;
+  }
+  return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function ajax_og_subscribe_block_save($delta = '', $edit = array()) {
+  switch($delta) {
+    case 'ajax_og_subscribe_block' :
+      break;
+  }
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function ajax_og_subscribe_block_view($delta='') {
+  $block = array();
+
+  switch($delta) {
+    case 'ajax_og_subscribe_block' :
+      $block['content'] = _ajax_og_subscribe_view();
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Custom function to assemble renderable array for block content.
+ * Returns a renderable array with the block content.
+ * @return
+ *   returns a renderable array of block content.
+ */
+function _ajax_og_subscribe_view() {
+  global $user;
+  
+  $block = array();
+  // Block output in HTML with div wrapper
+  $block = array(
+      'content' => array(
+          '#prefix' => '<div class="ajax-og-subscribe-block">',
+          '#type' => 'markup',
+          '#suffix' => '</div>',
+      ),
+  );
+  
+  module_load_include('inc', 'og_ui', 'og_ui.pages');
+  $entity_type = arg(0);
+  $etid = arg(1);
+  $entity_info = entity_get_info($entity_type);
+  if (!$entity_type || !$entity_info) {
+    $block["#markup"] = "Not a valid entity type.";
+    return $block;
+  }
+  $entity = entity_load_single($entity_type, $etid);
+  if (!$entity || !og_is_group($entity_type, $entity)) {
+    $block["#markup"] = "Not a valid entity, or not a group.";
+    return $block;
+  }
+  
+  list($id, $vid, $bundle) = entity_extract_ids($entity_type, $entity);
+  
+  if (empty($field_name)) {
+    $field_name = og_get_best_group_audience_field('user', $user->uid, $entity_type, $bundle);
+    if (empty($field_name)) {
+      $block["#markup"] = "User entity has no group audience field.";
+      return $block;
+    }
+  }
+  
+  $field = field_info_field($field_name);
+  $instance = field_info_instance('user', $field_name, 'user');
+  $account = user_load($user->uid);
+  
+  if (empty($instance) || !field_access('view', $field, 'user', $account)) {
+    $block["#markup"] = "Field name given is incorrect, or user doesn't have access to the field.";
+    return $block;
+  }
+  
+  if (!$user->uid) {
+    // Anonymous user can't request membership.
+    $dest = drupal_get_destination();
+    if (variable_get('user_register', 1)) {
+      $block["#markup"] = l("Liity", "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax')));
+      return $block;
+    }
+  }
+  
+  $redirect = FALSE;
+  $message = '';
+  
+  $params = array();
+  $params['@user'] = format_username($user);
+  // Show the group name only if user has access to it.
+  $params['@group'] = entity_access('view', $entity_type, $entity) ?  entity_label($entity_type, $entity) : t('Private group');
+  
+  if (og_is_member($entity_type, $id, 'user', $user, array(OG_STATE_BLOCKED))) {
+    $block["#markup"] = "Käyttäjätunnuksesi on estetty tällä kurssilla.";
+    return $block;    // User is blocked, access denied.
+  }
+  if (og_is_member($entity_type, $id, 'user', $user, array(OG_STATE_PENDING))) {
+    // User is pending, return them back.
+    $message = $user->uid == $user->uid ? t('You already have a pending membership for the group.') : t('User already has a pending membership for the  the group.');
+    $block["#markup"] = $message;
+    return $block;
+  }
+  
+  if (og_is_member($entity_type, $id, 'user', $user, array(OG_STATE_ACTIVE))) {
+    // User is already a member, return them back.
+    $message = $user->uid == $user->uid ? t('You are already a member of the group.') : t('User is already a member of the group.');
+    $block["#markup"] = $message;
+    return $block;
+  }
+  
+  if (!$message && $field['cardinality'] != FIELD_CARDINALITY_UNLIMITED) {
+    // Check if user is already registered as active or pending in the maximum
+    // allowed values.
+    $wrapper = entity_metadata_wrapper('user', $account->uid);
+    if ($field['cardinality'] == 1) {
+      $count = $wrapper->{$field_name}->value() ? 1 : 0;
+    }
+    else {
+      $count = $wrapper->{$field_name}->count();
+    }
+    if ($count >= $field['cardinality']) {
+      $message = t('You cannot register to this group, as you have reached your maximum allowed subscriptions.');
+      $block["#markup"] = $message;
+      return $block;
+    }
+  }
+  
+  if (og_user_access($entity_type, $id, 'subscribe', $user) || og_user_access($entity_type, $id, 'subscribe without approval', $user)) {
+    // Show the user a subscription link
+    $content = l("Liity", "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax')));
+    $block["#markup"] = $content;
+    return $block;
+  }
+  return $block;
+}
