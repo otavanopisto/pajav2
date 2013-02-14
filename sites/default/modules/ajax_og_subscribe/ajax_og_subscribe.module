@@ -51,7 +51,7 @@ function ajax_og_subscribe_join_course_callback($etid, $js){
     }
     $ajax_commands[] = ajax_command_replace('#join-course-block', "<div id='join-course-form-block'>$join_html</div>");
     $ajax_commands[] = ajax_command_invoke('#join-course-form-block', 'hide');
-    $ajax_commands[] = ajax_command_invoke('#join-course-form-block', 'fadeIn', array(2000));
+    $ajax_commands[] = ajax_command_invoke('#join-course-form-block', 'fadeIn', array(1000));
     return drupal_json_output($ajax_commands);
   }
   module_load_include('inc', 'og_ui', 'og_ui.pages');
