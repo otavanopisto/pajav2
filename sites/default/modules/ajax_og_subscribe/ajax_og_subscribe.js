@@ -11,7 +11,7 @@
       }
     }
   };
-    
+  
   Drupal.behaviors.calcelCourseRegisterLink = {
     attach: function(context, settings) {
     	if ($('#join-course-form-block').length > 0) {

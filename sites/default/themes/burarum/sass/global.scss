@@ -556,6 +556,20 @@ ul.tabs.primary li.active a {
   @include generic-course-meta-info-label;
 }
 
+#page #node-course-panel #join-course-block {
+  margin-top:10px;
+}
+
+#page #node-course-panel #join-course-block a {
+  @include buttonized-link;
+  @include rounded-borders;
+  @include box-shadow;
+}
+
+#page #node-course-panel #join-course-block a:hover {
+  @include text-shadow;
+}
+
 #page #node-course-panel .pane-node-body {
   overflow:hidden;
   position:relative;
@@ -596,13 +610,7 @@ ul.tabs.primary li.active a {
 
 #page #node-course-panel .show-more-link,
 #page #node-course-panel .show-less-link {
-  color:#ffffff;
-  display:inline-block;
-  padding:2px 12px 2px 6px;
-  border-right:8px solid #7c7b7a;
-  text-transform:uppercase;
-  font-size:0.9em;
-  cursor:pointer;
+  @include expanding-buttonized-link;
 }
 
 #page #node-course-panel .show-less-link {
@@ -632,12 +640,6 @@ ul.tabs.primary li.active a {
 
 #page #node-course-panel .join-course-link {
   margin:10px 0 0 0;
-}
-
-#page #node-course-panel .join-course-link a {
-  @include buttonized-link;
-  @include box-shadow;
-  @include rounded-borders;
 }
 
 #page #node-course-panel .view-course-members .views-row {

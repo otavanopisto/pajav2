@@ -186,6 +186,16 @@ $tooltipRTLTransitionFunction:linear;
   text-decoration:none;
 }
 
+@mixin expanding-buttonized-link {
+  color:#ffffff;
+  display:inline-block;
+  padding:2px 12px 2px 6px;
+  border-right:8px solid #7c7b7a;
+  text-transform:uppercase;
+  font-size:0.9em;
+  cursor:pointer;
+}
+
 @mixin previous-arrow {
   content:'.';
   text-indent:-9999px;
