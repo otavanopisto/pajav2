@@ -48,7 +48,10 @@ function oo_alterations_login_ajax_callback($js) {
     $target = $_POST['target'];
   }
   // Create a new AJAX command that replaces the #page text with our own text.
-  $ajax_commands[] = ajax_command_replace($target, $login_html, array('#ajax' => array('effect' => 'slide')));
+  $ajax_commands[] = ajax_command_invoke($target, 'hide');
+  $ajax_commands[] = ajax_command_invoke($target, 'fadeIn', array(1000));
+  $ajax_commands[] = ajax_command_replace($target, $login_html);
+
 //   $ajax_commands[] = ajax_command_after('.comment-ajax-login', $login_html);
   // Return our commands in JSON.
 //   $commands[] = ajax_command_replace('.some-class', date('G:i:s'));

@@ -52,6 +52,7 @@ function ajax_og_subscribe_join_course_callback($etid, $js){
     $ajax_commands[] = ajax_command_before('#join-course-block', "<div id='join-course-form-block'>$join_html</div>");
     $ajax_commands[] = ajax_command_invoke('#join-course-form-block', 'hide');
     $ajax_commands[] = ajax_command_invoke('#join-course-form-block', 'fadeIn', array(1000));
+//     $ajax_commands[] = ajax_command_invoke('#join-course-bt', 'off', array('click'));
     return drupal_json_output($ajax_commands);
   }
   module_load_include('inc', 'og_ui', 'og_ui.pages');
@@ -71,7 +72,9 @@ function ajax_og_subscribe_join_course_callback($etid, $js){
   $ajax_commands[] = ajax_command_before('#join-course-block', "<div id='join-course-form-block'>$join_html</div>");
   $ajax_commands[] = ajax_command_invoke('#join-course-form-block', 'hide');
   $ajax_commands[] = ajax_command_invoke('#join-course-form-block', 'fadeIn', array(1000));
+//   $ajax_commands[] = ajax_command_invoke('#join-course-bt', 'off', array('click'));
   return drupal_json_output($ajax_commands);
+
 }
 
 /**
@@ -181,7 +184,7 @@ function _ajax_og_subscribe_view() {
     // Anonymous user can't request membership.
     $dest = drupal_get_destination();
     if (variable_get('user_register', 1)) {
-      $block["#markup"] = l("Liity kurssille", "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax')));
+      $block["#markup"] = l("Liity kurssille", "course/".arg(1)."/subscribe/nojs", array('attributes' => array('id' => 'join-course-bt')));
       return $block;
     }
   }
@@ -231,7 +234,7 @@ function _ajax_og_subscribe_view() {
   
   if (og_user_access($entity_type, $id, 'subscribe', $user) || og_user_access($entity_type, $id, 'subscribe without approval', $user)) {
     // Show the user a subscription link
-    $content = l("Liity kurssille", "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax')));
+    $content = l("Liity kurssille", "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax', 'id' => 'join-course-bt')));
     $block["#markup"] = $content;
     return $block;
   }
