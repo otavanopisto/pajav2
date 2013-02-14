@@ -6,7 +6,7 @@ Drupal.behaviors.hybridauthWidget.attach = function (context, settings) {
     $(this).click(function(event) {
       event.preventDefault();
       var url = $(this).attr('href');
-      popup_window = window.open(url, 'hybridauth', 'location=no,menubar=no,resizable=yes,scrollbars=yes,status=no,titlebar=yes,toolbar=no,channelmode=yes,fullscreen=yes,width=800,height=500');
+      popup_window = window.open(url, 'hybridauth', 'location=no,menubar=no,resizable=yes,scrollbars=yes,status=no,titlebar=yes,toolbar=no,channelmode=yes,fullscreen=yes,width=880,height=500');
       popup_window.focus();
       return false;
     });

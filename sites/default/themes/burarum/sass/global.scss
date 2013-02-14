@@ -557,7 +557,7 @@ ul.tabs.primary li.active a {
 }
 
 #page #node-course-panel #join-course-block {
-  margin-top:10px;
+  margin-top:15px;
 }
 
 #page #node-course-panel #join-course-block a {
@@ -690,6 +690,29 @@ ul.tabs.primary li.active a {
 #page #node-course-panel .view-course-members .views-row .views-field-field-account-sukunimi a:focus {
   color:$linkFocusColorUser;
   text-decoration:none;
+}
+
+/* AJAX COURSE JOINING */
+
+#page #mini-panel-kurssi_minipanel ul {
+  position:relative;
+}
+
+#page #mini-panel-kurssi_minipanel ul #join-course-form-block {
+  position:absolute;
+  bottom:30px;
+  left:-15px;
+  width:350px;
+  min-height:50px;
+  background:#fff;
+  @include box-padding($padding: 15px);
+  @include box-shadow(0 0 10px rgba(0,0,0,0.2));
+  @include rounded-borders;
+  border:1px solid #aaaaaa;
+}
+
+#page #mini-panel-kurssi_minipanel ul div.ajax-progress {
+  display:none;
 }
 
 /* FIVESTAR RATING */

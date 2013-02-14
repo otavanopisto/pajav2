@@ -24,18 +24,20 @@
       }
     }
   };
-  
-  Drupal.behaviors.calcelCourseRegisterLink = {
+  // Override default Cancel link behaviour ...
+  Drupal.behaviors.cancelCourseRegisterLink = {
     attach: function(context, settings) {
     	if ($('#join-course-form-block').length > 0) {
     		$('#join-course-form-block a#edit-cancel').click(function(event) {
     		  $('#join-course-form-block').empty();
     			$('#join-course-form-block').remove();
+    			$('#join-course-form-block').fadeOut(300, function () {
+    				$(this).remove();
+    			});
     			event.preventDefault();
     			event.stopPropagation();
 			});
     	}
     } 
   };
-  
 })(jQuery);
