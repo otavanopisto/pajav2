@@ -49,7 +49,7 @@ function ajax_og_subscribe_join_course_callback($etid, $js){
     else {
       $join_html = '<span class="generic-empty-text">' . $login_link . '</span>';
     }
-    $ajax_commands[] = ajax_command_replace('#join-course-block', "<div id='join-course-form-block'>$join_html</div>", array(array("effect" => 'fade')));
+    $ajax_commands[] = ajax_command_before('#join-course-block', "<div id='join-course-form-block'>$join_html</div>", array(array("effect" => 'fade')));
     return drupal_json_output($ajax_commands);
   }
   module_load_include('inc', 'og_ui', 'og_ui.pages');
@@ -177,7 +177,7 @@ function _ajax_og_subscribe_view() {
     // Anonymous user can't request membership.
     $dest = drupal_get_destination();
     if (variable_get('user_register', 1)) {
-      $block["#markup"] = l("Liity", "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax')));
+      $block["#markup"] = l("Liity kurssille", "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax')));
       return $block;
     }
   }
@@ -227,7 +227,7 @@ function _ajax_og_subscribe_view() {
   
   if (og_user_access($entity_type, $id, 'subscribe', $user) || og_user_access($entity_type, $id, 'subscribe without approval', $user)) {
     // Show the user a subscription link
-    $content = l("Liity", "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax')));
+    $content = l("Liity kurssille", "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax')));
     $block["#markup"] = $content;
     return $block;
   }

@@ -11,4 +11,16 @@
       }
     }
   };
+  
+  Drupal.behaviors.calcelCourseRegisterLink = {
+    attach: function(context, settings) {
+    	if ($('#join-course-form-block').length > 0) {
+    		$('#join-course-form-block a#edit-cancel').click(function(event) {
+    			$('#join-course-form-block').remove();
+    			event.preventDefault();
+			});
+    	}
+    } 
+  };
+  
 })(jQuery);
