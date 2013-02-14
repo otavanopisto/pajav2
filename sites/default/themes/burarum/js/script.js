@@ -57,7 +57,7 @@
 			var descElementWrapper = $('#mini-panel-kurssi_minipanel .pane-node-body');
 			var descELementHeight = $('#mini-panel-kurssi_minipanel .field-name-body').outerHeight();
 			
-			if (descELementHeight > '500') {
+			if (descELementHeight > '400') {
 				
 	            var fader = document.createElement("div"); 
 

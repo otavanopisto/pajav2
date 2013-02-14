@@ -594,34 +594,6 @@ ul.tabs.primary li.active a {
   margin-top:5px;
 }
 
-#page #node-course-panel .pane-node-body .bodyFadeElement {
-  height:60px;
-  position:abslute;
-  bottom:0;
-  left:0;
-  right:0;
-  border:1px solid #000;
-  
-  /* fallback */ 
-  background-color:#000; 
-  
-  /* Safari 4-5, Chrome 1-9 */ 
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(transparent), to(#ffffff)); 
-  
-  /* Safari 5.1, Chrome 10+ */ 
-  background: -webkit-linear-gradient(top, transparent, #ffffff); 
-  
-  /* Firefox 3.6+ */ 
-  background: -moz-linear-gradient(top, transparent, #ffffff); 
-  
-  /* IE 10 */ 
-  background: -ms-linear-gradient(top, transparent, #ffffff); 
-  
-  /* Opera 11.10+ */ 
-  background: -o-linear-gradient(top, transparent, #ffffff);
-}
-
-
 #page #node-course-panel .show-more-link,
 #page #node-course-panel .show-less-link {
   color:#ffffff;
@@ -643,6 +615,10 @@ ul.tabs.primary li.active a {
 
 #page #node-course-panel .hiddenControl {
   display:none;
+}
+
+#page #node-course-panel .pane-node-field-tagit {
+  margin-bottom:20px;
 }
 
 #page #node-course-panel .field-name-body .field-items {
