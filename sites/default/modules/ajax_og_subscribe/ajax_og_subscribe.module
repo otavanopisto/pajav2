@@ -51,8 +51,7 @@ function ajax_og_subscribe_join_course_callback($etid, $js){
     }
     $ajax_commands[] = ajax_command_before('#join-course-block', "<div id='join-course-form-block'>$join_html</div>");
     $ajax_commands[] = ajax_command_invoke('#join-course-form-block', 'hide');
-    $ajax_commands[] = ajax_command_invoke('#join-course-form-block', 'fadeIn', array(1000));
-//     $ajax_commands[] = ajax_command_invoke('#join-course-bt', 'off', array('click'));
+    $ajax_commands[] = ajax_command_invoke('#join-course-form-block', 'fadeIn', array(300));
     return drupal_json_output($ajax_commands);
   }
   module_load_include('inc', 'og_ui', 'og_ui.pages');
@@ -69,10 +68,9 @@ function ajax_og_subscribe_join_course_callback($etid, $js){
   // Define a new array to hold our AJAX commands.
   $ajax_commands = array();
   $join_html = drupal_render(drupal_get_form('og_ui_confirm_subscribe', 'node', $id, $user, $field_name));
-  $ajax_commands[] = ajax_command_before('#join-course-block', "<div id='join-course-form-block'>$join_html</div>");
+  $ajax_commands[] = ajax_command_before('#join-course-block', "<div id='join-course-form-block'><div class='join-course-title-block'>" . t('Kurssille liittyminen') . "</div><div class='join-course-description-block'>" . t('Vahvista kurssille liittyminen alla olevalla painikkeella. Vaihtoehtoisesti voit peruuttaa liittymisen peruuta-linkillä.') . "</div>$join_html<div class='join-course-arrow-block'></div></div>");
   $ajax_commands[] = ajax_command_invoke('#join-course-form-block', 'hide');
-  $ajax_commands[] = ajax_command_invoke('#join-course-form-block', 'fadeIn', array(1000));
-//   $ajax_commands[] = ajax_command_invoke('#join-course-bt', 'off', array('click'));
+  $ajax_commands[] = ajax_command_invoke('#join-course-form-block', 'fadeIn', array(300));
   return drupal_json_output($ajax_commands);
 
 }

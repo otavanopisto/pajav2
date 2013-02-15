@@ -700,15 +700,39 @@ ul.tabs.primary li.active a {
 
 #page #mini-panel-kurssi_minipanel ul #join-course-form-block {
   position:absolute;
-  bottom:30px;
-  left:-15px;
+  bottom:35px;
+  left:-10px;
   width:350px;
   min-height:50px;
   background:#fff;
   @include box-padding($padding: 15px);
-  @include box-shadow(0 0 10px rgba(0,0,0,0.2));
+  @include box-shadow(0 0 200px rgba(0,0,0,0.2));
   @include rounded-borders;
   border:1px solid #aaaaaa;
+  z-index:999;
+}
+
+#page #mini-panel-kurssi_minipanel ul #join-course-form-block  .form-actions {
+  margin:15px 0 5px 0;
+}
+
+#page #mini-panel-kurssi_minipanel ul .join-course-title-block {
+  text-transform:uppercase;
+  margin:0 0 5px 0;
+}
+
+#page #mini-panel-kurssi_minipanel ul .join-course-description-block {
+  color:$altFontColor;
+  font-size:0.95em;
+}
+
+#page #mini-panel-kurssi_minipanel ul .join-course-arrow-block {
+  position:absolute;
+  bottom:-10px;
+  left:50px;
+  height:9px;
+  width:15px;
+  background:url('../gfx/arrow-bottom.png') no-repeat;
 }
 
 #page #mini-panel-kurssi_minipanel ul div.ajax-progress {
