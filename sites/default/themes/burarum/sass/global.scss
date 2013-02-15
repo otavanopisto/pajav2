@@ -706,10 +706,20 @@ ul.tabs.primary li.active a {
   min-height:50px;
   background:#fff;
   @include box-padding($padding: 15px);
-  @include box-shadow(0 0 200px rgba(0,0,0,0.2));
+  @include box-shadow(0 -20px 60px rgba(0,0,0,0.3));
   @include rounded-borders;
   border:1px solid #aaaaaa;
   z-index:999;
+}
+
+#page #mini-panel-kurssi_minipanel ul #join-course-form-block h3 {
+  font-weight:normal;
+  font-size:1em;
+}
+
+#page #mini-panel-kurssi_minipanel ul #join-course-form-block label {
+  font-weight:normal;
+  font-size:0.90em;
 }
 
 #page #mini-panel-kurssi_minipanel ul #join-course-form-block  .form-actions {
@@ -718,10 +728,17 @@ ul.tabs.primary li.active a {
 
 #page #mini-panel-kurssi_minipanel ul .join-course-title-block {
   text-transform:uppercase;
+  font-size:1.1em;
   margin:0 0 5px 0;
 }
 
 #page #mini-panel-kurssi_minipanel ul .join-course-description-block {
+  color:$altFontColor;
+  font-size:0.95em;
+  margin:2px 0 2px 0;
+}
+
+#page #mini-panel-kurssi_minipanel ul .form-item .description {
   color:$altFontColor;
   font-size:0.95em;
 }

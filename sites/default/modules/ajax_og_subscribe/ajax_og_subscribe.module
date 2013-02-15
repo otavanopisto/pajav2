@@ -41,15 +41,18 @@ function ajax_og_subscribe_join_course_callback($etid, $js){
     if (variable_get('user_register', 1)) {
       $login_link = l("Kirjaudu sisään", "login/nojs", array("attributes" => array("class" => array("subscribe-ajax-login"))));
       $register_link = l(t('Luo tunnukset'), 'signup');
-      $join_html = '<span class="generic-empty-text">' . $login_link . '</span>';
-      $join_html .= '<span class="generic-empty-text"> tai </span>';
-      $join_html .= '<span class="generic-empty-text">' . $register_link . '</span>';
-      $join_html .= '<span class="generic-empty-text"> Liittyäksesi jäseneksi. </span>';
+//       $join_html = '<span class="generic-empty-text">' . $login_link . '</span>';
+//       $join_html .= '<span class="generic-empty-text"> tai </span>';
+//       $join_html .= '<span class="generic-empty-text">' . $register_link . '</span>';
+//       $join_html .= '<span class="generic-empty-text"> Liittyäksesi jäseneksi. </span>';
+      
+      // Lankinen begins _the_ RAPE
+      $join_html = drupal_render(drupal_get_form('user_login'));
     }
     else {
       $join_html = '<span class="generic-empty-text">' . $login_link . '</span>';
     }
-    $ajax_commands[] = ajax_command_before('#join-course-block', "<div id='join-course-form-block'>$join_html</div>");
+    $ajax_commands[] = ajax_command_before('#join-course-block', "<div id='join-course-form-block'><div class='join-course-title-block'>" . t('Kirjaudu sisään ja liity kurssille') . "</div><div class='join-course-description-block'>" . t('Osallistuaksesi kurssille sinun pitää kirjautua sisään aPaja-sivustolle rekisteröidyillä tunnuksilla.') . "</div><div class='join-course-description-block'>$register_link " . t('tai rekisteröidy ulkoisen palvelun avulla mikäli et vielä omaa tunnuksia sivustolle.') . "</div>$join_html<div class='join-course-arrow-block'></div></div>");
     $ajax_commands[] = ajax_command_invoke('#join-course-form-block', 'hide');
     $ajax_commands[] = ajax_command_invoke('#join-course-form-block', 'fadeIn', array(300));
     return drupal_json_output($ajax_commands);
@@ -182,7 +185,7 @@ function _ajax_og_subscribe_view() {
     // Anonymous user can't request membership.
     $dest = drupal_get_destination();
     if (variable_get('user_register', 1)) {
-      $block["#markup"] = l("Liity kurssille", "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax', 'id' => 'join-course-bt')));
+      $block["#markup"] = l("Kirjaudu sisään ja liity kurssille", "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax', 'id' => 'join-course-bt')));
       return $block;
     }
   }
