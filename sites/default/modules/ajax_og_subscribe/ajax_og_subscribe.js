@@ -1,18 +1,34 @@
 (function($) {
-  Drupal.behaviors.subscribe_ajax_bt = {  
+  Drupal.behaviors.subscribeAjaxBtClick = {  
     attach : function(context, settings) {
       if ($('#join-course-bt').length > 0) {
         $('#join-course-bt').click(function(event){
           if ($('#join-course-form-block').length > 0) {
             $('#join-course-form-block').empty();
             $('#join-course-form-block').remove();
+            event.preventDefault();
+            event.stopPropagation();
           }
         });
       }
     }
   };
+
+  Drupal.behaviors.handlePopupClose = {  
+      attach : function(context, settings) {
+        if ($('#join-course-form-block').length > 0) {
+          $('#join-course-form-block').click(function(event){
+             event.stopPropagation();
+          });
+          $('.html').click(function(event){
+            $('#join-course-form-block').empty();
+            $('#join-course-form-block').remove();
+          });
+        }
+      }
+    };
   
-  Drupal.behaviors.subscribe_ajax_login = {
+  Drupal.behaviors.subscribeAjaxLogin = {
     attach : function(context, settings) {
       if ($('.subscribe-ajax-login').length > 0) {
     	  var subscribeAjaxLoginLink = $('.subscribe-ajax-login');
