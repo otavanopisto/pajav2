@@ -763,6 +763,15 @@ ul.tabs.primary li.active a {
   display:none;
 }
 
+#page #join-course-form-block form label {
+  text-transform:uppercase;
+}
+
+#page #join-course-form-block form input.form-text {
+  max-width: 100%;
+  min-width: 95%;
+}
+
 /* FIVESTAR RATING */
 
 #page form #edit-fivestar-submit {
