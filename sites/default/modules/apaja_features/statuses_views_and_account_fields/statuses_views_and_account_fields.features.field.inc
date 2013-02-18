@@ -98,7 +98,7 @@ function statuses_views_and_account_fields_field_default_fields() {
       'locked' => '0',
       'module' => 'image',
       'settings' => array(
-        'default_image' => '83',
+        'default_image' => '80',
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -126,7 +126,7 @@ function statuses_views_and_account_fields_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'alt_field' => 0,
-        'default_image' => '82',
+        'default_image' => '79',
         'file_directory' => '',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
@@ -144,7 +144,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'croparea' => '320x320',
           'enforce_minimum' => 1,
           'enforce_ratio' => 1,
-          'preview_image_style' => 'thumbnail',
+          'preview_image_style' => 'avatar_normal',
           'progress_indicator' => 'throbber',
           'resolution' => '160x160',
         ),
@@ -498,7 +498,7 @@ function statuses_views_and_account_fields_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           0 => array(
-            'vocabulary' => 'tahdon_oppia',
+            'vocabulary' => 'tagit',
             'parent' => '0',
           ),
         ),

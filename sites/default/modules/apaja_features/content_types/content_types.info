@@ -36,6 +36,7 @@ features[field][] = node-kurssi-field_tagit
 features[filter][] = filtered_html
 features[filter][] = full_html
 features[node][] = kurssi
+features[taxonomy][] = tagit
 features[taxonomy][] = tags
 features[variable][] = comment_anonymous_kurssi
 features[variable][] = comment_default_mode_kurssi
