@@ -210,20 +210,11 @@ function courses_views_default_panels_mini() {
     $pane = new stdClass();
     $pane->pid = 'new-6';
     $pane->panel = 'left';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:group_group';
+    $pane->type = 'block';
+    $pane->subtype = 'ajax_og_subscribe-ajax_og_subscribe_block';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'hidden',
-      'formatter' => 'og_group_subscribe',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(
-        'field_name' => '0',
-      ),
-      'context' => 'requiredcontext_entity:node_1',
       'override_title' => 1,
       'override_title_text' => '',
     );
@@ -232,8 +223,8 @@ function courses_views_default_panels_mini() {
       'settings' => NULL,
     );
     $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'join-course-link',
+      'css_id' => 'join-course-block',
+      'css_class' => '',
     );
     $pane->extras = array();
     $pane->position = 5;
