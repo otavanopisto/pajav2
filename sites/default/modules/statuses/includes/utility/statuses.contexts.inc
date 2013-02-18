@@ -234,12 +234,14 @@ class statuses_og_context extends statuses_node_context {
     if (function_exists('og_get_group_ids')) { // OG 7.x-1.x
       $group_ids = og_get_group_ids('node', array($recipient->nid));
       if (!empty($group_ids)) {
-        return parent::access_add($recipient, $sender) && og_is_member(current($group_ids), 'user', $sender);
+//         Petja. Non group members should be able to send statuses as well
+        return parent::access_add($recipient, $sender);
       }
     }
     else { // OG 7.x-2.x
       if (og_is_group('node', $recipient->nid)) {
-        return parent::access_add($recipient, $sender) && og_is_member('node', $recipient->nid, 'user', $sender);
+//         Petja. Non group members should be able to send statuses as well
+        return parent::access_add($recipient, $sender);
       }
     }
     return FALSE;
