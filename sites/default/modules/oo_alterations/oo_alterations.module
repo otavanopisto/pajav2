@@ -2,8 +2,8 @@
 function oo_alterations_init() {
   if (!drupal_installation_attempted() && (arg(0) == 'node' && arg(1) != '')) {
     $done = &drupal_static(__FUNCTION__, NULL);
-    if (!isset($done[$name])) {
-      $done[$name] = TRUE;
+    if (!isset($done['oo_alterations_init'])) {
+      $done['oo_alterations_init'] = TRUE;
       // Load in Drupal core AJAX library.
       drupal_add_library('system', 'drupal.ajax');
       // Load in our custom JavaScript.
@@ -145,7 +145,7 @@ function oo_alterations_form_alter(&$form, $form_state, $form_id) {
     $form['field_account_postitoimipaikka']['user_field_privacy']['#attributes']['disabled'] = true;
     $form['field_account_postitoimipaikka']['user_field_privacy']['#type'] = 'hidden';
   }elseif($form_id == 'user_login'){
-    if($form['#action'] == '/login/ajax'){
+    if(($form['#action'] == '/login/ajax') || (strstr($form["#action"], "subscribe/ajax"))){
       $form['destination']['#type'] = 'value';
       $form['destination']['#value'] = check_plain(filter_xss($_SERVER['HTTP_REFERER']));
       $form['#submit'][] = 'oo_alterations_user_login_submit';      

@@ -48,6 +48,9 @@ function ajax_og_subscribe_join_course_callback($etid, $js){
       
       // Lankinen begins _the_ RAPE
       $join_html = drupal_render(drupal_get_form('user_login'));
+      if($_SESSION['messages']['error']){
+        drupal_goto($_SERVER['HTTP_REFERER']);
+      }
     }
     else {
       $join_html = '<span class="generic-empty-text">' . $login_link . '</span>';
@@ -86,7 +89,6 @@ function ajax_og_subscribe_block_info() {
   $blocks['ajax_og_subscribe_block'] = array(
       'info' => t('Ajax OG subscribe block'),
   );
-
   return $blocks;
 }
 

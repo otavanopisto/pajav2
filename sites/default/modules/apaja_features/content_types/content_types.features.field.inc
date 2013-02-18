@@ -35,7 +35,9 @@ function content_types_field_default_fields() {
       ),
       'locked' => '0',
       'module' => 'text',
-      'settings' => array(),
+      'settings' => array(
+        'profile2_private' => FALSE,
+      ),
       'translatable' => '0',
       'type' => 'text_with_summary',
     ),
@@ -80,7 +82,7 @@ function content_types_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '5',
+        'weight' => '4',
       ),
     ),
   );
@@ -147,7 +149,7 @@ function content_types_field_default_fields() {
         'module' => 'fivestar',
         'settings' => array(),
         'type' => 'exposed',
-        'weight' => '1',
+        'weight' => '0',
       ),
     ),
   );
@@ -210,7 +212,7 @@ function content_types_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '7',
+        'weight' => '6',
       ),
     ),
   );
@@ -273,7 +275,7 @@ function content_types_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '8',
+        'weight' => '7',
       ),
     ),
   );
@@ -362,7 +364,7 @@ function content_types_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_popup',
-        'weight' => '12',
+        'weight' => '11',
       ),
     ),
   );
@@ -451,7 +453,7 @@ function content_types_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_popup',
-        'weight' => '13',
+        'weight' => '12',
       ),
     ),
   );
@@ -538,7 +540,7 @@ function content_types_field_default_fields() {
           'resolution' => '400x267',
         ),
         'type' => 'imagefield_crop_widget',
-        'weight' => '4',
+        'weight' => '3',
       ),
     ),
   );
@@ -620,7 +622,7 @@ function content_types_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '11',
+        'weight' => '10',
       ),
     ),
   );
@@ -683,7 +685,7 @@ function content_types_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '10',
+        'weight' => '9',
       ),
     ),
   );
@@ -746,7 +748,7 @@ function content_types_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '9',
+        'weight' => '8',
       ),
     ),
   );
@@ -777,7 +779,7 @@ function content_types_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           0 => array(
-            'vocabulary' => 'tahdon_oppia',
+            'vocabulary' => 'tagit',
             'parent' => '0',
           ),
         ),
@@ -822,7 +824,7 @@ function content_types_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '6',
+        'weight' => '5',
       ),
     ),
   );

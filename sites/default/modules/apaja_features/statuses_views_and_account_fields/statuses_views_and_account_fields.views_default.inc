@@ -120,7 +120,7 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private] [private]</div>
       [message]
       <div class="statuses-details">
         <div class="statuses-links">[edit] [delete]</div> [created]
@@ -194,7 +194,7 @@ function statuses_views_and_account_fields_views_default_views() {
     t('<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private] [private]</div>
       [message]
       <div class="statuses-details">
         <div class="statuses-links">[edit] [delete]</div> [created]
@@ -237,7 +237,7 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['empty']['php']['php_output'] = '<div class="generic-empty-text-wrapper">
   <span class="generic-empty-text"><?php echo t(\'Yhtään kommenttia ei ole vielä kirjoitettu.\'); ?></span>
   <?php global $user; if($user->uid == 0) { ?>
-    <span class="generic-empty-text"><?php echo l(t(\'Kirjaudu sisään\'), \'login\'); ?></span>
+    <span class="generic-empty-text"><?php echo l("Kirjaudu sisään", "login/nojs", array("attributes" => array("class" => array("comment-ajax-login")))); ?></span>
     <span class="generic-empty-text"><?php echo t(\'tai\'); ?></span>
    <span class="generic-empty-text"><?php echo l(t(\'Luo tunnukset\'), \'signup\'); ?></span>
     <span class="generic-empty-text"><?php echo t(\'kirjoittaaksesi kommentin.\'); ?></span>
@@ -329,7 +329,7 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div id="statuses-item-[sid]" class="[classes]">
   [sender_custom_pic]
   <div class="content">
-    <div class="statuses-participants">[name] [private]</div>
+    <div class="statuses-participants">[name] [private] [private]</div>
     [message]
     <div class="statuses-details">
       <div class="statuses-links">[edit] [delete]</div> [created]
@@ -375,7 +375,7 @@ function statuses_views_and_account_fields_views_default_views() {
     t('<div id="statuses-item-[sid]" class="[classes]">
   [sender_custom_pic]
   <div class="content">
-    <div class="statuses-participants">[name] [private]</div>
+    <div class="statuses-participants">[name] [private] [private]</div>
     [message]
     <div class="statuses-details">
       <div class="statuses-links">[edit] [delete]</div> [created]
