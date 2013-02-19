@@ -120,7 +120,7 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private]</div>
       [message]
       <div class="statuses-details">
         <div class="statuses-links">[edit] [delete]</div> [created]
@@ -194,7 +194,7 @@ function statuses_views_and_account_fields_views_default_views() {
     t('<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private]</div>
       [message]
       <div class="statuses-details">
         <div class="statuses-links">[edit] [delete]</div> [created]
@@ -244,6 +244,10 @@ function statuses_views_and_account_fields_views_default_views() {
   <?php } ?>
 </div>
 ';
+  /* Relationship: Statuses: Sender ID */
+  $handler->display->display_options['relationships']['sender']['id'] = 'sender';
+  $handler->display->display_options['relationships']['sender']['table'] = 'statuses';
+  $handler->display->display_options['relationships']['sender']['field'] = 'sender';
   /* Field: User: Uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'users';
@@ -252,6 +256,22 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
+  /* Field: User: Etunimi */
+  $handler->display->display_options['fields']['field_account_etunimi']['id'] = 'field_account_etunimi';
+  $handler->display->display_options['fields']['field_account_etunimi']['table'] = 'field_data_field_account_etunimi';
+  $handler->display->display_options['fields']['field_account_etunimi']['field'] = 'field_account_etunimi';
+  $handler->display->display_options['fields']['field_account_etunimi']['relationship'] = 'sender';
+  $handler->display->display_options['fields']['field_account_etunimi']['label'] = '';
+  $handler->display->display_options['fields']['field_account_etunimi']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_account_etunimi']['element_label_colon'] = FALSE;
+  /* Field: User: Sukunimi */
+  $handler->display->display_options['fields']['field_account_sukunimi']['id'] = 'field_account_sukunimi';
+  $handler->display->display_options['fields']['field_account_sukunimi']['table'] = 'field_data_field_account_sukunimi';
+  $handler->display->display_options['fields']['field_account_sukunimi']['field'] = 'field_account_sukunimi';
+  $handler->display->display_options['fields']['field_account_sukunimi']['relationship'] = 'sender';
+  $handler->display->display_options['fields']['field_account_sukunimi']['label'] = '';
+  $handler->display->display_options['fields']['field_account_sukunimi']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_account_sukunimi']['element_label_colon'] = FALSE;
   /* Field: Statuses: Sender custom picture */
   $handler->display->display_options['fields']['sender_custom_pic']['id'] = 'sender_custom_pic';
   $handler->display->display_options['fields']['sender_custom_pic']['table'] = 'statuses';
@@ -273,10 +293,11 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['relationship'] = 'sender';
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['name']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['name']['alter']['text'] = '<span class="statuses-sender">[name]</span>';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
   /* Field: Statuses: Status message */
   $handler->display->display_options['fields']['message']['id'] = 'message';
   $handler->display->display_options['fields']['message']['table'] = 'statuses';
@@ -329,7 +350,7 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div id="statuses-item-[sid]" class="[classes]">
   [sender_custom_pic]
   <div class="content">
-    <div class="statuses-participants">[name] [private] [private]</div>
+    <div class="statuses-participants"><span class="statuses-sender"><a href="/kayttajat/[name]">[field_account_etunimi] [field_account_sukunimi]</a> [private]</span></div>
     [message]
     <div class="statuses-details">
       <div class="statuses-links">[edit] [delete]</div> [created]
@@ -369,13 +390,13 @@ function statuses_views_and_account_fields_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
+    t('uid'),
     t('Sender custom picture'),
-    t('<span class="statuses-sender">[name]</span>'),
     t('Share'),
     t('<div id="statuses-item-[sid]" class="[classes]">
   [sender_custom_pic]
   <div class="content">
-    <div class="statuses-participants">[name] [private] [private]</div>
+    <div class="statuses-participants"><span class="statuses-sender"><a href="/kayttajat/[name]">[field_account_etunimi] [field_account_sukunimi]</a> [private]</span></div>
     [message]
     <div class="statuses-details">
       <div class="statuses-links">[edit] [delete]</div> [created]
