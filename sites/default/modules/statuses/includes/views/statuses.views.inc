@@ -208,7 +208,7 @@ function statuses_views_data() {
     'argument' => array(
       'handler' => 'views_handler_argument_numeric',
     ),
-//       Petja.
+//  Petja. We need this to get extra fields in user entity.
     'relationship' => array(
         'base' => 'users',
         'base field' => 'uid',
