@@ -208,6 +208,11 @@ function statuses_views_data() {
     'argument' => array(
       'handler' => 'views_handler_argument_numeric',
     ),
+    'relationship' => array(
+        'base' => 'users',
+        'base field' => 'uid',
+        'handler' => 'views_handler_relationship',
+    ),
   );
 
   // Alias for extras for the sender.
