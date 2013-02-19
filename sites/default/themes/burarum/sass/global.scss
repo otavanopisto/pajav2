@@ -55,6 +55,14 @@ h1, h2, h3, h4, h5, h6 {
   margin:0 6px 20px 0;
 }
 
+#page .block-views h2 {
+  margin:0 6px 0px 0; /* Frontpage carousel h2 override */
+}
+
+#page section.block-views h2 {
+  margin:0 6px 0px 0; /* Frontpage carousel h2 override */
+}
+
 #page-container {
   /* max-width:960px; */
   width:960px;
@@ -753,6 +761,15 @@ ul.tabs.primary li.active a {
 
 #page #mini-panel-kurssi_minipanel ul div.ajax-progress {
   display:none;
+}
+
+#page #join-course-form-block form label {
+  text-transform:uppercase;
+}
+
+#page #join-course-form-block form input.form-text {
+  max-width: 100%;
+  min-width: 95%;
 }
 
 /* FIVESTAR RATING */
