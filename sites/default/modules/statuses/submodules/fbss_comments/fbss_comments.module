@@ -236,7 +236,16 @@ function theme_fbss_comments_item($variables) {
     return FALSE;
   }
   drupal_add_css(drupal_get_path('module', 'fbss_comments') . '/fbss_comments.css');
+//   Petja. Replacing theme(username) link with custom first_name last_name aliased link.
   $author = user_load($comment->uid);
+  $first_name = array_pop(field_get_items('user', $author, 'field_account_etunimi'));
+  $last_name = array_pop(field_get_items('user', $author, 'field_account_sukunimi'));
+  $full_name = $first_name["safe_value"] . " " . $last_name['safe_value'];
+  $author_link = "user/$author->uid";
+  if($alias = path_load($author_link)){
+    $author_link = $alias["alias"];
+  }
+// to here
   array_unshift($classes, 'fbss-comments-comment', 'statuses-media', 'statuses-subitem');
   $classes = implode(' ', $classes);
   $output = '<div class="' . $classes . '">';
@@ -244,7 +253,10 @@ function theme_fbss_comments_item($variables) {
     $output .= '<div class="fbss-comments-author-picture user-picture">' . _fbss_comments_user_picture($author) . '</div>';
   }
   $output .= '<div class="content">';
-  $output .= '<div class="fbss-comments-author">' . theme('username', array('account' => $author)) . '</div>';
+//   Replace
+//   $output .= '<div class="fbss-comments-author"><a href="">' . theme('username', array('account' => $author)) . '</div>';
+// With this
+  $output .= '<div class="fbss-comments-author"><a href="'. $author_link. '">' . $full_name . '</a></div>';
   $comment_text = _statuses_run_filter($comment->comment);
   $comment_text = nl2br($comment_text);
   $output .= '<div class="fbss-comments-text">' . $comment_text . '</div>';
@@ -587,14 +599,16 @@ function _fbss_comments_can_post($status, $account = NULL) {
     if (function_exists('og_get_group_ids')) { // OG 7.x-1.x
       $group_ids = og_get_group_ids('node', array($status->recipient));
       if (!empty($group_ids)) {
-        return user_access('post status comment', $account) &&
-          og_is_member(current($group_ids), 'user', empty($account) ? $GLOBALS['user'] : $account);
+//         Petja. Groups are primarily open, so commenting is open for anyone with appropriate rights.
+        return user_access('post status comment', $account);
+//           && og_is_member(current($group_ids), 'user', empty($account) ? $GLOBALS['user'] : $account);
       }
     }
     else { // OG 7.x-2.x
       if (og_is_group('node', $status->recipient)) {
-        return user_access('post status comment', $account) &&
-          og_is_member('node', $status->recipient, 'user', empty($account) ? $GLOBALS['user'] : $account);
+//         Petja. Groups are primarily open, so commenting is open for anyone with appropriate rights.
+        return user_access('post status comment', $account);
+//           && og_is_member('node', $status->recipient, 'user', empty($account) ? $GLOBALS['user'] : $account);
       }
     }
   }
