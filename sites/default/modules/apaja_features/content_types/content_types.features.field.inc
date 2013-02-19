@@ -66,10 +66,10 @@ function content_types_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'body',
-      'label' => 'Kuvaus',
+      'label' => 'Content',
       'required' => 0,
       'settings' => array(
-        'display_summary' => 1,
+        'display_summary' => 0,
         'text_processing' => '1',
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
@@ -82,7 +82,7 @@ function content_types_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '4',
+        'weight' => '6',
       ),
     ),
   );
@@ -212,7 +212,7 @@ function content_types_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '6',
+        'weight' => '8',
       ),
     ),
   );
@@ -275,7 +275,7 @@ function content_types_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '7',
+        'weight' => '9',
       ),
     ),
   );
@@ -364,7 +364,7 @@ function content_types_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_popup',
-        'weight' => '11',
+        'weight' => '13',
       ),
     ),
   );
@@ -453,7 +453,7 @@ function content_types_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_popup',
-        'weight' => '12',
+        'weight' => '14',
       ),
     ),
   );
@@ -540,7 +540,7 @@ function content_types_field_default_fields() {
           'resolution' => '400x267',
         ),
         'type' => 'imagefield_crop_widget',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
@@ -622,7 +622,7 @@ function content_types_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '10',
+        'weight' => '12',
       ),
     ),
   );
@@ -685,7 +685,7 @@ function content_types_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '9',
+        'weight' => '11',
       ),
     ),
   );
@@ -748,7 +748,75 @@ function content_types_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '8',
+        'weight' => '10',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-kurssi-field_summary'.
+  $fields['node-kurssi-field_summary'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_summary',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_long',
+    ),
+    'field_instance' => array(
+      'bundle' => 'kurssi',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 12,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_summary',
+      'label' => 'Summary',
+      'required' => 1,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_field_privacy' => FALSE,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'rows' => '5',
+        ),
+        'type' => 'text_textarea',
+        'weight' => '5',
       ),
     ),
   );
@@ -824,7 +892,7 @@ function content_types_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '5',
+        'weight' => '7',
       ),
     ),
   );
@@ -832,15 +900,16 @@ function content_types_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Arvio');
+  t('Content');
   t('Hinnan tyyppi');
   t('Hinta');
   t('Kurssi alkaa');
   t('Kurssi loppuu');
   t('Kurssin kuva');
   t('Kurssin vetäjä');
-  t('Kuvaus');
   t('Maksimi osallistujamäärä');
   t('Minimi osallistujamäärä');
+  t('Summary');
   t('Tagit');
 
   return $fields;

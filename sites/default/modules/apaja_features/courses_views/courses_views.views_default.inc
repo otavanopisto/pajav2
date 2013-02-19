@@ -123,16 +123,16 @@ function courses_views_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Body */
-  $handler->display->display_options['fields']['body']['id'] = 'body';
-  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
-  $handler->display->display_options['fields']['body']['field'] = 'body';
-  $handler->display->display_options['fields']['body']['label'] = '';
-  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['body']['type'] = 'text_trimmed';
-  $handler->display->display_options['fields']['body']['settings'] = array(
-    'trim_length' => '300',
-  );
+  /* Field: Content: Summary */
+  $handler->display->display_options['fields']['field_summary']['id'] = 'field_summary';
+  $handler->display->display_options['fields']['field_summary']['table'] = 'field_data_field_summary';
+  $handler->display->display_options['fields']['field_summary']['field'] = 'field_summary';
+  $handler->display->display_options['fields']['field_summary']['label'] = '';
+  $handler->display->display_options['fields']['field_summary']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['field_summary']['alter']['max_length'] = '300';
+  $handler->display->display_options['fields']['field_summary']['alter']['strip_tags'] = TRUE;
+  $handler->display->display_options['fields']['field_summary']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['field_summary']['element_label_colon'] = FALSE;
   /* Field: Content: Arvio */
   $handler->display->display_options['fields']['field_arvio']['id'] = 'field_arvio';
   $handler->display->display_options['fields']['field_arvio']['table'] = 'field_data_field_arvio';
@@ -567,16 +567,17 @@ return max(array($value,0));';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Body */
-  $handler->display->display_options['fields']['body']['id'] = 'body';
-  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
-  $handler->display->display_options['fields']['body']['field'] = 'body';
-  $handler->display->display_options['fields']['body']['label'] = '';
-  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['body']['type'] = 'text_summary_or_trimmed';
-  $handler->display->display_options['fields']['body']['settings'] = array(
-    'trim_length' => '300',
-  );
+  /* Field: Content: Summary */
+  $handler->display->display_options['fields']['field_summary']['id'] = 'field_summary';
+  $handler->display->display_options['fields']['field_summary']['table'] = 'field_data_field_summary';
+  $handler->display->display_options['fields']['field_summary']['field'] = 'field_summary';
+  $handler->display->display_options['fields']['field_summary']['label'] = '';
+  $handler->display->display_options['fields']['field_summary']['alter']['text'] = '<div class="field-content">[field_summary]</div>';
+  $handler->display->display_options['fields']['field_summary']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['field_summary']['alter']['max_length'] = '300';
+  $handler->display->display_options['fields']['field_summary']['alter']['strip_tags'] = TRUE;
+  $handler->display->display_options['fields']['field_summary']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['field_summary']['element_label_colon'] = FALSE;
   /* Field: Content: Arvio */
   $handler->display->display_options['fields']['field_arvio']['id'] = 'field_arvio';
   $handler->display->display_options['fields']['field_arvio']['table'] = 'field_data_field_arvio';
@@ -765,6 +766,7 @@ if($memberCount != 0){
     t('Sort by'),
     t('Asc'),
     t('Desc'),
+    t('<div class="field-content">[field_summary]</div>'),
     t('Kurssin vetäjä'),
     t('Kurssin ajankohta'),
     t('[field_kurssi_alkaa] - [field_kurssi_loppuu]'),

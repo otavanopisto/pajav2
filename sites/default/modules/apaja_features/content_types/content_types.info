@@ -32,6 +32,7 @@ features[field][] = node-kurssi-field_kurssin_kuva
 features[field][] = node-kurssi-field_kurssin_vetaja
 features[field][] = node-kurssi-field_maksimi_osallistujat
 features[field][] = node-kurssi-field_minimi_osallistujat
+features[field][] = node-kurssi-field_summary
 features[field][] = node-kurssi-field_tagit
 features[filter][] = filtered_html
 features[filter][] = full_html
