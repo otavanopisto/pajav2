@@ -208,6 +208,7 @@ function statuses_views_data() {
     'argument' => array(
       'handler' => 'views_handler_argument_numeric',
     ),
+//       Petja.
     'relationship' => array(
         'base' => 'users',
         'base field' => 'uid',
