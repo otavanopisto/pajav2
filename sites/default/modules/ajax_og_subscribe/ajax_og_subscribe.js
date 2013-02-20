@@ -5,7 +5,6 @@
         $('#join-course-bt').click(function(event){
           if ($('#join-course-form-block')) {
             $('#join-course-form-block').remove();
-            
           }
           event.preventDefault();
           event.stopPropagation();
