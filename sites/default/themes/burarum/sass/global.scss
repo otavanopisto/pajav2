@@ -336,6 +336,7 @@ ul.tabs.primary li.active a {
 
 .views-slideshow-cycle-main-frame-row {
   padding:5px 0 5px 0;
+  display:table;
 }
 
 .view-courses-not-started.view-display-id-block_slider #views_slideshow_cycle_main_courses_not_started-block_slider,
@@ -364,7 +365,7 @@ ul.tabs.primary li.active a {
 
 .view-courses-not-started .views-row.courses-not-started-page-row,
 .view-courses-started .views-row.courses-started-page-row {
-  margin:0 7px 15px 10px;
+  margin:5px 7px 15px 10px;
 }
 
 .view-courses-not-started .views-row:hover,
@@ -1290,6 +1291,10 @@ body #page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapp
 }
 
 /* FOOTER */
+
+#page #section-content {
+  margin-bottom:10px;
+}
 
 #page #section-footer {
   margin-top:10px;
