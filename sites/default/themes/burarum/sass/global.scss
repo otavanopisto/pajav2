@@ -390,6 +390,8 @@ ul.tabs.primary li.active a {
 .view-courses-not-started .views-row .views-field-title,
 .view-courses-started .views-row .views-field-title {
   margin:10px 0 3px 0;
+  max-height:1.5em;
+  overflow:hidden;
 }
 
 .view-courses-not-started .views-row .views-field-title a,
@@ -441,6 +443,18 @@ ul.tabs.primary li.active a {
 .view-courses-not-started .views-row .field-content,
 .view-courses-started .views-row .field-content {
    @include generic-course-meta-info-field;
+}
+
+.view-courses-not-started .views-row .views-field-field-kurssin-vetaja,
+.view-courses-started .views-row .views-field-field-kurssin-vetaja {
+   position:relative;
+}
+
+.view-courses-not-started .views-row .views-field-field-kurssin-vetaja .field-content,
+.view-courses-started .views-row .views-field-field-kurssin-vetaja .field-content {
+   @include generic-course-meta-info-field;
+   overflow:hidden;
+   max-height:1.5em;
 }
 
 .view-courses-not-started .views-row .field-content .attendancies-indicator-wrapper {
@@ -1274,4 +1288,22 @@ body #page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapp
   padding:5px;
 }
 
+/* FOOTER */
 
+#page #section-footer {
+  margin-top:10px;
+  min-height:200px;
+  /* fallback */ 
+  background: transparent; 
+  /* Safari 4-5, Chrome 1-9 */ 
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(238,238,238,0.5)), to(rgba(255,255,255,0))); 
+  /* Safari 5.1, Chrome 10+ */ 
+  background: -webkit-linear-gradient(top, rgba(238,238,238,0.5), rgba(255,255,255,0)); 
+  /* Firefox 3.6+ */ 
+  background: -moz-linear-gradient(top, rgba(238,238,238,0.5), rgba(255,255,255,0)); 
+  /* IE 10 */ 
+  background: -ms-linear-gradient(top, rgba(238,238,238,0.5), rgba(255,255,255,0)); 
+  /* Opera 11.10+ */ 
+  background: -o-linear-gradient(top, rgba(238,238,238,0.5), rgba(255,255,255,0));
+  
+}
