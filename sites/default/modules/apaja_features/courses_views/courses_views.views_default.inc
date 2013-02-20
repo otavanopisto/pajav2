@@ -105,6 +105,13 @@ function courses_views_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
   /* Field: Content: Kurssin kuva */
   $handler->display->display_options['fields']['field_kurssin_kuva']['id'] = 'field_kurssin_kuva';
   $handler->display->display_options['fields']['field_kurssin_kuva']['table'] = 'field_data_field_kurssin_kuva';
@@ -121,8 +128,14 @@ function courses_views_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['title']['alter']['alt'] = '[title]';
+  $handler->display->display_options['fields']['title']['alter']['max_length'] = '30';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: Summary */
   $handler->display->display_options['fields']['field_summary']['id'] = 'field_summary';
   $handler->display->display_options['fields']['field_summary']['table'] = 'field_data_field_summary';
@@ -152,7 +165,13 @@ function courses_views_views_default_views() {
   $handler->display->display_options['fields']['field_kurssin_vetaja']['id'] = 'field_kurssin_vetaja';
   $handler->display->display_options['fields']['field_kurssin_vetaja']['table'] = 'field_data_field_kurssin_vetaja';
   $handler->display->display_options['fields']['field_kurssin_vetaja']['field'] = 'field_kurssin_vetaja';
+  $handler->display->display_options['fields']['field_kurssin_vetaja']['alter']['max_length'] = '20';
+  $handler->display->display_options['fields']['field_kurssin_vetaja']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['field_kurssin_vetaja']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_kurssin_vetaja']['settings'] = array(
+    'trim_length' => '20',
+  );
+  $handler->display->display_options['fields']['field_kurssin_vetaja']['delta_limit'] = '2';
   $handler->display->display_options['fields']['field_kurssin_vetaja']['delta_offset'] = '0';
   /* Field: Content: Kurssi alkaa */
   $handler->display->display_options['fields']['field_kurssi_alkaa']['id'] = 'field_kurssi_alkaa';
@@ -438,6 +457,7 @@ return max(array($value,0));';
     t('Sort by'),
     t('Asc'),
     t('Desc'),
+    t('[title]'),
     t('Kurssin vetäjä'),
     t('Kurssin ajankohta'),
     t('[field_kurssi_alkaa] - [field_kurssi_loppuu]'),
@@ -549,6 +569,13 @@ return max(array($value,0));';
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
   /* Field: Content: Kurssin kuva */
   $handler->display->display_options['fields']['field_kurssin_kuva']['id'] = 'field_kurssin_kuva';
   $handler->display->display_options['fields']['field_kurssin_kuva']['table'] = 'field_data_field_kurssin_kuva';
@@ -565,8 +592,14 @@ return max(array($value,0));';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['title']['alter']['alt'] = '[title]';
+  $handler->display->display_options['fields']['title']['alter']['max_length'] = '30';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: Summary */
   $handler->display->display_options['fields']['field_summary']['id'] = 'field_summary';
   $handler->display->display_options['fields']['field_summary']['table'] = 'field_data_field_summary';
@@ -766,6 +799,7 @@ if($memberCount != 0){
     t('Sort by'),
     t('Asc'),
     t('Desc'),
+    t('[title]'),
     t('<div class="field-content">[field_summary]</div>'),
     t('Kurssin vetäjä'),
     t('Kurssin ajankohta'),
