@@ -4,10 +4,3 @@ sites/*/settings*.php
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
-/.buildpath
-/.project
-/.settings
-/.externalToolBuilders
-sites/default/themes/burarum/css/global.css
-# Ignore stupid osx .DS_Store files
-.DS_Store
