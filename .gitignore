@@ -7,3 +7,5 @@ sites/*/private
 .externalToolBuilders
 .settings
 .buildpath
+sites/default/themes/burarum/css/global.css
+/.project
