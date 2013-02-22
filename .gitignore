@@ -9,3 +9,4 @@ sites/*/private
 .buildpath
 sites/default/themes/burarum/css/global.css
 /.project
+.DS_Store
