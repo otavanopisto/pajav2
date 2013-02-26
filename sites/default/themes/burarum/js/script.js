@@ -1,3 +1,4 @@
+var pageLoad = false;
 (function($) {
 
 	Drupal.behaviors.FixedNavigation = {
@@ -50,14 +51,13 @@
 
 	Drupal.behaviors.ShowFullDescription = {
 		attach : function(context, settings) {
-
 			var descControlWrapper = $('.desc-control-wrapper');
 			var showMoreLink = $('.show-more-link');
 			var showLessLink = $('.show-less-link');
 			var descElementWrapper = $('#mini-panel-kurssi_minipanel .pane-node-body');
 			var descELementHeight = $('#mini-panel-kurssi_minipanel .field-name-body').outerHeight();
 			
-			if (descELementHeight > '400') {
+			if (descELementHeight >= '400' && pageLoad == false) {
 				
 	            var fader = document.createElement("div"); 
 
@@ -74,11 +74,12 @@
 						$(fader).addClass("hidden-fader");
 					});
 				});
-			} else {
+			} else if(descELementHeight < '400') {
 				descControlWrapper.css({
 					display : 'none'
 				});
 			}
+			pageLoad = true;
 		}
 	};
   
@@ -124,4 +125,3 @@
 	};
   
 }(jQuery));
-;
