@@ -15,30 +15,34 @@ function ajax_statuses_actions_menu(){
     'page callback' => 'ajax_statuses_actions_delete_status_callback',
     'delivery callback' => 'ajax_deliver',
     'page arguments' => array(1,2,3,5),
-    'access arguments' => array('access content'),
+    'access callback' => 'statuses_user_access',
+    'access arguments' => array('delete'),
     'type' => MENU_CALLBACK,
   );
   $items['statusesaction/%/%/%/delete/nojs'] = array(
     'title' => 'non ajax callback for delete',
     'page callback' => 'ajax_statuses_actions_delete_status_callback',
     'page arguments' => array(1,2,3,5),
-    'access arguments' => array('access content'),
+    'access callback' => 'statuses_user_access',
+    'access arguments' => array('delete'),
     'type' => MENU_CALLBACK,
   );
 
   $items['statusesaction/%/%/%/edit/ajax'] = array(
     'title' => 'ajax callback for edit',
-    'page callback' => 'ajax_og_subscribe_join_course_callback',
+    'page callback' => 'ajax_statuses_actions_edit_status_callback',
     'page arguments' => array(1,2,3,5),
-    'access arguments' => array('access content'),
+    'access callback' => 'statuses_user_access',
+    'access arguments' => array('edit'),
     'type' => MENU_CALLBACK,
   );
   
   $items['statusesaction/%/%/%/edit/nojs'] = array(
   'title' => 'non ajax callback for edits',
-  'page callback' => 'ajax_og_subscribe_join_course_callback',
+  'page callback' => 'ajax_statuses_actions_edit_status_callback',
   'page arguments' => array(1,2,3,5),
-  'access arguments' => array('access content'),
+  'access callback' => 'statuses_user_access',
+  'access arguments' => array('edit'),
   'type' => MENU_CALLBACK,
   );
   
@@ -50,7 +54,6 @@ function ajax_statuses_actions_delete_status_callback($status_id, $entity_type, 
     drupal_goto("/statuses/$status_id/delete?destination=$entity_type/$etid");
     return;
   }
-  global $user;
   $status = statuses_load($status_id);
   $delete_form = drupal_render(drupal_get_form('_ajax_statuses_actions_delete', $status));
   $selector = 'div#statuses-item-'.$status_id. ' span.statuses-delete';
@@ -71,7 +74,7 @@ function ajax_statuses_actions_delete_status_callback($status_id, $entity_type, 
  * The delete status confirmation form.
  */
 function _ajax_statuses_actions_delete($form, &$form_state, $status) {
-  $form['infotext'] = array('#markup' => '<p>' . t('Are you sure you want to permanently delete the status %status?', array('%status' => $status->message)) . '</p>');
+  $form['infotext'] = array('#markup' => '<p>' . t('Are you sure you want to permanently delete the status </p>'));
   $form['submit'] = array(
       '#type' => 'submit',
       '#value' => t('Confirm'),
@@ -112,3 +115,71 @@ function _ajax_statuses_actions_delete_confirm($form, &$form_state) {
   }
   return array('#type' => 'ajax', '#commands' => $ajax_commands);
 }
+
+function ajax_statuses_actions_edit_status_callback($status_id, $entity_type, $etid, $js){
+  if($js == 'nojs'){
+    drupal_goto("/statuses/$status_id/edit?destination=$entity_type/$etid");
+    return;
+  }
+  $status = statuses_load($status_id);
+  $edit_form = drupal_render(drupal_get_form('_ajax_statuses_actions_edit', $status));
+  $selector = 'div#statuses-item-'.$status_id;
+  // Define a new array to hold our AJAX commands.
+  $ajax_commands = array();
+  $ajax_commands[] = ajax_command_after($selector, "<div id='edit-status-form-block'>$delete_form</div>");
+  $ajax_commands[] = ajax_command_invoke('div#edit-status-form-block', 'hide');
+  $ajax_commands[] = ajax_command_invoke('div#edit-status-form-block', 'fadeIn', array(300));
+  return array('#type' => 'ajax', '#commands' => $ajax_commands);
+}
+
+function _ajax_statuses_actions_edit($form, &$form_state, $status){
+  $form['statusmessage'] = array(
+    '#type' => 'textarea',
+    '#default_value' => $status->message,
+    '#rows' => variable_get('statuses_box_rows', 2),
+    '#resizable' => FALSE,
+    '#prefix' => '<div class="statuses-textarea-wrapper">',
+    '#suffix' => '</div>',
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Confirm'),
+    // Add the Ajax Submit Function
+    '#ajax' => array(
+        'callback' => '_ajax_statuses_actions_edit_confirm',
+        'progress' => false,
+    ),
+  );
+  $form['sid'] = array(
+    '#type' => 'value',
+    '#value' => $status->sid,
+  );
+  $form['back'] = array(
+    '#markup' => l('Cancel', '#', array('attributes' => array('class' => "cancel-status-delete"))),
+  );
+  
+  return $form;
+}
+
+/**
+ * Edit status form.
+ */
+function _ajax_statuses_actions_edit_confirm($form, &$form_state) {
+  $status = statuses_load($form_state['values']['status-sid']);
+  $selector = 'div#statuses-item-'.$status->sid.'';
+  if(statuses_user_access('edit', $status)){
+    statuses_delete_status($status);
+    // Define a new array to hold our AJAX commands.
+    $ajax_commands = array();
+    $ajax_commands[] = ajax_command_replace($selector, "<div id='status-delete-message-$status->id'>Status poistettu. Tämä ilmoitus poistuu hetken kuluttua.</div>");
+    $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'hide');
+    $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'fadeIn', array(300));
+  }else{
+    $ajax_commands[] = ajax_command_before($selector, "<div id='status-delete-message-$status->id'>Sinulla ei ole oikeutta poistaa tätä statusta.</div>");
+    $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'hide');
+    $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'fadeIn', array(300));
+  }
+  return array('#type' => 'ajax', '#commands' => $ajax_commands);
+}
+
+
