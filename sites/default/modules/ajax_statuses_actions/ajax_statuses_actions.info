@@ -1,0 +1,5 @@
+; $Id$
+name = Ajax Statuses Actions
+description = Provides ajax actions for statuses module (like ajax delete and commenting) (Otavan Opisto)
+core = 7.x
+dependencies[] = statuses
