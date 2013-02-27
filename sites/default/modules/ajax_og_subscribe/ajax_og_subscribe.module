@@ -35,6 +35,7 @@ function ajax_og_subscribe_join_course_callback($etid, $js){
     return;
   }
   global $user;
+  $join_html = "";
   if (!$user->uid) {
     // Anonymous user can't request membership.
     $dest = drupal_get_destination();
