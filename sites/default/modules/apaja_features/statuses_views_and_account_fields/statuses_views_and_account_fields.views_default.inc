@@ -322,6 +322,19 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['repost']['field'] = 'repost';
   $handler->display->display_options['fields']['repost']['label'] = '';
   $handler->display->display_options['fields']['repost']['exclude'] = TRUE;
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php']['id'] = 'php';
+  $handler->display->display_options['fields']['php']['table'] = 'views';
+  $handler->display->display_options['fields']['php']['field'] = 'php';
+  $handler->display->display_options['fields']['php']['label'] = '';
+  $handler->display->display_options['fields']['php']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php']['php_output'] = '<?php
+  echo "<span class=\\"statuses-delete\\">". l("Delete", "statusesaction/".$row->sid."/node/" .arg(1). "/delete/nojs", array(\'query\' => array(\'destination\' => $_GET[\'q\']), \'attributes\' => array(\'class\' => \'use-ajax\'))). "</span>";
+?>';
+  $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
   /* Field: Statuses: Created time */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'statuses';
@@ -353,7 +366,7 @@ function statuses_views_and_account_fields_views_default_views() {
     <div class="statuses-participants"><span class="statuses-sender"><a href="/kayttajat/[name]">[field_account_etunimi] [field_account_sukunimi]</a> [private]</span></div>
     [message]
     <div class="statuses-details">
-      <div class="statuses-links">[edit] [delete]</div> [created]
+      <div class="statuses-links">[edit] [php]</div> [created]
     </div>
     [comment-box]
   </div>
@@ -399,7 +412,7 @@ function statuses_views_and_account_fields_views_default_views() {
     <div class="statuses-participants"><span class="statuses-sender"><a href="/kayttajat/[name]">[field_account_etunimi] [field_account_sukunimi]</a> [private]</span></div>
     [message]
     <div class="statuses-details">
-      <div class="statuses-links">[edit] [delete]</div> [created]
+      <div class="statuses-links">[edit] [php]</div> [created]
     </div>
     [comment-box]
   </div>
