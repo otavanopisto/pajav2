@@ -9,7 +9,7 @@ var isIntervalSet = false;
               return;
             }
             timer = window.setInterval(function() {
-              if(!$(".fbss-comments-textarea:focus").length > 0){
+              if(!$("textarea:focus").length > 0){
                 var loaded = {};
                 if (fbss_refreshIDs && fbss_refreshIDs != undefined) {
                   var loaded2 = {};
@@ -105,6 +105,23 @@ var isIntervalSet = false;
           });
         }
       }
+    };
+  
+  Drupal.behaviors.cancelEditLink = {
+      attach: function(context, settings) {
+        if ($('#edit-status-form-block').length > 0) {
+          $('#edit-status-form-block a.cancel-status-edit').click(function(event) {
+            $('#edit-status-form-block').empty();
+            $('#edit-status-form-block').remove();
+            $('#edit-status-form-block').fadeOut(300, function () {
+              $(this).remove();
+            });
+            $('.statuses-content').show();
+            event.preventDefault();
+            event.stopPropagation();
+        });
+        }
+      } 
     };
   
 })(jQuery);
