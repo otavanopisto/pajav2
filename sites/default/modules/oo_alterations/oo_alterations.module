@@ -8,7 +8,6 @@ function oo_alterations_init() {
       drupal_add_library('system', 'drupal.ajax');
       // Load in our custom JavaScript.
       drupal_add_js(drupal_get_path('module', 'oo_alterations') . '/js/oo_alterations.js', array('weight' => 99));
-      drupal_add_js(drupal_get_path('module', 'oo_alterations') . '/js/jquery.event.mousestop.js', array('weight' => 96));
       drupal_add_js(drupal_get_path('module', 'hybridauth') . '/js/hybridauth.js');
       drupal_add_css(drupal_get_path('module', 'hybridauth') . '/css/hybridauth.css');
       $icon_pack = hybridauth_get_icon_pack(variable_get('hybridauth_widget_icon_pack', 'hybridauth_32'));
