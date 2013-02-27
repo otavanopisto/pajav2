@@ -335,6 +335,19 @@ function statuses_views_and_account_fields_views_default_views() {
 ?>';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php_1']['id'] = 'php_1';
+  $handler->display->display_options['fields']['php_1']['table'] = 'views';
+  $handler->display->display_options['fields']['php_1']['field'] = 'php';
+  $handler->display->display_options['fields']['php_1']['label'] = '';
+  $handler->display->display_options['fields']['php_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['php_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['php_1']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php_1']['php_output'] = '<?php
+  echo "<span class=\\"statuses-edit\\">". l("Edit", "statusesaction/".$row->sid."/node/" .arg(1). "/edit/nojs", array(\'query\' => array(\'destination\' => $_GET[\'q\']), \'attributes\' => array(\'class\' => \'use-ajax\'))). "</span>";
+?>';
+  $handler->display->display_options['fields']['php_1']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php_1']['php_click_sortable'] = '';
   /* Field: Statuses: Created time */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'statuses';
@@ -366,7 +379,7 @@ function statuses_views_and_account_fields_views_default_views() {
     <div class="statuses-participants"><span class="statuses-sender"><a href="/kayttajat/[name]">[field_account_etunimi] [field_account_sukunimi]</a> [private]</span></div>
     [message]
     <div class="statuses-details">
-      <div class="statuses-links">[edit] [php]</div> [created]
+      <div class="statuses-links">[php_1] [php]</div> [created]
     </div>
     [comment-box]
   </div>
@@ -412,7 +425,7 @@ function statuses_views_and_account_fields_views_default_views() {
     <div class="statuses-participants"><span class="statuses-sender"><a href="/kayttajat/[name]">[field_account_etunimi] [field_account_sukunimi]</a> [private]</span></div>
     [message]
     <div class="statuses-details">
-      <div class="statuses-links">[edit] [php]</div> [created]
+      <div class="statuses-links">[php_1] [php]</div> [created]
     </div>
     [comment-box]
   </div>
