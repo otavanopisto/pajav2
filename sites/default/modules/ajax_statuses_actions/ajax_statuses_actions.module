@@ -59,7 +59,7 @@ function ajax_statuses_actions_delete_status_callback($status_id, $entity_type, 
   $selector = 'div#statuses-item-'.$status_id. ' span.statuses-delete';
   // Define a new array to hold our AJAX commands.
   $ajax_commands = array();
-  $ajax_commands[] = ajax_command_before($selector, "<div id='delete-status-form-block'>$delete_form</div>");
+  $ajax_commands[] = ajax_command_before($selector, "<div id='delete-status-form-block'>$delete_form<div class='join-course-arrow-block'></div></div>");
   $ajax_commands[] = ajax_command_invoke('div#delete-status-form-block', 'hide');
   $ajax_commands[] = ajax_command_invoke('div#delete-status-form-block', 'fadeIn', array(300));
   return array('#type' => 'ajax', '#commands' => $ajax_commands);
