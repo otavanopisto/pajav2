@@ -930,10 +930,48 @@ ul.tabs.primary li.active a {
   color:$altFontColor;
 }
 
- .statuses-details .statuses-links span,
- .fbss-comments-closure .fbss-comments-links li {
+.statuses-details .statuses-links {
+  position:relative;
+    overflow:visible;
+}
+
+.statuses-details .statuses-links span,
+.fbss-comments-closure .fbss-comments-links li {
   display:inline-block;
   margin:0 4px 0 4px;
+}
+
+.statuses-media > .content {
+  overflow:visible;
+}
+
+.statuses-details #delete-status-form-block {
+  position:absolute;
+  height:auto;
+  width:400px;
+  bottom:30px;
+  left:0;
+  z-index:99999;
+  overflow:visible;
+  @include box-padding($padding: 10px 15px);
+  @include box-shadow(0 -4px 20px rgba(0,0,0,0.3));
+  @include rounded-borders;
+  border:1px solid #aaaaaa;
+  background:#ffffff;
+  margin-left:-320px;
+}
+
+.statuses-details #delete-status-form-block .join-course-arrow-block {
+  position:absolute;
+  bottom:-10px;
+  right:50px;
+  height:9px;
+  width:15px;
+  background:url('../gfx/arrow-bottom.png') no-repeat;
+}
+
+#page .statuses-details div.ajax-progress {
+  display:none;
 }
 
 .view-statuses-stream-custom .statuses-item .statuses-comments,
