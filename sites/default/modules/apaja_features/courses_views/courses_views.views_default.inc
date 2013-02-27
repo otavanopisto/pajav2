@@ -112,7 +112,6 @@ function courses_views_views_default_views() {
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['path']['absolute'] = TRUE;
   /* Field: Content: Kurssin kuva */
   $handler->display->display_options['fields']['field_kurssin_kuva']['id'] = 'field_kurssin_kuva';
   $handler->display->display_options['fields']['field_kurssin_kuva']['table'] = 'field_data_field_kurssin_kuva';
@@ -143,7 +142,7 @@ function courses_views_views_default_views() {
   $handler->display->display_options['fields']['field_summary']['field'] = 'field_summary';
   $handler->display->display_options['fields']['field_summary']['label'] = '';
   $handler->display->display_options['fields']['field_summary']['alter']['trim_whitespace'] = TRUE;
-  $handler->display->display_options['fields']['field_summary']['alter']['max_length'] = '300';
+  $handler->display->display_options['fields']['field_summary']['alter']['max_length'] = '290';
   $handler->display->display_options['fields']['field_summary']['alter']['strip_tags'] = TRUE;
   $handler->display->display_options['fields']['field_summary']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['field_summary']['element_label_colon'] = FALSE;
@@ -577,7 +576,6 @@ return max(array($value,0));';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['path']['absolute'] = TRUE;
   /* Field: Content: Kurssin kuva */
   $handler->display->display_options['fields']['field_kurssin_kuva']['id'] = 'field_kurssin_kuva';
   $handler->display->display_options['fields']['field_kurssin_kuva']['table'] = 'field_data_field_kurssin_kuva';
@@ -609,7 +607,7 @@ return max(array($value,0));';
   $handler->display->display_options['fields']['field_summary']['label'] = '';
   $handler->display->display_options['fields']['field_summary']['alter']['text'] = '<div class="field-content">[field_summary]</div>';
   $handler->display->display_options['fields']['field_summary']['alter']['trim_whitespace'] = TRUE;
-  $handler->display->display_options['fields']['field_summary']['alter']['max_length'] = '300';
+  $handler->display->display_options['fields']['field_summary']['alter']['max_length'] = '290';
   $handler->display->display_options['fields']['field_summary']['alter']['strip_tags'] = TRUE;
   $handler->display->display_options['fields']['field_summary']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['field_summary']['element_label_colon'] = FALSE;
