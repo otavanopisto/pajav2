@@ -35,7 +35,6 @@ function ajax_statuses_actions_menu(){
     'page arguments' => array(1,2,3,5),
     'access callback' => 'ajax_statuses_actions_user_access',
     'access arguments' => array('edit', 1),
-//     'access arguments' => array('access content'),
     'type' => MENU_CALLBACK,
   );
   
@@ -45,7 +44,6 @@ function ajax_statuses_actions_menu(){
     'page arguments' => array(1,2,3,5),
     'access callback' => 'ajax_statuses_actions_user_access',
     'access arguments' => array('edit', 1),
-//     'access arguments' => array('access content'),
     'type' => MENU_CALLBACK,
   );
   
@@ -172,18 +170,18 @@ function _ajax_statuses_actions_edit($form, &$form_state, $status){
 function _ajax_statuses_actions_edit_confirm($form, &$form_state) {
   $status = statuses_load($form_state['values']['sid']);
   $selector = 'div#statuses-item-'.$status->sid.' span.statuses-content';
-//   if(statuses_user_access('edit', $status)){
+  if(statuses_user_access('edit', $status)){
     $new_status = statuses_edit_status($status, $form_state['values']['statusmessage']);
     // Define a new array to hold our AJAX commands.
     $ajax_commands = array();
     $ajax_commands[] = ajax_command_replace($selector, "<span class='statuses-content'>$status->message</div>");
     $ajax_commands[] = ajax_command_invoke("div#edit-status-form-block", 'remove');
 //     $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'fadeIn', array(300));
-//   }else{
+  }else{
 //     $ajax_commands[] = ajax_command_before($selector, "<div id='status-delete-message-$status->id'>Sinulla ei ole oikeutta poistaa tätä statusta.</div>");
 //     $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'hide');
 //     $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'fadeIn', array(300));
-//   }
+  }
   return array('#type' => 'ajax', '#commands' => $ajax_commands);
 }
 
