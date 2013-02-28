@@ -283,6 +283,13 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['sid']['field'] = 'sid';
   $handler->display->display_options['fields']['sid']['label'] = '';
   $handler->display->display_options['fields']['sid']['exclude'] = TRUE;
+  /* Field: Statuses: Recipient ID */
+  $handler->display->display_options['fields']['recipient']['id'] = 'recipient';
+  $handler->display->display_options['fields']['recipient']['table'] = 'statuses';
+  $handler->display->display_options['fields']['recipient']['field'] = 'recipient';
+  $handler->display->display_options['fields']['recipient']['label'] = '';
+  $handler->display->display_options['fields']['recipient']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['recipient']['element_label_colon'] = FALSE;
   /* Field: Statuses: HTML classes */
   $handler->display->display_options['fields']['classes']['id'] = 'classes';
   $handler->display->display_options['fields']['classes']['table'] = 'statuses';
@@ -335,6 +342,7 @@ function statuses_views_and_account_fields_views_default_views() {
     $status->sender = $row->uid;
     $status->type = \'og\';
     $status->sid = $row->sid;
+    $status->recipient = $row->recipient;
     if (statuses_user_access(\'delete\', $status)) {
   echo "<span class=\\"statuses-delete\\">". l("Delete", "statusesaction/".$row->sid."/node/" .arg(1). "/delete/nojs", array(\'attributes\' => array(\'class\' => \'use-ajax\'))). "</span>";
 }
@@ -354,6 +362,7 @@ function statuses_views_and_account_fields_views_default_views() {
   $status->sender = $row->uid;
   $status->type = \'og\';
   $status->sid = $row->sid;
+  $status->recipient = $row->recipient;
   if (statuses_user_access(\'edit\', $status)) {
     echo "<span class=\\"statuses-edit\\">". l("Edit", "statusesaction/".$row->sid."/node/" .arg(1). "/edit/nojs", array(\'attributes\' => array(\'class\' => \'use-ajax\'))). "</span>";
   }
