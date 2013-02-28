@@ -113,7 +113,7 @@ function _ajax_statuses_actions_delete_confirm($form, &$form_state) {
   }else{
     $ajax_commands[] = ajax_command_after('div.statuses-update', "<div class='status-error-message'>Sinulla ei ole oikeutta poistaa tätä statusta.</div>");
     $ajax_commands[] = ajax_command_invoke("div.status-error-message", 'hide');
-    $ajax_commands[] = ajax_command_invoke("div.status-error-message", 'fadeIn', array(400));
+    $ajax_commands[] = ajax_command_invoke("div.status-error-message", 'fadeIn', array(300));
   }
   return array('#type' => 'ajax', '#commands' => $ajax_commands);
 }
@@ -178,7 +178,7 @@ function _ajax_statuses_actions_edit_confirm($form, &$form_state) {
   }else{
     $ajax_commands[] = ajax_command_after('div.statuses-update', "<div class='status-error-message'>Sinulla ei ole oikeutta muokata tätä statusta.</div>");
     $ajax_commands[] = ajax_command_invoke('status-error-message', 'hide');
-    $ajax_commands[] = ajax_command_invoke('status-error-message', 'fadeIn', array(500));
+    $ajax_commands[] = ajax_command_invoke('status-error-message', 'fadeIn', array(300));
   }
   return array('#type' => 'ajax', '#commands' => $ajax_commands);
 }
