@@ -124,4 +124,12 @@ var isIntervalSet = false;
       } 
     };
   
+  Drupal.behaviors.clickEditLink = {
+      attach: function(context, settings) {
+        if ($('#edit-status-form-block #edit-statusmessage').length > 0) {
+          $('#edit-status-form-block #edit-statusmessage').focus();
+        }
+      } 
+    };
+  
 })(jQuery);
