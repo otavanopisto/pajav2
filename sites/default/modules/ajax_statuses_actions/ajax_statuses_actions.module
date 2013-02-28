@@ -52,7 +52,7 @@ function ajax_statuses_actions_menu(){
 
 function ajax_statuses_actions_delete_status_callback($status_id, $entity_type, $etid, $js){
   if($js == 'nojs'){
-    drupal_goto("/statuses/$status_id/delete?destination=$entity_type/$etid");
+    drupal_goto("statuses/$status_id/delete", array('query' => array('destination' => "$entity_type/$etid")));
     return;
   }
   $status = statuses_load($status_id);
@@ -101,26 +101,26 @@ function _ajax_statuses_actions_delete($form, &$form_state, $status) {
  * Deletes a status.
  */
 function _ajax_statuses_actions_delete_confirm($form, &$form_state) {
+  // Define a new array to hold our AJAX commands.
+  $ajax_commands = array();
   $status = statuses_load($form_state['values']['status-sid']);
-  $selector = 'div#statuses-item-'.$status->sid.'';
   if(statuses_user_access('delete', $status)){
+    $selector = 'div#statuses-item-'.$status->sid.'';
     statuses_delete_status($status);
-    // Define a new array to hold our AJAX commands.
-    $ajax_commands = array();
     $ajax_commands[] = ajax_command_replace($selector, "<div id='status-delete-message-$status->id'>Status poistettu. Tämä ilmoitus poistuu hetken kuluttua.</div>");
     $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'hide');
     $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'fadeIn', array(300));
   }else{
-    $ajax_commands[] = ajax_command_before($selector, "<div id='status-delete-message-$status->id'>Sinulla ei ole oikeutta poistaa tätä statusta.</div>");
-    $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'hide');
-    $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'fadeIn', array(300));
+    $ajax_commands[] = ajax_command_after('div.statuses-update', "<div class='status-error-message'>Sinulla ei ole oikeutta poistaa tätä statusta.</div>");
+    $ajax_commands[] = ajax_command_invoke("div.status-error-message", 'hide');
+    $ajax_commands[] = ajax_command_invoke("div.status-error-message", 'fadeIn', array(400));
   }
   return array('#type' => 'ajax', '#commands' => $ajax_commands);
 }
 
 function ajax_statuses_actions_edit_status_callback($status_id, $entity_type, $etid, $js){
   if($js == 'nojs'){
-    drupal_goto("/statuses/$status_id/edit?destination=$entity_type/$etid");
+    drupal_goto("statuses/$status_id/edit", array('query' => array('destination' => "$entity_type/$etid")));
     return;
   }
   $status = statuses_load($status_id);
@@ -168,19 +168,19 @@ function _ajax_statuses_actions_edit($form, &$form_state, $status){
  * Edit status form.
  */
 function _ajax_statuses_actions_edit_confirm($form, &$form_state) {
+  // Define a new array to hold our AJAX commands.
+  $ajax_commands = array();
   $status = statuses_load($form_state['values']['sid']);
-  $selector = 'div#statuses-item-'.$status->sid.' span.statuses-content';
   if(statuses_user_access('edit', $status)){
+    $selector = 'div#statuses-item-'.$status->sid.' span.statuses-content';
     $new_status = statuses_edit_status($status, $form_state['values']['statusmessage']);
-    // Define a new array to hold our AJAX commands.
-    $ajax_commands = array();
     $ajax_commands[] = ajax_command_replace($selector, "<span class='statuses-content'>$status->message</div>");
     $ajax_commands[] = ajax_command_invoke("div#edit-status-form-block", 'remove');
 //     $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'fadeIn', array(300));
   }else{
-//     $ajax_commands[] = ajax_command_before($selector, "<div id='status-delete-message-$status->id'>Sinulla ei ole oikeutta poistaa tätä statusta.</div>");
-//     $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'hide');
-//     $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'fadeIn', array(300));
+    $ajax_commands[] = ajax_command_after('div.statuses-update', "<div class='status-error-message'>Sinulla ei ole oikeutta muokata tätä statusta.</div>");
+    $ajax_commands[] = ajax_command_invoke('status-error-message', 'hide');
+    $ajax_commands[] = ajax_command_invoke('status-error-message', 'fadeIn', array(500));
   }
   return array('#type' => 'ajax', '#commands' => $ajax_commands);
 }
