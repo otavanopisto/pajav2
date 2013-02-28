@@ -141,8 +141,6 @@ function _ajax_statuses_actions_edit($form, &$form_state, $status){
     '#default_value' => $status->message,
     '#rows' => variable_get('statuses_box_rows', 2),
     '#resizable' => FALSE,
-    '#prefix' => '<div class="statuses-textarea-wrapper">',
-    '#suffix' => '</div>',
   );
   $form['submit'] = array(
     '#type' => 'submit',
