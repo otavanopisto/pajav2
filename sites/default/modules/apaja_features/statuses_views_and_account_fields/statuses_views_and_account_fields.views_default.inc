@@ -331,7 +331,13 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php']['php_output'] = '<?php
-  echo "<span class=\\"statuses-delete\\">". l("Delete", "statusesaction/".$row->sid."/node/" .arg(1). "/delete/nojs", array(\'query\' => array(\'destination\' => $_GET[\'q\']), \'attributes\' => array(\'class\' => \'use-ajax\'))). "</span>";
+    $status = new stdClass();
+    $status->sender = $row->uid;
+    $status->type = \'og\';
+    $status->sid = $row->sid;
+    if (statuses_user_access(\'delete\', $status)) {
+  echo "<span class=\\"statuses-delete\\">". l("Delete", "statusesaction/".$row->sid."/node/" .arg(1). "/delete/nojs", array(\'attributes\' => array(\'class\' => \'use-ajax\'))). "</span>";
+}
 ?>';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
@@ -344,7 +350,13 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['php_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php_1']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php_1']['php_output'] = '<?php
-  echo "<span class=\\"statuses-edit\\">". l("Edit", "statusesaction/".$row->sid."/node/" .arg(1). "/edit/nojs", array(\'query\' => array(\'destination\' => $_GET[\'q\']), \'attributes\' => array(\'class\' => \'use-ajax\'))). "</span>";
+  $status = new stdClass();
+  $status->sender = $row->uid;
+  $status->type = \'og\';
+  $status->sid = $row->sid;
+  if (statuses_user_access(\'edit\', $status)) {
+    echo "<span class=\\"statuses-edit\\">". l("Edit", "statusesaction/".$row->sid."/node/" .arg(1). "/edit/nojs", array(\'attributes\' => array(\'class\' => \'use-ajax\'))). "</span>";
+  }
 ?>';
   $handler->display->display_options['fields']['php_1']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php_1']['php_click_sortable'] = '';
