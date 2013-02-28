@@ -9,7 +9,7 @@ var isIntervalSet = false;
               return;
             }
             timer = window.setInterval(function() {
-              if(!$("textarea:focus").length > 0 && !$("#delete-status-form-block").length > 0){
+              if(!$("textarea:focus").length > 0 && !$("#delete-status-form-block").length > 0 && !$("#edit-status-form-block").length > 0){
                 var loaded = {};
                 if (fbss_refreshIDs && fbss_refreshIDs != undefined) {
                   var loaded2 = {};
