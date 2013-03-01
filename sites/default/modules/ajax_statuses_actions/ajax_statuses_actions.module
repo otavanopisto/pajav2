@@ -1,6 +1,6 @@
 <?php
 function ajax_statuses_actions_init() {
-  if (!drupal_installation_attempted() && (arg(0) == 'node' && arg(1) != '')) {
+  if (!drupal_installation_attempted() && ((arg(0) == 'node' && arg(1) != '') || (arg(0) == 'user' && arg(1) != ''))) {
     // Load in Drupal core AJAX library.
     drupal_add_library('system', 'drupal.ajax');
     // Load in our custom JavaScript.
@@ -47,6 +47,44 @@ function ajax_statuses_actions_menu(){
     'type' => MENU_CALLBACK,
   );
   
+  $items['statusesaction/comments/%/%/%/delete/ajax'] = array(
+      'title' => 'ajax callback callback for delete',
+      'page callback' => 'ajax_statuses_actions_delete_comment_callback',
+      'delivery callback' => 'ajax_deliver',
+      'page arguments' => array(2,3,4,6),
+      'access callback' => 'fbss_comments_can',
+      'access arguments' => array('delete', 2),
+      'type' => MENU_CALLBACK,
+  );
+  
+  $items['statusesaction/comments/%/%/%/delete/nojs'] = array(
+      'title' => 'ajax callback for delete',
+      'page callback' => 'ajax_statuses_actions_delete_comment_callback',
+      'page arguments' => array(2,3,4,6),
+      'access callback' => 'fbss_comments_can',
+      'access arguments' => array('delete', 2),
+      'type' => MENU_CALLBACK,
+  );
+
+  $items['statusesaction/comments/%/%/%/edit/ajax'] = array(
+      'title' => 'ajax callback for edit',
+      'page callback' => 'ajax_statuses_actions_edit_comment_callback',
+      'delivery callback' => 'ajax_deliver',
+      'page arguments' => array(2,3,4,6),
+      'access callback' => 'fbss_comments_can',
+      'access arguments' => array('edit', 2),
+      'type' => MENU_CALLBACK,
+  );
+  
+  $items['statusesaction/comments/%/%/%/edit/nojs'] = array(
+      'title' => 'ajax callback for edit',
+      'page callback' => 'ajax_statuses_actions_edit_comment_callback',
+      'page arguments' => array(2,3,4,6),
+      'access callback' => 'fbss_comments_can',
+      'access arguments' => array('edit', 2),
+      'type' => MENU_CALLBACK,
+  );
+
   return $items; 
 }
 
@@ -172,7 +210,7 @@ function _ajax_statuses_actions_edit_confirm($form, &$form_state) {
   if(statuses_user_access('edit', $status)){
     $selector = 'div#statuses-item-'.$status->sid.' span.statuses-content';
     $new_status = statuses_edit_status($status, $form_state['values']['statusmessage']);
-    $ajax_commands[] = ajax_command_replace($selector, "<span class='statuses-content'>$status->message</div>");
+    $ajax_commands[] = ajax_command_replace($selector, "<span class='statuses-content'>$new_status->message</div>");
     $ajax_commands[] = ajax_command_invoke("div#edit-status-form-block", 'remove');
 //     $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'fadeIn', array(300));
   }else{
@@ -192,3 +230,148 @@ function ajax_statuses_actions_user_access($op){
   drupal_alter('statuses_user_access', $allow, $op, $args);
   return $allow;
 }
+
+// Comments
+function ajax_statuses_actions_delete_comment_callback($comment_id, $entity_type, $etid, $js){
+  if($js == 'nojs'){
+    drupal_goto("statuses/comment/$comment_id/delete", array('query' => array('destination' => "$entity_type/$etid")));
+    return;
+  }
+  $comment = fbss_comments_load($comment_id);
+  $delete_form = drupal_render(drupal_get_form('_ajax_statuses_actions_delete_status_comment_form', $comment));
+  $selector = '#statuses-item-'.$comment->sid. ' #status-comment-delete-'.$comment->cid;
+  // Define a new array to hold our AJAX commands.
+  $ajax_commands = array();
+  $ajax_commands[] = ajax_command_before($selector, "<div id='delete-status-form-block'>$delete_form<div class='join-course-arrow-block'></div></div>");
+  $ajax_commands[] = ajax_command_invoke('div#delete-status-form-block', 'hide');
+  $ajax_commands[] = ajax_command_invoke('div#delete-status-form-block', 'fadeIn', array(300));
+  
+  return array('#type' => 'ajax', '#commands' => $ajax_commands);
+}
+
+/**
+ * The delete form for status comments.
+ *
+ * @param $comment
+ *   The comment object for the status comment being deleted.
+ */
+function _ajax_statuses_actions_delete_status_comment_form($form, $form_state, $comment) {
+  $form = array();
+  $form['infotext'] = array(
+      '#value' => '<p>' . t('Are you sure you want to permanently delete this comment?</p>'),
+  );
+  $form['confirm'] = array(
+    '#type' => 'submit',
+    '#value' => t('Confirm'),
+    // Add the Ajax Submit Function
+    '#ajax' => array(
+        'callback' => '_ajax_statuses_actions_delete_status_comment_confirm',
+        'progress' => false,
+    ),
+  );
+  $form['back'] = array(
+    '#markup' => l('Cancel', '#', array('attributes' => array('class' => "cancel-status-delete"))),
+  );
+  
+  $form['#cid'] = $comment->cid;
+  return $form;
+}
+
+/**
+ * The confirmation submit handler for the delete form for status comments.
+ */
+function _ajax_statuses_actions_delete_status_comment_confirm($form, &$form_state) {
+  // Define a new array to hold our AJAX commands.
+  $ajax_commands = array();
+  if(fbss_comments_can('delete', $form['#cid'])){
+    $selector = '#status-comment-'. $form['#cid'] .'-wrapper';
+    fbss_comments_delete_comment($form['#cid']);
+    $ajax_commands[] = ajax_command_remove($selector);
+  }else{
+    $ajax_commands[] = ajax_command_after('div.statuses-update', "<div class='status-error-message'>Sinulla ei ole oikeutta muokata tätä statusta.</div>");
+    $ajax_commands[] = ajax_command_invoke('status-error-message', 'hide');
+    $ajax_commands[] = ajax_command_invoke('status-error-message', 'fadeIn', array(500));
+  }
+  return array('#type' => 'ajax', '#commands' => $ajax_commands);
+}
+
+
+function ajax_statuses_actions_edit_comment_callback($comment_id, $entity_type, $etid, $js){
+  if($js == 'nojs'){
+    drupal_goto("statuses/comment/$comment_id/edit", array('query' => array('destination' => "$entity_type/$etid")));
+    return;
+  }
+  $comment = fbss_comments_load($comment_id);
+  $edit_form = drupal_render(drupal_get_form('_ajax_statuses_actions_edit_status_comment_form', $comment));
+  $selector = '#status-comment-'. $comment->cid .'-wrapper .fbss-comments-text';
+  // Define a new array to hold our AJAX commands.
+  $ajax_commands = array();  
+  $ajax_commands[] = ajax_command_after($selector, "<div id='edit-status-form-block'>$edit_form</div>");
+  $ajax_commands[] = ajax_command_invoke('div#edit-status-form-block', 'hide');
+  $ajax_commands[] = ajax_command_invoke($selector, 'hide');
+  $ajax_commands[] = ajax_command_invoke('div#edit-status-form-block', 'fadeIn', array(500));
+  
+  return array('#type' => 'ajax', '#commands' => $ajax_commands);
+}
+
+/**
+ * The edit form for status comments.
+ *
+ * @param $comment
+ *   The comment object for the status comment being edited.
+ */
+function _ajax_statuses_actions_edit_status_comment_form($form, $form_state, $comment) {
+  $form = array();
+  $form['status-comment-edit'] = array(
+      '#type' => 'textarea',
+      '#rows' => 3,
+      '#required' => TRUE,
+      '#default_value' => $comment->comment,
+  );
+  $form['save'] = array(
+      '#type' => 'submit',
+      '#value' => t('Update'),
+    // Add the Ajax Submit Function
+    '#ajax' => array(
+        'callback' => '_ajax_statuses_actions_edit_status_comment_confirm',
+        'progress' => false,
+    ),
+  );
+  $form['back'] = array(
+    '#markup' => l('Cancel', '#', array('attributes' => array('class' => "cancel-status-edit"))),
+  );
+  $form['#cid'] = $comment->cid;
+  return $form;
+}
+
+/**
+ * The submit handler for the edit form for status comments.
+ */
+function _ajax_statuses_actions_edit_status_comment_confirm($form, &$form_state) {
+  $c = fbss_comments_load($form['#cid']);
+  if(fbss_comments_can('edit', $c)){
+    db_update('fbss_comments')
+    ->fields(array('comment' => $form_state['values']['status-comment-edit']))
+    ->condition('cid', $form['#cid'])
+    ->execute();    
+  }
+  // Define a new array to hold our AJAX commands.
+  $ajax_commands = array();
+  if(statuses_user_access('edit', $status)){
+    $selector = 'div#statuses-item-'.$status->sid.' span.statuses-content';
+    $new_status = statuses_edit_status($status, $form_state['values']['statusmessage']);
+    $ajax_commands[] = ajax_command_replace($selector, "<span class='statuses-content'>$status->message</div>");
+    $ajax_commands[] = ajax_command_invoke("div#edit-status-form-block", 'remove');
+    //     $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'fadeIn', array(300));
+  }else{
+    $ajax_commands[] = ajax_command_after('div.statuses-update', "<div class='status-error-message'>Sinulla ei ole oikeutta muokata tätä statusta.</div>");
+    $ajax_commands[] = ajax_command_invoke('status-error-message', 'hide');
+    $ajax_commands[] = ajax_command_invoke('status-error-message', 'fadeIn', array(500));
+  }
+  return array('#type' => 'ajax', '#commands' => $ajax_commands);
+  
+  
+  drupal_set_message(t('Status comment has been successfully edited.'));
+}
+
+
