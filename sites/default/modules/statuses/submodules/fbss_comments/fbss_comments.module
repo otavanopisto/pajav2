@@ -248,7 +248,8 @@ function theme_fbss_comments_item($variables) {
 // to here
   array_unshift($classes, 'fbss-comments-comment', 'statuses-media', 'statuses-subitem');
   $classes = implode(' ', $classes);
-  $output = '<div class="' . $classes . '">';
+//   Petja. id for js actions
+  $output = '<div class="' . $classes . '" id="status-comment-'. $comment->cid .'-wrapper">';
   if (variable_get('fbss_comments_user_pictures', 0)) {
     $output .= '<div class="fbss-comments-author-picture user-picture">' . _fbss_comments_user_picture($author) . '</div>';
   }
@@ -271,15 +272,17 @@ function theme_fbss_comments_item($variables) {
   }
   // The following links output should ideally be created with theme_links. But since the query property
   // is not supported by theme_links, we have to build the output structure by hand at the moment.
+// Petja. Replacing edit link with one that has ajax callback.
   $output .= '<ul class="links inline fbss-comments-links">';
   if (fbss_comments_can('edit', $comment)) {
     $output .= '<li class="fbss-comments-edit-delete fbss-comments-edit-link">'.
-      l(t('Edit'), 'statuses/comment/'. $comment->cid .'/edit', array('query' => array('destination' => $q)))
+      l(t('Edit'), 'statusesaction/comment/'. $comment->cid .'/'. $q .'/edit/nojs', array('attributes' => array('class' => 'use-ajax', 'id' => "status-comment-edit-$comment->cid")))
       .'</li>';
   }
+// Petja. Replacing delete link with one that has ajax callback.
   if (fbss_comments_can('delete', $comment)) {
     $output .= '<li class="fbss-comments-edit-delete fbss-comments-delete-link">'.
-      l(t('Delete'), 'statuses/comment/'. $comment->cid .'/delete', array('query' => array('destination' => $q)))
+      l(t('Delete'), 'statusesaction/comments/'. $comment->cid .'/'. $q .'/delete/nojs', array('attributes' => array('class' => 'use-ajax', 'id' => "status-comment-delete-$comment->cid")))
       .'</li>';
   }
   if (module_exists('fbss_comments_flag')) {
