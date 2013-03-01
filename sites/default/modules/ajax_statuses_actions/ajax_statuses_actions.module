@@ -114,7 +114,7 @@ function ajax_statuses_actions_delete_status_callback($status_id, $entity_type, 
  * The delete status confirmation form.
  */
 function _ajax_statuses_actions_delete($form, &$form_state, $status) {
-  $form['infotext'] = array('#markup' => '<p>' . t('Are you sure you want to permanently delete the status </p>'));
+  $form['infotext'] = array('#markup' => '<p>' . t('Are you sure you want to permanently delete the status?') . '</p>');
   $form['submit'] = array(
       '#type' => 'submit',
       '#value' => t('Confirm'),

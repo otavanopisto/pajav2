@@ -975,7 +975,6 @@ ul.tabs.primary li.active a {
 }
 
 #delete-status-form-block  p {
-  text-transform:uppercase;
   font-size:1.1em;
   margin:0 0 20px 0;
   font-style:normal;
@@ -986,6 +985,10 @@ ul.tabs.primary li.active a {
 #edit-status-form-block .cancel-status-edit {
   margin:0 10px 0 10px;
   display:inline-block;
+}
+
+.fbss-comments-edit-delete.fbss-comments-delete-link {
+  position:relative; 
 }
 
 #delete-status-form-block .delete-status-arrow-block {
@@ -1004,7 +1007,7 @@ ul.tabs.primary li.active a {
   padding:0;
 }
 
-#page .statuses-details div.ajax-progress {
+#page .statuses-media div.ajax-progress {
   display:none;
 }
 
