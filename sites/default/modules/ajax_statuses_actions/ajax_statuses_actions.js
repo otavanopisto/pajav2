@@ -110,8 +110,14 @@ var isIntervalSet = false;
         if ($('#edit-status-form-block').length > 0) {
           $('#edit-status-form-block a.cancel-status-edit').click(function(event) {
             $('#edit-status-form-block').fadeOut(300, function () {
-              $(this).remove();
-              $('.statuses-content').fadeIn(300);
+              if($('.statuses-content').length > 0){
+                $('.statuses-content').fadeIn(300);
+                $(this).remove(); 
+              }
+              if($('.fbss-comments-text').length > 0){
+                $('.fbss-comments-text').fadeIn(300);
+                $(this).remove();
+              }
             });
             event.preventDefault();
             event.stopPropagation();

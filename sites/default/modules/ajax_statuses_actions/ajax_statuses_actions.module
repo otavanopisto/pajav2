@@ -242,7 +242,7 @@ function ajax_statuses_actions_delete_comment_callback($comment_id, $entity_type
   $selector = '#statuses-item-'.$comment->sid. ' #status-comment-delete-'.$comment->cid;
   // Define a new array to hold our AJAX commands.
   $ajax_commands = array();
-  $ajax_commands[] = ajax_command_before($selector, "<div id='delete-status-form-block'>$delete_form<div class='join-course-arrow-block'></div></div>");
+  $ajax_commands[] = ajax_command_before($selector, "<div id='delete-status-form-block'>$delete_form<div class='delete-status-arrow-block'></div></div>");
   $ajax_commands[] = ajax_command_invoke('div#delete-status-form-block', 'hide');
   $ajax_commands[] = ajax_command_invoke('div#delete-status-form-block', 'fadeIn', array(300));
   
@@ -258,7 +258,7 @@ function ajax_statuses_actions_delete_comment_callback($comment_id, $entity_type
 function _ajax_statuses_actions_delete_status_comment_form($form, $form_state, $comment) {
   $form = array();
   $form['infotext'] = array(
-      '#value' => '<p>' . t('Are you sure you want to permanently delete this comment?</p>'),
+      '#markup' => '<p>' . t('Are you sure you want to permanently delete this comment?</p>'),
   );
   $form['confirm'] = array(
     '#type' => 'submit',
@@ -349,29 +349,25 @@ function _ajax_statuses_actions_edit_status_comment_form($form, $form_state, $co
  */
 function _ajax_statuses_actions_edit_status_comment_confirm($form, &$form_state) {
   $c = fbss_comments_load($form['#cid']);
+  // Define a new array to hold our AJAX commands.
+  $ajax_commands = array();
   if(fbss_comments_can('edit', $c)){
     db_update('fbss_comments')
     ->fields(array('comment' => $form_state['values']['status-comment-edit']))
     ->condition('cid', $form['#cid'])
     ->execute();    
-  }
-  // Define a new array to hold our AJAX commands.
-  $ajax_commands = array();
-  if(statuses_user_access('edit', $status)){
-    $selector = 'div#statuses-item-'.$status->sid.' span.statuses-content';
-    $new_status = statuses_edit_status($status, $form_state['values']['statusmessage']);
-    $ajax_commands[] = ajax_command_replace($selector, "<span class='statuses-content'>$status->message</div>");
+
+    $selector = '#status-comment-'. $c->cid .'-wrapper .fbss-comments-text';
+    $ajax_commands[] = ajax_command_replace($selector, "<div class='fbss-comments-text'>". $form_state['values']['status-comment-edit'] ."</div>");
     $ajax_commands[] = ajax_command_invoke("div#edit-status-form-block", 'remove');
     //     $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'fadeIn', array(300));
   }else{
-    $ajax_commands[] = ajax_command_after('div.statuses-update', "<div class='status-error-message'>Sinulla ei ole oikeutta muokata tätä statusta.</div>");
+    $ajax_commands[] = ajax_command_after('div.statuses-update', "<div class='status-error-message'>Sinulla ei ole oikeutta muokata tätä kommenttia.</div>");
     $ajax_commands[] = ajax_command_invoke('status-error-message', 'hide');
     $ajax_commands[] = ajax_command_invoke('status-error-message', 'fadeIn', array(500));
   }
   return array('#type' => 'ajax', '#commands' => $ajax_commands);
-  
-  
-  drupal_set_message(t('Status comment has been successfully edited.'));
+
 }
 
 
