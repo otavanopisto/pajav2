@@ -81,8 +81,6 @@ var isIntervalSet = false;
       attach: function(context, settings) {
         if ($('#delete-status-form-block').length > 0) {
           $('#delete-status-form-block a.cancel-status-delete').click(function(event) {
-            $('#delete-status-form-block').empty();
-            $('#delete-status-form-block').remove();
             $('#delete-status-form-block').fadeOut(300, function () {
               $(this).remove();
             });
@@ -111,12 +109,10 @@ var isIntervalSet = false;
       attach: function(context, settings) {
         if ($('#edit-status-form-block').length > 0) {
           $('#edit-status-form-block a.cancel-status-edit').click(function(event) {
-            $('#edit-status-form-block').empty();
-            $('#edit-status-form-block').remove();
             $('#edit-status-form-block').fadeOut(300, function () {
               $(this).remove();
+              $('.statuses-content').fadeIn(300);
             });
-            $('.statuses-content').show();
             event.preventDefault();
             event.stopPropagation();
         });
