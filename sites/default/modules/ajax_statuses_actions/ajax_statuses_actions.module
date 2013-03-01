@@ -52,7 +52,7 @@ function ajax_statuses_actions_menu(){
       'page callback' => 'ajax_statuses_actions_delete_comment_callback',
       'delivery callback' => 'ajax_deliver',
       'page arguments' => array(2,3,4,6),
-      'access callback' => 'fbss_comments_can',
+      'access callback' => '_ajax_statuses_actions_fbss_comments_can',
       'access arguments' => array('delete', 2),
       'type' => MENU_CALLBACK,
   );
@@ -61,7 +61,7 @@ function ajax_statuses_actions_menu(){
       'title' => 'ajax callback for delete',
       'page callback' => 'ajax_statuses_actions_delete_comment_callback',
       'page arguments' => array(2,3,4,6),
-      'access callback' => 'fbss_comments_can',
+      'access callback' => '_ajax_statuses_actions_fbss_comments_can',
       'access arguments' => array('delete', 2),
       'type' => MENU_CALLBACK,
   );
@@ -71,7 +71,7 @@ function ajax_statuses_actions_menu(){
       'page callback' => 'ajax_statuses_actions_edit_comment_callback',
       'delivery callback' => 'ajax_deliver',
       'page arguments' => array(2,3,4,6),
-      'access callback' => 'fbss_comments_can',
+      'access callback' => '_ajax_statuses_actions_fbss_comments_can',
       'access arguments' => array('edit', 2),
       'type' => MENU_CALLBACK,
   );
@@ -80,7 +80,7 @@ function ajax_statuses_actions_menu(){
       'title' => 'ajax callback for edit',
       'page callback' => 'ajax_statuses_actions_edit_comment_callback',
       'page arguments' => array(2,3,4,6),
-      'access callback' => 'fbss_comments_can',
+      'access callback' => '_ajax_statuses_actions_fbss_comments_can',
       'access arguments' => array('edit', 2),
       'type' => MENU_CALLBACK,
   );
@@ -355,7 +355,7 @@ function _ajax_statuses_actions_edit_status_comment_confirm($form, &$form_state)
     db_update('fbss_comments')
     ->fields(array('comment' => $form_state['values']['status-comment-edit']))
     ->condition('cid', $form['#cid'])
-    ->execute();    
+    ->execute();
 
     $selector = '#status-comment-'. $c->cid .'-wrapper .fbss-comments-text';
     $ajax_commands[] = ajax_command_replace($selector, "<div class='fbss-comments-text'>". $form_state['values']['status-comment-edit'] ."</div>");
@@ -371,3 +371,13 @@ function _ajax_statuses_actions_edit_status_comment_confirm($form, &$form_state)
 }
 
 
+function _ajax_statuses_actions_fbss_comments_can($op, $comment_id, $account = NULL) {
+  if (empty($account)) {
+    $account = $GLOBALS['user'];
+  }
+  $comment = fbss_comments_load($comment_id);
+  $result = call_user_func('_fbss_comments_can_' . $op, $comment, $account);
+  $allow = TRUE;
+  drupal_alter('fbss_comments_has_permission', $allow, $op, $comment, $account);
+  return $allow && $result;
+}
