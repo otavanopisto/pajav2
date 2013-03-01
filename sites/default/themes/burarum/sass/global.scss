@@ -988,6 +988,10 @@ ul.tabs.primary li.active a {
   display:inline-block;
 }
 
+.fbss-comments-edit-delete.fbss-comments-delete-link {
+  position:relative; 
+}
+
 #delete-status-form-block .delete-status-arrow-block {
   position:absolute;
   bottom:-10px;
@@ -1004,7 +1008,7 @@ ul.tabs.primary li.active a {
   padding:0;
 }
 
-#page .statuses-details div.ajax-progress {
+#page .statuses-media div.ajax-progress {
   display:none;
 }
 
