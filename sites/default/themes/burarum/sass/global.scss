@@ -945,29 +945,63 @@ ul.tabs.primary li.active a {
   overflow:visible;
 }
 
-.statuses-details #delete-status-form-block {
+#delete-status-form-block {
   position:absolute;
   height:auto;
-  width:400px;
+  width:300px;
   bottom:30px;
   left:0;
   z-index:99999;
   overflow:visible;
-  @include box-padding($padding: 10px 15px);
+  @include box-padding($padding: 10px 15px 15px 15px);
   @include box-shadow(0 -4px 20px rgba(0,0,0,0.3));
   @include rounded-borders;
   border:1px solid #aaaaaa;
   background:#ffffff;
-  margin-left:-320px;
+  margin-left:-240px;
 }
 
-.statuses-details #delete-status-form-block .join-course-arrow-block {
+#edit-status-form-block {
+  margin:0 0 10px 0;
+}
+
+#edit-status-form-block form .form-item {
+  margin:0 0 10px 0;
+}
+
+#edit-status-form-block form textarea {
+  font-size:1em;
+  line-height:1.5em;
+}
+
+#delete-status-form-block  p {
+  text-transform:uppercase;
+  font-size:1.1em;
+  margin:0 0 20px 0;
+  font-style:normal;
+  color:$fontColor;
+}
+
+#delete-status-form-block .cancel-status-delete,
+#edit-status-form-block .cancel-status-edit {
+  margin:0 10px 0 10px;
+  display:inline-block;
+}
+
+#delete-status-form-block .delete-status-arrow-block {
   position:absolute;
   bottom:-10px;
-  right:50px;
+  right:30px;
   height:9px;
   width:15px;
   background:url('../gfx/arrow-bottom.png') no-repeat;
+}
+
+.statuses-media #edit-status-form-block .statuses-textarea-wrapper {
+  border:0;
+  box-shadow:none;
+  margin:0 0 10px 0;
+  padding:0;
 }
 
 #page .statuses-details div.ajax-progress {

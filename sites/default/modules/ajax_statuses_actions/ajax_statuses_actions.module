@@ -98,7 +98,7 @@ function ajax_statuses_actions_delete_status_callback($status_id, $entity_type, 
   $selector = 'div#statuses-item-'.$status_id. ' span.statuses-delete';
   // Define a new array to hold our AJAX commands.
   $ajax_commands = array();
-  $ajax_commands[] = ajax_command_before($selector, "<div id='delete-status-form-block'>$delete_form<div class='join-course-arrow-block'></div></div>");
+  $ajax_commands[] = ajax_command_before($selector, "<div id='delete-status-form-block'>$delete_form<div class='delete-status-arrow-block'></div></div>");
   $ajax_commands[] = ajax_command_invoke('div#delete-status-form-block', 'hide');
   $ajax_commands[] = ajax_command_invoke('div#delete-status-form-block', 'fadeIn', array(300));
 
@@ -151,7 +151,7 @@ function _ajax_statuses_actions_delete_confirm($form, &$form_state) {
   }else{
     $ajax_commands[] = ajax_command_after('div.statuses-update', "<div class='status-error-message'>Sinulla ei ole oikeutta poistaa tätä statusta.</div>");
     $ajax_commands[] = ajax_command_invoke("div.status-error-message", 'hide');
-    $ajax_commands[] = ajax_command_invoke("div.status-error-message", 'fadeIn', array(400));
+    $ajax_commands[] = ajax_command_invoke("div.status-error-message", 'fadeIn', array(300));
   }
   return array('#type' => 'ajax', '#commands' => $ajax_commands);
 }
@@ -169,7 +169,7 @@ function ajax_statuses_actions_edit_status_callback($status_id, $entity_type, $e
   $ajax_commands[] = ajax_command_after($selector, "<div id='edit-status-form-block'>$edit_form</div>");
   $ajax_commands[] = ajax_command_invoke('div#edit-status-form-block', 'hide');
   $ajax_commands[] = ajax_command_invoke($selector, 'hide');
-  $ajax_commands[] = ajax_command_invoke('div#edit-status-form-block', 'fadeIn', array(500));
+  $ajax_commands[] = ajax_command_invoke('div#edit-status-form-block', 'fadeIn', array(300));
   return array('#type' => 'ajax', '#commands' => $ajax_commands);
 }
 
@@ -216,7 +216,7 @@ function _ajax_statuses_actions_edit_confirm($form, &$form_state) {
   }else{
     $ajax_commands[] = ajax_command_after('div.statuses-update', "<div class='status-error-message'>Sinulla ei ole oikeutta muokata tätä statusta.</div>");
     $ajax_commands[] = ajax_command_invoke('status-error-message', 'hide');
-    $ajax_commands[] = ajax_command_invoke('status-error-message', 'fadeIn', array(500));
+    $ajax_commands[] = ajax_command_invoke('status-error-message', 'fadeIn', array(300));
   }
   return array('#type' => 'ajax', '#commands' => $ajax_commands);
 }
