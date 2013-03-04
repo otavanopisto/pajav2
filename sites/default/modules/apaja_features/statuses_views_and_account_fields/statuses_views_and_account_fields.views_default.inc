@@ -34,12 +34,34 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: User: Uid */
+  $handler->display->display_options['fields']['uid']['id'] = 'uid';
+  $handler->display->display_options['fields']['uid']['table'] = 'users';
+  $handler->display->display_options['fields']['uid']['field'] = 'uid';
+  $handler->display->display_options['fields']['uid']['label'] = '';
+  $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
   /* Field: Statuses: Status ID */
   $handler->display->display_options['fields']['sid']['id'] = 'sid';
   $handler->display->display_options['fields']['sid']['table'] = 'statuses';
   $handler->display->display_options['fields']['sid']['field'] = 'sid';
   $handler->display->display_options['fields']['sid']['label'] = '';
   $handler->display->display_options['fields']['sid']['exclude'] = TRUE;
+  /* Field: Statuses: Recipient ID */
+  $handler->display->display_options['fields']['recipient']['id'] = 'recipient';
+  $handler->display->display_options['fields']['recipient']['table'] = 'statuses';
+  $handler->display->display_options['fields']['recipient']['field'] = 'recipient';
+  $handler->display->display_options['fields']['recipient']['label'] = '';
+  $handler->display->display_options['fields']['recipient']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['recipient']['element_label_colon'] = FALSE;
+  /* Field: Statuses: Recipient type */
+  $handler->display->display_options['fields']['type']['id'] = 'type';
+  $handler->display->display_options['fields']['type']['table'] = 'statuses';
+  $handler->display->display_options['fields']['type']['field'] = 'type';
+  $handler->display->display_options['fields']['type']['label'] = '';
+  $handler->display->display_options['fields']['type']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
   /* Field: Statuses: Sender custom picture */
   $handler->display->display_options['fields']['sender_custom_pic']['id'] = 'sender_custom_pic';
   $handler->display->display_options['fields']['sender_custom_pic']['table'] = 'statuses';
@@ -53,6 +75,44 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['classes']['field'] = 'classes';
   $handler->display->display_options['fields']['classes']['label'] = '';
   $handler->display->display_options['fields']['classes']['exclude'] = TRUE;
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php']['id'] = 'php';
+  $handler->display->display_options['fields']['php']['table'] = 'views';
+  $handler->display->display_options['fields']['php']['field'] = 'php';
+  $handler->display->display_options['fields']['php']['label'] = 'PHP delete';
+  $handler->display->display_options['fields']['php']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php']['php_output'] = '<?php
+    $status = new stdClass();
+    $status->sender = $row->uid;
+    $status->type = $row->type;
+    $status->sid = $row->sid;
+    $status->recipient = $row->recipient;
+    if (statuses_user_access(\'delete\', $status)) {
+  echo "<span class=\\"statuses-delete\\">". l("Delete", "statusesaction/".$row->sid."/user/" .arg(1). "/delete/nojs", array(\'attributes\' => array(\'class\' => \'use-ajax\'))). "</span>";
+}
+?>';
+  $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php_1']['id'] = 'php_1';
+  $handler->display->display_options['fields']['php_1']['table'] = 'views';
+  $handler->display->display_options['fields']['php_1']['field'] = 'php';
+  $handler->display->display_options['fields']['php_1']['label'] = 'PHP edit';
+  $handler->display->display_options['fields']['php_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['php_1']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php_1']['php_output'] = '<?php
+    $status = new stdClass();
+    $status->sender = $row->uid;
+    $status->type = $row->type;
+    $status->sid = $row->sid;
+    $status->recipient = $row->recipient;
+    if (statuses_user_access(\'edit\', $status)) {
+  echo "<span class=\\"statuses-edit\\">". l("Edit", "statusesaction/".$row->sid."/user/" .arg(1). "/edit/nojs", array(\'attributes\' => array(\'class\' => \'use-ajax\'))). "</span>";
+}
+?>';
+  $handler->display->display_options['fields']['php_1']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php_1']['php_click_sortable'] = '';
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
@@ -123,7 +183,7 @@ function statuses_views_and_account_fields_views_default_views() {
       <div class="statuses-participants">[user_contextual] [private]</div>
       [message]
       <div class="statuses-details">
-        <div class="statuses-links">[edit] [delete]</div> [created]
+        <div class="statuses-links">[php_1] [php]</div> [created]
       </div>
         [comment-box]
     </div>
@@ -190,6 +250,8 @@ function statuses_views_and_account_fields_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
+    t('PHP delete'),
+    t('PHP edit'),
     t('<span class="statuses-sender">[name]</span>'),
     t('<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
@@ -197,7 +259,7 @@ function statuses_views_and_account_fields_views_default_views() {
       <div class="statuses-participants">[user_contextual] [private]</div>
       [message]
       <div class="statuses-details">
-        <div class="statuses-links">[edit] [delete]</div> [created]
+        <div class="statuses-links">[php_1] [php]</div> [created]
       </div>
         [comment-box]
     </div>
