@@ -135,10 +135,24 @@ var isIntervalSet = false;
       } 
     };
   
-  $.fn.statusmessageEditRemove = function(sid) {
+  $.fn.deleteStatusComment = function(cid){
+    $('#status-comment-'+ cid +'-wrapper').fadeOut(300, function(event){
+      $(this).remove();
+    });
+  };
+  
+  $.fn.editStatus = function(sid) {
     $('#edit-status-form-block').fadeOut(300, function(event){
-      $('div#statuses-item-'+sid+' span.statuses-content').show(300, function(event){
+      $('div#statuses-item-'+sid+' span.statuses-content').fadeIn(300, function(event){
         $('#edit-status-form-block').remove();
+      });
+    });
+  };
+  
+  $.fn.editStatusComment = function(cid) {
+    $("div#edit-status-form-block").fadeOut(300, function(event){
+      $('#status-comment-'+ cid +'-wrapper .fbss-comments-text').fadeIn(300, function(event){
+        $("div#edit-status-form-block").remove();
       });
     });
   };
