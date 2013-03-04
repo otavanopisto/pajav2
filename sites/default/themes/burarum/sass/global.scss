@@ -1132,6 +1132,7 @@ ul.tabs.primary li.active a {
   display:block;
   cursor:pointer;
   position:relative;
+  display:table;
 }
 
 #page #node-user-panel .pane-user-courses .views-row:hover {
@@ -1156,6 +1157,7 @@ ul.tabs.primary li.active a {
 
 #page #node-user-panel .pane-user-courses .views-row .views-field-title {
   float:left;
+  max-width:205px;
 }
 
 #page #node-user-panel .pane-user-courses .views-row:hover .views-field-title a {
@@ -1248,7 +1250,7 @@ ul.tabs.primary li.active a {
   display:block;
   padding:15px;
   width:350px;
-  height:210px;
+  min-height:210px;
   @include box-shadow(-4px 0 20px rgba(0,0,0,0.3));
   @include rounded-borders;
   @include tooltip-rtl-animation;
