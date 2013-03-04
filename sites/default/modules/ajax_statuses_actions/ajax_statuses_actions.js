@@ -17,7 +17,7 @@ var isIntervalSet = false;
                     if (val && val != undefined) {
                       if ($.trim(val) && loaded2[val] !== true) {
                         loaded2[val] = true;
-                        var element = $(val);
+//                        var element = $(val);
 //                        element.before('<div class="fbss-remove-me ahah-progress ahah-progress-throbber" style="display: none; clear: both; float: none;"><div class="throbber">&nbsp;</div></div>');
                       }
                     }
@@ -98,8 +98,9 @@ var isIntervalSet = false;
              event.stopPropagation();
           });
           $('.html').click(function(event){
-            $('#delete-status-form-block').empty();
-            $('#delete-status-form-block').remove();
+            $('#delete-status-form-block').fadeOut(300, function(){
+              $(this).remove();
+            });
           });
         }
       }
@@ -133,5 +134,13 @@ var isIntervalSet = false;
         }
       } 
     };
+  
+  $.fn.statusmessageEditRemove = function(sid) {
+    $('#edit-status-form-block').fadeOut(300, function(event){
+      $('div#statuses-item-'+sid+' span.statuses-content').show(300, function(event){
+        $('#edit-status-form-block').remove();
+      });
+    });
+  };
   
 })(jQuery);

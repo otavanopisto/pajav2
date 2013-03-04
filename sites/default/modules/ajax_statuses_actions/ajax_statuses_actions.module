@@ -176,7 +176,7 @@ function ajax_statuses_actions_edit_status_callback($status_id, $entity_type, $e
 function _ajax_statuses_actions_edit($form, &$form_state, $status){
   $form['statusmessage'] = array(
     '#type' => 'textarea',
-    '#default_value' => $status->message,
+    '#default_value' => filter_xss($status->message),
     '#rows' => variable_get('statuses_box_rows', 2),
     '#resizable' => FALSE,
   );
@@ -210,8 +210,12 @@ function _ajax_statuses_actions_edit_confirm($form, &$form_state) {
   if(statuses_user_access('edit', $status)){
     $selector = 'div#statuses-item-'.$status->sid.' span.statuses-content';
     $new_status = statuses_edit_status($status, $form_state['values']['statusmessage']);
-    $ajax_commands[] = ajax_command_replace($selector, "<span class='statuses-content'>$new_status->message</div>");
-    $ajax_commands[] = ajax_command_invoke("div#edit-status-form-block", 'remove');
+    
+    $ajax_commands[] = ajax_command_html($selector, filter_xss($new_status->message));
+//     $ajax_commands[] = ajax_command_invoke($selector, 'fadeIn', array(300));
+//     $ajax_commands[] = ajax_command_invoke("div#edit-status-form-block", 'remove');
+        $ajax_commands[] = ajax_command_invoke(NULL, "statusmessageEditRemove", array("$status->sid"));
+    
 //     $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'fadeIn', array(300));
   }else{
     $ajax_commands[] = ajax_command_after('div.statuses-update', "<div class='status-error-message'>Sinulla ei ole oikeutta muokata tätä statusta.</div>");
@@ -326,7 +330,7 @@ function _ajax_statuses_actions_edit_status_comment_form($form, $form_state, $co
       '#type' => 'textarea',
       '#rows' => 3,
       '#required' => TRUE,
-      '#default_value' => $comment->comment,
+      '#default_value' => filter_xss($comment->comment),
   );
   $form['save'] = array(
       '#type' => 'submit',
@@ -358,7 +362,7 @@ function _ajax_statuses_actions_edit_status_comment_confirm($form, &$form_state)
     ->execute();
 
     $selector = '#status-comment-'. $c->cid .'-wrapper .fbss-comments-text';
-    $ajax_commands[] = ajax_command_replace($selector, "<div class='fbss-comments-text'>". $form_state['values']['status-comment-edit'] ."</div>");
+    $ajax_commands[] = ajax_command_replace($selector, "<div class='fbss-comments-text'>". filter_xss($form_state['values']['status-comment-edit']) ."</div>");
     $ajax_commands[] = ajax_command_invoke("div#edit-status-form-block", 'remove');
     //     $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'fadeIn', array(300));
   }else{
