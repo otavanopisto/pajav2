@@ -24,15 +24,16 @@
         }
       });
       // The "Comment" link when there are no comments. Reveals the textarea and save button.
-      ctxt.find('.fbss-comments-show-comment-form').one('click', function(){
-        $(this).hide();
-        var f = $('#' + this.id + ' + div');
-        f.fadeIn(300);
-        var sid = this.id.split('-').pop();
-        f.find('.fbss-comments-replace-' + sid + '-inner').fadeIn(300);
-        f.find('.fbss-comments-textarea').focus();
-        return false;
-      });
+      // Petja
+//      ctxt.find('.fbss-comments-show-comment-form').one('click', function(){
+//        $(this).hide();
+//        var f = $('#' + this.id + ' + div');
+//        f.fadeIn(300);
+//        var sid = this.id.split('-').pop();
+//        f.find('.fbss-comments-replace-' + sid + '-inner').fadeIn(300);
+//        f.find('.fbss-comments-textarea').focus();
+//        return false;
+//      });
       // The "Comment" link when there are comments. Reveals the textarea and save button.
       ctxt.find('.fbss-comments-show-comment-form-inner').one('click', function(){
         $(this).hide();
@@ -48,9 +49,11 @@
         return false;
       });
       // Hide things we're not ready to show yet.
-      ctxt.find('.fbss-comments-hide').hide();
+//      Petja
+//      ctxt.find('.fbss-comments-hide').hide();
       // Show things we're not ready to hide yet.
-      ctxt.find('.fbss-comments-show-comment-form, .fbss-comments-show-comment-form-inner, .fbss-comments-show-comments').fadeIn(300);
+//      Petja
+//      ctxt.find('.fbss-comments-show-comment-form, .fbss-comments-show-comment-form-inner, .fbss-comments-show-comments').fadeIn(300);
       ctxt.find('.fbss-comments-show-comments').css('display', 'block');
       // Disable the save button at first.
       ctxt.find('.fbss-comments-submit').attr('disabled', true);
