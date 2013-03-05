@@ -773,14 +773,16 @@ function fbss_comments_box($form, &$form_state, $sid, $delay_load = TRUE, $hide_
     '#suffix' => '</div>',
     '#submit' => array('fbss_comments_box_submit'),
   );
-  if (variable_get('fbss_comments_ahah', 1)) {
+  //         Petja.
+//   if (variable_get('fbss_comments_ahah', 1)) {
     $form['save-' . $sid]['#ajax'] = array(
+
       'path' => 'fbss_comments/js/refresh',
       'callback' => 'fbss_comments_save_js',
       'wrapper' => 'fbss-comments-replace-' . $sid,
       'keypress' => TRUE,
     );
-  }
+//   }
   $form['#sid'] = $sid;
   if (!empty($form_state['fbss_comments']['sid'])) {
     $form['#sid'] = $form_state['fbss_comments']['sid'];
@@ -823,7 +825,7 @@ function fbss_comments_save_js($form, $form_state) {
   $new_form['after']                     = $form['after'];
   return $new_form;
 }
-
+// Petja kommentoi pois
 /**
  * Executes the AJAX process.
  *
