@@ -210,13 +210,8 @@ function _ajax_statuses_actions_edit_confirm($form, &$form_state) {
   if(statuses_user_access('edit', $status)){
     $selector = 'div#statuses-item-'.$status->sid.' span.statuses-content';
     $new_status = statuses_edit_status($status, $form_state['values']['statusmessage']);
-    
     $ajax_commands[] = ajax_command_html($selector, filter_xss($new_status->message));
-//     $ajax_commands[] = ajax_command_invoke($selector, 'fadeIn', array(300));
-//     $ajax_commands[] = ajax_command_invoke("div#edit-status-form-block", 'remove');
-        $ajax_commands[] = ajax_command_invoke(NULL, "editStatus", array("$status->sid"));
-    
-//     $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'fadeIn', array(300));
+    $ajax_commands[] = ajax_command_invoke(NULL, "editStatus", array("$status->sid"));
   }else{
     $ajax_commands[] = ajax_command_after('div.statuses-update', "<div class='status-error-message'>Sinulla ei ole oikeutta muokata tätä statusta.</div>");
     $ajax_commands[] = ajax_command_invoke('status-error-message', 'hide');
@@ -364,8 +359,6 @@ function _ajax_statuses_actions_edit_status_comment_confirm($form, &$form_state)
     $selector = '#status-comment-'. $c->cid .'-wrapper .fbss-comments-text';
     $ajax_commands[] = ajax_command_html($selector, filter_xss($form_state['values']['status-comment-edit']));
     $ajax_commands[] = ajax_command_invoke(NULL, 'editStatusComment', array($form['#cid']));
-//     $ajax_commands[] = ajax_command_invoke("div#edit-status-form-block", 'remove');
-    //     $ajax_commands[] = ajax_command_invoke("div#status-delete-message-$status->id", 'fadeIn', array(300));
   }else{
     $ajax_commands[] = ajax_command_after('div.statuses-update', "<div class='status-error-message'>Sinulla ei ole oikeutta muokata tätä kommenttia.</div>");
     $ajax_commands[] = ajax_command_invoke('status-error-message', 'hide');
