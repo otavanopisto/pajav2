@@ -16,10 +16,8 @@
 /* REMOVE THE PESKY STRICT PHP MESSAGES */
 
 .messages.error {
-/*   display:none; */
+   display:none; 
 }
-
-/* GENERIC STUFF */
 
 body {
   font-family:$fontFamily;
@@ -28,78 +26,7 @@ body {
   background:url('../gfx/view-port-background.gif') repeat-x left top;
 }
 
-a,
-a:visited {
-  color:$linkColor;
-}
-
-a:hover {
-  color:$linkHoverColor;
-}
-
-a:focus {
-  color:$linkFocusColor;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family:$fontFamily;
-  text-transform:uppercase;
-  letter-spacing:0;
-}
-
-#page h1,
-#page h2 {
-  font-size:1.2em;
-  @include h1h2-defaults;
-  @include box-shadow($shadow: 6px 6px 0 rgba(124,123,122,1.0));
-  margin:0 6px 20px 0;
-}
-
-#page .block-views h2 {
-  margin:0 6px 0px 0; /* Frontpage carousel h2 override */
-}
-
-#page section.block-views h2 {
-  margin:0 6px 0px 0; /* Frontpage carousel h2 override */
-}
-
-#page-container {
-  /* max-width:960px; */
-  width:960px;
-}
-
-#page .node-page,
-#page #user-profile-form  {
-  margin:0 14px 10px 14px;
-}
-
-#page h3 {
-  font-size:1.1em;
-}
-
-#page .container-16 .grid-16 { /* NOT PREFERED WAY TO DO THIS! REMOVE IF EVEN SLIGHTLY POSSIBLE */
-  width:100%;
-  margin:0;
-}
-
-#page-container {
-  padding:0 10px 10px 10px;
-}
-
-.header-black-spacer {
-  height:5px;
-  background:#000000;
-  margin:0 0 10px 0;
-}
-
-#zone-header {
-  margin:0 0 5px 0;
-  background:#ffffff;
-}
-
-.region-header-second-inner {
-  text-align:right;
-}
+/* GENERIC STUFF */
 
 .generic-empty-text-wrapper {
   text-align:center;
@@ -133,24 +60,133 @@ h1, h2, h3, h4, h5, h6 {
   @include box-shadow;
 }
 
-/* BACKGROUNDS */
+/* LINKS */
 
-#zone-branding-wrapper {
-  height:231px;
-  background:url('../gfx/header-background.jpg') no-repeat;
+a,
+a:visited {
+  color:$linkColor;
 }
 
-#zone-menu-wrapper {
+a:hover {
+  color:$linkHoverColor;
+}
+
+a:focus {
+  color:$linkFocusColor;
+}
+
+/* HEADERS */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family:$fontFamily;
+  text-transform:uppercase;
+  letter-spacing:0;
+}
+
+#page h1,
+#page h2 {
+  font-size:1.2em;
+  @include h1h2-defaults;
+  @include box-shadow($shadow: 6px 6px 0 rgba(124,123,122,1.0));
+  margin:0 6px 20px 0;
+}
+
+#page h3 {
+  font-size:1.1em;
+}
+
+#page .block-views h2 {
+  margin:0 6px 0px 0; /* Frontpage carousel h2 override */
+}
+
+#page section.block-views h2 {
+  margin:0 6px 0px 0; /* Frontpage carousel h2 override */
+}
+
+/* GENERIC LAYOUT */
+
+#page-container {
+  width:960px;
+}
+
+#page .node-page,
+#page #user-profile-form  {
+  margin:0 14px 10px 14px;
+}
+
+.header-black-spacer {
+  height:5px;
+  background:#000000;
+  margin:0 0 5px 0;
+}
+
+#region-header-first,
+#region-header-second {
+  margin-bottom:5px;
+  background:#ffffff;
+}
+
+.region-header-second-inner {
+  text-align:right;
+}
+
+#region-content-intro-video {
+  margin-bottom:20px;
+}
+
+#page section#section-content section {
+  margin:0px 0px 20px 0px;
+}
+
+/* BACKGROUNDS */
+
+#page-container {
+  background:url('../gfx/main-background.jpg') no-repeat #ffffff;
+  background-position:left 54px;
+}
+
+#region-branding {
+  height:230px;
+}
+
+#region-menu {
   padding:8px 0 28px 0;
-  background:url('../gfx/navigation-background.jpg') no-repeat;
   height:29px;
 }
 
-#zone-content-wrapper {
-  background:url('../gfx/content-background.jpg') no-repeat;
+/* LOGO / BRANDING */
+
+.branding-data {
+  position:relative;
+  height:230px;
 }
 
-/* NAVIGATION */
+.logo-img {
+  margin:0;
+  padding:0;
+  position:absolute;
+  top:20px;
+  left:40px;
+}
+
+/* HEADER SEARCH */
+
+div#block-search-form {
+  display:inline-block;
+  margin:0 0 0 20px
+}
+
+form#search-block-form .form-actions input {
+  margin-right:0;
+}
+
+form#search-block-form input.form-text {
+  width:220px;
+  background:url('../gfx/search_icon.gif') no-repeat 5px center;
+  padding-left:30px;
+}
+
+/* MAIN NAVIGATION */
 
 #zone-menu {
   padding:0;
@@ -197,73 +233,6 @@ h1, h2, h3, h4, h5, h6 {
   background:#424242;
   @include rounded-borders;
   @include text-shadow;
-}
-
-/* HEADER LINKS */
-
-.header-links {
-  display:inline-block;
-  padding:6px 10px 6px 0;
-}
-
-.header-links a {
-  color:$linkColorHeader;
-  @include header-link-defaults;
-  display:inline-block;
-  text-transform:uppercase;
-}
-
-.header-links a:hover {
-  color:$linkHoverColorHeader;
-}
-
-.header-links a:focus {
-  color:$linkFocusColorHeader;
-}
-
-/* SEARCH */
-
-div#block-search-form {
-  display:inline-block;
-  margin:0 0 0 20px
-}
-
-form#search-block-form .form-actions input {
-  margin-right:0;
-}
-
-form#search-block-form input.form-text {
-  width:220px;
-  background:url('../gfx/search_icon.gif') no-repeat 5px center;
-  padding-left:30px;
-}
-
-/* CONTENT EDITING TABS */
-
-ul.tabs.primary,
-ul.tabs.primary li {
-  margin:0;
-  border:0;
-}
-
-ul.tabs.primary li a {
-  display:inline-block;
-  padding:6px 20px;
-  background:#ffffff;
-  text-transform:uppercase;
-  color:$linkColor;
-  border:0;
-  @include box-shadow;
-}
-
-ul.tabs.primary li a:hover {
-  color:$linkHoverColor;
-  background:#ffffff;
-}
-
-ul.tabs.primary li.active a {
-  color:#ffffff;
-  background:#000000;
 }
 
 /* LOGIN, SIGNUP, USERINFO AND LOGOUT */
@@ -327,35 +296,526 @@ ul.tabs.primary li.active a {
   display:inline-block;
 }
 
-/* FRONTPAGE CAROUSEL / NOT STARTED COURSES LISTING / STARTED COURSES LISTING  */
+/* LOGIN and SIGNUP FORM */
 
-#views_slideshow_cycle_main_courses_not_started-block_slider,
-#views_slideshow_cycle_main_courses_started-block_slider {
-  padding:0 5px 10px 7px;
+#user-login label,
+#user-register-form label {
+  text-transform:uppercase;
+  font-weight:normal;
 }
 
-.views-slideshow-cycle-main-frame-row {
-  padding:5px 0 5px 0;
-  display:table;
+#user-login h3 {
+  text-transform:none;
+  padding:0;
+  margin:0 0 5px 0;
 }
 
-.view-courses-not-started.view-display-id-block_slider #views_slideshow_cycle_main_courses_not_started-block_slider,
-.view-courses-started.view-display-id-block_slider #views_slideshow_cycle_main_courses_not_started-block_slider {
-  margin:15px 0 0 0;
+#user-login .item-list ul.hybridauth-widget li {
+  margin:1px 8px 1px 1px;
+}
+
+/* CONTENT EDITING TABS */
+
+ul.tabs.primary,
+ul.tabs.primary li {
+  margin:0;
+  border:0;
+}
+
+ul.tabs.primary li a {
+  display:inline-block;
+  padding:6px 20px;
+  background:#ffffff;
+  text-transform:uppercase;
+  color:$linkColor;
+  border:0;
+  @include box-shadow;
+}
+
+ul.tabs.primary li a:hover {
+  color:$linkHoverColor;
+  background:#ffffff;
+}
+
+ul.tabs.primary li.active a {
+  color:#ffffff;
+  background:#000000;
+}
+
+/* FRONTPAGE INTRO VIDEO  */
+
+#region-content-intro-video.grid-12 { /* Override for the front page */
+  width: 870px;
+}
+
+#page section#block-views-intro-video-block .content {
+  margin:20px 10px 0px 10px; 
+  padding:0 0 15px 0;
+}
+
+#block-views-intro-video-block .views-field-field-video {
+  max-width:540px;
+  float:left;
+  @include box-shadow;
+}
+
+#block-views-intro-video-block .views-field-field-video iframe {
+  max-width:540px;
+}
+
+#block-views-intro-video-block .views-field-field-description {
+  margin-left:540px;
+  padding: 10px 20px;
+  font-size:1.1em;
+}
+
+/* EDITORS CHOISE */
+
+#region-content-editors-choise.grid-4 { /* Override for the front page */
+  width:290px;
+}
+
+#page #block-views-editors-choise-block-slider h2 {
+  font-size:1.2em;
+  @include h1h2-defaults-rtl;
+  @include box-shadow($shadow: 6px 6px 0 rgba(124,123,122,1.0));
+  margin:0;
+}
+
+.view-editors-choise {
+  text-align: left;
+}
+
+.view-editors-choise .jcarousel-container-horizontal {
+  width: 280px;
+  padding: 15px 0 15px 0;
+  margin: auto;
+}
+
+.view-editors-choise .jcarousel-clip-horizontal {
+  width: 280px;
+  overflow: hidden;
+}
+
+.view-editors-choise .jcarousel-item-horizontal {
+  margin: 5px;
+}
+
+.view-editors-choise .jcarousel-item {
+  width: 270px; 
+}
+
+.view-editors-choise .jcarousel-item {
+  overflow: hidden;
+  list-style: none;
+  background: #fff none;
+  @include box-shadow;
+}
+
+.view-editors-choise .jcarousel-item-padding {
+  padding:6px;
+  border: 1px solid #ffffff;
+  @include carousel-hover-transition;
+}
+
+.view-editors-choise .jcarousel-item:hover {
+  @include box-shadow($shadow: 0 0 8px rgba(167,196,90,0.9));
+}
+
+.view-editors-choise .jcarousel-item-padding:hover {
+  border:1px solid #7ca246;
+  background:#ffffff;
+}
+
+.view-editors-choise .jcarousel-item-placeholder {
+  background: #fff url(throbber.gif) no-repeat center center;
+  color: #000;
+}
+
+.view-editors-choise .jcarousel-item .views-field-field-kurssin-kuva {
+  width:100%;
+  overflow:hidden;
+  max-height:137px;
+}
+
+.view-editors-choise .jcarousel-item .views-field-field-kurssin-kuva img {
+  width:100%;
+  height:auto;
+}
+
+.view-editors-choise .jcarousel-item .views-field-title {
+  margin:10px 0 3px 0;
+  height:1.5em;
+  overflow:hidden;
+}
+
+.view-editors-choise .jcarousel-item .views-field-title a {
+  text-transform:uppercase;
+  font-size:1.1em;
+  color:$linkColorCourse;
+  text-decoration:none;
+}
+
+.view-editors-choise .jcarousel-item .views-field-title a:hover {
+  color:$linkHoverColorCourse;
+}
+
+.view-editors-choise .jcarousel-item .views-field-title a:focus {
+  color:$linkFocusColorCourse;
+}
+
+.view-editors-choise .jcarousel-item .views-field-field-summary .field-content {
+  margin:0 0 5px 0;
+  padding:0;
+  min-height:150px;
+  max-height:150px;
+  overflow:hidden;
+  display:block;
+}
+
+.view-editors-choise .jcarousel-item .views-field-field-arvio .field-content {
+  margin:0 0 5px 0;
+  padding:0 0 10px 0;
+  border-bottom:1px solid #f2f2f2;
+  display:block;
+}
+
+.view-editors-choise .jcarousel-item .views-field-field-arvio .fivestar-widget-static {
+  display:inline-block;
+  float:right;
+}
+
+.view-editors-choise .jcarousel-item span.views-label {
+  @include generic-course-meta-info-label;
+}
+
+.view-editors-choise .jcarousel-item .field-content {
+   @include generic-course-meta-info-field;
+}
+
+.view-editors-choise .jcarousel-item .views-field-field-kurssin-vetaja {
+   position:relative;
+}
+
+.view-editors-choise .jcarousel-item .views-field-field-kurssin-vetaja .field-content {
+   @include generic-course-meta-info-field;
+   overflow:hidden;
+   max-height:1.5em;
+}
+
+.view-editors-choise  ul.jcarousel-navigation {
+  padding:0;
+  margin:10px 0 0 0;
+  text-align:center;
+  list-type:none;
+  list-style:none;
+  width:100%;
+  height:10px;
+}
+
+.view-editors-choise  ul.jcarousel-navigation li {
+  display:inline-block;
+  width:10px;
+  height:10px;
+  border-radius:5px;
+  background:#0099ff;
+  margin:0px 3px;
+}
+
+.view-editors-choise  ul.jcarousel-navigation li.active {
+  background:#ff9900;
+}
+
+.view-editors-choise  ul.jcarousel-navigation li a {
+  display:block;
+  width:10px;
+  height:10px;
+  text-indent:-9999px;
+}
+
+/* JCAROUSEL */
+
+.view-courses-not-started,
+.view-courses-started,
+.view-courses-ended {
+  text-align: left;
+}
+
+.view-courses-not-started .jcarousel-container-horizontal,
+.view-courses-started .jcarousel-container-horizontal,
+.view-courses-ended .jcarousel-container-horizontal {
+  width: 1180px;
+  padding: 15px 0 15px 0;
+  margin: auto;
+}
+
+.view-courses-not-started .jcarousel-clip-horizontal,
+.view-courses-started .jcarousel-clip-horizontal,
+.view-courses-ended .jcarousel-clip-horizontal {
+  width: 1180px;
+  overflow: hidden;
+}
+
+.view-courses-not-started .jcarousel-item,
+.view-courses-started .jcarousel-item,
+.view-courses-ended .jcarousel-item {
+  overflow: hidden;
+  list-style: none;
+  background: #fff none;
+  @include box-shadow;
+}
+
+.view-courses-not-started .jcarousel-item-padding,
+.view-courses-started .jcarousel-item-padding,
+.view-courses-ended .jcarousel-item-padding {
+  padding:6px;
+  border: 1px solid #ffffff;
+  @include carousel-hover-transition;
+}
+
+.view-courses-not-started .jcarousel-item:hover,
+.view-courses-started .jcarousel-item:hover,
+.view-courses-ended .jcarousel-item:hover {
+  @include box-shadow($shadow: 0 0 8px rgba(167,196,90,0.9));
+}
+
+.view-courses-not-started .jcarousel-item-padding:hover,
+.view-courses-started .jcarousel-item-padding:hover,
+.view-courses-ended .jcarousel-item-padding:hover {
+  border:1px solid #7ca246;
+  background:#ffffff;
+}
+
+.view-courses-not-started .jcarousel-item-placeholder,
+.view-courses-started .jcarousel-item-placeholder,
+.view-courses-ended .jcarousel-item-placeholder {
+  background: #fff url(throbber.gif) no-repeat center center;
+  color: #000;
+}
+
+.view-courses-not-started .jcarousel-item .views-field-field-kurssin-kuva,
+.view-courses-started .jcarousel-item .views-field-field-kurssin-kuva,
+.view-courses-ended .jcarousel-item .views-field-field-kurssin-kuva {
+  width:100%;
+  overflow:hidden;
+  max-height:137px;
+}
+
+.view-courses-not-started .jcarousel-item .views-field-field-kurssin-kuva img,
+.view-courses-started .jcarousel-item .views-field-field-kurssin-kuva img,
+.view-courses-ended .jcarousel-item .views-field-field-kurssin-kuva img {
+  width:100%;
+  height:auto;
+}
+
+.view-courses-not-started .jcarousel-item .views-field-title,
+.view-courses-started .jcarousel-item .views-field-title,
+.view-courses-ended .jcarousel-item .views-field-title {
+  margin:10px 0 3px 0;
+  height:1.5em;
+  overflow:hidden;
+}
+
+.view-courses-not-started .jcarousel-item .views-field-title a,
+.view-courses-started .jcarousel-item .views-field-title a,
+.view-courses-ended .jcarousel-item .views-field-title a {
+  text-transform:uppercase;
+  font-size:1.1em;
+  color:$linkColorCourse;
+  text-decoration:none;
+}
+
+.view-courses-not-started .jcarousel-item .views-field-title a:hover,
+.view-courses-started .jcarousel-item .views-field-title a:hover,
+.view-courses-ended .jcarousel-item .views-field-title a:hover {
+  color:$linkHoverColorCourse;
+}
+
+.view-courses-not-started .jcarousel-item .views-field-title a:focus,
+.view-courses-started .jcarousel-item .views-field-title a:focus,
+.view-courses-ended .jcarousel-item .views-field-title a:focus {
+  color:$linkFocusColorCourse;
+}
+
+.view-courses-not-started .jcarousel-item .views-field-field-summary .field-content,
+.view-courses-started .jcarousel-item .views-field-field-summary .field-content,
+.view-courses-ended .jcarousel-item .views-field-field-summary .field-content {
+  margin:0 0 5px 0;
+  padding:0 0 15px 0;
+  min-height:190px;
+  max-height:190px;
+  overflow:hidden;
+  display:block;
+}
+
+.view-courses-not-started .jcarousel-item .views-field-field-arvio .field-content,
+.view-courses-started .jcarousel-item .views-field-field-arvio .field-content,
+.view-courses-ended .jcarousel-item .views-field-field-arvio .field-content {
+  margin:0 0 5px 0;
+  padding:0 0 10px 0;
+  border-bottom:1px solid #f2f2f2;
+  display:block;
+}
+
+.view-courses-not-started .jcarousel-item .views-field-field-arvio .fivestar-widget-static,
+.view-courses-started .jcarousel-item .views-field-field-arvio .fivestar-widget-static,
+.view-courses-ended .jcarousel-item .views-field-field-arvio .fivestar-widget-static {
+  display:inline-block;
+  float:right;
+}
+
+.view-courses-not-started .jcarousel-item span.views-label,
+.view-courses-started .jcarousel-item span.views-label,
+.view-courses-ended .jcarousel-item span.views-label,
+.view-courses-not-started .jcarousel-item .field-content span.views-label {
+  @include generic-course-meta-info-label;
+}
+
+.view-courses-not-started .jcarousel-item .field-content,
+.view-courses-started .jcarousel-item .field-content,
+.view-courses-ended .jcarousel-item .field-content {
+   @include generic-course-meta-info-field;
+}
+
+.view-courses-not-started .jcarousel-item .views-field-field-kurssin-vetaja,
+.view-courses-started .jcarousel-item .views-field-field-kurssin-vetaja,
+.view-courses-ended .jcarousel-item .views-field-field-kurssin-vetaja  {
+   position:relative;
+}
+
+.view-courses-not-started .jcarousel-item .views-field-field-kurssin-vetaja .field-content,
+.view-courses-started .jcarousel-item .views-field-field-kurssin-vetaja .field-content,
+.view-courses-ended .jcarousel-item .views-field-field-kurssin-vetaja .field-content {
+   @include generic-course-meta-info-field;
+   overflow:hidden;
+   max-height:1.5em;
+}
+
+.view-courses-not-started .jcarousel-item .field-content .attendancies-indicator-wrapper {
+  width:100%;
+  background:#f8f8f8;
+  margin:4px 0 0 0;
+  @include rounded-borders;
+}
+
+.view-courses-not-started .jcarousel-item .field-content .attendancies-indicator {
+  text-align:right;
+  background:#3bf210;
+  @include rounded-borders;
+}
+
+.view-courses-not-started .jcarousel-item .field-content .attendancies-percent {
+  padding:2px 4px 2px 0px;
+}
+ 
+.view-courses-not-started .jcarousel-next,
+.view-courses-not-started .jcarousel-prev,
+.view-courses-started .jcarousel-next,
+.view-courses-started .jcarousel-prev,
+.view-courses-ended .jcarousel-next,
+.view-courses-ended .jcarousel-prev {
+  position:absolute;
+  display: block;
+  text-indent:-9999px;
+  border-radius:5px;
+  width:40px;
+  height:40px;
+  overflow:hidden;
+  border:1px solid #eee;
+  @include button-hover-transition;
+}
+
+.view-courses-not-started .jcarousel-next-disabled,
+.view-courses-not-started .jcarousel-prev-disabled,
+.view-courses-started .jcarousel-next-disabled,
+.view-courses-started .jcarousel-prev-disabled,
+.view-courses-ended .jcarousel-next-disabled,
+.view-courses-ended .jcarousel-prev-disabled {
+  display: none;  
+}
+
+.view-courses-not-started .jcarousel-prev-horizontal,
+.view-courses-started .jcarousel-prev-horizontal,
+.view-courses-ended .jcarousel-prev-horizontal {
+  top:49%;
+  left:-37px;
+  background:url('../gfx/previous-arrow-big.png') no-repeat center center #bbbbbb;
+}
+
+.view-courses-not-started .jcarousel-prev-horizontal:hover,
+.view-courses-started .jcarousel-prev-horizontal:hover,
+.view-courses-ended .jcarousel-prev-horizontal:hover {
+  top:49%;
+  left:-39px;
+  background:url('../gfx/previous-arrow-big.png') no-repeat center center #888888;
+}
+
+.view-courses-not-started .jcarousel-next-horizontal,
+.view-courses-started .jcarousel-next-horizontal,
+.view-courses-ended .jcarousel-next-horizontal {
+  position:absolute;
+  top:49%;
+  right:-37px;
+  background:url('../gfx/next-arrow-big.png') no-repeat center center #bbbbbb;
+}
+
+.view-courses-not-started .jcarousel-next-horizontal:hover,
+.view-courses-started .jcarousel-next-horizontal:hover,
+.view-courses-ended .jcarousel-next-horizontal:hover {
+  position:absolute;
+  top:49%;
+  right:-39px;
+  background:url('../gfx/next-arrow-big.png') no-repeat center center #888888;
+}
+
+.view-courses-not-started .jcarousel-navigation,
+.view-courses-started .jcarousel-navigation,
+.view-courses-ended .jcarousel-navigation {
+  margin: 0;
+  padding: 0;
+}
+
+.view-courses-not-started .jcarousel-navigation li,
+.view-courses-started .jcarousel-navigation li,
+.view-courses-ended .jcarousel-navigation li {
+  display: inline;
+  margin: 0 2px 0 0;
+  padding: 0;
+  background: none;
+}
+
+.view-courses-not-started .jcarousel-navigation li.active a,
+.view-courses-started .jcarousel-navigation li.active a,
+.view-courses-ended .jcarousel-navigation li.active a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* NOT STARTED COURSES LISTING / STARTED COURSES LISTING / ENDED COURSES LISTING / EDITORS CHOISES LISTING */
+
+.view-courses-started, 
+.view-courses-not-started,
+.view-courses-ended,
+.view-editors-choise {
+  position:relative;
 }
 
 .view-courses-not-started.view-display-id-page_list_all,
-.view-courses-started.view-display-id-page_list_all {
+.view-courses-started.view-display-id-page_list_all,
+.view-courses-ended.view-display-id-page_list_all
+.view-editors-choise.view-display-id-page_list_all {
   margin:5px 0 0 0;
-  padding:0 5px 0 7px;
+  padding:0;
 }
 
 .view-courses-not-started .views-row,
-.view-courses-started .views-row  {
+.view-courses-started .views-row,
+.view-courses-ended .views-row,
+.view-editors-choise .views-row {
   float:left;
   max-width:205px;
   padding:6px;
-  margin:0 7px 0 10px;
+
   @include box-shadow;
   background:#ffffff;
   border:1px solid #ffffff;
@@ -363,39 +823,51 @@ ul.tabs.primary li.active a {
 }
 
 .view-courses-not-started .views-row.courses-not-started-page-row,
-.view-courses-started .views-row.courses-started-page-row {
-  margin:5px 7px 15px 10px;
+.view-courses-started .views-row.courses-started-page-row,
+.view-courses-ended .views-row.courses-ended-page-row,
+.view-editors-choise .views-row.editors-choise-page-row {
+   margin:0px 10px 20px 10px;
 }
 
 .view-courses-not-started .views-row:hover,
-.view-courses-started .views-row:hover {
+.view-courses-started .views-row:hover,
+.view-courses-ended .views-row:hover,
+.view-editors-choise .views-row:hover {
   border:1px solid #7ca246;
   @include box-shadow($shadow: 0 0 8px rgba(167,196,90,0.9));
   background:#ffffff;
 }
 
 .view-courses-not-started .views-row .views-field-field-kurssin-kuva,
-.view-courses-started .views-row .views-field-field-kurssin-kuva {
+.view-courses-started .views-row .views-field-field-kurssin-kuva,
+.view-courses-ended .views-row .views-field-field-kurssin-kuva,
+.view-editors-choise .views-row .views-field-field-kurssin-kuva {
   width:100%;
   overflow:hidden;
   max-height:137px;
 }
 
 .view-courses-not-started .views-row img,
-.view-courses-started .views-row img {
+.view-courses-started .views-row img,
+.view-courses-ended .views-row img,
+.view-editors-choise .views-row img {
   width:100%;
   height:auto;
 }
 
 .view-courses-not-started .views-row .views-field-title,
-.view-courses-started .views-row .views-field-title {
+.view-courses-started .views-row .views-field-title,
+.view-courses-ended .views-row .views-field-title,
+.view-editors-choise .views-row .views-field-title {
   margin:10px 0 3px 0;
   height:1.5em;
   overflow:hidden;
 }
 
 .view-courses-not-started .views-row .views-field-title a,
-.view-courses-started .views-row .views-field-title a {
+.view-courses-started .views-row .views-field-title a,
+.view-courses-ended .views-row .views-field-title a,
+.view-editors-choise .views-row .views-field-title a {
   text-transform:uppercase;
   font-size:1.1em;
   color:$linkColorCourse;
@@ -403,17 +875,23 @@ ul.tabs.primary li.active a {
 }
 
 .view-courses-not-started .views-row .views-field-title a:hover,
-.view-courses-started .views-row .views-field-title a:hover {
+.view-courses-started .views-row .views-field-title a:hover,
+.view-courses-ended .views-row .views-field-title a:hover,
+.view-editors-choise .views-row .views-field-title a:hover {
   color:$linkHoverColorCourse;
 }
 
 .view-courses-not-started .views-row .views-field-title a:focus,
-.view-courses-started .views-row .views-field-title a:focus {
+.view-courses-started .views-row .views-field-title a:focus,
+.view-courses-ended .views-row .views-field-title a:focus,
+.view-editors-choise .views-row .views-field-title a:focus {
   color:$linkFocusColorCourse;
 }
 
 .view-courses-not-started .views-row .views-field-field-summary .field-content,
-.view-courses-started .views-row .views-field-field-summary .field-content {
+.view-courses-started .views-row .views-field-field-summary .field-content,
+.view-courses-ended .views-row .views-field-field-summary .field-content,
+.view-editors-choise .views-row .views-field-field-summary .field-content {
   margin:0 0 5px 0;
   padding:0 0 15px 0;
   min-height:190px;
@@ -423,7 +901,9 @@ ul.tabs.primary li.active a {
 }
 
 .view-courses-not-started .views-row .views-field-field-arvio .field-content, 
-.view-courses-started .views-row .views-field-field-arvio .field-content {
+.view-courses-started .views-row .views-field-field-arvio .field-content,
+.view-courses-ended .views-row .views-field-field-arvio .field-content,
+.view-editors-choise .views-row .views-field-field-arvio .field-content {
   margin:0 0 5px 0;
   padding:0 0 10px 0;
   border-bottom:1px solid #f2f2f2;
@@ -431,29 +911,39 @@ ul.tabs.primary li.active a {
 }
 
 .view-courses-not-started .views-row .views-field-field-arvio .fivestar-widget-static,
-.view-courses-started .views-row .views-field-field-arvio .fivestar-widget-static {
+.view-courses-started .views-row .views-field-field-arvio .fivestar-widget-static,
+.view-courses-ended .views-row .views-field-field-arvio .fivestar-widget-static,
+.view-editors-choise .views-row .views-field-field-arvio .fivestar-widget-static {
   display:inline-block;
   float:right;
 }
 
 .view-courses-not-started .views-row span.views-label,
 .view-courses-started .views-row span.views-label,
+.view-courses-ended .views-row span.views-label,
+.view-editors-choise .views-row span.views-label,
 .view-courses-not-started .views-row .field-content span.views-label {
   @include generic-course-meta-info-label;
 }
 
 .view-courses-not-started .views-row .field-content,
-.view-courses-started .views-row .field-content {
+.view-courses-started .views-row .field-content,
+.view-courses-ended .views-row .field-content,
+.view-editors-choise .views-row .field-content {
    @include generic-course-meta-info-field;
 }
 
 .view-courses-not-started .views-row .views-field-field-kurssin-vetaja,
-.view-courses-started .views-row .views-field-field-kurssin-vetaja {
+.view-courses-started .views-row .views-field-field-kurssin-vetaja,
+.view-courses-ended .views-row .views-field-field-kurssin-vetaja,
+.view-editors-choise .views-row .views-field-field-kurssin-vetaja {
    position:relative;
 }
 
 .view-courses-not-started .views-row .views-field-field-kurssin-vetaja .field-content,
-.view-courses-started .views-row .views-field-field-kurssin-vetaja .field-content {
+.view-courses-started .views-row .views-field-field-kurssin-vetaja .field-content,
+.view-courses-ended .views-row .views-field-field-kurssin-vetaja .field-content,
+.view-editors-choise .views-row .views-field-field-kurssin-vetaja .field-content {
    @include generic-course-meta-info-field;
    overflow:hidden;
    max-height:1.5em;
@@ -474,56 +964,6 @@ ul.tabs.primary li.active a {
 
 .view-courses-not-started .views-row .field-content .attendancies-percent {
   padding:2px 4px 2px 0px;
-}
-
-#views_slideshow_controls_text_courses_not_started-block_slider,
-#views_slideshow_controls_text_courses_started-block_slider {
-  display:block;
-  clear:both;
-  margin:0 15px 0 17px;
-}
-
-.view-courses-not-started #views_slideshow_controls_text_courses_not_started-block_slider a,
-.view-courses-started #views_slideshow_controls_text_courses_started-block_slider a {
-  text-decoration:none;
-  color:#fff;
-  text-transform:uppercase;
-}
-
-#views_slideshow_controls_text_courses_not_started-block_slider a:hover,
-#views_slideshow_controls_text_courses_started-block_slider a:hover,
-#views_slideshow_controls_text_courses_not_started-block_slider span:hover,
-#views_slideshow_controls_text_courses_started-block_slider span:hover {
-  text-decoration:none;
-  color:#fff;
-  text-transform:uppercase;
-}
-
-#views_slideshow_controls_text_previous_courses_not_started-block_slider,
-#views_slideshow_controls_text_previous_courses_started-block_slider {
-  @include carousel-controls;
-  padding:2px 12px 2px 24px
-}
-
-#views_slideshow_controls_text_next_courses_not_started-block_slider,
-#views_slideshow_controls_text_next_courses_started-block_slider {
-  @include carousel-controls;
-  padding:2px 24px 2px 12px;
-}
-
-#views_slideshow_controls_text_previous_courses_not_started-block_slider:before,
-#views_slideshow_controls_text_previous_courses_started-block_slider:before {
-  @include previous-arrow;
-}
-
-#views_slideshow_controls_text_next_courses_not_started-block_slider:before,
-#views_slideshow_controls_text_next_courses_started-block_slider:before {
-  @include next-arrow;
-}
-
-#views_slideshow_controls_text_pause_courses_not_started-block_slider,
-#views_slideshow_controls_text_pause_courses_started-block_slider {
-  display:none;
 }
 
 /* COURSE PAGE */
@@ -548,7 +988,7 @@ ul.tabs.primary li.active a {
   font-size:1.2em;
   @include h1h2-defaults-rtl;
   @include box-shadow($shadow: 6px 6px 0 rgba(124,123,122,1.0));
-  margin:0 6px 20px 0;
+  margin:0 0 20px 0;
 }
 
 #page #node-course-panel .pane-course-members .pane-content {
@@ -1045,24 +1485,6 @@ ul.tabs.primary li.active a {
   padding:0;
 }
 
-/* LOGIN and SIGNUP FORM */
-
-#user-login label,
-#user-register-form label {
-  text-transform:uppercase;
-  font-weight:normal;
-}
-
-#user-login h3 {
-  text-transform:none;
-  padding:0;
-  margin:0 0 5px 0;
-}
-
-#user-login .item-list ul.hybridauth-widget li {
-  margin:1px 8px 1px 1px;
-}
-
 /* USER PROFILE */
 
 #page #node-user-panel .panel-panel.grid-4 {
@@ -1374,7 +1796,7 @@ body #page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapp
 }
 
 #page #section-footer {
-  margin-top:10px;
+  margin-top:0px;
   min-height:200px;
   /* fallback */ 
   background: transparent; 
@@ -1388,5 +1810,8 @@ body #page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapp
   background: -ms-linear-gradient(top, rgba(238,238,238,0.5), rgba(255,255,255,0)); 
   /* Opera 11.10+ */ 
   background: -o-linear-gradient(top, rgba(238,238,238,0.5), rgba(255,255,255,0));
-  
 }
+
+
+
+

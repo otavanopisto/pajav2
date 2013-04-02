@@ -19,4 +19,5 @@
     <?php print render($page['footer']); ?>
   <?php endif; ?>
   </div>
+  
 </div>

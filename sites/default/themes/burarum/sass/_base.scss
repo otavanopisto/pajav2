@@ -63,6 +63,11 @@ $carouselHoverTransitionProperty:border,background,box-shadow;
 $carouselHoverTransitionDuration:800ms,500ms,100ms;
 $carouselHoverTransitionFunction:ease-in;
 
+/* Transitions for BUTTONS */
+$buttonHoverTransitionProperty:background,left,right;
+$buttonHoverTransitionDuration:200ms,100ms,100ms;
+$buttonHoverTransitionFunction:ease-in;
+
 /* Transitions for TOOLTIPS */
 $tooltipRTLTransitionProperties: margin-left,opacity,visibility;
 $tooltipRTLTransitionDurations: 250ms,200ms,1ms;
@@ -76,6 +81,29 @@ $tooltipRTLTransitionFunction:linear;
  */
  
 @mixin carousel-hover-transition($property: $carouselHoverTransitionProperty, $duration: $carouselHoverTransitionDuration, $function: $carouselHoverTransitionFunction) {
+  /* Animation */
+  transition-property:$property;
+  transition-duration:$duration;
+  transition-timing-function:$function;
+  /* Firefox 4 */
+  -moz-transition-property:$property;
+  -moz-transition-duration:$duration;
+  -moz-transition-timing-function:$function;
+  /* Safari and Chrome */
+  -webkit-transition-property:$property;
+  -webkit-transition-duration:$duration;
+  -webkit-transition-timing-function:$function;
+  /* Opera */
+  -o-transition-property:$property;
+  -o-transition-duration:$duration;
+  -o-transition-timing-function:$function;
+  /* IE */
+  -ms-transition-property:$property;
+  -ms-transition-duration:$duration;
+  -ms-transition-timing-function:$function;
+}
+
+@mixin button-hover-transition($property: $buttonHoverTransitionProperty, $duration: $buttonHoverTransitionDuration, $function: $buttonHoverTransitionFunction) {
   /* Animation */
   transition-property:$property;
   transition-duration:$duration;

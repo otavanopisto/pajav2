@@ -26,11 +26,35 @@ function courses_views_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'views-intro_video-block' => array(
+          'module' => 'views',
+          'delta' => 'intro_video-block',
+          'region' => 'content_intro_video',
+          'weight' => '-10',
+        ),
+        'views-editors_choise-block_slider' => array(
+          'module' => 'views',
+          'delta' => 'editors_choise-block_slider',
+          'region' => 'content_editors_choise',
+          'weight' => '-10',
+        ),
         'views-95837abb603d6006ea40e1cdf9b79d32' => array(
           'module' => 'views',
           'delta' => '95837abb603d6006ea40e1cdf9b79d32',
           'region' => 'content',
           'weight' => '-10',
+        ),
+        'views-courses_started-block_slider' => array(
+          'module' => 'views',
+          'delta' => 'courses_started-block_slider',
+          'region' => 'content',
+          'weight' => '-9',
+        ),
+        'views-courses_ended-block_slider' => array(
+          'module' => 'views',
+          'delta' => 'courses_ended-block_slider',
+          'region' => 'content',
+          'weight' => '-8',
         ),
       ),
     ),

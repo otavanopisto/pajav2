@@ -90,10 +90,10 @@ function content_types_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '3',
+          'weight' => '5',
         ),
         'path' => array(
-          'weight' => '2',
+          'weight' => '4',
         ),
       ),
       'display' => array(),
