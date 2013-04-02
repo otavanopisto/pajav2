@@ -10,6 +10,132 @@
 function content_types_field_default_fields() {
   $fields = array();
 
+  // Exported field: 'node-intro_video-field_description'.
+  $fields['node-intro_video-field_description'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_description',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_long',
+    ),
+    'field_instance' => array(
+      'bundle' => 'intro_video',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 1,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_description',
+      'label' => 'Description',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_field_privacy' => FALSE,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'rows' => '5',
+        ),
+        'type' => 'text_textarea',
+        'weight' => '2',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-intro_video-field_video'.
+  $fields['node-intro_video-field_video'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_video',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => '0',
+      'module' => 'video_embed_field',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'video_embed_field',
+    ),
+    'field_instance' => array(
+      'bundle' => 'intro_video',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Embed video from youtube or vimeo.',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'video_embed_field',
+          'settings' => array(
+            'description' => 1,
+            'video_style' => 'normal',
+          ),
+          'type' => 'video_embed_field',
+          'weight' => '0',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_video',
+      'label' => 'Video',
+      'required' => 0,
+      'settings' => array(
+        'description_field' => 0,
+        'user_field_privacy' => FALSE,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'video_embed_field',
+        'settings' => array(),
+        'type' => 'video_embed_field_video',
+        'weight' => '0',
+      ),
+    ),
+  );
+
   // Exported field: 'node-kurssi-body'.
   $fields['node-kurssi-body'] = array(
     'field_config' => array(
@@ -1034,6 +1160,8 @@ function content_types_field_default_fields() {
   // Included for use with string extractors like potx.
   t('Arvio');
   t('Content');
+  t('Description');
+  t('Embed video from youtube or vimeo.');
   t('Hinnan tyyppi');
   t('Hinta');
   t('Kurssi alkaa');
@@ -1046,6 +1174,7 @@ function content_types_field_default_fields() {
   t('Summary');
   t('Tagit');
   t('Tuottajan valinta');
+  t('Video');
 
   return $fields;
 }

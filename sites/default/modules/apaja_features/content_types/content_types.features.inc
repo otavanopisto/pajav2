@@ -19,6 +19,14 @@ function content_types_ctools_plugin_api() {
  */
 function content_types_node_info() {
   $items = array(
+    'intro_video' => array(
+      'name' => t('Intro video'),
+      'base' => 'node_content',
+      'description' => t('Content type for intro video block.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'kurssi' => array(
       'name' => t('Kurssi'),
       'base' => 'node_content',
