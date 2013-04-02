@@ -38,9 +38,9 @@ function courses_views_context_default_contexts() {
           'region' => 'content_editors_choise',
           'weight' => '-10',
         ),
-        'views-95837abb603d6006ea40e1cdf9b79d32' => array(
+        'views-courses_not-block_slider' => array(
           'module' => 'views',
-          'delta' => '95837abb603d6006ea40e1cdf9b79d32',
+          'delta' => 'courses_not-block_slider',
           'region' => 'content',
           'weight' => '-10',
         ),

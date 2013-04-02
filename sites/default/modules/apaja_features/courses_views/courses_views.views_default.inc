@@ -251,14 +251,14 @@ if($memberCount != 0){
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'courses-started-page-row';
+  $handler->display->display_options['style_options']['row_class'] = 'courses-ended-page-row';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['path'] = 'menneet-kurssit';
+  $handler->display->display_options['path'] = 'paattyneet-kurssit';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Menneet kurssit';
+  $handler->display->display_options['menu']['title'] = 'Päättyneet kurssit';
   $handler->display->display_options['menu']['description'] = 'Kurssit jotka ovat päättyneet';
   $handler->display->display_options['menu']['weight'] = '2';
   $handler->display->display_options['menu']['name'] = 'main-menu';
@@ -286,8 +286,8 @@ if($memberCount != 0){
   $export['courses_ended'] = $view;
 
   $view = new view();
-  $view->name = 'courses_not_started';
-  $view->description = 'Courses that are not started yet. Necessary blocks and pages';
+  $view->name = 'courses_not';
+  $view->description = 'Courses that are started. Necessary blocks and pages';
   $view->tag = 'default';
   $view->base_table = 'node';
   $view->human_name = 'Courses not started';
@@ -304,8 +304,19 @@ if($memberCount != 0){
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'jcarousel';
+  $handler->display->display_options['style_options']['wrap'] = '0';
+  $handler->display->display_options['style_options']['skin'] = '';
+  $handler->display->display_options['style_options']['visible'] = '';
+  $handler->display->display_options['style_options']['scroll'] = '1';
+  $handler->display->display_options['style_options']['auto'] = '0';
+  $handler->display->display_options['style_options']['autoPause'] = 1;
+  $handler->display->display_options['style_options']['animation'] = '200';
+  $handler->display->display_options['style_options']['easing'] = '';
+  $handler->display->display_options['style_options']['vertical'] = 0;
+  $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
@@ -349,6 +360,7 @@ if($memberCount != 0){
   $handler->display->display_options['fields']['field_summary']['table'] = 'field_data_field_summary';
   $handler->display->display_options['fields']['field_summary']['field'] = 'field_summary';
   $handler->display->display_options['fields']['field_summary']['label'] = '';
+  $handler->display->display_options['fields']['field_summary']['alter']['text'] = '<div class="field-content">[field_summary]</div>';
   $handler->display->display_options['fields']['field_summary']['alter']['trim_whitespace'] = TRUE;
   $handler->display->display_options['fields']['field_summary']['alter']['max_length'] = '290';
   $handler->display->display_options['fields']['field_summary']['alter']['strip_tags'] = TRUE;
@@ -373,13 +385,7 @@ if($memberCount != 0){
   $handler->display->display_options['fields']['field_kurssin_vetaja']['id'] = 'field_kurssin_vetaja';
   $handler->display->display_options['fields']['field_kurssin_vetaja']['table'] = 'field_data_field_kurssin_vetaja';
   $handler->display->display_options['fields']['field_kurssin_vetaja']['field'] = 'field_kurssin_vetaja';
-  $handler->display->display_options['fields']['field_kurssin_vetaja']['alter']['max_length'] = '20';
-  $handler->display->display_options['fields']['field_kurssin_vetaja']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['field_kurssin_vetaja']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_kurssin_vetaja']['settings'] = array(
-    'trim_length' => '20',
-  );
-  $handler->display->display_options['fields']['field_kurssin_vetaja']['delta_limit'] = '2';
   $handler->display->display_options['fields']['field_kurssin_vetaja']['delta_offset'] = '0';
   /* Field: Content: Kurssi alkaa */
   $handler->display->display_options['fields']['field_kurssi_alkaa']['id'] = 'field_kurssi_alkaa';
@@ -422,7 +428,6 @@ if($memberCount != 0){
   $handler->display->display_options['fields']['field_minimi_osallistujat']['id'] = 'field_minimi_osallistujat';
   $handler->display->display_options['fields']['field_minimi_osallistujat']['table'] = 'field_data_field_minimi_osallistujat';
   $handler->display->display_options['fields']['field_minimi_osallistujat']['field'] = 'field_minimi_osallistujat';
-  $handler->display->display_options['fields']['field_minimi_osallistujat']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_minimi_osallistujat']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_minimi_osallistujat']['settings'] = array(
     'thousand_separator' => ' ',
@@ -432,7 +437,6 @@ if($memberCount != 0){
   $handler->display->display_options['fields']['field_maksimi_osallistujat']['id'] = 'field_maksimi_osallistujat';
   $handler->display->display_options['fields']['field_maksimi_osallistujat']['table'] = 'field_data_field_maksimi_osallistujat';
   $handler->display->display_options['fields']['field_maksimi_osallistujat']['field'] = 'field_maksimi_osallistujat';
-  $handler->display->display_options['fields']['field_maksimi_osallistujat']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_maksimi_osallistujat']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_maksimi_osallistujat']['settings'] = array(
     'thousand_separator' => ' ',
@@ -457,70 +461,31 @@ if($memberCount != 0){
     'prefix_suffix' => 1,
   );
   /* Field: Global: PHP */
-  $handler->display->display_options['fields']['php_1']['id'] = 'php_1';
-  $handler->display->display_options['fields']['php_1']['table'] = 'views';
-  $handler->display->display_options['fields']['php_1']['field'] = 'php';
-  $handler->display->display_options['fields']['php_1']['label'] = 'Member count';
-  $handler->display->display_options['fields']['php_1']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['php_1']['use_php_setup'] = 0;
-  $handler->display->display_options['fields']['php_1']['php_value'] = '$query1 = db_select(\'users\', \'u\');
-$query1
-  ->condition(\'u.uid\', 0, \'<>\')
-  ->condition(\'u.status\', 1, \'=\')
-  ->condition(\'our.gid\', $row->nid, \'=\')
-  ->fields(\'u\', array(\'uid\'))
-  ->distinct(TRUE)
-  ->join(\'og_users_roles\', \'our\', "our.rid = :rid AND u.uid = our.uid", array(\':rid\' => 3));
-$result1 = $query1->execute();
-$admin_count = $result1->rowCount();
-
-$query = db_select(\'users\', \'u\');
-$query
-  ->condition(\'u.uid\', 0, \'<>\')
-  ->condition(\'u.status\', 1, \'=\')
-  ->fields(\'u\', array(\'uid\', \'name\'))
-  ->join(\'og_membership\', \'ogm\', "ogm.gid = :gid AND u.uid = ogm.etid AND ogm.entity_type = \'user\'", array(\':gid\' => $row->nid));
-  $result = $query->execute();
-$value = $result->rowCount() - $admin_count;
-return max(array($value,0));';
-  $handler->display->display_options['fields']['php_1']['php_output'] = '';
-  $handler->display->display_options['fields']['php_1']['use_php_click_sortable'] = '0';
-  $handler->display->display_options['fields']['php_1']['php_click_sortable'] = '';
-  /* Field: Global: Custom text */
-  $handler->display->display_options['fields']['nothing_2']['id'] = 'nothing_2';
-  $handler->display->display_options['fields']['nothing_2']['table'] = 'views';
-  $handler->display->display_options['fields']['nothing_2']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing_2']['label'] = '';
-  $handler->display->display_options['fields']['nothing_2']['alter']['text'] = '<span class="views-label">Osallistujamäärä [php_1] / [field_minimi_osallistujat] (enintään [field_maksimi_osallistujat])</span>';
-  $handler->display->display_options['fields']['nothing_2']['element_label_colon'] = FALSE;
-  /* Field: Global: Custom text */
-  $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
-  $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
-  $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing_1']['label'] = '';
-  $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
-  /* Field: Global: PHP */
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
   $handler->display->display_options['fields']['php']['field'] = 'php';
-  $handler->display->display_options['fields']['php']['label'] = 'Hinta / osallistuja';
+  $handler->display->display_options['fields']['php']['label'] = 'Hinta';
   $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php']['php_output'] = '<?php 
-  if($data->field_field_hinnan_tyyppi[0][\'raw\'][\'value\'] == 0){
-    if($row->php_1 != 0){
-      if (($data->field_field_hinta[0][\'raw\'][\'value\']/$row->php_1) < ($data->field_field_hinta[0][\'raw\'][\'value\']/$data->field_field_minimi_osallistujat[0][\'raw\'][\'value\'])) {
-        $price = ($data->field_field_hinta[0][\'raw\'][\'value\']/$row->php_1);
-      }else {
-        $price = ($data->field_field_hinta[0][\'raw\'][\'value\']/$data->field_field_minimi_osallistujat[0][\'raw\'][\'value\']);
-      }
-    }else{
-      $price = ($data->field_field_hinta[0][\'raw\'][\'value\']/$data->field_field_minimi_osallistujat[0][\'raw\'][\'value\']);
-    }
-  }else{
-    $price = $data->field_field_hinta[0][\'raw\'][\'value\'];
-  }
-  echo round($price, 2, PHP_ROUND_HALF_UP) . \'€\';
+if($data->field_field_hinnan_tyyppi[0][\'raw\'][\'value\'] == 0){ 
+$query = db_select(\'users\', \'u\');
+$query ->condition(\'u.uid\', 0, \'<>\')
+ ->condition(\'u.status\', 1, \'=\')
+ ->fields(\'u\', array(\'uid\', \'name\'))
+ ->join(\'og_membership\', \'ogm\', "ogm.gid = :gid AND u.uid = ogm.etid AND ogm.entity_type = \'user\'", array(\':gid\' => $row->nid));
+ $result = $query->execute(); 
+$memberCount = $result->rowCount(); 
+if($memberCount != 0){ 
+  if (($data->field_field_hinta[0][\'raw\'][\'value\']/$memberCount) < ($data->field_field_hinta[0][\'raw\'][\'value\']/$data->field_field_minimi_osallistujat[0]  [\'raw\'][\'value\'])) { 
+   $price = ($data->field_field_hinta[0][\'raw\'][\'value\']/$memberCount); 
+  }else {
+    $price = ($data->field_field_hinta[0][\'raw\'][\'value\']/$data->field_field_minimi_osallistujat[0][\'raw\'][\'value\']); }
+   }
+ }else{ $price = $data->field_field_hinta[0][\'raw\'][\'value\']; }
+
+
+ echo round($price, 2, PHP_ROUND_HALF_UP) . \'€\'; 
 ?>';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
@@ -542,6 +507,7 @@ return max(array($value,0));';
   $handler->display->display_options['filters']['type']['value'] = array(
     'kurssi' => 'kurssi',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Content: Kurssin tila (field_kurssin_tila) */
   $handler->display->display_options['filters']['field_kurssin_tila_value']['id'] = 'field_kurssin_tila_value';
   $handler->display->display_options['filters']['field_kurssin_tila_value']['table'] = 'field_data_field_kurssin_tila';
@@ -553,36 +519,13 @@ return max(array($value,0));';
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_slider');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'none';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'jcarousel';
-  $handler->display->display_options['style_options']['wrap'] = '0';
-  $handler->display->display_options['style_options']['skin'] = '';
-  $handler->display->display_options['style_options']['visible'] = '';
-  $handler->display->display_options['style_options']['scroll'] = '1';
-  $handler->display->display_options['style_options']['auto'] = '0';
-  $handler->display->display_options['style_options']['autoPause'] = 1;
-  $handler->display->display_options['style_options']['animation'] = '200';
-  $handler->display->display_options['style_options']['easing'] = '';
-  $handler->display->display_options['style_options']['vertical'] = 0;
-  $handler->display->display_options['style_options']['ajax'] = 1;
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['block_caching'] = '-1';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_list_all');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-  $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'none';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'courses-not-started-page-row';
+  $handler->display->display_options['style_options']['row_class'] = 'courses-not-page-row';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -590,11 +533,11 @@ return max(array($value,0));';
   $handler->display->display_options['path'] = 'valmisteltavat-kurssit';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Valmisteltavat kurssit';
-  $handler->display->display_options['menu']['description'] = 'Kurssit joita valmistellaan';
-  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['description'] = 'Kurssit jotka ovat valmisteilla';
+  $handler->display->display_options['menu']['weight'] = '2';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
-  $translatables['courses_not_started'] = array(
+  $translatables['courses_not'] = array(
     t('Master'),
     t('Valmisteilla olevat kurssit'),
     t('more'),
@@ -604,22 +547,21 @@ return max(array($value,0));';
     t('Asc'),
     t('Desc'),
     t('[title]'),
+    t('<div class="field-content">[field_summary]</div>'),
     t('Kurssin vetäjä'),
     t('Kurssin ajankohta'),
     t('[field_kurssi_alkaa] - [field_kurssi_loppuu]'),
     t('Minimi osallistujamäärä'),
     t('Maksimi osallistujamäärä'),
-    t('Member count'),
-    t('<span class="views-label">Osallistujamäärä [php_1] / [field_minimi_osallistujat] (enintään [field_maksimi_osallistujat])</span>'),
-    t('Hinta / osallistuja'),
+    t('Hinta'),
     t('Block'),
     t('Page'),
   );
-  $export['courses_not_started'] = $view;
+  $export['courses_not'] = $view;
 
   $view = new view();
   $view->name = 'courses_started';
-  $view->description = 'Courses that are not started yet. Necessary blocks and pages';
+  $view->description = 'Courses that are started. Necessary blocks and pages';
   $view->tag = 'default';
   $view->base_table = 'node';
   $view->human_name = 'Courses started';
@@ -903,7 +845,7 @@ if($memberCount != 0){
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Tuottajan valinta';
+  $handler->display->display_options['title'] = 'Tuottajan valinnat';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -1255,7 +1197,7 @@ if($memberCount != 0){
   $handler->display->display_options['menu']['context'] = 0;
   $translatables['editors_choise'] = array(
     t('Master'),
-    t('Tuottajan valinta'),
+    t('Tuottajan valinnat'),
     t('more'),
     t('Apply'),
     t('Reset'),

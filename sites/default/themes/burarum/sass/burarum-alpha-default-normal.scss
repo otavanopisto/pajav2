@@ -38,20 +38,20 @@
 
 /* LIST ALL COURSES VIEW */
 
-.view-courses-not-started .views-row,
+.view-courses-not .views-row,
 .view-courses-started .views-row,
 .view-courses-ended .views-row   {
   max-width:205px;
 }
 
-.view-courses-not-started .views-row .views-field-field-kurssin-kuva,
+.view-courses-not .views-row .views-field-field-kurssin-kuva,
 .view-courses-started .views-row .views-field-field-kurssin-kuva,
 .view-courses-ended .views-row .views-field-field-kurssin-kuva {
   overflow:hidden;
   max-height:137px;
 }
 
-.view-courses-not-started .views-row .views-field-field-summary .field-content,
+.view-courses-not .views-row .views-field-field-summary .field-content,
 .view-courses-started .views-row .views-field-field-summary .field-content,
 .view-courses-ended .views-row .views-field-field-summary .field-content {
   min-height:190px;
@@ -60,20 +60,20 @@
 
 /* FRONTPAGE JCAROUSEL */
 
-.view-courses-not-started .jcarousel-container-horizontal,
+.view-courses-not .jcarousel-container-horizontal,
 .view-courses-started .jcarousel-container-horizontal,
 .view-courses-ended .jcarousel-container-horizontal {
   width: 940px;
 
 }
 
-.view-courses-not-started .jcarousel-clip-horizontal,
+.view-courses-not .jcarousel-clip-horizontal,
 .view-courses-started .jcarousel-clip-horizontal,
 .view-courses-ended .jcarousel-clip-horizontal {
   width: 940px;
 }
 
-.view-courses-not-started .jcarousel-item-padding {
+.view-courses-not .jcarousel-item-padding {
 /*   height:615px; */
 }
 
@@ -82,25 +82,25 @@
 /*   height:635px; */
 }
 
-.view-courses-not-started .jcarousel-item-horizontal,
+.view-courses-not .jcarousel-item-horizontal,
 .view-courses-started .jcarousel-item-horizontal,
 .view-courses-ended .jcarousel-item-horizontal {
   margin: 5px 10px;
 }
 
-.view-courses-not-started .jcarousel-item,
+.view-courses-not .jcarousel-item,
 .view-courses-started .jcarousel-item,
 .view-courses-ended .jcarousel-item {
   width: 220px; 
 }
 
-.view-courses-not-started .jcarousel-item .views-field-field-kurssin-kuva,
+.view-courses-not .jcarousel-item .views-field-field-kurssin-kuva,
 .view-courses-started .jcarousel-item .views-field-field-kurssin-kuva,
 .view-courses-ended .jcarousel-item .views-field-field-kurssin-kuva {
   max-height:137px;
 }
 
-.view-courses-not-started .jcarousel-item .views-field-field-summary .field-content,
+.view-courses-not .jcarousel-item .views-field-field-summary .field-content,
 .view-courses-started .jcarousel-item .views-field-field-summary .field-content,
 .view-courses-ended .jcarousel-item .views-field-field-summary .field-content {
   min-height:170px;

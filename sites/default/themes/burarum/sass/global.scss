@@ -28,7 +28,7 @@ body {
   background:url('../gfx/view-port-background.gif') repeat-x left top;
 }
 
-/* GENERIC STUFF */
+/* SITE NAME AND SLOGAN */
 
 #page hgroup.site-name-slogan {
   position:absolute;
@@ -39,7 +39,8 @@ body {
   padding:10px 20px 5px 10px;
 }
 
-#page hgroup.site-name-slogan h1.site-name {
+#page hgroup.site-name-slogan h1.site-name,
+#page hgroup.site-name-slogan h2.site-name {
   background:none;
   font-family:"Rochester";
   color:#21833c;
@@ -51,7 +52,8 @@ body {
   font-weight:normal;
 }
 
-#page hgroup.site-name-slogan h1.site-name a {
+#page hgroup.site-name-slogan h1.site-name a,
+#page hgroup.site-name-slogan h2.site-name a {
   font-family:"Rochester";
   text-transform:none;
   color:#21833c;
@@ -65,6 +67,8 @@ body {
   margin:0 0 0 20px;
   font-size:20px;
 }
+
+/* GENERIC STUFF */
 
 .generic-empty-text-wrapper {
   text-align:center;
@@ -123,22 +127,61 @@ h1, h2, h3, h4, h5, h6 {
 
 #page h1,
 #page h2 {
-  font-size:1.2em;
-  @include h1h2-defaults;
-  @include box-shadow($shadow: 6px 6px 0 rgba(124,123,122,1.0));
-  margin:0 6px 20px 0;
+  font-size:1.3em;
+  margin:0 6px 0 15px;
+  font-weight:normal;
+}
+
+#page h1#page-title {
+  margin:0 6px 10px 15px;
+}
+
+#page .block-courses-not-block-slider h1,
+#page .block-courses-not-block-slider h2,
+.page-valmisteltavat-kurssit #page h1 {
+  color:#0e9a96;
+}
+
+#page .block-courses-started-block-slider h1,
+#page .block-courses-started-block-slider h2,
+.page-kaynnistetyt-kurssit #page h1 {
+  color:#00762a;
+}
+
+#page .block-courses-ended-block-slider h1,
+#page .block-courses-ended-block-slider h2,
+.page-paattyneet-kurssit #page h1 {
+  color:#54bc79;
+}
+
+#page #block-views-editors-choise-block-slider h2 {
+  margin:0 6px 0 10px;
 }
 
 #page h3 {
   font-size:1.1em;
 }
 
-#page .block-views h2 {
-  margin:0 6px 0px 0; /* Frontpage carousel h2 override */
+#page #node-user-panel h2 {
+  margin:0 6px 10px 10px;
 }
 
-#page section.block-views h2 {
-  margin:0 6px 0px 0; /* Frontpage carousel h2 override */
+#page #node-user-panel .pane-user-courses h2 {
+  margin:0 6px 10px 0;
+}
+
+#login-register .panel-panel h2 {
+  background:url('../gfx/title-background.jpg');
+  padding:5px 5px 5px 20px;
+  border:2px solid #000;
+}
+
+#page #node-course-panel h2 {
+  margin:0 6px 10px 10px;
+}
+
+#page #node-course-panel .pane-course-members h2 {
+  margin:0 6px 10px 0;
 }
 
 /* GENERIC LAYOUT */
@@ -275,12 +318,6 @@ form#search-block-form input.form-text {
 
 /* LOGIN, SIGNUP, USERINFO AND LOGOUT */
 
-#login-register .panel-panel h2 {
-  background:url('../gfx/title-background.jpg');
-  padding:5px 5px 5px 20px;
-  border:2px solid #000;
-}
-
 #user-login input.form-text,
 #user-register-form input.form-text {
   max-width:100%;
@@ -332,6 +369,26 @@ form#search-block-form input.form-text {
 #block-userinfo-logout span,
 #block-login-signup span {
   display:inline-block;
+  float:left;
+  height:28px;
+  padding:4px 0 0 0;
+  margin-right:5px;
+}
+
+#block-userinfo-logout span.userinfo-picture {
+  height:32px;
+  padding:0;
+  padding:0px 0 0 0;
+}
+
+#block-userinfo-logout .field-name-field-account-kuva a {
+  padding:0;
+  margin:0;
+}
+
+#block-userinfo-logout .field-name-field-account-kuva img {
+  width:32px;
+  height:32px;
 }
 
 /* LOGIN and SIGNUP FORM */
@@ -353,6 +410,10 @@ form#search-block-form input.form-text {
 }
 
 /* CONTENT EDITING TABS */
+
+.tabs {
+  display:none;
+}
 
 ul.tabs.primary,
 ul.tabs.primary li {
@@ -387,7 +448,7 @@ ul.tabs.primary li.active a {
 }
 
 #page section#block-views-intro-video-block .content {
-  margin:20px 10px 0px 10px; 
+  margin:10px 10px 0px 10px; 
   padding:0 0 15px 0;
 }
 
@@ -413,12 +474,7 @@ ul.tabs.primary li.active a {
   width:290px;
 }
 
-#page #block-views-editors-choise-block-slider h2 {
-  font-size:1.2em;
-  @include h1h2-defaults-rtl;
-  @include box-shadow($shadow: 6px 6px 0 rgba(124,123,122,1.0));
-  margin:0 6px 0 0;
-}
+
 
 .view-editors-choise {
   text-align: left;
@@ -426,7 +482,7 @@ ul.tabs.primary li.active a {
 
 .view-editors-choise .jcarousel-container-horizontal {
   width: 280px;
-  padding: 15px 0 15px 0;
+  padding: 5px 0 5px 0;
   margin: auto;
 }
 
@@ -573,28 +629,28 @@ ul.tabs.primary li.active a {
 
 /* JCAROUSEL */
 
-.view-courses-not-started,
+.view-courses-not,
 .view-courses-started,
 .view-courses-ended {
   text-align: left;
 }
 
-.view-courses-not-started .jcarousel-container-horizontal,
+.view-courses-not .jcarousel-container-horizontal,
 .view-courses-started .jcarousel-container-horizontal,
 .view-courses-ended .jcarousel-container-horizontal {
   width: 1180px;
-  padding: 15px 0 15px 0;
+  padding: 5px 0 5px 0;
   margin: auto;
 }
 
-.view-courses-not-started .jcarousel-clip-horizontal,
+.view-courses-not .jcarousel-clip-horizontal,
 .view-courses-started .jcarousel-clip-horizontal,
 .view-courses-ended .jcarousel-clip-horizontal {
   width: 1180px;
   overflow: hidden;
 }
 
-.view-courses-not-started .jcarousel-item,
+.view-courses-not .jcarousel-item,
 .view-courses-started .jcarousel-item,
 .view-courses-ended .jcarousel-item {
   overflow: hidden;
@@ -603,7 +659,7 @@ ul.tabs.primary li.active a {
   @include box-shadow;
 }
 
-.view-courses-not-started .jcarousel-item-padding,
+.view-courses-not .jcarousel-item-padding,
 .view-courses-started .jcarousel-item-padding,
 .view-courses-ended .jcarousel-item-padding {
   padding:6px;
@@ -611,27 +667,27 @@ ul.tabs.primary li.active a {
   @include carousel-hover-transition;
 }
 
-.view-courses-not-started .jcarousel-item:hover,
+.view-courses-not .jcarousel-item:hover,
 .view-courses-started .jcarousel-item:hover,
 .view-courses-ended .jcarousel-item:hover {
   @include box-shadow($shadow: 0 0 8px rgba(167,196,90,0.9));
 }
 
-.view-courses-not-started .jcarousel-item-padding:hover,
+.view-courses-not .jcarousel-item-padding:hover,
 .view-courses-started .jcarousel-item-padding:hover,
 .view-courses-ended .jcarousel-item-padding:hover {
   border:1px solid #7ca246;
   background:#ffffff;
 }
 
-.view-courses-not-started .jcarousel-item-placeholder,
+.view-courses-not .jcarousel-item-placeholder,
 .view-courses-started .jcarousel-item-placeholder,
 .view-courses-ended .jcarousel-item-placeholder {
   background: #fff url(throbber.gif) no-repeat center center;
   color: #000;
 }
 
-.view-courses-not-started .jcarousel-item .views-field-field-kurssin-kuva,
+.view-courses-not .jcarousel-item .views-field-field-kurssin-kuva,
 .view-courses-started .jcarousel-item .views-field-field-kurssin-kuva,
 .view-courses-ended .jcarousel-item .views-field-field-kurssin-kuva {
   width:100%;
@@ -639,14 +695,14 @@ ul.tabs.primary li.active a {
   max-height:137px;
 }
 
-.view-courses-not-started .jcarousel-item .views-field-field-kurssin-kuva img,
+.view-courses-not .jcarousel-item .views-field-field-kurssin-kuva img,
 .view-courses-started .jcarousel-item .views-field-field-kurssin-kuva img,
 .view-courses-ended .jcarousel-item .views-field-field-kurssin-kuva img {
   width:100%;
   height:auto;
 }
 
-.view-courses-not-started .jcarousel-item .views-field-title,
+.view-courses-not .jcarousel-item .views-field-title,
 .view-courses-started .jcarousel-item .views-field-title,
 .view-courses-ended .jcarousel-item .views-field-title {
   margin:10px 0 3px 0;
@@ -654,7 +710,7 @@ ul.tabs.primary li.active a {
   overflow:hidden;
 }
 
-.view-courses-not-started .jcarousel-item .views-field-title a,
+.view-courses-not .jcarousel-item .views-field-title a,
 .view-courses-started .jcarousel-item .views-field-title a,
 .view-courses-ended .jcarousel-item .views-field-title a {
   text-transform:uppercase;
@@ -663,19 +719,19 @@ ul.tabs.primary li.active a {
   text-decoration:none;
 }
 
-.view-courses-not-started .jcarousel-item .views-field-title a:hover,
+.view-courses-not .jcarousel-item .views-field-title a:hover,
 .view-courses-started .jcarousel-item .views-field-title a:hover,
 .view-courses-ended .jcarousel-item .views-field-title a:hover {
   color:$linkHoverColorCourse;
 }
 
-.view-courses-not-started .jcarousel-item .views-field-title a:focus,
+.view-courses-not .jcarousel-item .views-field-title a:focus,
 .view-courses-started .jcarousel-item .views-field-title a:focus,
 .view-courses-ended .jcarousel-item .views-field-title a:focus {
   color:$linkFocusColorCourse;
 }
 
-.view-courses-not-started .jcarousel-item .views-field-field-summary .field-content,
+.view-courses-not .jcarousel-item .views-field-field-summary .field-content,
 .view-courses-started .jcarousel-item .views-field-field-summary .field-content,
 .view-courses-ended .jcarousel-item .views-field-field-summary .field-content {
   margin:0 0 5px 0;
@@ -686,7 +742,7 @@ ul.tabs.primary li.active a {
   display:block;
 }
 
-.view-courses-not-started .jcarousel-item .views-field-field-arvio .field-content,
+.view-courses-not .jcarousel-item .views-field-field-arvio .field-content,
 .view-courses-started .jcarousel-item .views-field-field-arvio .field-content,
 .view-courses-ended .jcarousel-item .views-field-field-arvio .field-content {
   margin:0 0 5px 0;
@@ -695,33 +751,33 @@ ul.tabs.primary li.active a {
   display:block;
 }
 
-.view-courses-not-started .jcarousel-item .views-field-field-arvio .fivestar-widget-static,
+.view-courses-not .jcarousel-item .views-field-field-arvio .fivestar-widget-static,
 .view-courses-started .jcarousel-item .views-field-field-arvio .fivestar-widget-static,
 .view-courses-ended .jcarousel-item .views-field-field-arvio .fivestar-widget-static {
   display:inline-block;
   float:right;
 }
 
-.view-courses-not-started .jcarousel-item span.views-label,
+.view-courses-not .jcarousel-item span.views-label,
 .view-courses-started .jcarousel-item span.views-label,
 .view-courses-ended .jcarousel-item span.views-label,
-.view-courses-not-started .jcarousel-item .field-content span.views-label {
+.view-courses-not .jcarousel-item .field-content span.views-label {
   @include generic-course-meta-info-label;
 }
 
-.view-courses-not-started .jcarousel-item .field-content,
+.view-courses-not .jcarousel-item .field-content,
 .view-courses-started .jcarousel-item .field-content,
 .view-courses-ended .jcarousel-item .field-content {
    @include generic-course-meta-info-field;
 }
 
-.view-courses-not-started .jcarousel-item .views-field-field-kurssin-vetaja,
+.view-courses-not .jcarousel-item .views-field-field-kurssin-vetaja,
 .view-courses-started .jcarousel-item .views-field-field-kurssin-vetaja,
 .view-courses-ended .jcarousel-item .views-field-field-kurssin-vetaja  {
    position:relative;
 }
 
-.view-courses-not-started .jcarousel-item .views-field-field-kurssin-vetaja .field-content,
+.view-courses-not .jcarousel-item .views-field-field-kurssin-vetaja .field-content,
 .view-courses-started .jcarousel-item .views-field-field-kurssin-vetaja .field-content,
 .view-courses-ended .jcarousel-item .views-field-field-kurssin-vetaja .field-content {
    @include generic-course-meta-info-field;
@@ -729,25 +785,25 @@ ul.tabs.primary li.active a {
    max-height:1.5em;
 }
 
-.view-courses-not-started .jcarousel-item .field-content .attendancies-indicator-wrapper {
+.view-courses-not .jcarousel-item .field-content .attendancies-indicator-wrapper {
   width:100%;
   background:#f8f8f8;
   margin:4px 0 0 0;
   @include rounded-borders;
 }
 
-.view-courses-not-started .jcarousel-item .field-content .attendancies-indicator {
+.view-courses-not .jcarousel-item .field-content .attendancies-indicator {
   text-align:right;
   background:#3bf210;
   @include rounded-borders;
 }
 
-.view-courses-not-started .jcarousel-item .field-content .attendancies-percent {
+.view-courses-not .jcarousel-item .field-content .attendancies-percent {
   padding:2px 4px 2px 0px;
 }
  
-.view-courses-not-started .jcarousel-next,
-.view-courses-not-started .jcarousel-prev,
+.view-courses-not .jcarousel-next,
+.view-courses-not .jcarousel-prev,
 .view-courses-started .jcarousel-next,
 .view-courses-started .jcarousel-prev,
 .view-courses-ended .jcarousel-next,
@@ -763,8 +819,8 @@ ul.tabs.primary li.active a {
   @include button-hover-transition;
 }
 
-.view-courses-not-started .jcarousel-next-disabled,
-.view-courses-not-started .jcarousel-prev-disabled,
+.view-courses-not .jcarousel-next-disabled,
+.view-courses-not .jcarousel-prev-disabled,
 .view-courses-started .jcarousel-next-disabled,
 .view-courses-started .jcarousel-prev-disabled,
 .view-courses-ended .jcarousel-next-disabled,
@@ -772,7 +828,7 @@ ul.tabs.primary li.active a {
   display: none;  
 }
 
-.view-courses-not-started .jcarousel-prev-horizontal,
+.view-courses-not .jcarousel-prev-horizontal,
 .view-courses-started .jcarousel-prev-horizontal,
 .view-courses-ended .jcarousel-prev-horizontal {
   top:49%;
@@ -780,7 +836,7 @@ ul.tabs.primary li.active a {
   background:url('../gfx/previous-arrow-big.png') no-repeat center center #bbbbbb;
 }
 
-.view-courses-not-started .jcarousel-prev-horizontal:hover,
+.view-courses-not .jcarousel-prev-horizontal:hover,
 .view-courses-started .jcarousel-prev-horizontal:hover,
 .view-courses-ended .jcarousel-prev-horizontal:hover {
   top:49%;
@@ -788,7 +844,7 @@ ul.tabs.primary li.active a {
   background:url('../gfx/previous-arrow-big.png') no-repeat center center #888888;
 }
 
-.view-courses-not-started .jcarousel-next-horizontal,
+.view-courses-not .jcarousel-next-horizontal,
 .view-courses-started .jcarousel-next-horizontal,
 .view-courses-ended .jcarousel-next-horizontal {
   position:absolute;
@@ -797,7 +853,7 @@ ul.tabs.primary li.active a {
   background:url('../gfx/next-arrow-big.png') no-repeat center center #bbbbbb;
 }
 
-.view-courses-not-started .jcarousel-next-horizontal:hover,
+.view-courses-not .jcarousel-next-horizontal:hover,
 .view-courses-started .jcarousel-next-horizontal:hover,
 .view-courses-ended .jcarousel-next-horizontal:hover {
   position:absolute;
@@ -806,14 +862,14 @@ ul.tabs.primary li.active a {
   background:url('../gfx/next-arrow-big.png') no-repeat center center #888888;
 }
 
-.view-courses-not-started .jcarousel-navigation,
+.view-courses-not .jcarousel-navigation,
 .view-courses-started .jcarousel-navigation,
 .view-courses-ended .jcarousel-navigation {
   margin: 0;
   padding: 0;
 }
 
-.view-courses-not-started .jcarousel-navigation li,
+.view-courses-not .jcarousel-navigation li,
 .view-courses-started .jcarousel-navigation li,
 .view-courses-ended .jcarousel-navigation li {
   display: inline;
@@ -822,7 +878,7 @@ ul.tabs.primary li.active a {
   background: none;
 }
 
-.view-courses-not-started .jcarousel-navigation li.active a,
+.view-courses-not .jcarousel-navigation li.active a,
 .view-courses-started .jcarousel-navigation li.active a,
 .view-courses-ended .jcarousel-navigation li.active a {
   font-weight: bold;
@@ -832,21 +888,21 @@ ul.tabs.primary li.active a {
 /* NOT STARTED COURSES LISTING / STARTED COURSES LISTING / ENDED COURSES LISTING / EDITORS CHOISES LISTING */
 
 .view-courses-started, 
-.view-courses-not-started,
+.view-courses-not,
 .view-courses-ended,
 .view-editors-choise {
   position:relative;
 }
 
-.view-courses-not-started.view-display-id-page_list_all,
+.view-courses-not.view-display-id-page_list_all,
 .view-courses-started.view-display-id-page_list_all,
-.view-courses-ended.view-display-id-page_list_all
+.view-courses-ended.view-display-id-page_list_all,
 .view-editors-choise.view-display-id-page_list_all {
   margin:5px 0 0 0;
   padding:0;
 }
 
-.view-courses-not-started .views-row,
+.view-courses-not .views-row,
 .view-courses-started .views-row,
 .view-courses-ended .views-row,
 .view-editors-choise .views-row {
@@ -860,14 +916,14 @@ ul.tabs.primary li.active a {
   @include carousel-hover-transition;
 }
 
-.view-courses-not-started .views-row.courses-not-started-page-row,
+.view-courses-not .views-row.courses-not-page-row,
 .view-courses-started .views-row.courses-started-page-row,
 .view-courses-ended .views-row.courses-ended-page-row,
 .view-editors-choise .views-row.editors-choise-page-row {
    margin:0px 10px 20px 10px;
 }
 
-.view-courses-not-started .views-row:hover,
+.view-courses-not .views-row:hover,
 .view-courses-started .views-row:hover,
 .view-courses-ended .views-row:hover,
 .view-editors-choise .views-row:hover {
@@ -876,7 +932,7 @@ ul.tabs.primary li.active a {
   background:#ffffff;
 }
 
-.view-courses-not-started .views-row .views-field-field-kurssin-kuva,
+.view-courses-not .views-row .views-field-field-kurssin-kuva,
 .view-courses-started .views-row .views-field-field-kurssin-kuva,
 .view-courses-ended .views-row .views-field-field-kurssin-kuva,
 .view-editors-choise .views-row .views-field-field-kurssin-kuva {
@@ -885,7 +941,7 @@ ul.tabs.primary li.active a {
   max-height:137px;
 }
 
-.view-courses-not-started .views-row img,
+.view-courses-not .views-row img,
 .view-courses-started .views-row img,
 .view-courses-ended .views-row img,
 .view-editors-choise .views-row img {
@@ -893,7 +949,7 @@ ul.tabs.primary li.active a {
   height:auto;
 }
 
-.view-courses-not-started .views-row .views-field-title,
+.view-courses-not .views-row .views-field-title,
 .view-courses-started .views-row .views-field-title,
 .view-courses-ended .views-row .views-field-title,
 .view-editors-choise .views-row .views-field-title {
@@ -902,7 +958,7 @@ ul.tabs.primary li.active a {
   overflow:hidden;
 }
 
-.view-courses-not-started .views-row .views-field-title a,
+.view-courses-not .views-row .views-field-title a,
 .view-courses-started .views-row .views-field-title a,
 .view-courses-ended .views-row .views-field-title a,
 .view-editors-choise .views-row .views-field-title a {
@@ -912,21 +968,21 @@ ul.tabs.primary li.active a {
   text-decoration:none;
 }
 
-.view-courses-not-started .views-row .views-field-title a:hover,
+.view-courses-not .views-row .views-field-title a:hover,
 .view-courses-started .views-row .views-field-title a:hover,
 .view-courses-ended .views-row .views-field-title a:hover,
 .view-editors-choise .views-row .views-field-title a:hover {
   color:$linkHoverColorCourse;
 }
 
-.view-courses-not-started .views-row .views-field-title a:focus,
+.view-courses-not .views-row .views-field-title a:focus,
 .view-courses-started .views-row .views-field-title a:focus,
 .view-courses-ended .views-row .views-field-title a:focus,
 .view-editors-choise .views-row .views-field-title a:focus {
   color:$linkFocusColorCourse;
 }
 
-.view-courses-not-started .views-row .views-field-field-summary .field-content,
+.view-courses-not .views-row .views-field-field-summary .field-content,
 .view-courses-started .views-row .views-field-field-summary .field-content,
 .view-courses-ended .views-row .views-field-field-summary .field-content,
 .view-editors-choise .views-row .views-field-field-summary .field-content {
@@ -938,7 +994,7 @@ ul.tabs.primary li.active a {
   display:block;
 }
 
-.view-courses-not-started .views-row .views-field-field-arvio .field-content, 
+.view-courses-not .views-row .views-field-field-arvio .field-content, 
 .view-courses-started .views-row .views-field-field-arvio .field-content,
 .view-courses-ended .views-row .views-field-field-arvio .field-content,
 .view-editors-choise .views-row .views-field-field-arvio .field-content {
@@ -948,7 +1004,7 @@ ul.tabs.primary li.active a {
   display:block;
 }
 
-.view-courses-not-started .views-row .views-field-field-arvio .fivestar-widget-static,
+.view-courses-not .views-row .views-field-field-arvio .fivestar-widget-static,
 .view-courses-started .views-row .views-field-field-arvio .fivestar-widget-static,
 .view-courses-ended .views-row .views-field-field-arvio .fivestar-widget-static,
 .view-editors-choise .views-row .views-field-field-arvio .fivestar-widget-static {
@@ -956,29 +1012,29 @@ ul.tabs.primary li.active a {
   float:right;
 }
 
-.view-courses-not-started .views-row span.views-label,
+.view-courses-not .views-row span.views-label,
 .view-courses-started .views-row span.views-label,
 .view-courses-ended .views-row span.views-label,
 .view-editors-choise .views-row span.views-label,
-.view-courses-not-started .views-row .field-content span.views-label {
+.view-courses-not .views-row .field-content span.views-label {
   @include generic-course-meta-info-label;
 }
 
-.view-courses-not-started .views-row .field-content,
+.view-courses-not .views-row .field-content,
 .view-courses-started .views-row .field-content,
 .view-courses-ended .views-row .field-content,
 .view-editors-choise .views-row .field-content {
    @include generic-course-meta-info-field;
 }
 
-.view-courses-not-started .views-row .views-field-field-kurssin-vetaja,
+.view-courses-not .views-row .views-field-field-kurssin-vetaja,
 .view-courses-started .views-row .views-field-field-kurssin-vetaja,
 .view-courses-ended .views-row .views-field-field-kurssin-vetaja,
 .view-editors-choise .views-row .views-field-field-kurssin-vetaja {
    position:relative;
 }
 
-.view-courses-not-started .views-row .views-field-field-kurssin-vetaja .field-content,
+.view-courses-not .views-row .views-field-field-kurssin-vetaja .field-content,
 .view-courses-started .views-row .views-field-field-kurssin-vetaja .field-content,
 .view-courses-ended .views-row .views-field-field-kurssin-vetaja .field-content,
 .view-editors-choise .views-row .views-field-field-kurssin-vetaja .field-content {
@@ -987,20 +1043,20 @@ ul.tabs.primary li.active a {
    max-height:1.5em;
 }
 
-.view-courses-not-started .views-row .field-content .attendancies-indicator-wrapper {
+.view-courses-not .views-row .field-content .attendancies-indicator-wrapper {
   width:100%;
   background:#f8f8f8;
   margin:4px 0 0 0;
   @include rounded-borders;
 }
 
-.view-courses-not-started .views-row .field-content .attendancies-indicator {
+.view-courses-not .views-row .field-content .attendancies-indicator {
   text-align:right;
   background:#3bf210;
   @include rounded-borders;
 }
 
-.view-courses-not-started .views-row .field-content .attendancies-percent {
+.view-courses-not .views-row .field-content .attendancies-percent {
   padding:2px 4px 2px 0px;
 }
 
@@ -1014,19 +1070,8 @@ ul.tabs.primary li.active a {
   float:left;
 }
 
-#page #node-course-panel h2 {
-  margin:0 0 20px 0;
-}
-
 .pane-kurssi-minipanel {
   display:table;
-}
-
-#page #node-course-panel .pane-course-members h2 {
-  font-size:1.2em;
-  @include h1h2-defaults-rtl;
-  @include box-shadow($shadow: 6px 6px 0 rgba(124,123,122,1.0));
-  margin:0 6px 20px 0;
 }
 
 #page #node-course-panel .pane-course-members .pane-content {
@@ -1527,17 +1572,6 @@ ul.tabs.primary li.active a {
 
 #page #node-user-panel .panel-panel.grid-4 {
   float:right;
-}
-
-#page #node-user-panel h2 {
-  margin:0 0 20px 0;
-}
-
-#page #node-user-panel .pane-user-courses h2 {
-  font-size:1.2em;
-  @include h1h2-defaults-rtl;
-  @include box-shadow($shadow: 6px 6px 0 rgba(124,123,122,1.0));
-  margin:0 6px 20px 0;
 }
 
 .pane-user-information {
