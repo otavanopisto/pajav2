@@ -38,6 +38,9 @@ $boxBorder:1px solid #c4c4c0;
 $boxShadow:0 0 4px rgba(0,0,0,0.2);
 $boxPadding:6px;
 
+/* Site namw and Slogan */
+$sitenameSloganShadow:0 0 16px rgba(0,0,0,0.3);
+
 /* Form defaults */
 $fieldBorder:1px solid #000000;
 $fieldBackgroundColor:#ffffff;
@@ -184,6 +187,10 @@ $tooltipRTLTransitionFunction:linear;
 }
 
 @mixin box-shadow($shadow: $boxShadow) {
+  box-shadow:$shadow;
+}
+
+@mixin sitename-slogan-box-shadow($shadow: $sitenameSloganShadow) {
   box-shadow:$shadow;
 }
 

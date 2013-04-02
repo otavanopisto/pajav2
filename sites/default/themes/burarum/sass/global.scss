@@ -10,6 +10,8 @@
 
  */
  
+@import url(http://fonts.googleapis.com/css?family=Rochester);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
 @import "base";
 @import "forms";
 
@@ -27,6 +29,42 @@ body {
 }
 
 /* GENERIC STUFF */
+
+#page hgroup.site-name-slogan {
+  position:absolute;
+  top:65px;
+  left:360px;
+  @include sitename-slogan-box-shadow;
+  background:#fff;
+  padding:10px 20px 5px 10px;
+}
+
+#page hgroup.site-name-slogan h1.site-name {
+  background:none;
+  font-family:"Rochester";
+  color:#21833c;
+  margin:-25px 0 10px 0;
+  padding:0;
+  border:0;
+  box-shadow:none;
+  font-size:48px;
+  font-weight:normal;
+}
+
+#page hgroup.site-name-slogan h1.site-name a {
+  font-family:"Rochester";
+  text-transform:none;
+  color:#21833c;
+}
+
+#page hgroup.site-name-slogan h6.site-slogan {
+  font-family:"Droid Sans";
+  color:#ac8300;
+  text-transform:lowercase;
+  font-style:italic;
+  margin:0 0 0 20px;
+  font-size:20px;
+}
 
 .generic-empty-text-wrapper {
   text-align:center;
