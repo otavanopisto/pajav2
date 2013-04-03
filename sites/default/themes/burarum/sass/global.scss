@@ -415,8 +415,15 @@ form#search-block-form input.form-text {
 
 /* CONTENT EDITING TABS */
 
-.tabs {
-  display:none;
+div.tabs {
+  display: block;
+  left: -225px;
+  overflow: hidden;
+  position: absolute;
+  text-align: right;
+  top: 380px;
+  transform: rotate(270deg) translate(200px);
+  width: 400px;
 }
 
 ul.tabs.primary,
@@ -433,6 +440,8 @@ ul.tabs.primary li a {
   color:$linkColor;
   border:0;
   @include box-shadow;
+  border-top-left-radius:3px;
+  border-top-right-radius:3px;
 }
 
 ul.tabs.primary li a:hover {
