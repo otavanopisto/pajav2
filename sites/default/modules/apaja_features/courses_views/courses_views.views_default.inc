@@ -1141,7 +1141,7 @@ if($memberCount != 0){
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Käynnissä olevat kurssit';
+  $handler->display->display_options['title'] = '<a href="/kaynnistetyt-kurssit">Käynnissä olevat kurssit</a>';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -1382,7 +1382,7 @@ if($memberCount != 0){
   $handler->display->display_options['menu']['context'] = 0;
   $translatables['courses_started'] = array(
     t('Master'),
-    t('Käynnissä olevat kurssit'),
+    t('<a href="/kaynnistetyt-kurssit">Käynnissä olevat kurssit</a>'),
     t('more'),
     t('Apply'),
     t('Reset'),

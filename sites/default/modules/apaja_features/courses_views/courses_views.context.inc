@@ -26,12 +26,6 @@ function courses_views_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-header_slogan-block' => array(
-          'module' => 'views',
-          'delta' => 'header_slogan-block',
-          'region' => 'branding',
-          'weight' => '-10',
-        ),
         'views-intro_video-block' => array(
           'module' => 'views',
           'delta' => 'intro_video-block',
@@ -72,6 +66,45 @@ function courses_views_context_default_contexts() {
   t('Frontpage');
   t('Site frontpage');
   $export['frontpage'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'sitewide';
+  $context->description = 'Sitewide content';
+  $context->tag = 'Sitewide';
+  $context->conditions = array(
+    'sitewide' => array(
+      'values' => array(
+        1 => 1,
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'search-form' => array(
+          'module' => 'search',
+          'delta' => 'form',
+          'region' => 'header_second',
+          'weight' => '0',
+        ),
+        'views-header_slogan-block' => array(
+          'module' => 'views',
+          'delta' => 'header_slogan-block',
+          'region' => 'branding',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Sitewide');
+  t('Sitewide content');
+  $export['sitewide'] = $context;
 
   return $export;
 }
