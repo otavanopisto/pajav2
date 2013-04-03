@@ -244,6 +244,8 @@ if($memberCount != 0){
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_slider');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = '<a href="/paattyneet-kurssit">Päättyneet kurssit</a>';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
 
   /* Display: Page */
@@ -281,6 +283,7 @@ if($memberCount != 0){
     t('Maksimi osallistujamäärä'),
     t('Hinta'),
     t('Block'),
+    t('<a href="/paattyneet-kurssit">Päättyneet kurssit</a>'),
     t('Page'),
   );
   $export['courses_ended'] = $view;
@@ -518,6 +521,8 @@ if($memberCount != 0){
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_slider');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = '<a href="/valmisteltavat-kurssit">Valmisteilla olevat kurssit</a>';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
 
   /* Display: Page */
@@ -555,6 +560,7 @@ if($memberCount != 0){
     t('Maksimi osallistujamäärä'),
     t('Hinta'),
     t('Block'),
+    t('<a href="/valmisteltavat-kurssit">Valmisteilla olevat kurssit</a>'),
     t('Page'),
   );
   $export['courses_not'] = $view;
@@ -792,6 +798,8 @@ if($memberCount != 0){
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_slider');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = '<a href="/kaynnistetyt-kurssit">Käynnissä olevat kurssit</a>';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
 
   /* Display: Page */
@@ -829,6 +837,7 @@ if($memberCount != 0){
     t('Maksimi osallistujamäärä'),
     t('Hinta'),
     t('Block'),
+    t('<a href="/kaynnistetyt-kurssit">Käynnissä olevat kurssit</a>'),
     t('Page'),
   );
   $export['courses_started'] = $view;
@@ -1068,6 +1077,8 @@ if($memberCount != 0){
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_slider');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = '<a href="/tuottajan-valinnat">Tuottajan valinnat</a>';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Nid */
@@ -1188,7 +1199,7 @@ if($memberCount != 0){
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['path'] = 'tuottajan-valinta';
+  $handler->display->display_options['path'] = 'tuottajan-valinnat';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Tuottajan valinnat';
   $handler->display->display_options['menu']['description'] = 'Kurssit jotka ovat tuottajan valintoja';
@@ -1213,6 +1224,7 @@ if($memberCount != 0){
     t('Maksimi osallistujamäärä'),
     t('Hinta'),
     t('Block'),
+    t('<a href="/tuottajan-valinnat">Tuottajan valinnat</a>'),
     t('Page'),
   );
   $export['editors_choise'] = $view;

@@ -136,22 +136,28 @@ h1, h2, h3, h4, h5, h6 {
   margin:0 6px 10px 10px;
 }
 
-#page .block-courses-not-block-slider h1,
-#page .block-courses-not-block-slider h2,
+#page .block-courses-not-block-slider h2 a,
 .page-valmisteltavat-kurssit #page h1 {
   color:#0e9a96;
+  text-decoration:none;
 }
 
-#page .block-courses-started-block-slider h1,
-#page .block-courses-started-block-slider h2,
+#page .block-courses-started-block-slider h2 a,
 .page-kaynnistetyt-kurssit #page h1 {
   color:#00762a;
+  text-decoration:none;
 }
 
-#page .block-courses-ended-block-slider h1,
-#page .block-courses-ended-block-slider h2,
+#page .block-courses-ended-block-slider h2 a,
 .page-paattyneet-kurssit #page h1 {
   color:#54bc79;
+  text-decoration:none;
+}
+
+#page .block-views-editors-choise-block-slider h2 a,
+.page-tuottajan-valinnat #page h1 {
+  color:#000000;
+  text-decoration:none;
 }
 
 #page #block-views-editors-choise-block-slider h2 {
