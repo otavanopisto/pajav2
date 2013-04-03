@@ -27,6 +27,13 @@ function content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_anonymous_slogan';
+  $strongarm->value = 0;
+  $export['comment_anonymous_slogan'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_mode_intro_video';
   $strongarm->value = 0;
   $export['comment_default_mode_intro_video'] = $strongarm;
@@ -37,6 +44,13 @@ function content_types_strongarm() {
   $strongarm->name = 'comment_default_mode_kurssi';
   $strongarm->value = 1;
   $export['comment_default_mode_kurssi'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_mode_slogan';
+  $strongarm->value = 0;
+  $export['comment_default_mode_slogan'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -55,6 +69,13 @@ function content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_default_per_page_slogan';
+  $strongarm->value = '50';
+  $export['comment_default_per_page_slogan'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_form_location_intro_video';
   $strongarm->value = 0;
   $export['comment_form_location_intro_video'] = $strongarm;
@@ -65,6 +86,13 @@ function content_types_strongarm() {
   $strongarm->name = 'comment_form_location_kurssi';
   $strongarm->value = 1;
   $export['comment_form_location_kurssi'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_form_location_slogan';
+  $strongarm->value = 0;
+  $export['comment_form_location_slogan'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -97,6 +125,20 @@ function content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'comment_preview_slogan';
+  $strongarm->value = '0';
+  $export['comment_preview_slogan'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_slogan';
+  $strongarm->value = '1';
+  $export['comment_slogan'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_intro_video';
   $strongarm->value = 0;
   $export['comment_subject_field_intro_video'] = $strongarm;
@@ -107,6 +149,13 @@ function content_types_strongarm() {
   $strongarm->name = 'comment_subject_field_kurssi';
   $strongarm->value = 1;
   $export['comment_subject_field_kurssi'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'comment_subject_field_slogan';
+  $strongarm->value = 0;
+  $export['comment_subject_field_slogan'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -192,6 +241,26 @@ function content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_node__slogan';
+  $strongarm->value = array(
+    'view_modes' => array(),
+    'extra_fields' => array(
+      'form' => array(
+        'title' => array(
+          'weight' => '-5',
+        ),
+        'path' => array(
+          'weight' => '30',
+        ),
+      ),
+      'display' => array(),
+    ),
+  );
+  $export['field_bundle_settings_node__slogan'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_intro_video';
   $strongarm->value = '0';
   $export['language_content_type_intro_video'] = $strongarm;
@@ -202,6 +271,13 @@ function content_types_strongarm() {
   $strongarm->name = 'language_content_type_kurssi';
   $strongarm->value = '0';
   $export['language_content_type_kurssi'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'language_content_type_slogan';
+  $strongarm->value = '0';
+  $export['language_content_type_slogan'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -222,6 +298,13 @@ function content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'menu_options_slogan';
+  $strongarm->value = array();
+  $export['menu_options_slogan'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_parent_intro_video';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_intro_video'] = $strongarm;
@@ -232,6 +315,13 @@ function content_types_strongarm() {
   $strongarm->name = 'menu_parent_kurssi';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_kurssi'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_parent_slogan';
+  $strongarm->value = 'main-menu:0';
+  $export['menu_parent_slogan'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -254,6 +344,15 @@ function content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'node_options_slogan';
+  $strongarm->value = array(
+    0 => 'status',
+  );
+  $export['node_options_slogan'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_intro_video';
   $strongarm->value = '0';
   $export['node_preview_intro_video'] = $strongarm;
@@ -268,6 +367,13 @@ function content_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'node_preview_slogan';
+  $strongarm->value = '1';
+  $export['node_preview_slogan'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_intro_video';
   $strongarm->value = 0;
   $export['node_submitted_intro_video'] = $strongarm;
@@ -278,6 +384,13 @@ function content_types_strongarm() {
   $strongarm->name = 'node_submitted_kurssi';
   $strongarm->value = 0;
   $export['node_submitted_kurssi'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_submitted_slogan';
+  $strongarm->value = 0;
+  $export['node_submitted_slogan'] = $strongarm;
 
   return $export;
 }
