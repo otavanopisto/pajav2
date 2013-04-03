@@ -30,7 +30,7 @@ body {
 
 /* SITE NAME AND SLOGAN */
 
-#page hgroup.site-name-slogan {
+#page #block-views-header-slogan-block {
   position:absolute;
   top:45px;
   left:320px;
@@ -39,12 +39,11 @@ body {
   padding:10px 20px 5px 10px;
 }
 
-#page hgroup.site-name-slogan h1.site-name,
-#page hgroup.site-name-slogan h2.site-name {
+#page #block-views-header-slogan-block .views-field-field-ylempi-slogan {
   background:none;
   font-family:"Rochester";
   color:#21833c;
-  margin:-25px 0 10px 0;
+  margin:-35px 0 0 0;
   padding:0;
   border:0;
   box-shadow:none;
@@ -52,20 +51,23 @@ body {
   font-weight:normal;
 }
 
-#page hgroup.site-name-slogan h1.site-name a,
-#page hgroup.site-name-slogan h2.site-name a {
-  font-family:"Rochester";
-  text-transform:none;
-  color:#21833c;
-}
-
-#page hgroup.site-name-slogan h6.site-slogan {
+#page #block-views-header-slogan-block .views-field-field-alempi-slogan {
   font-family:"Droid Sans";
   color:#ac8300;
   text-transform:lowercase;
   font-style:italic;
   margin:0 0 0 20px;
   font-size:20px;
+}
+
+#page hgroup.site-name-slogan {
+  position:absolute;
+  top:45px;
+  left:320px;
+  @include sitename-slogan-box-shadow;
+  background:#fff;
+  padding:10px 20px 5px 10px;
+  display:none;
 }
 
 /* GENERIC STUFF */
@@ -423,6 +425,10 @@ div.tabs {
   text-align: right;
   top: 380px;
   transform: rotate(270deg) translate(200px);
+  -ms-transform: rotate(270deg) translate(200px); /* IE 9 */
+  -webkit-transform: rotate(270deg) translate(200px); /* Safari and Chrome */
+  -o-transform: rotate(270deg) translate(200px); /* Opera */
+  -moz-transform: rotate(270deg) translate(200px); /* Firefox */
   width: 400px;
 }
 

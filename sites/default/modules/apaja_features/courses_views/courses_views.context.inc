@@ -26,6 +26,12 @@ function courses_views_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'views-header_slogan-block' => array(
+          'module' => 'views',
+          'delta' => 'header_slogan-block',
+          'region' => 'branding',
+          'weight' => '-10',
+        ),
         'views-intro_video-block' => array(
           'module' => 'views',
           'delta' => 'intro_video-block',

@@ -1787,6 +1787,61 @@ if($memberCount != 0){
   $export['editors_choise'] = $view;
 
   $view = new view();
+  $view->name = 'header_slogan';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Header slogan';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '1';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Ylempi slogan */
+  $handler->display->display_options['fields']['field_ylempi_slogan']['id'] = 'field_ylempi_slogan';
+  $handler->display->display_options['fields']['field_ylempi_slogan']['table'] = 'field_data_field_ylempi_slogan';
+  $handler->display->display_options['fields']['field_ylempi_slogan']['field'] = 'field_ylempi_slogan';
+  $handler->display->display_options['fields']['field_ylempi_slogan']['label'] = '';
+  $handler->display->display_options['fields']['field_ylempi_slogan']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_ylempi_slogan']['type'] = 'text_plain';
+  /* Field: Content: Alempi slogan */
+  $handler->display->display_options['fields']['field_alempi_slogan']['id'] = 'field_alempi_slogan';
+  $handler->display->display_options['fields']['field_alempi_slogan']['table'] = 'field_data_field_alempi_slogan';
+  $handler->display->display_options['fields']['field_alempi_slogan']['field'] = 'field_alempi_slogan';
+  $handler->display->display_options['fields']['field_alempi_slogan']['label'] = '';
+  $handler->display->display_options['fields']['field_alempi_slogan']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_alempi_slogan']['type'] = 'text_plain';
+  /* Sort criterion: Content: Updated date */
+  $handler->display->display_options['sorts']['changed']['id'] = 'changed';
+  $handler->display->display_options['sorts']['changed']['table'] = 'node';
+  $handler->display->display_options['sorts']['changed']['field'] = 'changed';
+  $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block');
+  $translatables['header_slogan'] = array(
+    t('Master'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('Block'),
+  );
+  $export['header_slogan'] = $view;
+
+  $view = new view();
   $view->name = 'intro_video';
   $view->description = '';
   $view->tag = 'default';

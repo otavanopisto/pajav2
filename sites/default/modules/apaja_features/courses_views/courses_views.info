@@ -1,4 +1,4 @@
-name = Courses views and Intro video
+name = Courses views, Intro video and slogan
 description = Views for started and not started courses. Provides frontpage carousel and individual pages.
 core = 7.x
 package = Features
@@ -20,5 +20,6 @@ features[views_view][] = courses_ended
 features[views_view][] = courses_not
 features[views_view][] = courses_started
 features[views_view][] = editors_choise
+features[views_view][] = header_slogan
 features[views_view][] = intro_video
 features_exclude[dependencies][views_slideshow] = views_slideshow
