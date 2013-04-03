@@ -127,7 +127,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #page h1,
 #page h2 {
-  font-size:1.3em;
+  font-size:1.5em;
   margin:0 6px 0 15px;
   font-weight:normal;
 }
@@ -453,7 +453,6 @@ ul.tabs.primary li.active a {
 #block-views-intro-video-block .views-field-field-video {
   max-width:540px;
   float:left;
-  @include box-shadow;
 }
 
 #block-views-intro-video-block .views-field-field-video iframe {
