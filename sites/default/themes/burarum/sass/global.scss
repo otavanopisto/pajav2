@@ -28,37 +28,6 @@ body {
   background:url('../gfx/view-port-background.gif') repeat-x left top;
 }
 
-/* SITE NAME AND SLOGAN */
-
-#page #block-views-header-slogan-block {
-  position:absolute;
-  top:45px;
-  left:320px;
-  @include sitename-slogan-box-shadow;
-  background:#fff;
-  padding:10px 20px 5px 10px;
-}
-
-#page #block-views-header-slogan-block .views-field-field-ylempi-slogan {
-  background:none;
-  font-family:"Rochester";
-  color:#21833c;
-  margin:-35px 0 0 0;
-  padding:0;
-  border:0;
-  box-shadow:none;
-  font-size:48px;
-  font-weight:normal;
-}
-
-#page #block-views-header-slogan-block .views-field-field-alempi-slogan {
-  font-family:"Droid Sans";
-  color:#ac8300;
-  font-style:italic;
-  margin:0 0 0 20px;
-  font-size:20px;
-}
-
 /* GENERIC STUFF */
 
 .generic-empty-text-wrapper {
@@ -193,12 +162,13 @@ h1, h2, h3, h4, h5, h6 {
 .header-black-spacer {
   height:5px;
   background:#000000;
-  margin:0 0 5px 0;
+  margin:0;
 }
 
 #region-header-first,
 #region-header-second {
-  margin-bottom:5px;
+  border-top:5px solid #fff;
+  border-bottom:5px solid #fff;
   background:#ffffff;
 }
 
@@ -214,15 +184,19 @@ h1, h2, h3, h4, h5, h6 {
   margin:0px 0px 20px 0px;
 }
 
+#block-system-main form {
+  margin:0 10px 0 10px;
+}
+
 /* BACKGROUNDS */
 
 #page-container {
   background:url('../gfx/main-background.jpg') no-repeat #ffffff;
-  background-position:left 57px;
+  background-position:left -3px;
 }
 
 #region-branding {
-  height:230px;
+  height:170px;
 }
 
 #region-menu {
@@ -234,15 +208,51 @@ h1, h2, h3, h4, h5, h6 {
 
 .branding-data {
   position:relative;
-  height:230px;
+  height:170px;
 }
 
 .logo-img {
   margin:0;
   padding:0;
   position:absolute;
-  top:0;
-  left:0;
+  top:-10px;
+  left:-15px;
+  transform:scale(0.85);
+  -ms-transform:scale(0.85);
+  -moz-transform:scale(0.85);
+  -webkit-transform:scale(0.85);
+  -o-transform:scale(0.85);
+}
+
+/* SITE NAME AND SLOGAN */
+
+#page #block-views-header-slogan-block {
+  position:absolute;
+  top:40px;
+  left:290px;
+  @include sitename-slogan-box-shadow;
+  background:#fff;
+  padding:10px 20px 5px 10px;
+}
+
+#page #block-views-header-slogan-block .views-field-field-ylempi-slogan {
+  background:none;
+  font-family:"Rochester";
+  color:#21833c;
+  margin:-35px 0 0 0;
+  padding:0;
+  border:0;
+  box-shadow:none;
+  font-size:48px;
+  font-weight:normal;
+}
+
+#page #block-views-header-slogan-block .views-field-field-alempi-slogan {
+  font-family:"Droid Sans";
+  color:#ac8300;
+  font-style:italic;
+  margin:0 0 0 20px;
+  font-size:20px;
 }
 
 /* HEADER SEARCH */
@@ -462,6 +472,7 @@ ul.tabs.primary li.active a {
 
 #block-views-intro-video-block .views-field-field-video {
   max-width:540px;
+  margin:0 0 0 15px;
   float:left;
 }
 
@@ -470,18 +481,31 @@ ul.tabs.primary li.active a {
 }
 
 #block-views-intro-video-block .views-field-field-description {
-  margin-left:540px;
-  padding: 10px 20px;
-  font-size:1.1em;
+  font-family: "Droid Sans";
+  font-size: 1.3em;
+  font-style: italic;
+  line-height: 160%;
+  margin: 5px 10px 0 560px;
+  opacity: 0.8;
+  overflow: hidden;
+  padding: 0 20px;
+  color:#00687E;
+/*   @include text-shadow(4px 4px 2px rgba(40, 40, 40, 0.12)); */
 }
+
+/* #block-views-intro-video-block .views-field-field-description p:before, */
+/* #block-views-intro-video-block .views-field-field-description p:after  { */
+/*   content:'"'; */
+/*   font-family: "Droid Sans"; */
+/*   font-size: 1.3em; */
+/*   font-style: italic; */
+/* } */
 
 /* EDITORS CHOISE */
 
 #region-content-editors-choise.grid-4 { /* Override for the front page */
   width:290px;
 }
-
-
 
 .view-editors-choise {
   text-align: left;
@@ -575,9 +599,8 @@ ul.tabs.primary li.active a {
 }
 
 .view-editors-choise .jcarousel-item .views-field-field-arvio .field-content {
-  margin:0 0 5px 0;
-  padding:0 0 10px 0;
-  border-bottom:1px solid #f2f2f2;
+  margin:0;
+  padding:0 0 5px 0;
   display:block;
 }
 
@@ -752,9 +775,8 @@ ul.tabs.primary li.active a {
 .view-courses-not .jcarousel-item .views-field-field-arvio .field-content,
 .view-courses-started .jcarousel-item .views-field-field-arvio .field-content,
 .view-courses-ended .jcarousel-item .views-field-field-arvio .field-content {
-  margin:0 0 5px 0;
-  padding:0 0 10px 0;
-  border-bottom:1px solid #f2f2f2;
+  margin:0;
+  padding:0 0 5px 0;
   display:block;
 }
 
@@ -1005,9 +1027,8 @@ ul.tabs.primary li.active a {
 .view-courses-started .views-row .views-field-field-arvio .field-content,
 .view-courses-ended .views-row .views-field-field-arvio .field-content,
 .view-editors-choise .views-row .views-field-field-arvio .field-content {
-  margin:0 0 5px 0;
-  padding:0 0 10px 0;
-  border-bottom:1px solid #f2f2f2;
+  margin:0;
+  padding:0 0 5px 0;
   display:block;
 }
 
