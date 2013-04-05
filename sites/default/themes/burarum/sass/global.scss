@@ -97,25 +97,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #page .block-courses-not-block-slider h2 a,
-.page-valmisteltavat-kurssit #page h1 {
+.page-kurssit-valmisteltavat #page h1 {
   color:#0e9a96;
   text-decoration:none;
 }
 
 #page .block-courses-started-block-slider h2 a,
-.page-kaynnistetyt-kurssit #page h1 {
+.page-kurssit-kaynnistetyt #page h1 {
   color:#00762a;
   text-decoration:none;
 }
 
 #page .block-courses-ended-block-slider h2 a,
-.page-paattyneet-kurssit #page h1 {
+.page-kurssit-menneet #page h1 {
   color:#54bc79;
   text-decoration:none;
 }
 
 #page .block-views-editors-choise-block-slider h2 a,
-.page-tuottajan-valinnat #page h1 {
+.page-kurssit-tuottajan-valinnat #page h1 {
   color:#000000;
   text-decoration:none;
 }
@@ -165,10 +165,14 @@ h1, h2, h3, h4, h5, h6 {
   margin:0;
 }
 
+#zone-header {
+  background:#ffffff;
+}
+
 #region-header-first,
 #region-header-second {
-  border-top:5px solid #fff;
-  border-bottom:5px solid #fff;
+  border-top:8px solid #fff;
+  border-bottom:8px solid #fff;
   background:#ffffff;
 }
 
@@ -192,7 +196,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #page-container {
   background:url('../gfx/main-background.jpg') no-repeat #ffffff;
-  background-position:left -3px;
+  background-position:left 3px;
 }
 
 #region-branding {
@@ -228,7 +232,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #page #block-views-header-slogan-block {
   position:absolute;
-  top:40px;
+  top:30px;
   left:290px;
   @include sitename-slogan-box-shadow;
   background:#fff;
@@ -239,7 +243,7 @@ h1, h2, h3, h4, h5, h6 {
   background:none;
   font-family:"Rochester";
   color:#21833c;
-  margin:-35px 0 0 0;
+  margin:-15px 0 0 0;
   padding:0;
   border:0;
   box-shadow:none;
@@ -253,6 +257,52 @@ h1, h2, h3, h4, h5, h6 {
   font-style:italic;
   margin:0 0 0 20px;
   font-size:20px;
+}
+
+/* HEADER SEARCH */
+
+.header-discover-search-links-wrapper {
+  height:40px;
+}
+
+.header-discover-search-links-wrapper span {
+  display:inline-block;
+}
+
+.discover-link-container,
+.create-link-container {
+  padding:0 10px 0 10px;
+}
+
+.discover-link-container {
+  border-right:1px solid #ddd;
+}
+
+.header-discover-search-links-wrapper a {
+  text-decoration:none;
+  font-weight:bold;
+  font-size:1.2em;
+}
+
+.header-discover-search-links-wrapper a .discover-link-big,
+.header-discover-search-links-wrapper a .create-link-big {
+  color:#0099ff;
+  transition-property:color;
+  transition-duration:0.7s;
+}
+
+.header-discover-search-links-wrapper a:hover .discover-link-big,
+.header-discover-search-links-wrapper a:hover .create-link-big {
+  color:#ff9900;
+}
+
+.header-discover-search-links-wrapper .discover-link-small,
+.header-discover-search-links-wrapper .create-link-small {
+  font-weight:normal;
+  color:#666;
+  display:block;
+  font-size:0.8em;
+  margin:-4px 0 0 0;
 }
 
 /* HEADER SEARCH */
@@ -314,11 +364,18 @@ form#search-block-form input.form-text {
 
 #region-menu .navigation ul a:hover, 
 #region-menu .navigation.fixedPosition ul a:hover {
-  transition-property:background;
-  transition-duration:0.75s;
-  background:#424242;
+  transition-property:background,color;
+  transition-duration:0.25s;
+  background:#fff;
   @include rounded-borders;
-  @include text-shadow;
+  color:#000;
+}
+
+#region-menu .navigation ul a.active, 
+#region-menu .navigation.fixedPosition ul a.active {
+  background:#fff;
+  @include rounded-borders;
+  color:#000;
 }
 
 /* LOGIN, SIGNUP, USERINFO AND LOGOUT */
@@ -327,6 +384,11 @@ form#search-block-form input.form-text {
 #user-register-form input.form-text {
   max-width:100%;
   min-width:95%;
+}
+
+#login-register form#user-login,
+#login-register form#user-register-form {
+  margin:0;
 }
 
 #login-register .panel-panel {
@@ -418,17 +480,17 @@ form#search-block-form input.form-text {
 
 div.tabs {
   display: block;
-  left: -225px;
+  left: -325px;
   overflow: hidden;
   position: absolute;
   text-align: right;
-  top: 380px;
+  top: 480px;
   transform: rotate(270deg) translate(200px);
   -ms-transform: rotate(270deg) translate(200px); /* IE 9 */
   -webkit-transform: rotate(270deg) translate(200px); /* Safari and Chrome */
   -o-transform: rotate(270deg) translate(200px); /* Opera */
   -moz-transform: rotate(270deg) translate(200px); /* Firefox */
-  width: 400px;
+  width: 600px;
 }
 
 ul.tabs.primary,
@@ -471,13 +533,14 @@ ul.tabs.primary li.active a {
 }
 
 #block-views-intro-video-block .views-field-field-video {
-  max-width:540px;
-  margin:0 0 0 15px;
+  max-width:565px;
+  margin:0;
+  padding:0 0 0 10px;
   float:left;
 }
 
 #block-views-intro-video-block .views-field-field-video iframe {
-  max-width:540px;
+  max-width:565px;
 }
 
 #block-views-intro-video-block .views-field-field-description {
@@ -485,21 +548,16 @@ ul.tabs.primary li.active a {
   font-size: 1.3em;
   font-style: italic;
   line-height: 160%;
-  margin: 5px 10px 0 560px;
+  margin: 5px 0 0 575px;
   opacity: 0.8;
-  overflow: hidden;
-  padding: 0 20px;
-  color:#00687E;
-/*   @include text-shadow(4px 4px 2px rgba(40, 40, 40, 0.12)); */
+  padding: 0 10px 0 20px;
+  color:#AC8300;
 }
 
-/* #block-views-intro-video-block .views-field-field-description p:before, */
-/* #block-views-intro-video-block .views-field-field-description p:after  { */
-/*   content:'"'; */
-/*   font-family: "Droid Sans"; */
-/*   font-size: 1.3em; */
-/*   font-style: italic; */
-/* } */
+#block-views-intro-video-block .views-field-field-description p a {
+  text-decoration:none;
+  color:#0099ff;
+}
 
 /* EDITORS CHOISE */
 
@@ -1367,6 +1425,11 @@ ul.tabs.primary li.active a {
 #page .statuses-update input.statuses-submit {
   margin-left:auto;
   display:block;
+}
+
+.statuses-update form#statuses-box,
+.statuses-comments form#fbss-comments-box-2 {
+  margin:0;
 }
 
 .view-statuses-stream-custom,

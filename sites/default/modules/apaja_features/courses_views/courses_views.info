@@ -1,10 +1,11 @@
-name = Courses views, Intro video and slogan
+name = Courses views, Intro video, slogan header links
 description = Views for started and not started courses. Provides frontpage carousel and individual pages. Also provides video and slogan.
 core = 7.x
 package = Features
 php = 5.2.4
 version = 7.x-1.0
 project = courses_views
+dependencies[] = block
 dependencies[] = context
 dependencies[] = ctools
 dependencies[] = jcarousel
