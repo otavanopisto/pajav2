@@ -9,6 +9,7 @@ dependencies[] = block
 dependencies[] = context
 dependencies[] = ctools
 dependencies[] = jcarousel
+dependencies[] = menu
 dependencies[] = panels_mini
 dependencies[] = search
 dependencies[] = views

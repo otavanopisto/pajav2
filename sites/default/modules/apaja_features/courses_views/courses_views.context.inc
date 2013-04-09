@@ -101,6 +101,18 @@ function courses_views_context_default_contexts() {
           'region' => 'branding',
           'weight' => '-10',
         ),
+        'block-6' => array(
+          'module' => 'block',
+          'delta' => '6',
+          'region' => 'footer_first',
+          'weight' => '-10',
+        ),
+        'menu-menu-footer-menu' => array(
+          'module' => 'menu',
+          'delta' => 'menu-footer-menu',
+          'region' => 'footer_second',
+          'weight' => '-10',
+        ),
       ),
     ),
   );
