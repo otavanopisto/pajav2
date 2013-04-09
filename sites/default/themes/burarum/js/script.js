@@ -5,14 +5,13 @@ var pageLoad = false;
 		attach : function(context, settings) {
 			
 			var messageBox = $('div#messages');
-				if(messageBox){
-					setTimeout(function() {
-						messageBox.fadeOut('slow', function() {
-							messageBox.remove();
-						});
-					}, 5000);
+			if(messageBox){
+				setTimeout(function() {
+					messageBox.fadeOut('slow', function() {
+						messageBox.remove();
+					});
+				}, 5000);
 			} 
-
 	    }
 	};	
 
