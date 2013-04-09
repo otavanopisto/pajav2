@@ -21,6 +21,12 @@
 /*    display:none;  */
 }
 
+.page-1280-spacer {
+  width:1300px;
+  height:1px;
+  margin-left:-35px;
+}
+
 body {
   font-family:$fontFamily;
   color:$fontColor;
@@ -673,6 +679,10 @@ ul.tabs.primary li.active a {
 .view-editors-choise .jcarousel-item .views-field-field-arvio .fivestar-widget-static {
   display:inline-block;
   float:right;
+}
+
+#block-system-main form#fivestar-custom-widget {
+  margin:0;
 }
 
 .view-editors-choise .jcarousel-item span.views-label {
@@ -2114,5 +2124,6 @@ body #page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapp
 }
 
 /* RESET OVERRIDES */
+
 
 
