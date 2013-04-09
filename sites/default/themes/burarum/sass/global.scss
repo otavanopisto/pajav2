@@ -18,7 +18,7 @@
 /* REMOVE THE PESKY STRICT PHP MESSAGES */
 
 .messages.error {
-   display:none; 
+/*    display:none;  */
 }
 
 body {
@@ -126,6 +126,14 @@ h1, h2, h3, h4, h5, h6 {
 
 #page h3 {
   font-size:1.1em;
+  margin:10px 6px 0 10px;
+}
+
+#page h4,
+#page h5,
+#page h6 {
+  font-size:1em;
+  margin:10px 6px 0 10px;
 }
 
 #page #node-user-panel h2 {
@@ -1960,13 +1968,16 @@ body #page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapp
 
 #page #section-content {
   margin-bottom:10px;
+  min-height:500px;
 }
 
 #page #section-footer {
   margin-top:0px;
 /*   min-height:200px; */
   /* fallback */ 
-  background: transparent; 
+  background: rgb(238,238,238); 
+  /* Standard */
+  background: linear-gradient(top, rgba(238,238,238,0.5), rgba(255,255,255,0));
   /* Safari 4-5, Chrome 1-9 */ 
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(238,238,238,0.5)), to(rgba(255,255,255,0))); 
   /* Safari 5.1, Chrome 10+ */ 
@@ -2065,6 +2076,43 @@ body #page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapp
 
 }
 
+/* CUSTOM MESSAGE STATUS */
 
+#messages {
+  position:fixed;
+  right:20px;
+  top:50px;
+  z-index:9999;
+  box-shadow:0px 0px 10px rgba(0,0,0,0.6);
+  margin:0;
+  padding:0;
+  display:table;
+  opacity:0.95;
+}
+
+#messages.grid-16 {
+  width:auto;
+  max-width:400px;
+}
+
+#messages .messages.status {
+  margin:0;
+  border:0;
+  border-radius:5px;
+  display:inline-block;
+  background-color:#000;
+  color:#fff;
+  padding-right:20px;
+}
+
+#messages .messages.error {
+  margin:0;
+  border:0;
+  border-radius:5px;
+  display:inline-block;
+  padding-right:20px;
+}
+
+/* RESET OVERRIDES */
 
 
