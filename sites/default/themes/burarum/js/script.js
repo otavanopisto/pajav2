@@ -13,6 +13,13 @@ var pageLoad = false;
   		  messageBox.hover(function(){
           clearTimeout(timedThing);
   		  });
+  		  messageBox.mouseleave(function(){
+  		    timedThing = setTimeout(function() {
+            messageBox.fadeOut('slow', function() {
+              messageBox.remove();
+            });
+        }, 3000);
+        });
 		  }
       }
 	};	
