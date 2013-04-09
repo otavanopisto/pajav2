@@ -3,17 +3,18 @@ var pageLoad = false;
 	
 	Drupal.behaviors.MessagesFadeout = {
 		attach : function(context, settings) {
-			
-			var messageBox = $('div#messages');
-				if(messageBox){
-					setTimeout(function() {
-						messageBox.fadeOut('slow', function() {
-							messageBox.remove();
-						});
-					}, 5000);
-			} 
-
-	    }
+		  var messageBox = $('div#messages');
+		  if(messageBox){
+  		  var timedThing = setTimeout(function() {
+    		    messageBox.fadeOut('slow', function() {
+    					messageBox.remove();
+    				});
+  			}, 5000);
+  		  messageBox.hover(function(){
+          clearTimeout(timedThing);
+  		  });
+		  }
+    }
 	};	
 
 	Drupal.behaviors.FixedNavigation = {
