@@ -65,9 +65,6 @@
       </div>  
       <div class="views-field views-field-field-summary">
         <span class="field-content">Perusta sinua kiinnostavasta aiheesta oma kurssisi yhdessä muiden kiinnostuneiden kanssa. Samasta aiheesta kiinnostuneet ideoivat ja suunnittelevat kurssin yhdessä.</span>
-      </div>  
-      <div class="views-field views-field-nothing-3">
-        <span class="field-content"></span>
       </div>
     </div>
   </div>
