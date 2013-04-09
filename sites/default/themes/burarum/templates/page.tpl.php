@@ -19,6 +19,6 @@
     <?php print render($page['footer']); ?>
   <?php endif; ?>
   </div>
-  <div class="page-1280-spacer"></div>
+
   
 </div>
