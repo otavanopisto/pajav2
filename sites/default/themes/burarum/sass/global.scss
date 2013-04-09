@@ -989,19 +989,22 @@ ul.tabs.primary li.active a {
   cursor:pointer;
 }
 
-.view-courses-not .jkarousel-add-new-item .views-field-title {
+.view-courses-not .jkarousel-add-new-item .views-field-title,
+.view-courses-not .views-row.courses-not-create-new .views-field-title {
   margin:30px 20px 50px 20px;
   overflow:visible;
   text-align:center;
   height:auto;
 }
 
-.view-courses-not .jkarousel-add-new-item .views-field-title a {
+.view-courses-not .jkarousel-add-new-item .views-field-title a,
+.view-courses-not .views-row.courses-not-create-new .views-field-title a  {
   color:#5f9911;
   font-size:1.3em;
 }
 
-.addNewExcursionSlide {
+.addNewExcursionSlide,
+.view-courses-not .views-row.courses-not-create-new .addNewExcursionSlide {
   background: url("../gfx/plus.png") no-repeat center center;
   background-size:50%;
   display: block;
@@ -1009,32 +1012,42 @@ ul.tabs.primary li.active a {
   width: 100%;
   opacity:0.4;
   transition-property:opacity;
-  transition-duration:100ms;
+  transition-duration:300ms;
   transition-timing-function:ease-in;
   -moz-transition-property:opacity;
-  -moz-transition-duration:100ms;
+  -moz-transition-duration:300ms;
   -moz-transition-timing-function:ease-in;
   -webkit-transition-property:opacity;
-  -webkit-transition-duration:100ms;
+  -webkit-transition-duration:300ms;
   -webkit-transition-timing-function:ease-in;
   -ms-transition-property:opacity;
-  -ms-transition-duration:100ms;
+  -ms-transition-duration:300ms;
   -ms-transition-timing-function:ease-in;
   -o-transition-property:opacity;
-  -o-transition-duration:100ms;
+  -o-transition-duration:300ms;
   -o-transition-timing-function:ease-in;
 }
 
-.addNewExcursionSlide:hover {
+.jkarousel-add-new-item .jcarousel-item-padding:hover .addNewExcursionSlide,
+.view-courses-not .views-row.courses-not-create-new:hover .addNewExcursionSlide,
+.addNewExcursionSlide:hover,
+.view-courses-not .views-row.courses-not-create-new .addNewExcursionSlide:hover {
   opacity:1;
 }
 
-.view-courses-not .jkarousel-add-new-item .views-field-field-summary {
+.view-courses-not .jkarousel-add-new-item .views-field-field-summary,
+.view-courses-not .views-row.courses-not-create-new .views-field-field-summary {
   margin:50px 20px 30px 20px;
   overflow:visible;
   text-align:center;
   font-size:1.2em;
   font-style:italic;
+}
+
+.view-courses-not .jkarousel-add-new-item .views-field-field-summary .field-content,
+.view-courses-not .views-row.courses-not-create-new .views-field-field-summary .field-content {
+  max-height:82px;
+  min-height:82px;
 }
 
 /* NOT STARTED COURSES LISTING / STARTED COURSES LISTING / ENDED COURSES LISTING / EDITORS CHOISES LISTING */

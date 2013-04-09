@@ -54,17 +54,17 @@
   <?php if ($rows): ?>
   <div class="view-content">
       <?php print $rows; ?>
-    <div class="views-row views-row-1 views-row-odd views-row-first views-row-last courses-not-page-row courses-not-create-new">    
+    <div class="views-row views-row-1 views-row-odd views-row-first views-row-last courses-not-page-row courses-not-create-new">
+      <div class="views-field views-field-title">
+        <span class="field-content"><a href="/node/add/kurssi">Puuttuuko sinun kurssisi täältä?</a></span>
+      </div>    
       <div class="views-field views-field-field-kurssin-kuva">
         <div class="field-content">
-          <a href="/node/add/kurssi"><img width="400" height="258" title="Lisää kurssi" alt="Lisää kurssi" src="sites/default/themes/burarum/gfx/plus.png" typeof="foaf:Image"></a>
-        </div>  
-      </div>  
-      <div class="views-field views-field-title">
-        <span class="field-content"><a href="/node/add/kurssi">Luo uusi kurssi</a></span>
+          <a href="/node/add/kurssi" class="addNewExcursionSlide" title="Lisää kurssi"></a>
+        </div>
       </div>  
       <div class="views-field views-field-field-summary">
-        <span class="field-content">Perusta sinua kiinnostavasta aiheesta oma kurssisi yhdessä muiden kiinnostuneiden kanssa. Samasta aiheesta kiinnostuneet ideoivat ja suunnittelevat kurssin yhdessä.</span>
+        <span class="field-content">Luo oma kurssi ja kerää muut asiasta kiinnostuneet mukaan</span>
       </div>
     </div>
   </div>
