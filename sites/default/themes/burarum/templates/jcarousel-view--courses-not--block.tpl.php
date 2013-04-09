@@ -13,7 +13,7 @@
     <div class="jcarousel-item-padding">  
       <div class="views-field views-field-field-kurssin-kuva">
         <div class="field-content">
-          <a href="/node/add/kurssi"><img width="400" height="258" title="Lisää kurssi" alt="Lisää kurssi" src="http://paja2.dev/sites/default/themes/burarum/gfx/plus.png" typeof="foaf:Image"></a>
+          <a href="/node/add/kurssi"><img width="400" height="258" title="Lisää kurssi" alt="Lisää kurssi" src="sites/default/themes/burarum/gfx/plus.png" typeof="foaf:Image"></a>
         </div>
       </div>
       <div class="views-field views-field-title">
