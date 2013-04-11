@@ -2275,11 +2275,26 @@ form#search-form #edit-basic {
   @include box-shadow(0px 4px 10px rgba(0, 0, 0, 0.6));
   margin-left:-77px;
   margin-top:3px;
+  display:block !important;
 }
 
 .ac_results .apachesolr_autocomplete.message {
   color:inherit;
   font-size:90%;
+  font-style:italic;
+  font-weight:bold;
+  padding:0px 4px 0px 10px;
+}
+
+.ac_results .apachesolr_autocomplete.message.count {
+  color:inherit;
+  font-size:90%;
+  font-style:normal;
+  font-weight:normal;
+  background:#eee;
+  border-radius:3px;
+  display:inline-block;
+  padding:0px 6px;
 }
 
 .ac_results ul li {
@@ -2303,6 +2318,10 @@ form#search-form #edit-basic {
 .ac_results ul li.ac_over {
   background:#0099ff;
   color:#fff;
+}
+
+.ac_results ul li.ac_over .apachesolr_autocomplete.message.count {
+  color:#000;
 }
 
 
