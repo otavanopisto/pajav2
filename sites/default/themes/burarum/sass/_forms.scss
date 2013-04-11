@@ -67,3 +67,31 @@ html.js input.form-autocomplete.throbbing {
 input.form-file {
   margin-right:5px;
 }
+
+/* HEADER SEARCH */
+
+div#block-search-form {
+  display:inline-block;
+  margin:0 0 0 20px
+}
+
+form#search-block-form .form-actions input {
+  margin-right:0;
+}
+
+form#search-block-form input.form-text,
+form#search-form #edit-basic input#edit-keys {
+  width:220px;
+  background:url('../gfx/search_icon.gif') no-repeat 5px center;
+  padding-left:30px;
+}
+
+/* SEARCH RESULTS */
+
+form#search-form #edit-basic label {
+  display:none;
+}
+
+
+
+
