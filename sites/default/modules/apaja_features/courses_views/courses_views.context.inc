@@ -113,6 +113,12 @@ function courses_views_context_default_contexts() {
           'region' => 'footer_second',
           'weight' => '-10',
         ),
+        'block-7' => array(
+          'module' => 'block',
+          'delta' => '7',
+          'region' => 'footer_second',
+          'weight' => '-9',
+        ),
       ),
     ),
   );

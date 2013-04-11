@@ -1,4 +1,4 @@
-name = Courses views, Intro video, slogan header links
+name = Courses views, Intro video, slogan header links and sitewide fidlings
 description = Views for started and not started courses. Provides frontpage carousel and individual pages. Also provides video and slogan.
 core = 7.x
 package = Features
