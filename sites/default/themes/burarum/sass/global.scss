@@ -371,6 +371,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* LOGIN, SIGNUP, USERINFO AND LOGOUT */
 
+#user-register-form .text-format-wrapper #edit-field-account-kuvaus-und-0-format { /* Lets hide text format stuff beneath the editor */
+  display:none;
+}
+
 #user-login input.form-text,
 #user-register-form input.form-text {
   max-width:100%;
