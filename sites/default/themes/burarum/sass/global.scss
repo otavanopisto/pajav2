@@ -98,19 +98,22 @@ h1, h2, h3, h4, h5, h6 {
 
 #page .block-courses-not-block-slider h2 a,
 .page-kurssit-valmisteltavat #page h1 {
-  color:#0e9a96;
+/*   color:#0e9a96; */
+  color:#000;
   text-decoration:none;
 }
 
 #page .block-courses-started-block-slider h2 a,
 .page-kurssit-kaynnistetyt #page h1 {
-  color:#00762a;
+/*   color:#00762a; */
+  color:#000;
   text-decoration:none;
 }
 
 #page .block-courses-ended-block-slider h2 a,
 .page-kurssit-menneet #page h1 {
-  color:#54bc79;
+/*   color:#54bc79; */
+  color:#000;
   text-decoration:none;
 }
 
@@ -2141,7 +2144,7 @@ body #page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapp
 
 #page #section-footer ul.menu li a {
   text-transform:uppercase;
-  color:#222222;
+/*   color:#222222; */
   text-decoration:none;
   font-size:0.9em;
   display:inline-block;
@@ -2149,7 +2152,7 @@ body #page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapp
 }
 
 #page #section-footer ul.menu li a:hover {
-  color:#0099ff;
+/*   color:#0099ff; */
 
 }
 
