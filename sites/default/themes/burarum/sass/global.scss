@@ -211,7 +211,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #region-branding {
-  height:170px;
+  height:162px;
 }
 
 #region-menu {
@@ -273,31 +273,30 @@ h1, h2, h3, h4, h5, h6 {
 /* HEADER SEARCH */
 
 .header-discover-search-links-wrapper {
-  height:40px;
+/*   height:40px; */
+  margin:-8px 0 0 20px;
 }
 
 .header-discover-search-links-wrapper span {
   display:inline-block;
+  margin:0 5px 0 0;
 }
 
 .discover-link-container,
 .create-link-container {
-  padding:0 10px 0 10px;
-}
-
-.discover-link-container {
-  border-right:1px solid #ddd;
+  padding:2px 10px 2px 10px;
+  background:#000;
 }
 
 .header-discover-search-links-wrapper a {
   text-decoration:none;
   font-weight:bold;
-  font-size:1.2em;
+  font-size:1.1em;
 }
 
 .header-discover-search-links-wrapper a .discover-link-big,
 .header-discover-search-links-wrapper a .create-link-big {
-  color:#0099ff;
+  color:#ffffff;
   transition-property:color;
   transition-duration:0.7s;
 }
@@ -310,10 +309,10 @@ h1, h2, h3, h4, h5, h6 {
 .header-discover-search-links-wrapper .discover-link-small,
 .header-discover-search-links-wrapper .create-link-small {
   font-weight:normal;
-  color:#666;
+  color:#fff;
   display:block;
   font-size:0.8em;
-  margin:-4px 0 0 0;
+  margin:-5px 0 0 0;
 }
 
 /* MAIN NAVIGATION */
@@ -324,7 +323,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #region-menu .navigation {
-  padding:2px 4px;
+  padding:10px 4px;
   background:#000000;
   position:relative;
 }
@@ -334,7 +333,7 @@ h1, h2, h3, h4, h5, h6 {
   top:0;
   z-index:9999;
   display:block;
-  width:1192px;
+  width:1172px;
   @include box-shadow($shadow: 0px 2px 4px rgba(0,0,0,0.5));
   border-bottom:1px solid #333333;
 }
@@ -1219,6 +1218,10 @@ ul.tabs.primary li.active a {
   float:right;
 }
 
+#page #node-course-panel .panel-panel.grid-8 .inside {
+  padding:0px 20px;
+}
+
 #page #node-course-panel #mini-panel-kurssi_minipanel .panel-panel.grid-4 {
   float:left;
 }
@@ -2046,7 +2049,7 @@ body #page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapp
 /* FOOTER */
 
 #page #section-content {
-  margin-bottom:10px;
+  margin:10px 0px;
   min-height:500px;
 }
 
