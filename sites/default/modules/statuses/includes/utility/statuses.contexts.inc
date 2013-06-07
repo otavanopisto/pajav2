@@ -212,9 +212,10 @@ class statuses_og_context extends statuses_node_context {
     return 'og';
   }
   function is_applicable() {
-    $g_ctx = og_context();
-    return !empty($g_ctx) ||
-      (!function_exists('og_get_group_ids') && arg(0) == 'node' && og_is_group('node', $this->find_recipient())); // OG 7.x-2.x: Don't fall back to Node context on private groups
+//     $g_ctx = og_context();
+//     return !empty($g_ctx) || (!function_exists('og_get_group_ids') && arg(0) == 'node' && og_is_group('node', $this->find_recipient())); // OG 7.x-2.x: Don't fall back to Node context on private groups
+//   Petja. I only want groups not group content types to qualify.
+    return og_is_group('node', $this->find_recipient());
   }
   function find_recipient() {
     $obj = menu_get_object();
