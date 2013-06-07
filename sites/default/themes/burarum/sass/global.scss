@@ -1233,11 +1233,18 @@ ul.tabs.primary li.active a {
   display:table;
 }
 
-#page #node-course-panel .pane-course-members .pane-content {
+#page #node-course-panel .pane-course-members .pane-content,
+#page #node-course-panel .pane-kurssi-seuraava-tapahtuma-panel-pane-1 .pane-content {
   @include box-padding;
   @include box-shadow;
   background:#fff;
   margin:0 14px 0 0;
+}
+
+#page #node-course-panel .grid-4 .panel-separator {
+  background:#fff;
+  height:5px;
+  margin:10px 0 10px 0;
 }
 
 #page #node-course-panel .pane-node-field-kurssin-kuva img {
@@ -1396,6 +1403,20 @@ ul.tabs.primary li.active a {
 #page #node-course-panel .view-course-members .views-row .views-field-field-account-sukunimi a:focus {
   color:$linkFocusColorUser;
   text-decoration:none;
+}
+
+/* EVENT PAGE */
+
+.pane-node-body ul {
+  padding-left:1.2em;
+}
+
+.node-type-tapahtuma .panel-panel .inside .pane-node-body {
+  padding:0 10px;
+}
+
+.node-type-tapahtuma .panel-panel .inside .pane-statuses-statuses {
+  margin-bottom:20px;
 }
 
 /* AJAX COURSE JOINING */
