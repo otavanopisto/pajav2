@@ -5,6 +5,20 @@
  */
 
 /**
+ * Implements hook_ctools_plugin_api().
+ */
+function event_attending_ctools_plugin_api() {
+  list($module, $api) = func_get_args();
+  if ($module == "context" && $api == "context") {
+    return array("version" => "3");
+  }
+  list($module, $api) = func_get_args();
+  if ($module == "delta" && $api == "delta") {
+    return array("version" => "3");
+  }
+}
+
+/**
  * Implements hook_views_api().
  */
 function event_attending_views_api() {
@@ -47,11 +61,11 @@ function event_attending_flag_default_flags() {
     'show_on_teaser' => 1,
     'show_contextual_link' => FALSE,
     'i18n' => 0,
-    'api_version' => 2,
     'module' => 'event_attending',
     'locked' => array(
       0 => 'name',
     ),
+    'api_version' => 2,
   );
   return $flags;
 
