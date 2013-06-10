@@ -54,20 +54,6 @@ function event_attending_views_default_views() {
   $handler->display->display_options['relationships']['flag_content_rel']['field'] = 'flag_content_rel';
   $handler->display->display_options['relationships']['flag_content_rel']['required'] = 0;
   $handler->display->display_options['relationships']['flag_content_rel']['flag'] = 'event_attend';
-  /* Field: Content: Tapahtuma aika */
-  $handler->display->display_options['fields']['field_tapahtuma_aika']['id'] = 'field_tapahtuma_aika';
-  $handler->display->display_options['fields']['field_tapahtuma_aika']['table'] = 'field_data_field_tapahtuma_aika';
-  $handler->display->display_options['fields']['field_tapahtuma_aika']['field'] = 'field_tapahtuma_aika';
-  $handler->display->display_options['fields']['field_tapahtuma_aika']['label'] = '';
-  $handler->display->display_options['fields']['field_tapahtuma_aika']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_tapahtuma_aika']['settings'] = array(
-    'format_type' => 'super_short',
-    'fromto' => 'both',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_repeat_rule' => 'show',
-  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -118,11 +104,17 @@ function event_attending_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'tapahtuma' => 'tapahtuma',
   );
-  /* Filter criterion: Content: Tapahtuma aika -  start date (field_tapahtuma_aika) */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['field_tapahtuma_aika_value']['id'] = 'field_tapahtuma_aika_value';
   $handler->display->display_options['filters']['field_tapahtuma_aika_value']['table'] = 'field_data_field_tapahtuma_aika';
   $handler->display->display_options['filters']['field_tapahtuma_aika_value']['field'] = 'field_tapahtuma_aika_value';
   $handler->display->display_options['filters']['field_tapahtuma_aika_value']['operator'] = '>';
+  $handler->display->display_options['filters']['field_tapahtuma_aika_value']['value'] = array(
+    'min' => NULL,
+    'max' => NULL,
+    'value' => NULL,
+    'type' => 'date',
+  );
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
@@ -179,8 +171,11 @@ function event_attending_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Tapahtuman osallistujat';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['access']['perm'] = 'access user profiles';
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    3 => '3',
+    4 => '4',
+  );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -278,6 +273,114 @@ function event_attending_views_default_views() {
   $handler->display->display_options['tab_options']['type'] = 'tab';
   $handler->display->display_options['tab_options']['title'] = 'Osallistujat';
   $handler->display->display_options['tab_options']['weight'] = '0';
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['style_options']['columns'] = array(
+    'uid' => 'uid',
+    'field_account_etunimi' => 'field_account_etunimi',
+    'field_account_sukunimi' => 'field_account_sukunimi',
+    'mail' => 'mail',
+    'nothing' => 'nothing',
+  );
+  $handler->display->display_options['style_options']['default'] = 'field_account_sukunimi';
+  $handler->display->display_options['style_options']['info'] = array(
+    'uid' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_account_etunimi' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_account_sukunimi' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => 'views-align-left',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'mail' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => 'views-align-left',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'nothing' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['override'] = FALSE;
+  $handler->display->display_options['style_options']['sticky'] = TRUE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: PHP */
+  $handler->display->display_options['header']['php']['id'] = 'php';
+  $handler->display->display_options['header']['php']['table'] = 'views';
+  $handler->display->display_options['header']['php']['field'] = 'php';
+  $handler->display->display_options['header']['php']['php_output'] = '<?php 
+$node = node_load(arg(1));
+echo \'<h3>\'. $node->title. \' osallistujat</h3>\';
+?>';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: User: Uid */
+  $handler->display->display_options['fields']['uid']['id'] = 'uid';
+  $handler->display->display_options['fields']['uid']['table'] = 'users';
+  $handler->display->display_options['fields']['uid']['field'] = 'uid';
+  $handler->display->display_options['fields']['uid']['label'] = '';
+  $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+  /* Field: User: Etunimi */
+  $handler->display->display_options['fields']['field_account_etunimi']['id'] = 'field_account_etunimi';
+  $handler->display->display_options['fields']['field_account_etunimi']['table'] = 'field_data_field_account_etunimi';
+  $handler->display->display_options['fields']['field_account_etunimi']['field'] = 'field_account_etunimi';
+  $handler->display->display_options['fields']['field_account_etunimi']['label'] = '';
+  $handler->display->display_options['fields']['field_account_etunimi']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_account_etunimi']['alter']['path'] = 'user/[uid]';
+  $handler->display->display_options['fields']['field_account_etunimi']['element_label_colon'] = FALSE;
+  /* Field: User: Sukunimi */
+  $handler->display->display_options['fields']['field_account_sukunimi']['id'] = 'field_account_sukunimi';
+  $handler->display->display_options['fields']['field_account_sukunimi']['table'] = 'field_data_field_account_sukunimi';
+  $handler->display->display_options['fields']['field_account_sukunimi']['field'] = 'field_account_sukunimi';
+  $handler->display->display_options['fields']['field_account_sukunimi']['label'] = 'Nimi';
+  $handler->display->display_options['fields']['field_account_sukunimi']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_account_sukunimi']['alter']['text'] = '[field_account_etunimi] [field_account_sukunimi]';
+  $handler->display->display_options['fields']['field_account_sukunimi']['alter']['path'] = 'user/[uid]';
+  $handler->display->display_options['fields']['field_account_sukunimi']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_account_sukunimi']['element_default_classes'] = FALSE;
+  /* Field: User: E-mail */
+  $handler->display->display_options['fields']['mail']['id'] = 'mail';
+  $handler->display->display_options['fields']['mail']['table'] = 'users';
+  $handler->display->display_options['fields']['mail']['field'] = 'mail';
+  $handler->display->display_options['fields']['mail']['label'] = 'Sähköposti';
+  $handler->display->display_options['fields']['mail']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['mail']['link_to_user'] = '0';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Allekirjoitus';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  $handler->display->display_options['path'] = 'node/%/osallistujaprint';
+  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['title'] = 'Osallistujat printti';
+  $handler->display->display_options['menu']['weight'] = '9';
+  $handler->display->display_options['menu']['context'] = 0;
   $translatables['tapahtuman_osallistuja_listaus'] = array(
     t('Master'),
     t('Tapahtuman osallistujat'),
@@ -297,6 +400,10 @@ function event_attending_views_default_views() {
     t('user flagged content'),
     t('All'),
     t('Page'),
+    t('Nimi'),
+    t('[field_account_etunimi] [field_account_sukunimi]'),
+    t('Sähköposti'),
+    t('Allekirjoitus'),
   );
   $export['tapahtuman_osallistuja_listaus'] = $view;
 
