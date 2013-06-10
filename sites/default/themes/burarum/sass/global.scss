@@ -17,8 +17,8 @@
 
 /* REMOVE THE PESKY STRICT PHP MESSAGES */
 
-.messages.error {
-   display:none; 
+.messages.error, #messages {
+   display:none !important; 
 }
 
 body {
@@ -80,20 +80,22 @@ a:focus {
 
 /* HEADERS */
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .h2-imitator {
   font-family:$fontFamily;
   text-transform:uppercase;
   letter-spacing:0;
 }
 
 #page h1,
-#page h2 {
+#page h2,
+.h2-imitator {
   font-size:1.5em;
   margin:0 6px 0 10px;
   font-weight:normal;
 }
 
-#page h1#page-title {
+#page h1#page-title,
+#page .h2-imitator {
   margin:0 6px 10px 10px;
 }
 
@@ -156,7 +158,8 @@ h1, h2, h3, h4, h5, h6 {
   margin:0 6px 10px 10px;
 }
 
-#page #node-course-panel .pane-course-members h2 {
+#page #node-course-panel .pane-course-members h2,
+#page #node-course-panel .pane-kurssi-seuraava-tapahtuma-panel-pane-1 h2 {
   margin:0 6px 10px 0;
 }
 
@@ -1405,18 +1408,144 @@ ul.tabs.primary li.active a {
   text-decoration:none;
 }
 
+/* COURSE EVENTS */
+
+.view-kurssi-seuraava-tapahtuma {
+  clear:both;
+  display:table;
+  width:100%;
+
+  .views-row {
+    clear:both;
+    display:table;
+    width:100%;
+    padding-bottom:10px;
+    margin-bottom:10px;
+    border-bottom:1px solid #eee;
+    
+    &.views-row-last {
+      padding-bottom:0px;
+      margin-bottom:5px;
+      border:0px;
+    }
+  
+    .views-field-field-tapahtuma-aika {
+      float:left;
+      padding:4px 5px 4px 4px;
+      display:inline-block;
+      line-height:1.2em;
+      border-radius:$boxBorderRadius;
+      width:40px;
+      text-align:center;
+      margin:0 5px 0 0;
+      font-size:0.9em;
+      background:#f8f8f8;
+      
+      
+      .date-display-start {
+      
+      }
+      
+      .date-display-end {
+      
+      }
+    
+    }
+    
+    .views-field-title {
+      padding:0 3px 0 3px;
+      margin-left:55px;
+      line-height:1.2em;
+      
+      a {
+        text-decoration:none;
+      
+        &:hover {
+        
+        }
+      
+      }
+      
+    }
+    
+    .views-field-ops {
+      padding:5px 3px 0 3px;
+      margin:3px 0 0 55px;
+      
+      .flag-link-toggle {
+        background:#0099FF;
+        border-radius:$boxBorderRadius;
+        box-shadow:$boxShadow;
+        color: #FFFFFF;
+        font-size: 0.8em;
+        white-space: nowrap;
+        width: auto;
+        padding: 5px 8px 4px 8px;
+        text-decoration:none;
+      }
+      
+      .flag-message {
+        background:#0099FF;
+        border-radius:$boxBorderRadius;
+        box-shadow:$boxShadow;
+        color: #FFFFFF;
+        font-size: 0.8em;
+        left: 0;
+        line-height: normal;
+        padding: 5px 8px;
+        position: absolute;
+        text-align: left;
+        top: -3px;
+        white-space: nowrap;
+        width: auto;
+      }
+      
+    }
+  
+  }
+  
+}
+
 /* EVENT PAGE */
 
 .pane-node-body ul {
   padding-left:1.2em;
 }
 
-.node-type-tapahtuma .panel-panel .inside .pane-node-body {
+#page #node-event-panel .panel-panel .inside .pane-node-body {
   padding:0 10px;
 }
 
-.node-type-tapahtuma .panel-panel .inside .pane-statuses-statuses {
+#page #node-event-panel .panel-panel .inside .pane-statuses-statuses {
   margin-bottom:20px;
+}
+
+#page #node-event-panel .pane-node-field-tapahtuman-osoite .pane-content,
+#page #node-event-panel .pane-node-field-nettiosoite .pane-content,
+#page #node-event-panel .pane-node-field-yhteystiedot .pane-content {
+  @include box-padding;
+  @include box-shadow;
+  background:#fff;
+  margin:0 14px 0 0;
+  padding:10px;
+}
+
+#page #node-event-panel .pane-node-field-tapahtuman-osoite .pane-content p:last-child,
+#page #node-event-panel .pane-node-field-nettiosoite .pane-content p:last-child,
+#page #node-event-panel .pane-node-field-yhteystiedot .pane-content p:last-child {
+  margin:0;
+}
+
+#page #node-event-panel .grid-4 .panel-separator {
+  background:#fff;
+  height:5px;
+  margin:10px 0 10px 0;
+}
+
+#page #node-event-panel .pane-node-field-tapahtuman-osoite h2,
+#page #node-event-panel .pane-node-field-nettiosoite h2,
+#page #node-event-panel .pane-node-field-yhteystiedot h2 {
+  margin:0 6px 10px 0;
 }
 
 /* AJAX COURSE JOINING */
