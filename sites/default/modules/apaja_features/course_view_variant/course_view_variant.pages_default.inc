@@ -363,6 +363,29 @@ function course_view_variant_default_page_manager_handlers() {
     $pane->locks = array();
     $display->content['new-10'] = $pane;
     $display->panels['right'][2] = 'new-10';
+    $pane = new stdClass();
+    $pane->pid = 'new-11';
+    $pane->panel = 'right';
+    $pane->type = 'token';
+    $pane->subtype = 'node:flag-event-attend-link';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'sanitize' => 1,
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $display->content['new-11'] = $pane;
+    $display->panels['right'][3] = 'new-11';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = 'new-5';
   $handler->conf['display'] = $display;
