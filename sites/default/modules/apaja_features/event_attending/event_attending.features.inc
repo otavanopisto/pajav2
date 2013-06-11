@@ -16,6 +16,10 @@ function event_attending_ctools_plugin_api() {
   if ($module == "delta" && $api == "delta") {
     return array("version" => "3");
   }
+  list($module, $api) = func_get_args();
+  if ($module == "strongarm" && $api == "strongarm") {
+    return array("version" => "1");
+  }
 }
 
 /**
