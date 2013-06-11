@@ -54,20 +54,12 @@ function event_attending_views_default_views() {
   $handler->display->display_options['relationships']['flag_content_rel']['field'] = 'flag_content_rel';
   $handler->display->display_options['relationships']['flag_content_rel']['required'] = 0;
   $handler->display->display_options['relationships']['flag_content_rel']['flag'] = 'event_attend';
-  /* Field: Content: Tapahtuma aika */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_tapahtuma_aika']['id'] = 'field_tapahtuma_aika';
   $handler->display->display_options['fields']['field_tapahtuma_aika']['table'] = 'field_data_field_tapahtuma_aika';
   $handler->display->display_options['fields']['field_tapahtuma_aika']['field'] = 'field_tapahtuma_aika';
   $handler->display->display_options['fields']['field_tapahtuma_aika']['label'] = '';
   $handler->display->display_options['fields']['field_tapahtuma_aika']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_tapahtuma_aika']['settings'] = array(
-    'format_type' => 'super_short',
-    'fromto' => 'both',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_repeat_rule' => 'show',
-  );
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -118,7 +110,7 @@ function event_attending_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'tapahtuma' => 'tapahtuma',
   );
-  /* Filter criterion: Content: Tapahtuma aika -  start date (field_tapahtuma_aika) */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['field_tapahtuma_aika_value']['id'] = 'field_tapahtuma_aika_value';
   $handler->display->display_options['filters']['field_tapahtuma_aika_value']['table'] = 'field_data_field_tapahtuma_aika';
   $handler->display->display_options['filters']['field_tapahtuma_aika_value']['field'] = 'field_tapahtuma_aika_value';

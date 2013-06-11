@@ -42,20 +42,24 @@ function event_attending_flag_default_flags() {
     'types' => array(
       0 => 'tapahtuma',
     ),
-    'flag_short' => 'Osallistun',
-    'flag_long' => 'Osallistun tähän tapahtumaan',
+    'flag_short' => 'Ilmoittaudu',
+    'flag_long' => 'Ilmoittaudun tähän tapahtumaan',
     'flag_message' => 'Olet ilmoittautunut tapahtumaan',
-    'unflag_short' => 'En osallistu',
-    'unflag_long' => 'Peru osallistumisesi',
+    'unflag_short' => 'Peruuta ilmoittautuminen',
+    'unflag_long' => 'Peruuta ilmoittautuminen',
     'unflag_message' => 'Olet perunut ilmoittautumisesi',
     'unflag_denied_text' => '',
     'link_type' => 'toggle',
     'roles' => array(
       'flag' => array(
         0 => '2',
+        1 => '4',
+        2 => '3',
       ),
       'unflag' => array(
         0 => '2',
+        1 => '4',
+        2 => '3',
       ),
     ),
     'weight' => 0,
