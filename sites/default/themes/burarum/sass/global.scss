@@ -159,7 +159,7 @@ h1, h2, h3, h4, h5, h6, .h2-imitator {
 }
 
 #page #node-course-panel .pane-course-members h2,
-#page #node-course-panel .pane-kurssi-seuraava-tapahtuma-panel-pane-1 h2 {
+#page #node-course-panel .pane-tulevat-kurssin-tapahtumat-panel-pane-1 h2 {
   margin:0 6px 10px 0;
 }
 
@@ -1237,7 +1237,7 @@ ul.tabs.primary li.active a {
 }
 
 #page #node-course-panel .pane-course-members .pane-content,
-#page #node-course-panel .pane-kurssi-seuraava-tapahtuma-panel-pane-1 .pane-content {
+#page #node-course-panel .pane-tulevat-kurssin-tapahtumat-panel-pane-1 .pane-content {
   @include box-padding;
   @include box-shadow;
   background:#fff;
@@ -1410,7 +1410,7 @@ ul.tabs.primary li.active a {
 
 /* COURSE EVENTS */
 
-.view-kurssi-seuraava-tapahtuma {
+.view-tulevat-kurssin-tapahtumat {
   clear:both;
   display:table;
   width:100%;
@@ -1429,7 +1429,7 @@ ul.tabs.primary li.active a {
       border:0px;
     }
   
-    .views-field-field-tapahtuma-aika {
+    .views-field-field-tapahtuman-aika {
       float:left;
       padding:4px 5px 4px 4px;
       display:inline-block;
