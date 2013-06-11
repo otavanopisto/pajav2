@@ -50,6 +50,12 @@ function content_types_field_default_fields() {
           'type' => 'text_default',
           'weight' => 1,
         ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -109,6 +115,12 @@ function content_types_field_default_fields() {
           ),
           'type' => 'video_embed_field',
           'weight' => '0',
+        ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -183,6 +195,12 @@ function content_types_field_default_fields() {
           'type' => 'text_default',
           'weight' => '2',
         ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'hidden',
           'module' => 'text',
@@ -255,6 +273,12 @@ function content_types_field_default_fields() {
           'type' => 'fivestar_formatter_default',
           'weight' => '10',
         ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -321,6 +345,12 @@ function content_types_field_default_fields() {
           'type' => 'hidden',
           'weight' => '13',
         ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -379,6 +409,12 @@ function content_types_field_default_fields() {
           ),
           'type' => 'number_integer',
           'weight' => '7',
+        ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -459,6 +495,12 @@ function content_types_field_default_fields() {
           ),
           'type' => 'date_default',
           'weight' => '8',
+        ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -549,6 +591,12 @@ function content_types_field_default_fields() {
           'type' => 'date_default',
           'weight' => '9',
         ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -633,6 +681,12 @@ function content_types_field_default_fields() {
           'type' => 'image',
           'weight' => '1',
         ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -713,6 +767,12 @@ function content_types_field_default_fields() {
           'type' => 'hidden',
           'weight' => '0',
         ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -792,6 +852,12 @@ function content_types_field_default_fields() {
           'type' => 'textformatter_list',
           'weight' => '4',
         ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -853,6 +919,12 @@ function content_types_field_default_fields() {
           ),
           'type' => 'number_integer',
           'weight' => '6',
+        ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -916,6 +988,12 @@ function content_types_field_default_fields() {
           ),
           'type' => 'number_integer',
           'weight' => '5',
+        ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -985,6 +1063,12 @@ function content_types_field_default_fields() {
           'settings' => array(),
           'type' => 'text_default',
           'weight' => '12',
+        ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1061,6 +1145,12 @@ function content_types_field_default_fields() {
           'type' => 'taxonomy_term_reference_link',
           'weight' => '3',
         ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'hidden',
           'module' => 'taxonomy',
@@ -1135,6 +1225,12 @@ function content_types_field_default_fields() {
           'type' => 'hidden',
           'weight' => '14',
         ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1202,6 +1298,12 @@ function content_types_field_default_fields() {
           'type' => 'text_default',
           'weight' => 1,
         ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1268,6 +1370,12 @@ function content_types_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
+          'weight' => 0,
+        ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
           'weight' => 0,
         ),
         'teaser' => array(
@@ -1345,6 +1453,12 @@ function content_types_field_default_fields() {
           'type' => 'text_default',
           'weight' => 0,
         ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'hidden',
           'module' => 'text',
@@ -1373,7 +1487,7 @@ function content_types_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '4',
+        'weight' => '5',
       ),
     ),
   );
@@ -1424,6 +1538,12 @@ function content_types_field_default_fields() {
           'type' => 'link_default',
           'weight' => 2,
         ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1461,6 +1581,99 @@ function content_types_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
+        'weight' => '2',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-tapahtuma-field_tapahtuman_aika'.
+  $fields['node-tapahtuma-field_tapahtuman_aika'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_tapahtuman_aika',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => '0',
+      'module' => 'date',
+      'settings' => array(
+        'cache_count' => '4',
+        'cache_enabled' => 0,
+        'granularity' => array(
+          'day' => 'day',
+          'hour' => 'hour',
+          'minute' => 'minute',
+          'month' => 'month',
+          'second' => 0,
+          'year' => 'year',
+        ),
+        'timezone_db' => 'UTC',
+        'todate' => 'optional',
+        'tz_handling' => 'site',
+      ),
+      'translatable' => '0',
+      'type' => 'datetime',
+    ),
+    'field_instance' => array(
+      'bundle' => 'tapahtuma',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'date',
+          'settings' => array(
+            'format_type' => 'long',
+            'fromto' => 'both',
+            'multiple_from' => '',
+            'multiple_number' => '',
+            'multiple_to' => '',
+          ),
+          'type' => 'date_default',
+          'weight' => 5,
+        ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_tapahtuman_aika',
+      'label' => 'Tapahtuman aika',
+      'required' => 0,
+      'settings' => array(
+        'default_value' => 'now',
+        'default_value2' => 'same',
+        'default_value_code' => '',
+        'default_value_code2' => '',
+        'user_field_privacy' => FALSE,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'date',
+        'settings' => array(
+          'increment' => '15',
+          'input_format' => 'Y-m-d H:i:s',
+          'input_format_custom' => '',
+          'label_position' => 'above',
+          'text_parts' => array(),
+          'year_range' => '-3:+3',
+        ),
+        'type' => 'date_popup',
         'weight' => '1',
       ),
     ),
@@ -1509,6 +1722,12 @@ function content_types_field_default_fields() {
           'type' => 'text_default',
           'weight' => 3,
         ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1532,7 +1751,7 @@ function content_types_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '2',
+        'weight' => '3',
       ),
     ),
   );
@@ -1580,6 +1799,12 @@ function content_types_field_default_fields() {
           'type' => 'text_default',
           'weight' => 4,
         ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'above',
           'settings' => array(),
@@ -1603,7 +1828,7 @@ function content_types_field_default_fields() {
           'rows' => '4',
         ),
         'type' => 'text_textarea',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
@@ -1628,6 +1853,7 @@ function content_types_field_default_fields() {
   t('Nettiosoite');
   t('Summary');
   t('Tagit');
+  t('Tapahtuman aika');
   t('Tapahtuman osoite');
   t('Tuottajan valinta');
   t('Video');
