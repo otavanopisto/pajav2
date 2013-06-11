@@ -139,7 +139,7 @@ function course_view_variant_default_page_manager_handlers() {
     $pane->pid = 'new-4';
     $pane->panel = 'right';
     $pane->type = 'views_panes';
-    $pane->subtype = 'kurssi_seuraava_tapahtuma-panel_pane_1';
+    $pane->subtype = 'tulevat_kurssin_tapahtumat-panel_pane_1';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
