@@ -29,11 +29,19 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['access']['perm'] = 'view all statuses';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relationship: Flags: like */
+  $handler->display->display_options['relationships']['flag_content_rel']['id'] = 'flag_content_rel';
+  $handler->display->display_options['relationships']['flag_content_rel']['table'] = 'statuses';
+  $handler->display->display_options['relationships']['flag_content_rel']['field'] = 'flag_content_rel';
+  $handler->display->display_options['relationships']['flag_content_rel']['required'] = 0;
+  $handler->display->display_options['relationships']['flag_content_rel']['flag'] = 'like';
+  $handler->display->display_options['relationships']['flag_content_rel']['user_scope'] = 'any';
   /* Field: User: Uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'users';
@@ -172,6 +180,13 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['user_contextual']['label'] = '';
   $handler->display->display_options['fields']['user_contextual']['exclude'] = TRUE;
   $handler->display->display_options['fields']['user_contextual']['element_label_colon'] = FALSE;
+  /* Field: Flags: Flag link */
+  $handler->display->display_options['fields']['ops']['id'] = 'ops';
+  $handler->display->display_options['fields']['ops']['table'] = 'flag_content';
+  $handler->display->display_options['fields']['ops']['field'] = 'ops';
+  $handler->display->display_options['fields']['ops']['relationship'] = 'flag_content_rel';
+  $handler->display->display_options['fields']['ops']['label'] = '';
+  $handler->display->display_options['fields']['ops']['exclude'] = TRUE;
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -180,7 +195,7 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private] [private]</div>
       [message]
       <div class="statuses-details">
         <div class="statuses-links">[php_1] [php]</div> [created]
@@ -250,13 +265,14 @@ function statuses_views_and_account_fields_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
+    t('flag'),
     t('PHP delete'),
     t('PHP edit'),
     t('<span class="statuses-sender">[name]</span>'),
     t('<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private] [private]</div>
       [message]
       <div class="statuses-details">
         <div class="statuses-links">[php_1] [php]</div> [created]
@@ -287,6 +303,7 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['access']['perm'] = 'view all statuses';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
@@ -310,6 +327,13 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['relationships']['sender']['id'] = 'sender';
   $handler->display->display_options['relationships']['sender']['table'] = 'statuses';
   $handler->display->display_options['relationships']['sender']['field'] = 'sender';
+  /* Relationship: Flags: like */
+  $handler->display->display_options['relationships']['flag_content_rel']['id'] = 'flag_content_rel';
+  $handler->display->display_options['relationships']['flag_content_rel']['table'] = 'statuses';
+  $handler->display->display_options['relationships']['flag_content_rel']['field'] = 'flag_content_rel';
+  $handler->display->display_options['relationships']['flag_content_rel']['required'] = 0;
+  $handler->display->display_options['relationships']['flag_content_rel']['flag'] = 'like';
+  $handler->display->display_options['relationships']['flag_content_rel']['user_scope'] = 'any';
   /* Field: User: Uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'users';
@@ -451,6 +475,13 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['private']['field'] = 'private';
   $handler->display->display_options['fields']['private']['label'] = '';
   $handler->display->display_options['fields']['private']['exclude'] = TRUE;
+  /* Field: Flags: Flag link */
+  $handler->display->display_options['fields']['ops']['id'] = 'ops';
+  $handler->display->display_options['fields']['ops']['table'] = 'flag_content';
+  $handler->display->display_options['fields']['ops']['field'] = 'ops';
+  $handler->display->display_options['fields']['ops']['relationship'] = 'flag_content_rel';
+  $handler->display->display_options['fields']['ops']['label'] = '';
+  $handler->display->display_options['fields']['ops']['exclude'] = TRUE;
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -459,7 +490,7 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div id="statuses-item-[sid]" class="[classes]">
   [sender_custom_pic]
   <div class="content">
-    <div class="statuses-participants"><span class="statuses-sender"><a href="/kayttajat/[name]">[field_account_etunimi] [field_account_sukunimi]</a> [private]</span></div>
+    <div class="statuses-participants"><span class="statuses-sender"><a href="/kayttajat/[name] [private]">[field_account_etunimi] [field_account_sukunimi]</a> [private]</span></div>
     [message]
     <div class="statuses-details">
       <div class="statuses-links">[php_1] [php]</div> [created]
@@ -500,12 +531,13 @@ function statuses_views_and_account_fields_views_default_views() {
     t('Asc'),
     t('Desc'),
     t('uid'),
+    t('flag'),
     t('Sender custom picture'),
     t('Share'),
     t('<div id="statuses-item-[sid]" class="[classes]">
   [sender_custom_pic]
   <div class="content">
-    <div class="statuses-participants"><span class="statuses-sender"><a href="/kayttajat/[name]">[field_account_etunimi] [field_account_sukunimi]</a> [private]</span></div>
+    <div class="statuses-participants"><span class="statuses-sender"><a href="/kayttajat/[name] [private]">[field_account_etunimi] [field_account_sukunimi]</a> [private]</span></div>
     [message]
     <div class="statuses-details">
       <div class="statuses-links">[php_1] [php]</div> [created]
