@@ -1,0 +1,4 @@
+; $Id$
+name = mail_user_who_flagged
+description = flag stuff (Otavan Opisto)
+core = 7.x

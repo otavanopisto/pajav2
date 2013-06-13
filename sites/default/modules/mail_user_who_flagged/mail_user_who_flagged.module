@@ -1,0 +1,112 @@
+<?php
+function mail_user_who_flagged_menu(){
+  $items[] = array();
+  $items['admin/config/messaging/mailflags'] = array(
+      'title' => 'Choose flags wich enables notifications',
+      'type' => MENU_LOCAL_TASK,
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('mail_user_who_flagged_settings_form'),
+      'access arguments' => array('administer site configuration'),
+  );
+  return $items;
+}
+
+function mail_user_who_flagged_statuses_save($status, $context, $edit, $options) {
+  $discussion_url = url($_SERVER['HTTP_REFERER'], array("html" => true));
+  $flags = array();
+  $_flags = variable_get('mail_user_who_flagged_flags', array());
+  foreach ($_flags as $key => $value){
+    if($value != 0){
+      $flags[] = $value;
+    } 
+  }
+  $result = db_query("SELECT u.uid FROM {users} u INNER JOIN {flag_content} fc ON u.uid = fc.uid WHERE fc.content_id = :recipient AND fc.fid IN (:flags)", array(":recipient" => $status->recipient, ":flags" => $flags));
+  while($record = $result->fetchObject()){
+    $account = user_load($record->uid);
+    $params['account'] = $account;
+    mail_user_who_flagged_mail('default_from', $account->mail, 'Uusi kommentti Apajassa', 
+      'Seuraamaasi keskusteluun on tullut uusi kommentti: <br>'. $status->message .' <br>Voit vastata kommenttiin osoitteessa '. $discussion_url);
+  }
+}
+
+function mail_user_who_flagged_fbss_comments_after_save($comment){
+  $discussion_url = url($_SERVER['HTTP_REFERER'], array("html" => true));
+  $status = statuses_load($comment->sid);
+  $flags = array();
+  $_flags = variable_get('mail_user_who_flagged_flags', array());
+  foreach ($_flags as $key => $value){
+    if($value != 0){
+      $flags[] = $value;
+    }
+  }
+  $result = db_query("SELECT u.uid FROM {users} u INNER JOIN {flag_content} fc ON u.uid = fc.uid WHERE fc.content_id = :recipient AND fc.fid IN (:flags)", array(":recipient" => $status->recipient, ":flags" => $flags));
+  while($record = $result->fetchObject()){
+    $account = user_load($record->uid);
+    $params['account'] = $account;
+    mail_user_who_flagged_mail('default_from', $account->mail, 'Uusi kommentti Apajassa',
+    'Seuraamaasi keskusteluun on tullut uusi kommentti: <br>'. $comment->comment .' <br>Voit vastata kommenttiin osoitteessa '. $discussion_url);
+  }
+}
+
+function mail_user_who_flagged_mail($from = 'default_from', $to, $subject, $message, $params) {
+  $my_module = 'mail_user_who_flagged';
+  $my_mail_token = microtime();
+  if ($from == 'default_from') {
+    // Change this to your own default 'from' email address.
+    $from = variable_get('system_mail', 'no-reply@apaja.otavanopisto.fi');
+  }
+  $message = array(
+      'id' => $my_module . '_' . $my_mail_token,
+      'to' => $to,
+      'subject' => $subject,
+      'body' => array($message),
+      'headers' => array(
+          'From' => $from,
+          'Sender' => $from,
+          'Return-Path' => $from,
+      ),
+      'params' => $params,
+  );
+  $system = drupal_mail_system($my_module, $my_mail_token);
+  $message = $system->format($message);
+  if ($system->mail($message)) {
+    return TRUE;
+  }
+  else {
+    return FALSE;
+  }
+}
+
+/**
+ * Implements hook_mail_alter()
+ * @param string $message
+ */
+function mail_user_who_flagged_mail_alter(&$message) {
+  $headers = array(
+      'MIME-Version' => '1.0',
+      'Content-Type' => 'text/html; charset=iso-8859-1; format=flowed',
+      'Content-Transfer-Encoding' => '8Bit',
+      'X-Mailer' => 'Drupal',
+  );
+  foreach ($headers as $key => $value) {
+    $message['headers'][$key] = $value;
+  }
+}
+
+function mail_user_who_flagged_settings_form($form) {
+  $form = array();
+  $options = array();
+  $results = db_query("SELECT fid,title FROM {flags}");
+  while($record = $results->fetchObject()){
+    $options[$record->fid] = $record->title;
+  }
+  $form['mail_user_who_flagged_flags'] = array(
+      '#type' => 'checkboxes',
+      '#title' => t('Choose flags wich enables notifications'),
+      '#options' => $options,
+      '#default_value' => variable_get('mail_user_who_flagged_flags', array()),
+      '#description' => t('Choose flags wich enables notifications, These flags enable notifications via email without fucking settings shitstorm.'),
+  );
+
+  return system_settings_form($form);
+}
