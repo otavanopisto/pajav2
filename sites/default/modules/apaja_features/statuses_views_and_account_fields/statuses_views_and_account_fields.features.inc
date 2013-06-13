@@ -35,12 +35,12 @@ function statuses_views_and_account_fields_flag_default_flags() {
       0 => 'kurssi',
       1 => 'tapahtuma',
     ),
-    'flag_short' => 'Haluan keskutelusta sähköpostia',
-    'flag_long' => 'Haluan keskutelusta sähköpostia',
-    'flag_message' => 'Saat keskustelusta ilmoituksia sähköpostiisi',
-    'unflag_short' => 'En halua keskutelusta sähköpostia',
-    'unflag_long' => 'En halua keskutelusta sähköpostia',
-    'unflag_message' => 'Olet perunut keskustelun sähköposti-ilmoitukset',
+    'flag_short' => 'Tilaa kommenttien herätteet',
+    'flag_long' => 'Tilaa kommenttien herätteet sähköpostiisi.',
+    'flag_message' => 'Tilasit kommenttien herätteet sähköpostiisi',
+    'unflag_short' => 'Peruuta herätteiden tilaus',
+    'unflag_long' => 'Peruuta kommenttien herätteiden tilaus',
+    'unflag_message' => 'Olet perunut kommenttien herätteet',
     'unflag_denied_text' => '',
     'link_type' => 'toggle',
     'roles' => array(
@@ -58,11 +58,11 @@ function statuses_views_and_account_fields_flag_default_flags() {
     'show_on_teaser' => 1,
     'show_contextual_link' => FALSE,
     'i18n' => 0,
-    'api_version' => 2,
     'module' => 'statuses_views_and_account_fields',
     'locked' => array(
       0 => 'name',
     ),
+    'api_version' => 2,
   );
   return $flags;
 

@@ -2632,5 +2632,65 @@ form#search-form #edit-basic {
   color:#000;
 }
 
+/* PRINT */
+
+.page-node-osallistujaprint {
+  background:#fff;
+  
+  &.admin-menu {
+    margin:0 !important;
+  }
+  
+  #page {
+    
+    #page-container {
+      width:210mm;
+      margin:0;
+      box-shadow:none;
+      border:0px;
+      
+      .container-16 {
+        width:auto;
+        margin:0 10px;
+      
+        .grid-16 {
+          width:100%;
+          margin:0;
+          
+          table {
+            border:0;
+            
+            thead th {
+              background:#fff;
+              border-bottom:1px solid #000;
+              color:#000;
+            }
+            
+            tbody tr {
+              border-bottom:1px solid #eee;
+            }
+          }
+  
+        }
+      }
+      
+    }
+    
+    h3 {
+      margin:10px 0 20px 0;
+      font-size:1.4em;
+      font-weight:300;
+    }
+    
+  }
+}
+
+#admin-menu,
+.header-black-spacer {
+  display:none;
+}
+
+
+
 
 
