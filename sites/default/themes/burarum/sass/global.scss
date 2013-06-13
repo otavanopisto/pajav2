@@ -154,7 +154,8 @@ h1, h2, h3, h4, h5, h6, .h2-imitator {
   margin:0;
 }
 
-#page #node-course-panel h2 {
+#page #node-course-panel h2,
+#page #node-event-panel h2 {
   margin:0 6px 10px 10px;
 }
 
@@ -1486,17 +1487,19 @@ ul.tabs.primary li.active a {
       }
       
       .flag-message {
-        background:#0099FF;
-        border-radius:$boxBorderRadius;
-        box-shadow:$boxShadow;
-        color: #FFFFFF;
-        font-size: 0.8em;
+        position:absolute;
+        display:block;
+        @include box-shadow(0 0 10px rgba(0,0,0,0.3));
+        @include rounded-borders;
+        border:1px solid #aaaaaa;    
+        background:#fff;
         left: 0;
+        font-size:0.9em;
         line-height: normal;
         padding: 5px 8px;
         position: absolute;
         text-align: left;
-        top: -3px;
+        top: -32px;
         white-space: nowrap;
         width: auto;
       }
@@ -1547,6 +1550,132 @@ ul.tabs.primary li.active a {
 #page #node-event-panel .pane-node-field-nettiosoite h2,
 #page #node-event-panel .pane-node-field-yhteystiedot h2 {
   margin:0 6px 10px 0;
+}
+
+#page #node-event-panel .pane-node-flag-event-attend-link {
+  
+  .pane-content {
+    margin:5px 0 0 0;
+  }
+  
+  .flag-link-toggle {
+      background:#0099FF;
+      border-radius:$boxBorderRadius;
+      box-shadow:$boxShadow;
+      color: #FFFFFF;
+      font-size: 0.8em;
+      white-space: nowrap;
+      width: auto;
+      padding: 5px 8px 4px 8px;
+      text-decoration:none;
+      text-transform:uppercase;
+    }
+    
+    .flag-message {
+      position:absolute;
+      display:block;
+      @include box-shadow(0 0 10px rgba(0,0,0,0.3));
+      @include rounded-borders;
+      border:1px solid #aaaaaa;    
+      background:#fff;
+      left: 0;
+      font-size:0.9em;
+      line-height: normal;
+      padding: 5px 8px;
+      position: absolute;
+      text-align: left;
+      top: -32px;
+      white-space: nowrap;
+      width: auto;
+    }
+  
+}
+
+/* EVENT/COURSE COMMENT EMAIL STUFF  */
+
+.pane-node-flag-follow-conversation-link {
+  bottom: -45px;
+  display: block;
+  position: relative;
+  text-align:right;
+  
+    .flag-link-toggle {
+      background:#0099FF;
+      border-radius:$boxBorderRadius;
+      box-shadow:$boxShadow;
+      color: #FFFFFF;
+      font-size: 0.8em;
+      white-space: nowrap;
+      width: auto;
+      padding: 5px 8px 4px 8px;
+      text-decoration:none;
+      text-transform:uppercase;
+    }
+    
+    .flag-message {
+      position:absolute;
+      display:block;
+      @include box-shadow(0 0 10px rgba(0,0,0,0.3));
+      @include rounded-borders;
+      border:1px solid #aaaaaa;    
+      background:#fff;
+      left: 0;
+      font-size:0.9em;
+      line-height: normal;
+      padding: 5px 8px;
+      position: absolute;
+      text-align: left;
+      top: -32px;
+      white-space: nowrap;
+      width: auto;
+      z-index:99;
+    }
+  
+}
+
+/* EVENT ATTENDANTS LISTING */
+
+.view-tapahtuman-osallistuja-listaus {
+  
+  .views-row {
+    display:inline-block;
+    margin:0 10px 20px 10px;
+    max-width:202px;
+    float:left;
+    padding:6px;
+    @include box-shadow;
+    background:#ffffff;
+    border:1px solid #ffffff;
+    @include carousel-hover-transition;
+    
+    &:hover {
+      border:1px solid #7ca246;
+      background:#ffffff;
+    }
+    
+    .field-content {
+      color:#757575;
+    }
+    
+    .views-field-field-account-kuva {
+    
+      img {
+        width:100%; height:auto;
+      }
+    
+    }
+    
+    .views-field-field-account-sukunimi {
+      text-transform:uppercase;
+      margin:5px 0 5px 0;
+      
+      a {
+        text-decoration:none;
+      }
+    }
+    
+  }
+  
 }
 
 /* AJAX COURSE JOINING */
@@ -1915,7 +2044,7 @@ ul.tabs.primary li.active a {
 #page #node-user-panel .views-field-field-account-kuvaus,
 #page #node-user-panel .views-field-field-account-tahdon-oppia,
 #page #node-user-panel .views-field-field-account-taitoni {
-  margin:0 0 10px 180px;
+  margin:0 20px 10px 190px;
 }
 
 .view-user-information .views-field .views-label {
