@@ -1,3 +1,5 @@
+/* PRINT */
+
 .page-node-osallistujaprint {
   background:#fff;
   
@@ -32,6 +34,11 @@
             
             tbody tr {
               border-bottom:1px solid #eee;
+              
+              td {
+                height:2em;
+                padding:4px 8px;
+              }
             }
           }
   
