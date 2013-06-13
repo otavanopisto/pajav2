@@ -29,10 +29,18 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['access']['perm'] = 'view all statuses';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'table';
+  /* Relationship: Flags: like */
+  $handler->display->display_options['relationships']['flag_content_rel']['id'] = 'flag_content_rel';
+  $handler->display->display_options['relationships']['flag_content_rel']['table'] = 'statuses';
+  $handler->display->display_options['relationships']['flag_content_rel']['field'] = 'flag_content_rel';
+  $handler->display->display_options['relationships']['flag_content_rel']['required'] = 0;
+  $handler->display->display_options['relationships']['flag_content_rel']['flag'] = 'like';
+  $handler->display->display_options['relationships']['flag_content_rel']['user_scope'] = 'any';
   /* Field: Statuses: Status ID */
   $handler->display->display_options['fields']['sid']['id'] = 'sid';
   $handler->display->display_options['fields']['sid']['table'] = 'statuses';
@@ -111,6 +119,13 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['fields']['user_contextual']['label'] = '';
   $handler->display->display_options['fields']['user_contextual']['exclude'] = TRUE;
   $handler->display->display_options['fields']['user_contextual']['element_label_colon'] = FALSE;
+  /* Field: Flags: Flag link */
+  $handler->display->display_options['fields']['ops']['id'] = 'ops';
+  $handler->display->display_options['fields']['ops']['table'] = 'flag_content';
+  $handler->display->display_options['fields']['ops']['field'] = 'ops';
+  $handler->display->display_options['fields']['ops']['relationship'] = 'flag_content_rel';
+  $handler->display->display_options['fields']['ops']['label'] = '';
+  $handler->display->display_options['fields']['ops']['exclude'] = TRUE;
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -119,10 +134,10 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private] [private]</div>
       [message]
       <div class="statuses-details">
-        <div class="statuses-links">[edit] [delete] [repost]</div> [created]
+        <div class="statuses-links">[edit] [delete] [ops] [repost]</div> [created]
       </div>
       [comment-box]
     </div>
@@ -189,14 +204,15 @@ function user_profile_page_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
+    t('flag'),
     t('<span class="statuses-sender">[name]</span>'),
     t('<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private] [private]</div>
       [message]
       <div class="statuses-details">
-        <div class="statuses-links">[edit] [delete] [repost]</div> [created]
+        <div class="statuses-links">[edit] [delete] [ops] [repost]</div> [created]
       </div>
       [comment-box]
     </div>
@@ -505,6 +521,100 @@ function user_profile_page_views_default_views() {
     t('Block'),
   );
   $export['user_information'] = $view;
+
+  $view = new view();
+  $view->name = 'users_events';
+  $view->description = 'Provides a tab on all user\'s profile pages containing bookmarks for that user.';
+  $view->tag = 'flag';
+  $view->base_table = 'node';
+  $view->human_name = 'users_events';
+  $view->core = 0;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Defaults */
+  $handler = $view->new_display('default', 'Defaults', 'default');
+  $handler->display->display_options['title'] = 'Käyttäjän tapahtumat';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['perm'] = 'access user profiles';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relationship: Flags: event_attend */
+  $handler->display->display_options['relationships']['flag_content_rel']['id'] = 'flag_content_rel';
+  $handler->display->display_options['relationships']['flag_content_rel']['table'] = 'node';
+  $handler->display->display_options['relationships']['flag_content_rel']['field'] = 'flag_content_rel';
+  $handler->display->display_options['relationships']['flag_content_rel']['flag'] = 'event_attend';
+  $handler->display->display_options['relationships']['flag_content_rel']['user_scope'] = 'any';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Broken/missing handler */
+  $handler->display->display_options['fields']['field_tapahtuma_aika']['id'] = 'field_tapahtuma_aika';
+  $handler->display->display_options['fields']['field_tapahtuma_aika']['table'] = 'field_data_field_tapahtuma_aika';
+  $handler->display->display_options['fields']['field_tapahtuma_aika']['field'] = 'field_tapahtuma_aika';
+  $handler->display->display_options['fields']['field_tapahtuma_aika']['label'] = '';
+  $handler->display->display_options['fields']['field_tapahtuma_aika']['element_label_colon'] = FALSE;
+  /* Contextual filter: Flags: User uid */
+  $handler->display->display_options['arguments']['uid']['id'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['table'] = 'flag_content';
+  $handler->display->display_options['arguments']['uid']['field'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['relationship'] = 'flag_content_rel';
+  $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'user/%/tapahtumat';
+  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['title'] = 'Tapahtumat';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['context'] = 0;
+
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['argument_input'] = array(
+    'uid' => array(
+      'type' => 'context',
+      'context' => 'entity:user.uid',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'User: Uid',
+    ),
+  );
+  $translatables['users_events'] = array(
+    t('Defaults'),
+    t('Käyttäjän tapahtumat'),
+    t('more'),
+    t('Apply'),
+    t('Reset'),
+    t('Sort by'),
+    t('Asc'),
+    t('Desc'),
+    t('flag'),
+    t('All'),
+    t('Page'),
+    t('Content pane'),
+    t('View panes'),
+  );
+  $export['users_events'] = $view;
 
   return $export;
 }
