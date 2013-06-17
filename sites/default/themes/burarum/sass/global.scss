@@ -1246,10 +1246,24 @@ ul.tabs.primary li.active a {
   margin:0 14px 0 0;
 }
 
+#page #node-course-panel .pane-tulevat-kurssin-tapahtumat-panel-pane-1 {
+    margin:25px 0 0 0;
+}
+
+#page #node-course-panel .pane-oo-alterations-oo-og-create-tapahtuma {
+  text-align:right;
+  padding:4px;
+  margin:0 10px;
+}
+
 #page #node-course-panel .grid-4 .panel-separator {
   background:#fff;
   height:5px;
   margin:10px 0 10px 0;
+}
+
+#page #node-course-panel .grid-4 .panel-separator {
+  display:none;
 }
 
 #page #node-course-panel .pane-node-field-kurssin-kuva img {
