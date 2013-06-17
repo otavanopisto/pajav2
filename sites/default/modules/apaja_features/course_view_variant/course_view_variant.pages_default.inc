@@ -183,16 +183,11 @@ function course_view_variant_default_page_manager_handlers() {
     $pane = new stdClass();
     $pane->pid = 'new-6';
     $pane->panel = 'right';
-    $pane->type = 'node_create_links';
-    $pane->subtype = 'node_create_links';
+    $pane->type = 'block';
+    $pane->subtype = 'oo_alterations-oo_og_create_tapahtuma';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'types' => array(
-        'tapahtuma' => 'tapahtuma',
-      ),
-      'field_name' => 'og_group_ref',
-      'context' => 'argument_entity_id:node_1',
       'override_title' => 1,
       'override_title_text' => '',
     );
