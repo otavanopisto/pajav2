@@ -484,17 +484,17 @@ h1, h2, h3, h4, h5, h6, .h2-imitator {
 
 div.tabs {
   display: block;
-  left: -325px;
+  left: -425px;
   overflow: hidden;
   position: absolute;
   text-align: right;
-  top: 480px;
+  top: 580px;
   transform: rotate(270deg) translate(200px);
   -ms-transform: rotate(270deg) translate(200px); /* IE 9 */
   -webkit-transform: rotate(270deg) translate(200px); /* Safari and Chrome */
   -o-transform: rotate(270deg) translate(200px); /* Opera */
   -moz-transform: rotate(270deg) translate(200px); /* Firefox */
-  width: 600px;
+  width: 800px;
 }
 
 ul.tabs.primary,
@@ -2018,6 +2018,13 @@ ul.tabs.primary li.active a {
   float:right;
 }
 
+#page #node-user-panel .grid-4 .panel-separator {
+  background:#fff;
+  height:5px;
+  margin:10px 0 10px 0;
+}
+
+
 .pane-user-information {
   display:table;
   margin:0 0 20px 0;
@@ -2061,6 +2068,13 @@ ul.tabs.primary li.active a {
   @include box-shadow;
   background:#fff;
   margin:0 14px 0 0;
+}
+
+#page #node-user-panel .pane-users-events-panel-pane-1 .pane-content {
+  @include box-padding;
+  @include box-shadow;
+  background:#fff;
+  margin:0 14px 0 0; 
 }
 
 #page #node-user-panel .pane-user-courses .views-row {
@@ -2668,10 +2682,9 @@ form#search-form #edit-basic {
             
             tbody tr {
               border-bottom:1px solid #eee;
-              min-height:1em;
               
               td {
-                height:1em;
+                height:2em;
                 padding:4px 8px;
               }
             }

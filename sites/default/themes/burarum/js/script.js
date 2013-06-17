@@ -28,7 +28,7 @@ var pageLoad = false;
 		attach : function(context, settings) {
 
 			var headerHeight = $('#section-header').outerHeight();
-			var aboveHeight = headerHeight - 42;
+			var aboveHeight = headerHeight - 52;
 
 			$(window).scroll(function() {
 				if ($(window).scrollTop() > aboveHeight) {
