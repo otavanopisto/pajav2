@@ -146,7 +146,8 @@ h1, h2, h3, h4, h5, h6, .h2-imitator {
   margin:0 6px 10px 10px;
 }
 
-#page #node-user-panel .pane-user-courses h2 {
+#page #node-user-panel .pane-user-courses h2,
+#page #node-user-panel .pane-users-events-panel-pane-1 h2 {
   margin:0 6px 10px 0;
 }
 
@@ -1415,6 +1416,14 @@ ul.tabs.primary li.active a {
   clear:both;
   display:table;
   width:100%;
+  
+  .view-empty {
+  
+    p {
+      margin:0;
+    }
+  
+  }
 
   .views-row {
     clear:both;
@@ -2145,9 +2154,80 @@ ul.tabs.primary li.active a {
   text-decoration:none;
 }
 
+#node-user-panel .pane-users-events-panel-pane-1 {
+  clear:both;
+  display:table;
+  width:100%;
+  
+  .view-empty {
+  
+    p {
+      margin:0;
+    }
+  
+  }
+
+  .views-row {
+    clear:both;
+    display:table;
+    width:100%;
+    padding-bottom:10px;
+    margin-bottom:10px;
+    border-bottom:1px solid #eee;
+    
+    &.views-row-last {
+      padding-bottom:0px;
+      margin-bottom:5px;
+      border:0px;
+    }
+  
+    .views-field-field-tapahtuman-aika {
+      float:left;
+      padding:4px 5px 4px 4px;
+      display:inline-block;
+      line-height:1.2em;
+      border-radius:$boxBorderRadius;
+      width:40px;
+      text-align:center;
+      margin:0 5px 0 0;
+      font-size:0.9em;
+      background:#f8f8f8;
+      
+      
+      .date-display-start {
+      
+      }
+      
+      .date-display-end {
+      
+      }
+    
+    }
+    
+    .views-field-title {
+      padding:0 3px 0 3px;
+      margin-left:55px;
+      line-height:1.2em;
+      
+      a {
+        text-decoration:none;
+      
+        &:hover {
+        
+        }
+      
+      }
+      
+    }
+  
+  }
+  
+}
+
+
 /* USER EVENT LISTING */
 
-.view-users-events {
+.page-user-tapahtumat .view-users-events {
   
   .views-row {
   
