@@ -172,6 +172,87 @@ function oo_alterations_perform_redirect($destination) {
   drupal_goto($destination, array('external' => TRUE));
 }
 
+/**
+* Implements hook_block_info().
+*/
+function oo_alterations_block_info() {
+  $blocks = array();
+  $blocks['oo_og_create_tapahtuma'] = array(
+      'info' => t('Group tapahtuma creating block'),
+  );
+  return $blocks;
+}
 
+/**
+ * Implements hook_block_configure().
+ */
+function oo_alterations_block_configure($delta='') {
+  $form = array();
+
+  switch($delta) {
+    case 'oo_og_create_tapahtuma' :
+
+      break;
+  }
+  return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function oo_alterations_block_save($delta = '', $edit = array()) {
+  switch($delta) {
+    case 'oo_og_create_tapahtuma' :
+      break;
+  }
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function oo_alterations_block_view($delta='') {
+  $block = array();
+  // Block output in HTML with div wrapper
+  switch($delta) {
+    case 'oo_og_create_tapahtuma' :
+      $block['content'] = _oo_og_create_link_view();
+      break;
+  }
+
+  return $block;
+}
+
+function _oo_og_create_link_view(){
+  $block = array();
+  $block = array(
+      'content' => array(
+          '#prefix' => '<div class="oo-create-tapahtuma-block">',
+          '#type' => 'markup',
+          '#suffix' => '</div>',
+      ),
+  );
+  $nodeid = arg(1);
+  if (!og_is_group('node', $nodeid)) {
+    return;
+  }
+  if (og_is_group_content_type('node', 'tapahtuma') && og_user_access('node', $nodeid, "create tapahtuma content")) {
+    // Build links.
+    $options  = array(
+        'query' => array('og_group_ref' => $nodeid),
+    );
+    
+    $options['query'] += drupal_get_destination();
+    
+    $items[] = array('data' => l("Lisää uusi tapahtuma", 'node/add/' . str_replace('_', '-', 'tapahtuma'), $options));
+    $element = array();
+    $element['og_node_create_links'] = array(
+        '#theme' => 'item_list',
+        '#items' => $items,
+    );
+    $block["#markup"] = drupal_render($element);
+  }
+
+  return $block;
+}
 
 ?>
