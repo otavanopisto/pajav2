@@ -24,7 +24,7 @@ function content_types_node_info() {
       'base' => 'node_content',
       'description' => t('Content type for intro video block.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Otsikko'),
       'help' => '',
     ),
     'kurssi' => array(
@@ -32,15 +32,15 @@ function content_types_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Otsikko'),
       'help' => '',
     ),
     'slogan' => array(
-      'name' => t('Slogan'),
+      'name' => t('Iskulause'),
       'base' => 'node_content',
       'description' => t('Yläpalkin slogan'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Otsikko'),
       'help' => '',
     ),
     'tapahtuma' => array(

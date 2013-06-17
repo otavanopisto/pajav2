@@ -24,6 +24,7 @@ function event_attending_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Tapahtuman osallistujat';
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'lisää';
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
     3 => '3',
@@ -32,23 +33,32 @@ function event_attending_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Käytä';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Palauta oletusarvoihin';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Lajittele';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Merkintöjä sivua kohti';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Kaikki -';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« ensimmäinen';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ edellinen';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'seuraava ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'viimeinen »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relationship: Flags: User's flagged content */
+  /* Suhde: Flags: User's flagged content */
   $handler->display->display_options['relationships']['flag_user_content_rel']['id'] = 'flag_user_content_rel';
   $handler->display->display_options['relationships']['flag_user_content_rel']['table'] = 'users';
   $handler->display->display_options['relationships']['flag_user_content_rel']['field'] = 'flag_user_content_rel';
   $handler->display->display_options['relationships']['flag_user_content_rel']['flag'] = 'event_attend';
-  /* Field: User: Uid */
+  /* Kenttä: Käyttäjä: Uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'users';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
   $handler->display->display_options['fields']['uid']['label'] = '';
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
-  /* Field: User: Kuva */
+  /* Kenttä: Käyttäjä: Kuva */
   $handler->display->display_options['fields']['field_account_kuva']['id'] = 'field_account_kuva';
   $handler->display->display_options['fields']['field_account_kuva']['table'] = 'field_data_field_account_kuva';
   $handler->display->display_options['fields']['field_account_kuva']['field'] = 'field_account_kuva';
@@ -59,7 +69,7 @@ function event_attending_views_default_views() {
     'image_style' => 'avatar_normal',
     'image_link' => '',
   );
-  /* Field: User: Etunimi */
+  /* Kenttä: Käyttäjä: Etunimi */
   $handler->display->display_options['fields']['field_account_etunimi']['id'] = 'field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['table'] = 'field_data_field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['field'] = 'field_account_etunimi';
@@ -67,7 +77,7 @@ function event_attending_views_default_views() {
   $handler->display->display_options['fields']['field_account_etunimi']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_account_etunimi']['alter']['path'] = 'user/[uid]';
   $handler->display->display_options['fields']['field_account_etunimi']['element_label_colon'] = FALSE;
-  /* Field: User: Sukunimi */
+  /* Kenttä: Käyttäjä: Sukunimi */
   $handler->display->display_options['fields']['field_account_sukunimi']['id'] = 'field_account_sukunimi';
   $handler->display->display_options['fields']['field_account_sukunimi']['table'] = 'field_data_field_account_sukunimi';
   $handler->display->display_options['fields']['field_account_sukunimi']['field'] = 'field_account_sukunimi';
@@ -75,30 +85,31 @@ function event_attending_views_default_views() {
   $handler->display->display_options['fields']['field_account_sukunimi']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['field_account_sukunimi']['alter']['path'] = 'user/[uid]';
   $handler->display->display_options['fields']['field_account_sukunimi']['element_label_colon'] = FALSE;
-  /* Field: User: Lähiosoite */
+  /* Kenttä: Käyttäjä: Lähiosoite */
   $handler->display->display_options['fields']['field_account_lahiosoite']['id'] = 'field_account_lahiosoite';
   $handler->display->display_options['fields']['field_account_lahiosoite']['table'] = 'field_data_field_account_lahiosoite';
   $handler->display->display_options['fields']['field_account_lahiosoite']['field'] = 'field_account_lahiosoite';
   $handler->display->display_options['fields']['field_account_lahiosoite']['label'] = '';
   $handler->display->display_options['fields']['field_account_lahiosoite']['element_label_colon'] = FALSE;
-  /* Field: User: Postinumero */
+  /* Kenttä: Käyttäjä: Postinumero */
   $handler->display->display_options['fields']['field_account_postinumero']['id'] = 'field_account_postinumero';
   $handler->display->display_options['fields']['field_account_postinumero']['table'] = 'field_data_field_account_postinumero';
   $handler->display->display_options['fields']['field_account_postinumero']['field'] = 'field_account_postinumero';
   $handler->display->display_options['fields']['field_account_postinumero']['label'] = '';
   $handler->display->display_options['fields']['field_account_postinumero']['element_label_colon'] = FALSE;
-  /* Field: User: Postitoimipaikka */
+  /* Kenttä: Käyttäjä: Postitoimipaikka */
   $handler->display->display_options['fields']['field_account_postitoimipaikka']['id'] = 'field_account_postitoimipaikka';
   $handler->display->display_options['fields']['field_account_postitoimipaikka']['table'] = 'field_data_field_account_postitoimipaikka';
   $handler->display->display_options['fields']['field_account_postitoimipaikka']['field'] = 'field_account_postitoimipaikka';
   $handler->display->display_options['fields']['field_account_postitoimipaikka']['label'] = '';
   $handler->display->display_options['fields']['field_account_postitoimipaikka']['element_label_colon'] = FALSE;
-  /* Contextual filter: Flags: Content ID */
+  /* Sisältöriippuvanen suodatin: Flags: Sisällön ID */
   $handler->display->display_options['arguments']['content_id']['id'] = 'content_id';
   $handler->display->display_options['arguments']['content_id']['table'] = 'flag_content';
   $handler->display->display_options['arguments']['content_id']['field'] = 'content_id';
   $handler->display->display_options['arguments']['content_id']['relationship'] = 'flag_user_content_rel';
   $handler->display->display_options['arguments']['content_id']['default_action'] = 'empty';
+  $handler->display->display_options['arguments']['content_id']['exception']['title'] = 'Kaikki';
   $handler->display->display_options['arguments']['content_id']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['content_id']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['content_id']['summary']['format'] = 'default_summary';
@@ -108,7 +119,7 @@ function event_attending_views_default_views() {
   $handler->display->display_options['arguments']['content_id']['validate_options']['types'] = array(
     'tapahtuma' => 'tapahtuma',
   );
-  /* Filter criterion: User: Active */
+  /* Suodatinkriteeri: Käyttäjä: Toiminnassa */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -182,7 +193,7 @@ function event_attending_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
-  /* Header: Global: PHP */
+  /* Otsikko: Yleinen: PHP */
   $handler->display->display_options['header']['php']['id'] = 'php';
   $handler->display->display_options['header']['php']['table'] = 'views';
   $handler->display->display_options['header']['php']['field'] = 'php';
@@ -191,14 +202,14 @@ $node = node_load(arg(1));
 echo \'<h3>\'. $node->title. \' osallistujat</h3>\';
 ?>';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: User: Uid */
+  /* Kenttä: Käyttäjä: Uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'users';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
   $handler->display->display_options['fields']['uid']['label'] = '';
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
-  /* Field: User: Etunimi */
+  /* Kenttä: Käyttäjä: Etunimi */
   $handler->display->display_options['fields']['field_account_etunimi']['id'] = 'field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['table'] = 'field_data_field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['field'] = 'field_account_etunimi';
@@ -206,7 +217,7 @@ echo \'<h3>\'. $node->title. \' osallistujat</h3>\';
   $handler->display->display_options['fields']['field_account_etunimi']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_account_etunimi']['alter']['path'] = 'user/[uid]';
   $handler->display->display_options['fields']['field_account_etunimi']['element_label_colon'] = FALSE;
-  /* Field: User: Sukunimi */
+  /* Kenttä: Käyttäjä: Sukunimi */
   $handler->display->display_options['fields']['field_account_sukunimi']['id'] = 'field_account_sukunimi';
   $handler->display->display_options['fields']['field_account_sukunimi']['table'] = 'field_data_field_account_sukunimi';
   $handler->display->display_options['fields']['field_account_sukunimi']['field'] = 'field_account_sukunimi';
@@ -216,14 +227,13 @@ echo \'<h3>\'. $node->title. \' osallistujat</h3>\';
   $handler->display->display_options['fields']['field_account_sukunimi']['alter']['path'] = 'user/[uid]';
   $handler->display->display_options['fields']['field_account_sukunimi']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_account_sukunimi']['element_default_classes'] = FALSE;
-  /* Field: User: E-mail */
+  /* Kenttä: Käyttäjä: Sähköposti */
   $handler->display->display_options['fields']['mail']['id'] = 'mail';
   $handler->display->display_options['fields']['mail']['table'] = 'users';
   $handler->display->display_options['fields']['mail']['field'] = 'mail';
-  $handler->display->display_options['fields']['mail']['label'] = 'Sähköposti';
   $handler->display->display_options['fields']['mail']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['mail']['link_to_user'] = '0';
-  /* Field: Global: Custom text */
+  /* Kenttä: Yleinen: Muokattu teksti */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -237,21 +247,21 @@ echo \'<h3>\'. $node->title. \' osallistujat</h3>\';
   $translatables['tapahtuman_osallistuja_listaus'] = array(
     t('Master'),
     t('Tapahtuman osallistujat'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
+    t('lisää'),
+    t('Käytä'),
+    t('Palauta oletusarvoihin'),
+    t('Lajittele'),
     t('Asc'),
     t('Desc'),
-    t('Items per page'),
-    t('- All -'),
+    t('Merkintöjä sivua kohti'),
+    t('- Kaikki -'),
     t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
+    t('« ensimmäinen'),
+    t('‹ edellinen'),
+    t('seuraava ›'),
+    t('viimeinen »'),
     t('user flagged content'),
-    t('All'),
+    t('Kaikki'),
     t('Page'),
     t('Nimi'),
     t('[field_account_etunimi] [field_account_sukunimi]'),
@@ -274,37 +284,45 @@ echo \'<h3>\'. $node->title. \' osallistujat</h3>\';
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->display->display_options['title'] = 'Kurssin tapahtumat';
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'lisää';
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Käytä';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Palauta oletusarvoihin';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Lajittele';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Merkintöjä sivua kohti';
   $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all'] = TRUE;
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Kaikki -';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« ensimmäinen';
   $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ ';
   $handler->display->display_options['pager']['options']['tags']['next'] = ' ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'viimeinen »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* No results behavior: Global: Text area */
+  /* Toiminta jos tuloksia ei löydy: Yleinen: Tekstialue */
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['content'] = 'There is no content in this group.';
-  /* Relationship: OG membership: OG membership from Node */
+  /* Suhde: OG jäsenyys: OG membership from Solmu */
   $handler->display->display_options['relationships']['og_membership_rel']['id'] = 'og_membership_rel';
   $handler->display->display_options['relationships']['og_membership_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['og_membership_rel']['field'] = 'og_membership_rel';
-  /* Relationship: Flags: event_attend */
+  /* Suhde: Flags: event_attend */
   $handler->display->display_options['relationships']['flag_content_rel']['id'] = 'flag_content_rel';
   $handler->display->display_options['relationships']['flag_content_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['flag_content_rel']['field'] = 'flag_content_rel';
   $handler->display->display_options['relationships']['flag_content_rel']['required'] = 0;
   $handler->display->display_options['relationships']['flag_content_rel']['flag'] = 'event_attend';
-  /* Field: Content: Tapahtuman aika */
+  /* Kenttä: Sisältö: Tapahtuman aika */
   $handler->display->display_options['fields']['field_tapahtuman_aika']['id'] = 'field_tapahtuman_aika';
   $handler->display->display_options['fields']['field_tapahtuman_aika']['table'] = 'field_data_field_tapahtuman_aika';
   $handler->display->display_options['fields']['field_tapahtuman_aika']['field'] = 'field_tapahtuman_aika';
@@ -317,42 +335,43 @@ echo \'<h3>\'. $node->title. \' osallistujat</h3>\';
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Content: Title */
+  /* Kenttä: Sisältö: Otsikko */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Flags: Flag link */
+  /* Kenttä: Flags: Flag link */
   $handler->display->display_options['fields']['ops']['id'] = 'ops';
   $handler->display->display_options['fields']['ops']['table'] = 'flag_content';
   $handler->display->display_options['fields']['ops']['field'] = 'ops';
   $handler->display->display_options['fields']['ops']['relationship'] = 'flag_content_rel';
   $handler->display->display_options['fields']['ops']['label'] = '';
   $handler->display->display_options['fields']['ops']['element_label_colon'] = FALSE;
-  /* Sort criterion: Content: Post date */
+  /* Lajittelukriteeri: Sisältö: Lähetetty */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: OG membership: Group ID */
+  /* Sisältöriippuvanen suodatin: OG jäsenyys: Group ID */
   $handler->display->display_options['arguments']['gid']['id'] = 'gid';
   $handler->display->display_options['arguments']['gid']['table'] = 'og_membership';
   $handler->display->display_options['arguments']['gid']['field'] = 'gid';
   $handler->display->display_options['arguments']['gid']['relationship'] = 'og_membership_rel';
   $handler->display->display_options['arguments']['gid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['gid']['exception']['title'] = 'Kaikki';
   $handler->display->display_options['arguments']['gid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['gid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['gid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['gid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['gid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['gid']['validate']['type'] = 'og';
-  /* Filter criterion: Content: Published */
+  /* Suodatinkriteeri: Sisältö: Julkaistu */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '1';
-  /* Filter criterion: OG membership: Group_type */
+  /* Suodatinkriteeri: OG jäsenyys: Group_type */
   $handler->display->display_options['filters']['group_type']['id'] = 'group_type';
   $handler->display->display_options['filters']['group_type']['table'] = 'og_membership';
   $handler->display->display_options['filters']['group_type']['field'] = 'group_type';
@@ -360,7 +379,7 @@ echo \'<h3>\'. $node->title. \' osallistujat</h3>\';
   $handler->display->display_options['filters']['group_type']['value'] = array(
     'node' => 'node',
   );
-  /* Filter criterion: Content: Type */
+  /* Suodatinkriteeri: Sisältö: Tyyppi */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -386,23 +405,23 @@ echo \'<h3>\'. $node->title. \' osallistujat</h3>\';
   $translatables['tulevat_kurssin_tapahtumat'] = array(
     t('Defaults'),
     t('Kurssin tapahtumat'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
+    t('lisää'),
+    t('Käytä'),
+    t('Palauta oletusarvoihin'),
+    t('Lajittele'),
     t('Asc'),
     t('Desc'),
-    t('Items per page'),
-    t('- All -'),
+    t('Merkintöjä sivua kohti'),
+    t('- Kaikki -'),
     t('Offset'),
-    t('« first'),
+    t('« ensimmäinen'),
     t('‹ '),
     t(' ›'),
-    t('last »'),
+    t('viimeinen »'),
     t('There is no content in this group.'),
     t('OG membership from node'),
     t('flag'),
-    t('All'),
+    t('Kaikki'),
     t('Content pane'),
     t('View panes'),
     t('Block'),

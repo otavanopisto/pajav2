@@ -32,8 +32,7 @@ function hybridauth_register_default_rules_configuration() {
             "source" : "user\\/[hybridauth-user:uid]",
             "alias" : "kayttajat\\/[hybridauth:firstName].[hybridauth:lastName]"
           }
-        },
-        { "redirect" : { "url" : [ "hybridauth-user:edit-url" ], "destination" : 1 } }
+        }
       ]
     }
   }');
