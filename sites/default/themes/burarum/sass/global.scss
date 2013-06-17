@@ -2145,6 +2145,44 @@ ul.tabs.primary li.active a {
   text-decoration:none;
 }
 
+/* USER EVENT LISTING */
+
+.view-users-events {
+  
+  .views-row {
+  
+    &.grid-8 {
+      width:570px;
+    }
+    
+    .views-field-field-tapahtuman-aika {
+      font-style:italic;
+      color:#666;
+    }
+    
+    .views-field-title {
+      font-size:1.4em;
+      font-weight:300;
+      margin:5px 0 10px 0;
+      
+      a {
+        text-decoration:none;
+      }
+    }
+    
+    .views-field-field-nettiosoite {
+      margin:10px 0;
+      
+      div.field-content {
+        display:inline-block;
+      }
+      
+    }
+  
+  }
+  
+}
+
 /* USERS COURSES TOOLTIP */
 
 #page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-image {
