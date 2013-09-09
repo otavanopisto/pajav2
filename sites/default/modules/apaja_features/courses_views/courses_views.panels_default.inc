@@ -353,7 +353,7 @@ function courses_views_default_panels_mini() {
     $display->content['new-10'] = $pane;
     $display->panels['right'][3] = 'new-10';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-1';
+  $display->title_pane = '0';
   $mini->display = $display;
   $export['kurssi_minipanel'] = $mini;
 
