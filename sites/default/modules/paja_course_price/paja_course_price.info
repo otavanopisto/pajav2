@@ -1,0 +1,5 @@
+; $Id$
+name = Paja course price
+description = Paja course price calculating field
+dependencies[] = field
+core = 7.x
