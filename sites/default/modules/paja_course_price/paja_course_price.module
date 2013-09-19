@@ -208,10 +208,8 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#max' => 2000,
         '#prefix' => '<div id="paja-course-price-number">',
         '#suffix' => '</div>',
-//         '#title' => t('Kurssimaksu'),
         '#default_value' => isset($items[$delta]['price']) ? $items[$delta]['price'] : '5',
       );
-      
       break;
   }
   return $element;
@@ -238,7 +236,19 @@ function paja_course_price_field_presave($entity_type, $entity, $field, $instanc
 function paja_course_price_field_formatter_info() {
   return array(
       'paja_course_price_default' => array(
-          'label' => t('Default'),
+          'label' => t('Price'),
+          'field types' => array('paja_course_price'),
+      ),
+      'paja_course_price_mini_panel' => array(
+          'label' => t('Price mini panel hack'),
+          'field types' => array('paja_course_price'),
+      ),
+      'paja_course_price_attendees_min' => array(
+          'label' => t('Min attendees'),
+          'field types' => array('paja_course_price'),
+      ),
+      'paja_course_price_attendees_max' => array(
+          'label' => t('Max attendees'),
           'field types' => array('paja_course_price'),
       ),
   );
@@ -253,146 +263,34 @@ function paja_course_price_field_formatter_view($entity_type, $entity, $field, $
     case 'paja_course_price_default' :
       foreach ($items as $delta => $item) {
         if (isset($item['price'])) {
-          $element[$delta]['#markup'] = $item['price'];
+          $element[$delta]['#markup'] = $item['price'] . "€";
         }
       }
       break;
+      case 'paja_course_price_attendees_min' :
+        foreach ($items as $delta => $item) {
+          if (isset($item['attendees_min'])) {
+            $element[$delta]['#markup'] = $item['attendees_min'];
+          }
+        }
+        break;
+        case 'paja_course_price_attendees_max' :
+          foreach ($items as $delta => $item) {
+            if (isset($item['attendees_max'])) {
+              $element[$delta]['#markup'] = $item['attendees_max'];
+            }
+          }
+          break;
+          case 'paja_course_price_mini_panel' :
+          foreach ($items as $delta => $item) {
+            if (isset($item['price'])) {
+              $element[$delta]['#markup'] = '<div class="field-label">Hinta:&nbsp;</div>' . $item['price'] . "€";
+            }
+          }
+          break;
   }
   return $element;
 }
 
-
-// function paja_course_price_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
-//   switch ($instance['widget']['type']) {
-//     case 'paja_course_price':
-//       $settings = $form_state['field'][$instance['field_name']][$langcode]['field']['settings'];
-
-//       $fields = array(
-//         'instructor_fee' => t('Instructor fee'),
-//         'distance_days' => t('Distance learning days'),
-//         'local_days' => t('Local learning days'),
-//         'attendees_min' => t('Minimum attendees for course to happen'),
-//         'attendees_max' => t('Maximum number of attendees'),
-//         'miscellanous_costs' => t('Other miscellanous costs'),
-//         'price' => t('Course price'),
-//         );
-
-//       $abilities = (!empty($field['settings']['paja_course_price'])) ? explode("n", $field['settings']['abilities']) : array();
-
-//       foreach ($fields as $key => $label) {
-//         $value = isset($items[$delta][$key]) ? $items[$delta][$key] : '';
-//         if (empty($value) && $key == 'ability') {
-//           $value = $abilities[$delta];
-//         }
-
-//         $element[$key] = array(
-//             '#attributes' => array('class' => array('edit-dnd-fields-ability'), 'title' => t(''), 'rel' => strtolower($abilities[$delta])),
-//             '#type' => 'textfield',
-//             '#size' => 3,
-//             '#maxlength' => 3,
-//             '#title' => $label,
-//             '#default_value' => $value,
-//             '#attached' => array(
-//                 'css' => array(drupal_get_path('module', 'dnd_fields') . '/dnd_fields.css'),
-//                 'js' => array(drupal_get_path('module', 'dnd_fields') . '/dnd_fields.js'),
-//             ),
-//             '#prefix' => '<div class="dnd-fields-ability-field dnd-fields-ability-' . $key . '-field dnd-fields-ability-' . $key . '-' . strtolower($abilities[$delta]) . '-field">',
-//             '#suffix' => '</div>',
-//         );
-//         if ($key == 'ability') {
-//           $element[$key]['#size'] = 10;
-//           $element[$key]['#maxlength'] = 32;
-//           if (arg(0) != 'admin') {
-//             $element[$key]['#attributes'] = array('readonly' => 'readonly');
-//           }
-//         }
-//       }
-//       break;
-//     case 'dnd_fields_skill':
-//       $settings = $form_state['field'][$instance['field_name']][$langcode]['field']['settings'];
-
-//       // Get the list of skills broken into an array, and split those elements into a
-//       // multi-dimensional arrays
-//       $skills_temp = (!empty($settings['skill'])) ? preg_split('/(rn?|n)/', $settings['skill']) : array();
-//       $skills = array(0 => t('-Choose a skill-'));
-//       foreach ($skills_temp as $skill) {
-//         if(strpos($skill, '|') === FALSE) {
-//           $skills[] = array($skill);
-//         }
-//         else {
-//           $temp = explode('|', $skill);
-//           $skills[$temp[0]] = $temp[1];
-//         }
-//       }
-
-//       $element['skill'] = array(
-//           '#attributes' => array('class' => array('edit-dnd-fields-skill'), 'title' => t('')),
-//           '#type' => 'select',
-//           '#options' => $skills,
-//           '#title' => t('Skill name'),
-//           '#description' => t('Choose a skill you wish to allocate ranks to.'),
-//           '#attached' => array(
-//               'css' => array(drupal_get_path('module', 'dnd_fields') . '/dnd_fields.css'),
-//               'js' => array(drupal_get_path('module', 'dnd_fields') . '/dnd_fields.js'),
-//           ),
-//           '#prefix' => '<div class="dnd-fields-skill-field dnd-fields-skill-skill-field">',
-//           '#suffix' => '</div>',
-//       );
-//       $element['ranks'] = array(
-//           '#attributes' => array('class' => array('edit-dnd-fields-ranks'), 'title' => t('')),
-//           '#type' => 'textfield',
-//           '#size' => 3,
-//           '#maxlength' => 3,
-//           '#title' => t('Skill ranks'),
-//           '#prefix' => '<div class="dnd-fields-skill-field dnd-fields-skill-ranks-field">',
-//           '#suffix' => '</div>',
-//       );
-//       // Loop through all the element children and set a default value if we have one. Then set HTML wrappers.
-//       foreach (element_children($element) as $element_key) {
-//         $value = isset($items[$delta][$element_key]) ? $items[$delta][$element_key] : '';
-//         $element[$element_key]['#default_value'] = $value;
-//       }
-//       break;
-
-//   }
-//   return $element;
-// }
-
-// function paja_course_price_field_formatter_info() {
-//   return array(
-//       'paja_course_price' => array(
-//           'label' => t('Paja course price system'),
-//           'field types' => array('paja_course_price'),
-//       ),
-//   );
-// }
-
-// function paja_course_price_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
-//   $element = array();
-
-//   switch ($display['type']) {
-//     case 'paja_course_price':
-//       $headers = array(
-//       t('instructor_fee'),
-//       t('distance_days'),
-//       t('local_days'),
-//       t('attendees_min'),
-//       t('attendees_max'),
-//       t('Miscellanous costs'),
-//       t('price'),
-//       );
-
-//       $element[0]['#theme'] = 'table';
-//       $element[0]['#data'] = array('header' => $headers, 'rows' => $items);
-//       break;
-// //       foreach ($items as $delta => $item) {
-// //         $element[$delta] = array(
-// //             '#theme' => 'some_theme_function',
-// //             '#data' => $item['value'],
-// //         );
-// //       }
-//   }
-//   return $element;
-// }
 
 

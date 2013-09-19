@@ -39,17 +39,16 @@
     profit = totalIncome - costs;
     
     if (profit > 0) {
-      $("#paja-course-result").html("Kurssi on kannattava");
+      $("#paja-course-result").html("Kurssi on kannattava</br>");
 
       instructorFeeGross = round100(instructorFees / 1.3);
       instructorFeeFirm = round100(instructorFees / 1.24);
-      instructorFeeALV = round100(instructorFees - vetajaPalkkioFirma);
+      instructorFeeALV = round100(instructorFees - instructorFeeFirm);
       
-      document.getElementById("criticalPoint").innerHTML = 
-          "Opintoviikkojen määrä on yhteensä " + totalCredits + ". " +
+      $("#paja-course-result").append("Opintoviikkojen määrä on yhteensä " + totalCredits + ". " +
           "Vetäjien palkkiot yhteensä: " + instructorFees + " euroa, " + 
           "josta bruttopalkka: " + instructorFeeGross + " euroa tai " +
-          "vastaavasti yrityksen kautta " + instructorFeeFirm + " ja ALV(24%) " + instructorFeeALV + " euroa.";
+          "vastaavasti yrityksen kautta " + instructorFeeFirm + " ja ALV(24%) " + instructorFeeALV + " euroa.");
     } 
     else {
       $("#paja-course-result").html("Tulot eivät riitä.</br>");
@@ -65,8 +64,11 @@
     }
   }
   
-  Drupal.behaviors.changePajaCoursePriceFieldValueChangeBehaviour = {
+  Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
   attach : function(context, settings) {
+    $('#paja-course-result').once(function () {
+      calculateCriticalPoint();
+    });
     $("#paja-course-instructor-fee input[type='range']").change(function(event){
       $("#paja-course-instructor-fee-number input[type='number']").val($("#paja-course-instructor-fee input[type='range']").val());
       calculateCriticalPoint();
@@ -97,6 +99,7 @@
     });
     $("#paja-course-attendees-min-number input[type='number']").change(function(event){
       $("#paja-course-attendees-min input[type='range']").val($("#paja-course-attendees-min-number input[type='number']").val());
+      calculateCriticalPoint();
     });
     $("#paja-course-attendees-max input[type='range']").change(function(event){
       $("#paja-course-attendees-max-number input[type='number']").val($("#paja-course-attendees-max input[type='range']").val());
