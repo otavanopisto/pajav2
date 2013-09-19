@@ -22,6 +22,8 @@ function event_attending_delta_default_templates() {
   $delta->settings = array(
     'theme_burarum_settings' => array(
       'toggle_logo' => 0,
+      'toggle_name' => 0,
+      'toggle_slogan' => 0,
       'toggle_comment_user_verification' => 0,
       'toggle_favicon' => 0,
       'toggle_main_menu' => 0,
@@ -35,6 +37,7 @@ function event_attending_delta_default_templates() {
         'omega-forms.css' => 'omega-forms.css',
         'omega-visuals.css' => 'omega-visuals.css',
         'global.css' => 'global.css',
+        'print.css' => 0,
       ),
       'alpha_toggle_messages' => 0,
       'alpha_toggle_tabs' => 0,
@@ -42,7 +45,6 @@ function event_attending_delta_default_templates() {
       'alpha_toggle_feed_icons' => 0,
       'alpha_zone_header_wrapper' => 0,
       'alpha_zone_header_force' => 0,
-      'alpha_zone_header_primary' => NULL,
       'alpha_region_header_second_force' => 0,
       'alpha_zone_branding_wrapper' => 0,
       'alpha_zone_branding_force' => 0,
