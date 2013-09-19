@@ -22,8 +22,8 @@
  */
 ?>
 <?php
-  $members = filter_xss($row->views_php_14);
-  $min_members = filter_xss($row->field_field_hintalaskuri[0]['raw']['attendees_min']);
+  $members = filter_xss($row->views_php_12);
+  $min_members = filter_xss($row->field_field_hintalaskuri[0]['rendered']['#markup']);
   $attendance = round(min(array(($members/$min_members) * 100, 100)),0);
   $output = '<div class="attendancies-indicator-wrapper"><div style="width:'.$attendance.'%;" class="attendancies-indicator"><div class="attendancies-percent">'.$attendance.'%</div></div></div>';
   print $output;
