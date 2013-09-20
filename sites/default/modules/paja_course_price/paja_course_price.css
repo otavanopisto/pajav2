@@ -7,6 +7,18 @@
 	margin-right: 25%;
 }
 
+#paja-course-result p.course-ok{
+	width: 128px;
+	height:128px;
+	background: url(images/ok.png);	
+}
+
+#paja-course-result p.course-not-ok{
+	width: 128px;
+	height:128px;
+	background: url(images/not_ok.png);	
+}
+
  .paja-course-price-range-field{
  	float: left;
  }

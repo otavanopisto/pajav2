@@ -39,7 +39,7 @@
     profit = totalIncome - costs;
     
     if (profit > 0) {
-      $("#paja-course-result").html("Kurssi on kannattava</br>");
+      $("#paja-course-result").html("<p class=\"course-ok\"></p>Kurssi on kannattava</br>");
 
       instructorFeeGross = round100(instructorFees / 1.3);
       instructorFeeFirm = round100(instructorFees / 1.24);
@@ -51,7 +51,7 @@
           "vastaavasti yrityksen kautta " + instructorFeeFirm + " ja ALV(24%) " + instructorFeeALV + " euroa.");
     } 
     else {
-      $("#paja-course-result").html("Tulot eivät riitä.</br>");
+      $("#paja-course-result").html("<p class=\"course-not-ok\"></p>Tulot eivät riitä.</br>");
 
       if (incomePerAttendee > (managementCostsPerAttendee + instructorFees / attendees)) {
         $("#paja-course-result").append("Kurssi muuttuu " +
