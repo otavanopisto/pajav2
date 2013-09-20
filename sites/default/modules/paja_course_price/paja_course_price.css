@@ -1,1 +1,18 @@
 @CHARSET "UTF-8";
+#paja-course-result{
+	font-weight: bold;
+	padding: 5px;
+	width: 30%;
+	float: right;
+	margin-right: 25%;
+}
+
+ .paja-course-price-range-field{
+ 	float: left;
+ }
+ 
+ .paja-course-price-number-field{
+ 	height: 65px;
+ 	margin-left: 27%;
+	padding-top: 15px;
+ }
