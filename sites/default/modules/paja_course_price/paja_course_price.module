@@ -34,6 +34,18 @@ function paja_course_price_field_settings_form($field, $instance, $has_data) {
 function paja_course_price_field_is_empty($item, $field) {
   if (empty($item['paja_course_price']['instructor_fee'])) {
     return TRUE;
+  }elseif (empty($item['paja_course_price']['distance_days'])) {
+    return TRUE;
+  }elseif (empty($item['paja_course_price']['local_days'])) {
+    return TRUE;
+  }elseif (empty($item['paja_course_price']['attendees_min'])) {
+    return TRUE;
+  }elseif (empty($item['paja_course_price']['attendees_max'])) {
+    return TRUE;
+  }elseif (empty($item['paja_course_price']['miscellanous_costs'])) {
+    return TRUE;
+  }elseif (empty($item['paja_course_price']['price'])) {
+    return TRUE;
   }
   return FALSE;
 }
