@@ -2,4 +2,5 @@
 name = Paja course price
 description = Paja course price calculating field
 dependencies[] = field
+dependencies[] = elements
 core = 7.x
