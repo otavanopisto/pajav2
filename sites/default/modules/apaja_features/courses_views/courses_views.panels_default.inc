@@ -180,22 +180,19 @@ function courses_views_default_panels_mini() {
     $pane->pid = 'new-5';
     $pane->panel = 'left';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_hinta';
+    $pane->subtype = 'node:field_hintalaskuri';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'above',
-      'formatter' => 'number_integer',
+      'label' => 'hidden',
+      'formatter' => 'paja_course_price_mini_panel',
       'delta_limit' => 0,
       'delta_offset' => '0',
       'delta_reversed' => FALSE,
-      'formatter_settings' => array(
-        'thousand_separator' => ' ',
-        'prefix_suffix' => 1,
-      ),
+      'formatter_settings' => array(),
       'context' => 'requiredcontext_entity:node_1',
-      'override_title' => 0,
-      'override_title_text' => 'Hinta',
+      'override_title' => 1,
+      'override_title_text' => '',
     );
     $pane->cache = array();
     $pane->style = array(

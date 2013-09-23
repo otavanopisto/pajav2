@@ -999,50 +999,34 @@ if($memberCount != 0){
   $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_kurssi_alkaa] - [field_kurssi_loppuu]';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  /* Field: Content: Minimi osallistujamäärä */
-  $handler->display->display_options['fields']['field_minimi_osallistujat']['id'] = 'field_minimi_osallistujat';
-  $handler->display->display_options['fields']['field_minimi_osallistujat']['table'] = 'field_data_field_minimi_osallistujat';
-  $handler->display->display_options['fields']['field_minimi_osallistujat']['field'] = 'field_minimi_osallistujat';
-  $handler->display->display_options['fields']['field_minimi_osallistujat']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_minimi_osallistujat']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_minimi_osallistujat']['settings'] = array(
-    'thousand_separator' => ' ',
-    'prefix_suffix' => 1,
-  );
-  /* Field: Content: Maksimi osallistujamäärä */
-  $handler->display->display_options['fields']['field_maksimi_osallistujat']['id'] = 'field_maksimi_osallistujat';
-  $handler->display->display_options['fields']['field_maksimi_osallistujat']['table'] = 'field_data_field_maksimi_osallistujat';
-  $handler->display->display_options['fields']['field_maksimi_osallistujat']['field'] = 'field_maksimi_osallistujat';
-  $handler->display->display_options['fields']['field_maksimi_osallistujat']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_maksimi_osallistujat']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_maksimi_osallistujat']['settings'] = array(
-    'thousand_separator' => ' ',
-    'prefix_suffix' => 1,
-  );
-  /* Field: Content: Hinnan tyyppi */
-  $handler->display->display_options['fields']['field_hinnan_tyyppi']['id'] = 'field_hinnan_tyyppi';
-  $handler->display->display_options['fields']['field_hinnan_tyyppi']['table'] = 'field_data_field_hinnan_tyyppi';
-  $handler->display->display_options['fields']['field_hinnan_tyyppi']['field'] = 'field_hinnan_tyyppi';
-  $handler->display->display_options['fields']['field_hinnan_tyyppi']['label'] = '';
-  $handler->display->display_options['fields']['field_hinnan_tyyppi']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_hinnan_tyyppi']['element_label_colon'] = FALSE;
-  /* Field: Content: Hinta */
-  $handler->display->display_options['fields']['field_hinta']['id'] = 'field_hinta';
-  $handler->display->display_options['fields']['field_hinta']['table'] = 'field_data_field_hinta';
-  $handler->display->display_options['fields']['field_hinta']['field'] = 'field_hinta';
-  $handler->display->display_options['fields']['field_hinta']['label'] = '';
-  $handler->display->display_options['fields']['field_hinta']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_hinta']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_hinta']['settings'] = array(
-    'thousand_separator' => ' ',
-    'prefix_suffix' => 1,
-  );
-  /* Field: Global: PHP */
+  /* Field: Attendees_min */
+  $handler->display->display_options['fields']['field_hintalaskuri']['id'] = 'field_hintalaskuri';
+  $handler->display->display_options['fields']['field_hintalaskuri']['table'] = 'field_data_field_hintalaskuri';
+  $handler->display->display_options['fields']['field_hintalaskuri']['field'] = 'field_hintalaskuri';
+  $handler->display->display_options['fields']['field_hintalaskuri']['ui_name'] = 'Attendees_min';
+  $handler->display->display_options['fields']['field_hintalaskuri']['label'] = '';
+  $handler->display->display_options['fields']['field_hintalaskuri']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_hintalaskuri']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_hintalaskuri']['click_sort_column'] = 'attendees_min';
+  $handler->display->display_options['fields']['field_hintalaskuri']['type'] = 'paja_course_price_attendees_min';
+  /* Field: Attendees_max */
+  $handler->display->display_options['fields']['field_hintalaskuri_1']['id'] = 'field_hintalaskuri_1';
+  $handler->display->display_options['fields']['field_hintalaskuri_1']['table'] = 'field_data_field_hintalaskuri';
+  $handler->display->display_options['fields']['field_hintalaskuri_1']['field'] = 'field_hintalaskuri';
+  $handler->display->display_options['fields']['field_hintalaskuri_1']['ui_name'] = 'Attendees_max';
+  $handler->display->display_options['fields']['field_hintalaskuri_1']['label'] = '';
+  $handler->display->display_options['fields']['field_hintalaskuri_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_hintalaskuri_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_hintalaskuri_1']['click_sort_column'] = 'attendees_max';
+  $handler->display->display_options['fields']['field_hintalaskuri_1']['type'] = 'paja_course_price_attendees_max';
+  /* Field: Member count */
   $handler->display->display_options['fields']['php_1']['id'] = 'php_1';
   $handler->display->display_options['fields']['php_1']['table'] = 'views';
   $handler->display->display_options['fields']['php_1']['field'] = 'php';
-  $handler->display->display_options['fields']['php_1']['label'] = 'Member count';
+  $handler->display->display_options['fields']['php_1']['ui_name'] = 'Member count';
+  $handler->display->display_options['fields']['php_1']['label'] = '';
   $handler->display->display_options['fields']['php_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['php_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php_1']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php_1']['php_value'] = '$query1 = db_select(\'users\', \'u\');
 $query1
@@ -1072,7 +1056,7 @@ return max(array($value,0));';
   $handler->display->display_options['fields']['nothing_3']['table'] = 'views';
   $handler->display->display_options['fields']['nothing_3']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing_3']['label'] = '';
-  $handler->display->display_options['fields']['nothing_3']['alter']['text'] = '<span class="views-label">Ilmoittautuneita [php_1] / [field_minimi_osallistujat] (enintään [field_maksimi_osallistujat])</span>';
+  $handler->display->display_options['fields']['nothing_3']['alter']['text'] = '<span class="views-label">Ilmoittautuneita [php_1] / [field_hintalaskuri] (enintään [field_hintalaskuri_1])</span>';
   $handler->display->display_options['fields']['nothing_3']['element_label_colon'] = FALSE;
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
@@ -1236,44 +1220,26 @@ if($memberCount != 0){
   $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_kurssi_alkaa] - [field_kurssi_loppuu]';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  /* Field: Content: Minimi osallistujamäärä */
-  $handler->display->display_options['fields']['field_minimi_osallistujat']['id'] = 'field_minimi_osallistujat';
-  $handler->display->display_options['fields']['field_minimi_osallistujat']['table'] = 'field_data_field_minimi_osallistujat';
-  $handler->display->display_options['fields']['field_minimi_osallistujat']['field'] = 'field_minimi_osallistujat';
-  $handler->display->display_options['fields']['field_minimi_osallistujat']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_minimi_osallistujat']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_minimi_osallistujat']['settings'] = array(
-    'thousand_separator' => ' ',
-    'prefix_suffix' => 1,
-  );
-  /* Field: Content: Maksimi osallistujamäärä */
-  $handler->display->display_options['fields']['field_maksimi_osallistujat']['id'] = 'field_maksimi_osallistujat';
-  $handler->display->display_options['fields']['field_maksimi_osallistujat']['table'] = 'field_data_field_maksimi_osallistujat';
-  $handler->display->display_options['fields']['field_maksimi_osallistujat']['field'] = 'field_maksimi_osallistujat';
-  $handler->display->display_options['fields']['field_maksimi_osallistujat']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_maksimi_osallistujat']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_maksimi_osallistujat']['settings'] = array(
-    'thousand_separator' => ' ',
-    'prefix_suffix' => 1,
-  );
-  /* Field: Content: Hinnan tyyppi */
-  $handler->display->display_options['fields']['field_hinnan_tyyppi']['id'] = 'field_hinnan_tyyppi';
-  $handler->display->display_options['fields']['field_hinnan_tyyppi']['table'] = 'field_data_field_hinnan_tyyppi';
-  $handler->display->display_options['fields']['field_hinnan_tyyppi']['field'] = 'field_hinnan_tyyppi';
-  $handler->display->display_options['fields']['field_hinnan_tyyppi']['label'] = '';
-  $handler->display->display_options['fields']['field_hinnan_tyyppi']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_hinnan_tyyppi']['element_label_colon'] = FALSE;
-  /* Field: Content: Hinta */
-  $handler->display->display_options['fields']['field_hinta']['id'] = 'field_hinta';
-  $handler->display->display_options['fields']['field_hinta']['table'] = 'field_data_field_hinta';
-  $handler->display->display_options['fields']['field_hinta']['field'] = 'field_hinta';
-  $handler->display->display_options['fields']['field_hinta']['label'] = '';
-  $handler->display->display_options['fields']['field_hinta']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_hinta']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_hinta']['settings'] = array(
-    'thousand_separator' => ' ',
-    'prefix_suffix' => 1,
-  );
+  /* Field: Attendees_min */
+  $handler->display->display_options['fields']['field_hintalaskuri']['id'] = 'field_hintalaskuri';
+  $handler->display->display_options['fields']['field_hintalaskuri']['table'] = 'field_data_field_hintalaskuri';
+  $handler->display->display_options['fields']['field_hintalaskuri']['field'] = 'field_hintalaskuri';
+  $handler->display->display_options['fields']['field_hintalaskuri']['ui_name'] = 'Attendees_min';
+  $handler->display->display_options['fields']['field_hintalaskuri']['label'] = '';
+  $handler->display->display_options['fields']['field_hintalaskuri']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_hintalaskuri']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_hintalaskuri']['click_sort_column'] = 'attendees_min';
+  $handler->display->display_options['fields']['field_hintalaskuri']['type'] = 'paja_course_price_attendees_min';
+  /* Field: Attendees_max */
+  $handler->display->display_options['fields']['field_hintalaskuri_1']['id'] = 'field_hintalaskuri_1';
+  $handler->display->display_options['fields']['field_hintalaskuri_1']['table'] = 'field_data_field_hintalaskuri';
+  $handler->display->display_options['fields']['field_hintalaskuri_1']['field'] = 'field_hintalaskuri';
+  $handler->display->display_options['fields']['field_hintalaskuri_1']['ui_name'] = 'Attendees_max';
+  $handler->display->display_options['fields']['field_hintalaskuri_1']['label'] = '';
+  $handler->display->display_options['fields']['field_hintalaskuri_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_hintalaskuri_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_hintalaskuri_1']['click_sort_column'] = 'attendees_max';
+  $handler->display->display_options['fields']['field_hintalaskuri_1']['type'] = 'paja_course_price_attendees_max';
   /* Field: Global: PHP */
   $handler->display->display_options['fields']['php_1']['id'] = 'php_1';
   $handler->display->display_options['fields']['php_1']['table'] = 'views';
@@ -1309,7 +1275,7 @@ return max(array($value,0));';
   $handler->display->display_options['fields']['nothing_2']['table'] = 'views';
   $handler->display->display_options['fields']['nothing_2']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing_2']['label'] = '';
-  $handler->display->display_options['fields']['nothing_2']['alter']['text'] = '<span class="views-label">Ilmoittautuneita [php_1] / [field_minimi_osallistujat] (enintään [field_maksimi_osallistujat])</span>';
+  $handler->display->display_options['fields']['nothing_2']['alter']['text'] = '<span class="views-label">Ilmoittautuneita [php_1] / [field_hintalaskuri] (enintään [field_hintalaskuri_1])</span>';
   $handler->display->display_options['fields']['nothing_2']['element_label_colon'] = FALSE;
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
@@ -1382,10 +1348,11 @@ if($memberCount != 0){
     t('Block'),
     t('<a href="/kurssit/kurssitarjonta">Kurssitarjonta</a>'),
     t('more'),
-    t('Member count'),
-    t('<span class="views-label">Ilmoittautuneita [php_1] / [field_minimi_osallistujat] (enintään [field_maksimi_osallistujat])</span>'),
+    t('<span class="views-label">Ilmoittautuneita [php_1] / [field_hintalaskuri] (enintään [field_hintalaskuri_1])</span>'),
     t('Hinta / osallistuja'),
     t('Page'),
+    t('Member count'),
+    t('<span class="views-label">Ilmoittautuneita [php_1] / [field_minimi_osallistujat] (enintään [field_maksimi_osallistujat])</span>'),
   );
   $export['courses_not'] = $view;
 

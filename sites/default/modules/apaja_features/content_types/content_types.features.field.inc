@@ -229,7 +229,7 @@ function content_types_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '8',
+        'weight' => '10',
       ),
     ),
   );
@@ -302,7 +302,7 @@ function content_types_field_default_fields() {
         'module' => 'fivestar',
         'settings' => array(),
         'type' => 'exposed',
-        'weight' => '2',
+        'weight' => '7',
       ),
     ),
   );
@@ -315,6 +315,9 @@ function content_types_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_hinnan_tyyppi',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(
@@ -361,7 +364,7 @@ function content_types_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_hinnan_tyyppi',
       'label' => 'Hinnan tyyppi',
-      'required' => 1,
+      'required' => 0,
       'settings' => array(
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
@@ -371,7 +374,7 @@ function content_types_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '10',
+        'weight' => '7',
       ),
     ),
   );
@@ -384,6 +387,9 @@ function content_types_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_hinta',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(),
       'indexes' => array(),
       'locked' => '0',
@@ -440,7 +446,92 @@ function content_types_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '11',
+        'weight' => '8',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-kurssi-field_hintalaskuri'.
+  $fields['node-kurssi-field_hintalaskuri'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_hintalaskuri',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => '0',
+      'module' => 'paja_course_price',
+      'settings' => array(
+        'allowed_values' => array(),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'paja_course_price',
+    ),
+    'field_instance' => array(
+      'bundle' => 'kurssi',
+      'default_value' => array(
+        0 => array(
+          'paja_course_price' => array(
+            'attendees_max' => '5',
+            'attendees_max_number_field' => '5',
+            'attendees_min' => '5',
+            'attendees_min_number_field' => '5',
+            'distance_days' => '5',
+            'distance_days_number_field' => '5',
+            'instructor_fee' => '5',
+            'instructor_fee_number_field' => '5',
+            'local_days' => '5',
+            'local_days_number_field' => '5',
+            'miscellanous_costs' => '5',
+            'miscellanous_costs_number_field' => '5',
+            'price' => '5',
+            'price_number_field' => '5',
+          ),
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'paja_course_price',
+          'settings' => array(),
+          'type' => 'paja_course_price_default',
+          'weight' => 21,
+        ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_hintalaskuri',
+      'label' => 'Hintalaskuri',
+      'required' => 1,
+      'settings' => array(
+        'user_field_privacy' => FALSE,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'paja_course_price',
+        'settings' => array(),
+        'type' => 'paja_course_price_field',
+        'weight' => '6',
       ),
     ),
   );
@@ -535,7 +626,7 @@ function content_types_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_popup',
-        'weight' => '15',
+        'weight' => '2',
       ),
     ),
   );
@@ -630,7 +721,7 @@ function content_types_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_popup',
-        'weight' => '16',
+        'weight' => '3',
       ),
     ),
   );
@@ -723,7 +814,7 @@ function content_types_field_default_fields() {
           'resolution' => '400x267',
         ),
         'type' => 'imagefield_crop_widget',
-        'weight' => '6',
+        'weight' => '12',
       ),
     ),
   );
@@ -793,7 +884,7 @@ function content_types_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '1',
+        'weight' => '5',
       ),
     ),
   );
@@ -881,7 +972,7 @@ function content_types_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '14',
+        'weight' => '6',
       ),
     ),
   );
@@ -894,6 +985,9 @@ function content_types_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_maksimi_osallistujat',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(),
       'indexes' => array(),
       'locked' => '0',
@@ -950,7 +1044,7 @@ function content_types_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '13',
+        'weight' => '14',
       ),
     ),
   );
@@ -963,6 +1057,9 @@ function content_types_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_minimi_osallistujat',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(),
       'indexes' => array(),
       'locked' => '0',
@@ -1005,7 +1102,7 @@ function content_types_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_minimi_osallistujat',
       'label' => 'Minimi osallistujamäärä',
-      'required' => 1,
+      'required' => 0,
       'settings' => array(
         'max' => '',
         'min' => '',
@@ -1019,7 +1116,7 @@ function content_types_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '12',
+        'weight' => '13',
       ),
     ),
   );
@@ -1096,7 +1193,7 @@ function content_types_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '7',
+        'weight' => '9',
       ),
     ),
   );
@@ -1178,7 +1275,7 @@ function content_types_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '9',
+        'weight' => '11',
       ),
     ),
   );
@@ -1256,7 +1353,7 @@ function content_types_field_default_fields() {
           'display_label' => 1,
         ),
         'type' => 'options_onoff',
-        'weight' => 0,
+        'weight' => '4',
       ),
     ),
   );
@@ -1340,7 +1437,7 @@ function content_types_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '99',
+        'weight' => '4',
       ),
       'widget_type' => 'options_select',
     ),
@@ -1433,7 +1530,7 @@ function content_types_field_default_fields() {
           'og_hide' => 1,
         ),
         'type' => 'options_onoff',
-        'weight' => '12',
+        'weight' => '7',
       ),
     ),
   );
@@ -2155,6 +2252,7 @@ function content_types_field_default_fields() {
   t('Groups audience');
   t('Hinnan tyyppi');
   t('Hinta');
+  t('Hintalaskuri');
   t('Kurssi alkaa');
   t('Kurssi loppuu');
   t('Kurssin kuva');
