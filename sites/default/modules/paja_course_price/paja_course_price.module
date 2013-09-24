@@ -1,4 +1,13 @@
 <?php
+function paja_course_price_permission() {
+  return array(
+      'Paja course price extra values' => array(
+          'title' => t('Permission to set extra values in course calculator.'),
+          'description' => t('Permission to set extra values in course calculator like profit margin.'),
+      ),
+  );
+}
+
 function paja_course_price_field_info() {
   return array(
       'paja_course_price' => array(
@@ -73,16 +82,92 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
   switch ($instance['widget']['type']) {
     case 'paja_course_price_field' :
       $element['paja_course_price'] = array(
-      '#type' => 'fieldset',
-      '#title' => $element['#title'],
-      '#attached' => array(
-        'css' => array(drupal_get_path('module', 'paja_course_price') . '/paja_course_price.css'),
-        'js' => array(drupal_get_path('module', 'paja_course_price') . '/paja_course_price.js'),
-      ),
-      '#prefix' => '<div id="paja-course-wrapper">',
-      '#suffix' => '</div>',
-      '#tree' => TRUE,
+        '#type' => 'fieldset',
+        '#title' => $element['#title'],
+        '#attached' => array(
+            'css' => array(drupal_get_path('module', 'paja_course_price') . '/paja_course_price.css'),
+            'js' => array(drupal_get_path('module', 'paja_course_price') . '/paja_course_price.js'),
+        ),
+        '#prefix' => '<div id="paja-course-wrapper">',
+        '#suffix' => '</div>',
+        '#tree' => TRUE,
       );
+      $profit_margin = isset($items[$delta]['profit_margin']) ? $items[$delta]['profit_margin'] : 500;
+      $premises_costs_per_day = isset($items[$delta]['premises_costs_per_day']) ? $items[$delta]['premises_costs_per_day'] : 250;
+      $management_costs_per_attendee = isset($items[$delta]['management_costs_per_attendee']) ? $items[$delta]['management_costs_per_attendee'] : 25;     
+      $vo_per_local_attendee = isset($items[$delta]['vo_per_local_attendee']) ? $items[$delta]['vo_per_local_attendee'] : 152;
+      if(user_access('Paja course price extra values')){
+        $element['paja_course_price']['extra_fields'] = array(
+          '#type' => 'fieldset',
+          '#title' => 'Kate ja hallinnolliset kulut',
+          '#prefix' => '<div id="paja-course-extra-field-wrapper">',
+          '#suffix' => '</div>',
+          '#collapsible' => TRUE,
+          '#collapsed' => TRUE,
+          '#tree' => TRUE,
+        );
+        $element['paja_course_price']['extra_fields']['profit_margin'] = array(
+            '#type' => 'rangefield',
+            '#min' => 0,
+            '#max' => 1000,
+            '#title' => t('Kate'),
+            '#prefix' => '<div id="paja-course-profit-margin" class="paja-course-price-range-field">',
+            '#suffix' => '</div>',
+            '#default_value' => $profit_margin,
+            '#required' => false,
+        );
+        $element['paja_course_price']['extra_fields']['profit_margin_number_field'] = array(
+            '#type' => 'numberfield',
+            '#min' => 0,
+            '#max' => 1000,
+            '#prefix' => '<div id="paja-course-profit-margin-number" class="paja-course-price-number-field">',
+            '#suffix' => '</div>',
+            '#default_value' => $profit_margin,
+        );
+        $element['paja_course_price']['extra_fields']['premises_costs_per_day'] = array(
+            '#type' => 'rangefield',
+            '#min' => 0,
+            '#max' => 1000,
+            '#title' => t('Tilojen kulut päivältä'),
+            '#prefix' => '<div id="paja-course-premises-costs-per-day" class="paja-course-price-range-field">',
+            '#suffix' => '</div>',
+            '#default_value' => $premises_costs_per_day,
+            '#required' => false,
+        );
+        $element['paja_course_price']['extra_fields']['premises_costs_per_day_number_field'] = array(
+            '#type' => 'numberfield',
+            '#min' => 0,
+            '#max' => 1000,
+            '#prefix' => '<div id="paja-course-premises-costs-per-day-number" class="paja-course-price-number-field">',
+            '#suffix' => '</div>',
+            '#default_value' => $premises_costs_per_day,
+        );
+        $element['paja_course_price']['extra_fields']['management_costs_per_attendee'] = array(
+            '#type' => 'rangefield',
+            '#min' => 0,
+            '#max' => 1000,
+            '#title' => t('Hallinnointi kulut henkilöa kohden'),
+            '#prefix' => '<div id="paja-course-management-costs-per-attendee" class="paja-course-price-range-field">',
+            '#suffix' => '</div>',
+            '#default_value' => $management_costs_per_attendee,
+            '#required' => false,
+        );
+        $element['paja_course_price']['extra_fields']['management_costs_per_attendee_number_field'] = array(
+            '#type' => 'numberfield',
+            '#min' => 0,
+            '#max' => 1000,
+            '#prefix' => '<div id="paja-course-management-costs-per-attendee-number" class="paja-course-price-number-field">',
+            '#suffix' => '</div>',
+            '#default_value' => $management_costs_per_attendee,
+        );
+      }
+
+      drupal_add_js(array('paja_course_price' => array('profitMargin' => $profit_margin)), 'setting');      
+      drupal_add_js(array('paja_course_price' => array('premisesCostsPerDay' => $premises_costs_per_day)), 'setting');
+      drupal_add_js(array('paja_course_price' => array('managementCostsPerAttendee' => $management_costs_per_attendee)), 'setting');
+      drupal_add_js(array('paja_course_price' => array('voPerLocalAttendee' => $vo_per_local_attendee)), 'setting');
+      
+
       $element['paja_course_price']['result'] = array(
           '#title' => t(''),
           '#prefix' => '<div id="paja-course-result">',
@@ -232,6 +317,9 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
  */
 function paja_course_price_field_presave($entity_type, $entity, $field, $instance, $langcode, &$items) {
   foreach ($items as $delta => $item) {
+    $items[$delta]['profit_margin'] = $item['paja_course_price']['extra_fields']['profit_margin'];
+    $items[$delta]['premises_costs_per_day'] = $item['paja_course_price']['extra_fields']['premises_costs_per_day'];
+    $items[$delta]['management_costs_per_attendee'] = $item['paja_course_price']['extra_fields']['management_costs_per_attendee'];
     $items[$delta]['instructor_fee'] = $item['paja_course_price']['instructor_fee'];
     $items[$delta]['distance_days'] = $item['paja_course_price']['distance_days'];
     $items[$delta]['local_days'] = $item['paja_course_price']['local_days'];

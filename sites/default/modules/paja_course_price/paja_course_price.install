@@ -1,9 +1,24 @@
 <?php
 function paja_course_price_field_schema($field) {
     $columns = array(
+      'profit_margin' => array(
+          'type' => 'int',
+          'length' => 'medium',
+          'not null' => FALSE,
+      ),
+      'premises_costs_per_day' => array(
+          'type' => 'int',
+          'length' => 'medium',
+          'not null' => FALSE,
+      ),
+      'management_costs_per_attendee' => array(
+          'type' => 'int',
+          'length' => 'medium',
+          'not null' => FALSE,
+      ),
       'instructor_fee' => array(
           'type' => 'int',
-          'length' => 'small',
+          'length' => 'medium',
           'not null' => TRUE,
       ),
       'distance_days' => array(
@@ -28,12 +43,12 @@ function paja_course_price_field_schema($field) {
       ),
       'miscellanous_costs' => array(
           'type' => 'int',
-          'length' => 'small',
+          'length' => 'medium',
           'not null' => TRUE,
       ),
       'price' => array(
           'type' => 'int',
-          'length' => 'small',
+          'length' => 'medium',
           'not null' => TRUE,
       ),
     );
@@ -41,3 +56,4 @@ function paja_course_price_field_schema($field) {
     'columns' => $columns,
   );
 }
+
