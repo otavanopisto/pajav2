@@ -11,6 +11,14 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
       return Math.round(value * 100) / 100;
     }
     
+    function roundUp(value) {
+      rounded = Math.round(value);
+      if (value - rounded < 0.5){
+        return rounded + 1;
+      }
+      return rounded;
+    }
+    
     function calculateCriticalPoint() {
       localDays = parseFloat($("#paja-course-local-days-number input[type='number']").val());
       distanceDays = parseFloat($("#paja-course-distance-days-number input[type='number']").val());
@@ -33,10 +41,9 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
       
       costsWithoutManagementCosts = costs;
   
-      criticalPoint = Math.ceil((miscellanousCosts + premisesCosts + profitMargin) / 
-              (coursePrice + credits * voPerLocalAttendee - managementCostsPerAttendee - instructorFee * credits));
+      criticalPoint = roundUp((miscellanousCosts + premisesCosts + profitMargin) / (coursePrice + credits * voPerLocalAttendee - managementCostsPerAttendee - instructorFee * credits));
   
-      costs += attendees * managementCostsPerAttendee;
+      costs = costs + attendees * managementCostsPerAttendee;
       
       profit = totalIncome - costs;
       
@@ -71,6 +78,7 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
       var managementCosts = attendees * managementCostsPerAttendee;
       var managementAndProfitMargin = managementCosts + profitMargin;
       var totalCosts = instructorFees + managementCosts + profitMargin + premisesCosts;
+      var tableProfit = round100(profit);
       var budgetHTML = "<table>" +
   		"<th>Budjetti</th>" +
   		"<tr>" +
@@ -107,7 +115,7 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
   		"</tr>" +
       "<tr>" +
       "<td>Tulos</td>" +
-      "<td>" + profit + " €</td>" +
+      "<td>" + tableProfit + " €</td>" +
   		"</tr>" +
       "</table>";
 
