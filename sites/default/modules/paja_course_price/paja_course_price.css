@@ -32,7 +32,7 @@
   font-size:0.8em;
 }
 
-#paja-course-wrapper fieldset fieldset.form-wrapper div.fieldset-wrapper {
+#paja-course-wrapper fieldset #paja-course-extra-field-wrapper fieldset.form-wrapper div.fieldset-wrapper {
   padding:0 10px 10px 10px;
   border-left:4px solid #0099ff;
   margin-top:5px;
@@ -40,16 +40,23 @@
   border-bottom:1px solid #eee;
 }
 
+#paja-course-extra-field-wrapper {
+  margin-top:10px;
+}
+
 #paja-course-calculon{
   float:left;
+  width:415px;
 }
 
 #paja-course-table{
-  float:right;
+  background:url('images/arrow.png') no-repeat left 150px;
+  margin-left:410px;
+  padding-left:70px;
 }
 
 table.paja-course-table {
-  
+
 }
 
 table.paja-course-table th {
@@ -145,6 +152,10 @@ td.budget-profit-value {
   margin-left:150px;
 }
 
+#paja-course-result p.course-result-desc {
+  max-width:670px;
+}
+
 #paja-course-result p.course-result-ok-title,
 #paja-course-result p.course-result-not-ok-title {
   font-size:1.4em;
@@ -164,7 +175,7 @@ td.budget-profit-value {
  }
  
 .paja-course-price-range-field div.form-item {
-  padding:5px  0 5px 0;
+  padding:0;
   margin:0;
  }
  
@@ -178,14 +189,14 @@ td.budget-profit-value {
  } 
  
  .paja-course-price-number-field {
- 	height: 50px;
- 	margin-left: 330px;
-	padding:5px 0;
+ 	height: 38px;
+ 	margin-left: 320px;
+	padding:15px 0 0 0;
  }
  
 .paja-course-price-number-field input.form-number {
-  padding:5px 15px;
-  font-size:1.3em;
+  padding:0px 5px;
+  font-size:1.2em;
   font-weight:300;
   max-width:50px;
   background:#fff;
@@ -197,9 +208,13 @@ td.budget-profit-value {
   -o-box-sizing:content-box;
   -webkit-box-sizing:content-box;
   -ms-box-sizing:content-box;
-  height:1.3em;
  }
  
 #paja-course-price-number input.form-number {
   box-shadow:0 0 8px rgba(0,153,255,0.4);
+}
+
+
+#paja-course-calculon .form-item {
+  margin:0;
 }
