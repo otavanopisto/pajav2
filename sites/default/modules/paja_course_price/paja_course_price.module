@@ -83,7 +83,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
     case 'paja_course_price_field' :
       $element['paja_course_price'] = array(
         '#type' => 'fieldset',
-        '#title' => $element['#title'],
+        '#title' => '',
         '#attached' => array(
             'css' => array(drupal_get_path('module', 'paja_course_price') . '/paja_course_price.css'),
             'js' => array(drupal_get_path('module', 'paja_course_price') . '/paja_course_price.js'),
