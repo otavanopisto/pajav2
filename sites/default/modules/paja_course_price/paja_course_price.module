@@ -167,24 +167,15 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
       drupal_add_js(array('paja_course_price' => array('managementCostsPerAttendee' => $management_costs_per_attendee)), 'setting');
       drupal_add_js(array('paja_course_price' => array('voPerLocalAttendee' => $vo_per_local_attendee)), 'setting');
       
-
-      $element['paja_course_price']['result'] = array(
-          '#title' => t(''),
-          '#prefix' => '<div id="paja-course-result">',
+      $element['paja_course_price']['standard_fields'] = array(
+          '#type' => 'fieldset',
+          '#title' => '',
+          '#prefix' => '<div id="paja-course-calculon">',
           '#suffix' => '</div>',
+          '#tree' => TRUE,
       );
       
-//       $element['paja_course_price']['standard_fields'] = array(
-//           '#type' => 'fieldset',
-//           '#title' => '',
-//           '#prefix' => '<div id="paja-course-calculon">',
-//           '#suffix' => '</div>',
-//           '#collapsible' => TRUE,
-//           '#collapsed' => TRUE,
-//           '#tree' => TRUE,
-//       );
-      
-      $element['paja_course_price']['instructor_fee'] = array(
+      $element['paja_course_price']['standard_fields']['instructor_fee'] = array(
         '#type' => 'rangefield',
         '#min' => 0,
         '#max' => 255,
@@ -194,7 +185,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#default_value' => isset($items[$delta]['instructor_fee']) ? $items[$delta]['instructor_fee'] : '5',
         '#required' => $element['#required'],
       );
-      $element['paja_course_price']['instructor_fee_number_field'] = array(
+      $element['paja_course_price']['standard_fields']['instructor_fee_number_field'] = array(
         '#type' => 'numberfield',
         '#min' => 0,
         '#max' => 255,
@@ -203,7 +194,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#default_value' => isset($items[$delta]['instructor_fee']) ? $items[$delta]['instructor_fee'] : '5',
       );
       
-      $element['paja_course_price']['distance_days'] = array(
+      $element['paja_course_price']['standard_fields']['distance_days'] = array(
         '#type' => 'rangefield',
         '#min' => 0,
         '#max' => 255,
@@ -213,7 +204,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#default_value' => isset($items[$delta]['distance_days']) ? $items[$delta]['distance_days'] : '5',
         '#required' => $element['#required'],
       );
-      $element['paja_course_price']['distance_days_number_field'] = array(
+      $element['paja_course_price']['standard_fields']['distance_days_number_field'] = array(
           '#type' => 'numberfield',
           '#min' => 0,
           '#max' => 255,
@@ -222,7 +213,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
           '#default_value' => isset($items[$delta]['distance_days']) ? $items[$delta]['distance_days'] : '5',
       );
       
-      $element['paja_course_price']['local_days'] = array(
+      $element['paja_course_price']['standard_fields']['local_days'] = array(
         '#type' => 'rangefield',
         '#min' => 0,
         '#max' => 255,
@@ -232,7 +223,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#default_value' => isset($items[$delta]['local_days']) ? $items[$delta]['local_days'] : '5',
         '#required' => $element['#required'],
       );
-      $element['paja_course_price']['local_days_number_field'] = array(
+      $element['paja_course_price']['standard_fields']['local_days_number_field'] = array(
         '#type' => 'numberfield',
         '#min' => 0,
         '#max' => 255,
@@ -241,7 +232,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#default_value' => isset($items[$delta]['local_days']) ? $items[$delta]['local_days'] : '5',
       );
       
-      $element['paja_course_price']['attendees_min'] = array(
+      $element['paja_course_price']['standard_fields']['attendees_min'] = array(
         '#type' => 'rangefield',
         '#min' => 0,
         '#max' => 255,
@@ -251,7 +242,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#default_value' => isset($items[$delta]['attendees_min']) ? $items[$delta]['attendees_min'] : '5',
         '#required' => $element['#required'],
       );
-      $element['paja_course_price']['attendees_min_number_field'] = array(
+      $element['paja_course_price']['standard_fields']['attendees_min_number_field'] = array(
           '#type' => 'numberfield',
           '#min' => 0,
           '#max' => 255,
@@ -260,7 +251,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
           '#default_value' => isset($items[$delta]['attendees_min']) ? $items[$delta]['attendees_min'] : '5',
       );
       
-      $element['paja_course_price']['attendees_max'] = array(
+      $element['paja_course_price']['standard_fields']['attendees_max'] = array(
         '#type' => 'rangefield',
         '#min' => 0,
         '#max' => 255,
@@ -270,7 +261,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#default_value' => isset($items[$delta]['attendees_max']) ? $items[$delta]['attendees_max'] : '5',
         '#required' => $element['#required'],
       );
-      $element['paja_course_price']['attendees_max_number_field'] = array(
+      $element['paja_course_price']['standard_fields']['attendees_max_number_field'] = array(
         '#type' => 'numberfield',
         '#min' => 0,
         '#max' => 255,
@@ -279,7 +270,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#default_value' => isset($items[$delta]['attendees_max']) ? $items[$delta]['attendees_max'] : '5',
       );      
       
-      $element['paja_course_price']['miscellanous_costs'] = array(
+      $element['paja_course_price']['standard_fields']['miscellanous_costs'] = array(
         '#type' => 'rangefield',
         '#min' => 0,
         '#max' => 10000,
@@ -289,7 +280,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#default_value' => isset($items[$delta]['miscellanous_costs']) ? $items[$delta]['miscellanous_costs'] : '5',
         '#required' => $element['#required'],
       );
-      $element['paja_course_price']['miscellanous_costs_number_field'] = array(
+      $element['paja_course_price']['standard_fields']['miscellanous_costs_number_field'] = array(
         '#type' => 'numberfield',
         '#min' => 0,
         '#max' => 10000,
@@ -298,7 +289,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#default_value' => isset($items[$delta]['miscellanous_costs']) ? $items[$delta]['miscellanous_costs'] : '5',
       );
       
-      $element['paja_course_price']['price'] = array(
+      $element['paja_course_price']['standard_fields']['price'] = array(
         '#type' => 'rangefield',
         '#min' => 0,
         '#max' => 2000,
@@ -309,7 +300,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#required' => $element['#required'],
       );
       
-      $element['paja_course_price']['price_number_field'] = array(
+      $element['paja_course_price']['standard_fields']['price_number_field'] = array(
         '#type' => 'numberfield',
         '#min' => 0,
         '#max' => 2000,
@@ -317,6 +308,13 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#suffix' => '</div>',
         '#default_value' => isset($items[$delta]['price']) ? $items[$delta]['price'] : '5',
       );
+      
+      $element['paja_course_price']['result'] = array(
+        '#title' => t(''),
+        '#prefix' => '<div id="paja-course-result">',
+        '#suffix' => '</div>',
+      );
+      
       break;
   }
   return $element;
@@ -330,13 +328,13 @@ function paja_course_price_field_presave($entity_type, $entity, $field, $instanc
     $items[$delta]['profit_margin'] = $item['paja_course_price']['extra_fields']['profit_margin'];
     $items[$delta]['premises_costs_per_day'] = $item['paja_course_price']['extra_fields']['premises_costs_per_day'];
     $items[$delta]['management_costs_per_attendee'] = $item['paja_course_price']['extra_fields']['management_costs_per_attendee'];
-    $items[$delta]['instructor_fee'] = $item['paja_course_price']['instructor_fee'];
-    $items[$delta]['distance_days'] = $item['paja_course_price']['distance_days'];
-    $items[$delta]['local_days'] = $item['paja_course_price']['local_days'];
-    $items[$delta]['attendees_min'] = $item['paja_course_price']['attendees_min'];
-    $items[$delta]['attendees_max'] = $item['paja_course_price']['attendees_max'];    
-    $items[$delta]['miscellanous_costs'] = $item['paja_course_price']['miscellanous_costs'];
-    $items[$delta]['price'] = $item['paja_course_price']['price'];
+    $items[$delta]['instructor_fee'] = $item['paja_course_price']['standard_fields']['instructor_fee'];
+    $items[$delta]['distance_days'] = $item['paja_course_price']['standard_fields']['distance_days'];
+    $items[$delta]['local_days'] = $item['paja_course_price']['standard_fields']['local_days'];
+    $items[$delta]['attendees_min'] = $item['paja_course_price']['standard_fields']['attendees_min'];
+    $items[$delta]['attendees_max'] = $item['paja_course_price']['standard_fields']['attendees_max'];    
+    $items[$delta]['miscellanous_costs'] = $item['paja_course_price']['standard_fields']['miscellanous_costs'];
+    $items[$delta]['price'] = $item['paja_course_price']['standard_fields']['price'];
   }
 }
 
