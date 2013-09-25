@@ -167,12 +167,12 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
       drupal_add_js(array('paja_course_price' => array('managementCostsPerAttendee' => $management_costs_per_attendee)), 'setting');
       drupal_add_js(array('paja_course_price' => array('voPerLocalAttendee' => $vo_per_local_attendee)), 'setting');
       
-
-      $element['paja_course_price']['result'] = array(
-          '#title' => t(''),
-          '#prefix' => '<div id="paja-course-result">',
-          '#suffix' => '</div>',
+      $element['paja_course_price']['table'] = array(
+      		'#title' => t(''),
+      		'#prefix' => '<div id="paja-course-table">',
+      		'#suffix' => '</div>',
       );
+      
       
       $element['paja_course_price']['instructor_fee'] = array(
         '#type' => 'rangefield',
@@ -306,6 +306,12 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#prefix' => '<div id="paja-course-price-number" class="paja-course-price-number-field">',
         '#suffix' => '</div>',
         '#default_value' => isset($items[$delta]['price']) ? $items[$delta]['price'] : '5',
+      );
+      
+      $element['paja_course_price']['result'] = array(
+      		'#title' => t(''),
+      		'#prefix' => '<div id="paja-course-result">',
+      		'#suffix' => '</div>',
       );
       break;
   }

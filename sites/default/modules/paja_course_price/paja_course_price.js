@@ -41,27 +41,27 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
       profit = totalIncome - costs;
       
       if (profit > 0) {
-        $("#paja-course-result").html("<p class=\"course-ok\"></p>Kurssi on kannattava</br>");
+        $("#paja-course-result").html("<p class=\"course-ok\"></p><p class=\"course-result-ok-title\">Kurssi on kannattava</p>");
   
         instructorFeeGross = round100(instructorFees / 1.3);
         instructorFeeFirm = round100(instructorFees / 1.24);
         instructorFeeALV = round100(instructorFees - instructorFeeFirm);
         
-        $("#paja-course-result").append("Opintoviikkojen määrä on yhteensä " + totalCredits + ". " +
+        $("#paja-course-result").append("<p class=\"course-result-desc\">" + "Opintoviikkojen määrä on yhteensä " + totalCredits + ". " +
             "Vetäjien palkkiot yhteensä: " + instructorFees + " euroa, " + 
             "josta bruttopalkka: " + instructorFeeGross + " euroa tai " +
-            "vastaavasti yrityksen kautta " + instructorFeeFirm + " ja ALV(24%) " + instructorFeeALV + " euroa.");
+            "vastaavasti yrityksen kautta " + instructorFeeFirm + " ja ALV(24%) " + instructorFeeALV + " euroa." + "</p>");
       } 
       else {
-        $("#paja-course-result").html("<p class=\"course-not-ok\"></p>Tulot eivät riitä.</br>");
+        $("#paja-course-result").html("<p class=\"course-not-ok\"></p><p class=\"course-result-not-ok-title\">Tulot eivät riitä.</p>");
   
         if (incomePerAttendee > (managementCostsPerAttendee + instructorFees / attendees)) {
-          $("#paja-course-result").append("Kurssi muuttuu " +
+          $("#paja-course-result").append("<p class=\"course-result-desc\">" + "Kurssi muuttuu " +
             "kannattavaksi kun kurssilaisten määrää kasvatetaan vähintään " + criticalPoint + ":een. " +
-            "Kannattavuuteen voit vaikuttaa mm. kasvattamalla kurssin laajuutta.");
+            "Kannattavuuteen voit vaikuttaa mm. kasvattamalla kurssin laajuutta." + "</p>");
         }
         else {
-          $("#paja-course-result").append("Opiskelijakohtaiset tulot eivät kata kuluja. Kasvata joko kurssimaksua, lähi- tai etäpäivien määrää tai vastaavasti pienennä palkkioita.");
+          $("#paja-course-result").append("<p class=\"course-result-desc\">" + "Opiskelijakohtaiset tulot eivät kata kuluja. Kasvata joko kurssimaksua, lähi- tai etäpäivien määrää tai vastaavasti pienennä palkkioita." + "</p>");
         }
       }
       
@@ -71,47 +71,47 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
       var managementCosts = attendees * managementCostsPerAttendee;
       var managementAndProfitMargin = managementCosts + profitMargin;
       var totalCosts = instructorFees + managementCosts + profitMargin + premisesCosts;
-      var budgetHTML = "<table>" +
-  		"<th>Budjetti</th>" +
+      var budgetHTML = "<table class='paja-course-table'>" +
+  		"<th>Kurssin budjetti</th>" +
   		"<tr>" +
   		"<td>Kurssimaksut</td>" +
   		"<td>" + incomeFromAttendees + " €</td>" +
 			"</tr>" +
 			"<tr>" +
-			"<td>Valtionosuus</td>" +
+			"<td>Valtion osuudet</td>" +
 			"<td>" + voIncome + " €</td>" +
 			"</tr>" +
-			"<tr>" +
-			"<td>Tulot yhteensä</td>" +
-			"<td>" + totalIncome + " €</td>" +
+			"<tr class='budget-total-income'>" +
+			"<td class='budget-total-income-title'>Tulot yhteensä</td>" +
+			"<td class='budget-total-income-value'>" + totalIncome + " €</td>" +
 			"</tr>" +
       "<tr>" +
-      "<td>Vetäjäpalkkiot</td>" +
+      "<td>Vetäjien palkkiot</td>" +
       "<td>" + instructorFees + " €</td>" +
   		"</tr>" +
       "<tr>" +
-      "<td>Hallintokustannukset</td>" +
+      "<td>Hallinto</td>" +
       "<td>" + managementAndProfitMargin + " €</td>" +
   		"</tr>" +
       "<tr>" +
-      "<td>Kiinteistö- ja laitekustannukset</td>" +
+      "<td>Kiinteistöt ja laitteet</td>" +
       "<td>" + premisesCosts + " €</td>" +
   		"</tr>" +
       "<tr>" +
       "<td>Muut kustannukset</td>" +
       "<td>" + miscellanousCosts + " €</td>" +
   		"</tr>" +
-      "<tr>" +
-      "<td>Kustannukset yhteensä</td>" +
-      "<td>" + totalCosts + " €</td>" +
+      "<tr class='budget-total-costs'>" +
+      "<td class='budget-total-costs-title'>Kustannukset yhteensä</td>" +
+      "<td class='budget-total-costs-value'>" + totalCosts + " €</td>" +
   		"</tr>" +
-      "<tr>" +
-      "<td>Tulos</td>" +
-      "<td>" + profit + " €</td>" +
+      "<tr class='budget-profit'>" +
+      "<td class='budget-profit-title'>Tulos</td>" +
+      "<td class='budget-profit-value'>" + profit + " €</td>" +
   		"</tr>" +
       "</table>";
 
-      $("#paja-course-result").append(budgetHTML);
+      $("#paja-course-table").html(budgetHTML);
     }
     
     
