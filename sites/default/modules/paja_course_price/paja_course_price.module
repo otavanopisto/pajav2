@@ -175,7 +175,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
       
       $element['paja_course_price']['standard_fields'] = array(
           '#type' => 'fieldset',
-          '#title' => '',
+          '#title' => 'Kurssilaskuri',
           '#prefix' => '<div id="paja-course-calculon">',
           '#suffix' => '</div>',
           '#tree' => TRUE,
