@@ -19,37 +19,37 @@ function paja_course_price_field_schema($field) {
       'instructor_fee' => array(
           'type' => 'int',
           'length' => 'medium',
-          'not null' => TRUE,
+          'not null' => FALSE,
       ),
       'distance_days' => array(
           'type' => 'int',
           'length' => 'small',
-          'not null' => TRUE,
+          'not null' => FALSE,
       ),
       'local_days' => array(
           'type' => 'int',
           'length' => 'small',
-          'not null' => TRUE,
+          'not null' => FALSE,
       ),
       'attendees_min' => array(
           'type' => 'int',
           'length' => 'small',
-          'not null' => TRUE,
+          'not null' => FALSE,
       ),
       'attendees_max' => array(
           'type' => 'int',
           'length' => 'small',
-          'not null' => TRUE,
+          'not null' => FALSE,
       ),
       'miscellanous_costs' => array(
           'type' => 'int',
           'length' => 'medium',
-          'not null' => TRUE,
+          'not null' => FALSE,
       ),
       'price' => array(
           'type' => 'int',
           'length' => 'medium',
-          'not null' => TRUE,
+          'not null' => FALSE,
       ),
     );
   return array(

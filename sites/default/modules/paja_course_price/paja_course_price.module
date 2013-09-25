@@ -41,19 +41,25 @@ function paja_course_price_field_settings_form($field, $instance, $has_data) {
 
 
 function paja_course_price_field_is_empty($item, $field) {
-  if (empty($item['paja_course_price']['instructor_fee'])) {
+  if (!isset($item['paja_course_price']['standard_fields']['instructor_fee'])) {
     return TRUE;
-  }elseif (empty($item['paja_course_price']['distance_days'])) {
+  }elseif (!isset($item['paja_course_price']['standard_fields']['distance_days'])) {
     return TRUE;
-  }elseif (empty($item['paja_course_price']['local_days'])) {
+  }elseif (!isset($item['paja_course_price']['standard_fields']['local_days'])) {
     return TRUE;
-  }elseif (empty($item['paja_course_price']['attendees_min'])) {
+  }elseif (!isset($item['paja_course_price']['standard_fields']['attendees_min'])) {
     return TRUE;
-  }elseif (empty($item['paja_course_price']['attendees_max'])) {
+  }elseif (!isset($item['paja_course_price']['standard_fields']['attendees_max'])) {
     return TRUE;
-  }elseif (empty($item['paja_course_price']['miscellanous_costs'])) {
+  }elseif (!isset($item['paja_course_price']['standard_fields']['miscellanous_costs'])) {
     return TRUE;
-  }elseif (empty($item['paja_course_price']['price'])) {
+  }elseif (!isset($item['paja_course_price']['standard_fields']['price'])) {
+    return TRUE;
+  }elseif (!isset($item['paja_course_price']['extra_fields']['profit_margin'])) {
+    return TRUE;
+  }elseif (!isset($item['paja_course_price']['extra_fields']['premises_costs_per_day'])) {
+    return TRUE;
+  }elseif (!isset($item['paja_course_price']['extra_fields']['management_costs_per_attendee'])) {
     return TRUE;
   }
   return FALSE;
