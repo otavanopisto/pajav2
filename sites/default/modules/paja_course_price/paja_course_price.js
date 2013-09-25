@@ -1,12 +1,12 @@
 (function ($) {
 Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
   attach : function(context, settings) {
-    var profitMargin                = Drupal.settings.paja_course_price.profitMargin;  // 500 Tulo / opinnollistamisvaraus
-    var premisesCostsPerDay         = Drupal.settings.paja_course_price.premisesCostsPerDay; //250.0;
-    var managementCostsPerAttendee  = Drupal.settings.paja_course_price.managementCostsPerAttendee; // 25.0;  // Toimisto ja opinnollistaminen
+    var profitMargin                = parseFloat(Drupal.settings.paja_course_price.profitMargin);  // 500 Tulo / opinnollistamisvaraus
+    var premisesCostsPerDay         = parseFloat(Drupal.settings.paja_course_price.premisesCostsPerDay); //250.0;
+    var managementCostsPerAttendee  = parseFloat(Drupal.settings.paja_course_price.managementCostsPerAttendee); // 25.0;  // Toimisto ja opinnollistaminen
   
-    var voPerLocalAttendee          = Drupal.settings.paja_course_price.voPerLocalAttendee; //152.0;
-  //  var voPerDistanceAttendee       = voPerLocalAttendee * 0.6;
+    var voPerLocalAttendee          = parseFloat(Drupal.settings.paja_course_price.voPerLocalAttendee); //152.0;
+    var voPerDistanceAttendee       = voPerLocalAttendee * 0.6;
     function round100(value) {
       return Math.round(value * 100) / 100;
     }
@@ -64,7 +64,56 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
           $("#paja-course-result").append("Opiskelijakohtaiset tulot eivät kata kuluja. Kasvata joko kurssimaksua, lähi- tai etäpäivien määrää tai vastaavasti pienennä palkkioita.");
         }
       }
+      
+      var incomeFromAttendees = coursePrice * attendees;
+      var voIncome = voPerDistanceAttendee * attendees;
+      var totalIncome = incomeFromAttendees + voIncome;
+      var managementCosts = attendees * managementCostsPerAttendee;
+      var managementAndProfitMargin = managementCosts + profitMargin;
+      var totalCosts = instructorFees + managementCosts + profitMargin + premisesCosts;
+      var budgetHTML = "<table>" +
+  		"<th>Budjetti</th>" +
+  		"<tr>" +
+  		"<td>Kurssimaksut</td>" +
+  		"<td>" + incomeFromAttendees + " €</td>" +
+			"</tr>" +
+			"<tr>" +
+			"<td>Valtionosuus</td>" +
+			"<td>" + voIncome + " €</td>" +
+			"</tr>" +
+			"<tr>" +
+			"<td>Tulot yhteensä</td>" +
+			"<td>" + totalIncome + " €</td>" +
+			"</tr>" +
+      "<tr>" +
+      "<td>Vetäjäpalkkiot</td>" +
+      "<td>" + instructorFees + " €</td>" +
+  		"</tr>" +
+      "<tr>" +
+      "<td>Hallintokustannukset</td>" +
+      "<td>" + managementAndProfitMargin + " €</td>" +
+  		"</tr>" +
+      "<tr>" +
+      "<td>Kiinteistö- ja laitekustannukset</td>" +
+      "<td>" + premisesCosts + " €</td>" +
+  		"</tr>" +
+      "<tr>" +
+      "<td>Muut kustannukset</td>" +
+      "<td>" + miscellanousCosts + " €</td>" +
+  		"</tr>" +
+      "<tr>" +
+      "<td>Kustannukset yhteensä</td>" +
+      "<td>" + totalCosts + " €</td>" +
+  		"</tr>" +
+      "<tr>" +
+      "<td>Tulos</td>" +
+      "<td>" + profit + " €</td>" +
+  		"</tr>" +
+      "</table>";
+
+      $("#paja-course-result").append(budgetHTML);
     }
+    
     
     $('#paja-course-result').once(function () {
       calculateCriticalPoint();
@@ -72,32 +121,32 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
 
     $("#paja-course-profit-margin input[type='range']").change(function(event){
       $("#paja-course-profit-margin-number input[type='number']").val($("#paja-course-profit-margin input[type='range']").val());
-      profitMargin = $("#paja-course-profit-margin input[type='range']").val();
+      profitMargin = parseFloat($("#paja-course-profit-margin input[type='range']").val());
       calculateCriticalPoint();
     });
     $("#paja-course-profit-margin-number input[type='number']").change(function(event){
       $("#paja-course-profit-margin input[type='range']").val($("#paja-course-profit-margin-number input[type='number']").val());
-      profitMargin = $("#paja-course-profit-margin input[type='range']").val();
+      profitMargin = parseFloat($("#paja-course-profit-margin input[type='range']").val());
       calculateCriticalPoint();
     });
     $("#paja-course-premises-costs-per-day input[type='range']").change(function(event){
       $("#paja-course-premises-costs-per-day-number input[type='number']").val($("#paja-course-premises-costs-per-day input[type='range']").val());
-      premisesCostsPerDay = $("#paja-course-premises-costs-per-day input[type='range']").val();
+      premisesCostsPerDay = parseFloat($("#paja-course-premises-costs-per-day input[type='range']").val());
       calculateCriticalPoint();
     });
     $("#paja-course-premises-costs-per-day-number input[type='number']").change(function(event){
       $("#paja-course-premises-costs-per-day input[type='range']").val($("#paja-course-premises-costs-per-day-number input[type='number']").val());
-      premisesCostsPerDay = $("#paja-course-premises-costs-per-day input[type='range']").val();
+      premisesCostsPerDay = parseFloat($("#paja-course-premises-costs-per-day input[type='range']").val());
       calculateCriticalPoint();
     });
     $("#paja-course-management-costs-per-attendee input[type='range']").change(function(event){
       $("#paja-course-management-costs-per-attendee-number input[type='number']").val($("#paja-course-management-costs-per-attendee input[type='range']").val());
-      managementCostsPerAttendee = $("#paja-course-management-costs-per-attendee input[type='range']").val();
+      managementCostsPerAttendee = parseFloat($("#paja-course-management-costs-per-attendee input[type='range']").val());
       calculateCriticalPoint();
     });
     $("#paja-course-management-costs-per-attendee-number input[type='number']").change(function(event){
       $("#paja-course-management-costs-per-attendee input[type='range']").val($("#paja-course-management-costs-per-attendee-number input[type='number']").val());
-      managementCostsPerAttendee = $("#paja-course-management-costs-per-attendee input[type='range']").val();
+      managementCostsPerAttendee = parseFloat($("#paja-course-management-costs-per-attendee input[type='range']").val());
       calculateCriticalPoint();
     });
     $("#paja-course-instructor-fee input[type='range']").change(function(event){
