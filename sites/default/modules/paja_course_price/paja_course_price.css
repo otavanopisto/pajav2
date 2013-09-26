@@ -40,17 +40,32 @@
   border-bottom:1px solid #eee;
 }
 
-#paja-course-extra-field-wrapper {
-  margin-top:10px;
+form#kurssi-node-form #edit-field-hintalaskuri #paja-course-wrapper fieldset #paja-course-extra-field-wrapper div.form-item,
+form#kurssi-node-form #edit-field-hintalaskuri #paja-course-wrapper fieldset #paja-course-calculon div.form-item {
+  margin:0;
 }
 
-#paja-course-calculon{
+#paja-course-calculon {
   float:left;
   width:415px;
 }
 
-#paja-course-table{
-  background:url('images/arrow.png') no-repeat left 150px;
+#paja-course-wrapper fieldset #paja-course-calculon fieldset.form-wrapper legend {
+  background:none;
+  font-weight:bold;
+  margin:0 0 20px 0;
+  padding:0;
+  box-shadow:none;
+}
+
+#paja-course-calculon > fieldset > legend span.fieldset-legend {
+  margin:0;
+  padding:0;
+  background:none;
+}
+
+#paja-course-table {
+  background:url('images/arrow.png') no-repeat left center;
   margin-left:410px;
   padding-left:70px;
 }
@@ -69,7 +84,7 @@ table.paja-course-table tr {
 }
 
 table.paja-course-table td {
-  padding:10px 0 2px 0;
+  padding:15px 0 2px 0;
 }
 
 tr.budget-total-income,
@@ -215,6 +230,7 @@ td.budget-profit-value {
 }
 
 
-#paja-course-calculon .form-item {
+#paja-course-calculon .form-item,
+#paja-course-extra-field-wrapper .form-item {
   margin:0;
 }

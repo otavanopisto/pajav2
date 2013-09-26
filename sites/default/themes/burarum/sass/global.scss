@@ -2789,6 +2789,54 @@ form#search-form #edit-basic {
   color:#000;
 }
 
+/* CREATE CURSE FORM */
+
+form#kurssi-node-form {
+  
+  fieldset.horizontal-tabs-pane {
+    padding-top:1em;
+  }
+  
+  fieldset {
+
+  
+    div.form-item {
+      margin:0 0 1em 0;
+    }
+    
+    div.form-radios {
+    
+      div.form-item {
+        margin:0 ;
+      }
+    
+    }
+    
+    
+  
+  }
+  
+  fieldset#node_kurssi_form_group_aikataulu {
+  
+    div#edit-field-kurssi-alkaa,
+    div#edit-field-kurssi-loppuu {
+      
+      legend {
+        font-weight:bold;
+      }
+    
+      fieldset {
+        margin:0;
+        padding:0;
+      }
+    
+    }
+    
+  
+  }
+
+} 
+
 /* PRINT */
 
 .page-node-osallistujaprint {

@@ -77,7 +77,7 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
       var totalIncome = incomeFromAttendees + voIncome;
       var managementCosts = attendees * managementCostsPerAttendee;
       var managementAndProfitMargin = managementCosts + profitMargin;
-      var totalCosts = instructorFees + managementCosts + profitMargin + premisesCosts;
+      var totalCosts = instructorFees + managementCosts + profitMargin + premisesCosts + miscellanousCosts;
       var tableProfit = round100(profit);
 	  var budgetHTML = "<table class='paja-course-table'>" +
 	    "<th>Kurssin budjetti</th>" +
