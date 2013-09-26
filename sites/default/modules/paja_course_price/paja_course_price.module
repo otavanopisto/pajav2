@@ -30,8 +30,8 @@ function paja_course_price_field_widget_info() {
 }
 
 /**
- * Implements hook_field_settings_form().
- */
+* Implements hook_field_settings_form().
+*/
 function paja_course_price_field_settings_form($field, $instance, $has_data) {
   $settings = $field['settings'];
   // Add your global settings fields here
@@ -66,8 +66,8 @@ function paja_course_price_field_is_empty($item, $field) {
 }
 
 /**
- * Implements hook_field_validate().
- */
+* Implements hook_field_validate().
+*/
 function paja_course_price_field_validate($entity_type, $entity, $field, $instance, $langcode, $items, &$errors) {
   // Loop through field items in the case of multiple values.
 //   foreach ($items as $delta => $item) {
@@ -82,8 +82,8 @@ function paja_course_price_field_validate($entity_type, $entity, $field, $instan
 }
 
 /**
- * Implements hook_field_widget_form().
- */
+* Implements hook_field_widget_form().
+*/
 function paja_course_price_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
   switch ($instance['widget']['type']) {
     case 'paja_course_price_field' :
@@ -100,7 +100,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
       );
       $profit_margin = isset($items[$delta]['profit_margin']) ? $items[$delta]['profit_margin'] : 500;
       $premises_costs_per_day = isset($items[$delta]['premises_costs_per_day']) ? $items[$delta]['premises_costs_per_day'] : 250;
-      $management_costs_per_attendee = isset($items[$delta]['management_costs_per_attendee']) ? $items[$delta]['management_costs_per_attendee'] : 25;     
+      $management_costs_per_attendee = isset($items[$delta]['management_costs_per_attendee']) ? $items[$delta]['management_costs_per_attendee'] : 25;
       $vo_per_local_attendee = isset($items[$delta]['vo_per_local_attendee']) ? $items[$delta]['vo_per_local_attendee'] : 152;
       if(user_access('Paja course price extra values')){
         $element['paja_course_price']['extra_fields'] = array(
@@ -168,7 +168,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         );
       }
 
-      drupal_add_js(array('paja_course_price' => array('profitMargin' => $profit_margin)), 'setting');      
+      drupal_add_js(array('paja_course_price' => array('profitMargin' => $profit_margin)), 'setting');
       drupal_add_js(array('paja_course_price' => array('premisesCostsPerDay' => $premises_costs_per_day)), 'setting');
       drupal_add_js(array('paja_course_price' => array('managementCostsPerAttendee' => $management_costs_per_attendee)), 'setting');
       drupal_add_js(array('paja_course_price' => array('voPerLocalAttendee' => $vo_per_local_attendee)), 'setting');
@@ -274,7 +274,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#prefix' => '<div id="paja-course-attendees-max-number" class="paja-course-price-number-field">',
         '#suffix' => '</div>',
         '#default_value' => isset($items[$delta]['attendees_max']) ? $items[$delta]['attendees_max'] : '5',
-      );      
+      );
       
       $element['paja_course_price']['standard_fields']['miscellanous_costs'] = array(
         '#type' => 'rangefield',
@@ -315,6 +315,12 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#default_value' => isset($items[$delta]['price']) ? $items[$delta]['price'] : '5',
       );
       
+      $element['paja_course_price']['table'] = array(
+        '#title' => t(''),
+        '#prefix' => '<div id="paja-course-table">',
+      	'#suffix' => '</div>',
+      );
+      
       $element['paja_course_price']['result'] = array(
         '#title' => t(''),
         '#prefix' => '<div id="paja-course-result">',
@@ -327,8 +333,8 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
 }
 
 /**
- * Implements hook_field_presave().
- */
+* Implements hook_field_presave().
+*/
 function paja_course_price_field_presave($entity_type, $entity, $field, $instance, $langcode, &$items) {
   foreach ($items as $delta => $item) {
     $items[$delta]['profit_margin'] = $item['paja_course_price']['extra_fields']['profit_margin'];
@@ -338,15 +344,15 @@ function paja_course_price_field_presave($entity_type, $entity, $field, $instanc
     $items[$delta]['distance_days'] = $item['paja_course_price']['standard_fields']['distance_days'];
     $items[$delta]['local_days'] = $item['paja_course_price']['standard_fields']['local_days'];
     $items[$delta]['attendees_min'] = $item['paja_course_price']['standard_fields']['attendees_min'];
-    $items[$delta]['attendees_max'] = $item['paja_course_price']['standard_fields']['attendees_max'];    
+    $items[$delta]['attendees_max'] = $item['paja_course_price']['standard_fields']['attendees_max'];
     $items[$delta]['miscellanous_costs'] = $item['paja_course_price']['standard_fields']['miscellanous_costs'];
     $items[$delta]['price'] = $item['paja_course_price']['standard_fields']['price'];
   }
 }
 
 /**
- * Implements hook_field_formatter_info().
- */
+* Implements hook_field_formatter_info().
+*/
 function paja_course_price_field_formatter_info() {
   return array(
     'paja_course_price_default' => array(
@@ -369,8 +375,8 @@ function paja_course_price_field_formatter_info() {
 }
 
 /**
- * Implements hook_field_formatter_view().
- */
+* Implements hook_field_formatter_view().
+*/
 function paja_course_price_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
   $element = array();
   switch ($display['type']) {
