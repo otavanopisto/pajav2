@@ -42,10 +42,10 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
       costsWithoutManagementCosts = costs;
   
       criticalPoint = roundUp((miscellanousCosts + premisesCosts + profitMargin) / (coursePrice + credits * voPerLocalAttendee - managementCostsPerAttendee - instructorFee * credits));
-  
-      costs = costs + attendees * managementCostsPerAttendee;
+      managementCosts = attendees * managementCostsPerAttendee;
+      allCosts = costs + managementCosts;
       
-      profit = totalIncome - costs;
+      profit = totalIncome - allCosts;
       
       if (profit > 0) {
         $("#paja-course-result").html("<p class=\"course-ok\"></p>Kurssi on kannattava</br>");
@@ -73,12 +73,13 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
       }
       
       var incomeFromAttendees = coursePrice * attendees;
-      var voIncome = voPerDistanceAttendee * attendees;
-      var totalIncome = incomeFromAttendees + voIncome;
+//      var voIncome = voPerDistanceAttendee * attendees;
+      var voIncome = totalCredits * voPerLocalAttendee;
+//      var totalIncome = incomeFromAttendees + voIncome;
       var managementCosts = attendees * managementCostsPerAttendee;
       var managementAndProfitMargin = managementCosts + profitMargin;
-      var totalCosts = instructorFees + managementCosts + profitMargin + premisesCosts;
-      var tableProfit = round100(profit);
+      var totalCosts = instructorFees + managementAndProfitMargin + premisesCosts + miscellanousCosts;
+      var tableProfit = totalIncome - totalCosts;
       var budgetHTML = "<table>" +
   		"<th>Budjetti</th>" +
   		"<tr>" +

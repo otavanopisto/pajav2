@@ -1,31 +1,31 @@
 <?php
 function paja_course_price_permission() {
   return array(
-      'Paja course price extra values' => array(
-          'title' => t('Permission to set extra values in course calculator.'),
-          'description' => t('Permission to set extra values in course calculator like profit margin.'),
-      ),
+    'Paja course price extra values' => array(
+        'title' => t('Permission to set extra values in course calculator.'),
+        'description' => t('Permission to set extra values in course calculator like profit margin.'),
+    ),
   );
 }
 
 function paja_course_price_field_info() {
   return array(
-      'paja_course_price' => array(
-        'label' => t('Course price calculator'),
-        'description' => t("This field stores your course price"),
-        'settings' => array('allowed_values' => array(), 'allowed_values_function' => ''),
-        'default_widget' => 'paja_course_price_field',
-        'default_formatter' => 'paja_course_price_default',
-      ),
+    'paja_course_price' => array(
+      'label' => t('Course price calculator'),
+      'description' => t("This field stores your course price"),
+      'settings' => array('allowed_values' => array(), 'allowed_values_function' => ''),
+      'default_widget' => 'paja_course_price_field',
+      'default_formatter' => 'paja_course_price_default',
+    ),
   );
 }
 
 function paja_course_price_field_widget_info() {
   return array(
-      'paja_course_price_field' => array(
-          'label' => t('Paja course price widget'),
-          'field types' => array('paja_course_price'),
-      ),
+    'paja_course_price_field' => array(
+      'label' => t('Paja course price widget'),
+      'field types' => array('paja_course_price'),
+    ),
   );
 }
 
@@ -71,10 +71,10 @@ function paja_course_price_field_is_empty($item, $field) {
 function paja_course_price_field_validate($entity_type, $entity, $field, $instance, $langcode, $items, &$errors) {
   // Loop through field items in the case of multiple values.
 //   foreach ($items as $delta => $item) {
-//     if (isset($item['plate_number']) && $item['plate_number'] != '') {
-//       if (!valid_license_plate($item['plate_number'])) {
+//     if (isset($item['jotain']) && $item['jotain'] != '') {
+//       if (!valid_license_plate($item['jotain'])) {
 //         $errors[$field['field_name']][$langcode][$delta][] = array(
-//             'error' => t('Invalid license plate number.'),
+//             'error' => t('Virhe!'),
 //         );
 //       }
 //     }
@@ -113,58 +113,58 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
           '#tree' => TRUE,
         );
         $element['paja_course_price']['extra_fields']['profit_margin'] = array(
-            '#type' => 'rangefield',
-            '#min' => 0,
-            '#max' => 1000,
-            '#title' => t('Kate'),
-            '#prefix' => '<div id="paja-course-profit-margin" class="paja-course-price-range-field">',
-            '#suffix' => '</div>',
-            '#default_value' => $profit_margin,
-            '#required' => false,
+          '#type' => 'rangefield',
+          '#min' => 0,
+          '#max' => 1000,
+          '#title' => t('Kate'),
+          '#prefix' => '<div id="paja-course-profit-margin" class="paja-course-price-range-field">',
+          '#suffix' => '</div>',
+          '#default_value' => $profit_margin,
+          '#required' => false,
         );
         $element['paja_course_price']['extra_fields']['profit_margin_number_field'] = array(
-            '#type' => 'numberfield',
-            '#min' => 0,
-            '#max' => 1000,
-            '#prefix' => '<div id="paja-course-profit-margin-number" class="paja-course-price-number-field">',
-            '#suffix' => '</div>',
-            '#default_value' => $profit_margin,
+          '#type' => 'numberfield',
+          '#min' => 0,
+          '#max' => 1000,
+          '#prefix' => '<div id="paja-course-profit-margin-number" class="paja-course-price-number-field">',
+          '#suffix' => '</div>',
+          '#default_value' => $profit_margin,
         );
         $element['paja_course_price']['extra_fields']['premises_costs_per_day'] = array(
-            '#type' => 'rangefield',
-            '#min' => 0,
-            '#max' => 1000,
-            '#title' => t('Tilojen kulut päivältä'),
-            '#prefix' => '<div id="paja-course-premises-costs-per-day" class="paja-course-price-range-field">',
-            '#suffix' => '</div>',
-            '#default_value' => $premises_costs_per_day,
-            '#required' => false,
+          '#type' => 'rangefield',
+          '#min' => 0,
+          '#max' => 1000,
+          '#title' => t('Tilojen kulut päivältä'),
+          '#prefix' => '<div id="paja-course-premises-costs-per-day" class="paja-course-price-range-field">',
+          '#suffix' => '</div>',
+          '#default_value' => $premises_costs_per_day,
+          '#required' => false,
         );
         $element['paja_course_price']['extra_fields']['premises_costs_per_day_number_field'] = array(
-            '#type' => 'numberfield',
-            '#min' => 0,
-            '#max' => 1000,
-            '#prefix' => '<div id="paja-course-premises-costs-per-day-number" class="paja-course-price-number-field">',
-            '#suffix' => '</div>',
-            '#default_value' => $premises_costs_per_day,
+          '#type' => 'numberfield',
+          '#min' => 0,
+          '#max' => 1000,
+          '#prefix' => '<div id="paja-course-premises-costs-per-day-number" class="paja-course-price-number-field">',
+          '#suffix' => '</div>',
+          '#default_value' => $premises_costs_per_day,
         );
         $element['paja_course_price']['extra_fields']['management_costs_per_attendee'] = array(
-            '#type' => 'rangefield',
-            '#min' => 0,
-            '#max' => 1000,
-            '#title' => t('Hallinnointi kulut henkilöa kohden'),
-            '#prefix' => '<div id="paja-course-management-costs-per-attendee" class="paja-course-price-range-field">',
-            '#suffix' => '</div>',
-            '#default_value' => $management_costs_per_attendee,
-            '#required' => false,
+          '#type' => 'rangefield',
+          '#min' => 0,
+          '#max' => 1000,
+          '#title' => t('Hallinnointi kulut henkilöa kohden'),
+          '#prefix' => '<div id="paja-course-management-costs-per-attendee" class="paja-course-price-range-field">',
+          '#suffix' => '</div>',
+          '#default_value' => $management_costs_per_attendee,
+          '#required' => false,
         );
         $element['paja_course_price']['extra_fields']['management_costs_per_attendee_number_field'] = array(
-            '#type' => 'numberfield',
-            '#min' => 0,
-            '#max' => 1000,
-            '#prefix' => '<div id="paja-course-management-costs-per-attendee-number" class="paja-course-price-number-field">',
-            '#suffix' => '</div>',
-            '#default_value' => $management_costs_per_attendee,
+          '#type' => 'numberfield',
+          '#min' => 0,
+          '#max' => 1000,
+          '#prefix' => '<div id="paja-course-management-costs-per-attendee-number" class="paja-course-price-number-field">',
+          '#suffix' => '</div>',
+          '#default_value' => $management_costs_per_attendee,
         );
       }
 
@@ -174,11 +174,11 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
       drupal_add_js(array('paja_course_price' => array('voPerLocalAttendee' => $vo_per_local_attendee)), 'setting');
       
       $element['paja_course_price']['standard_fields'] = array(
-          '#type' => 'fieldset',
-          '#title' => 'Kurssilaskuri',
-          '#prefix' => '<div id="paja-course-calculon">',
-          '#suffix' => '</div>',
-          '#tree' => TRUE,
+        '#type' => 'fieldset',
+        '#title' => 'Kurssilaskuri',
+        '#prefix' => '<div id="paja-course-calculon">',
+        '#suffix' => '</div>',
+        '#tree' => TRUE,
       );
       
       $element['paja_course_price']['standard_fields']['instructor_fee'] = array(
@@ -211,12 +211,12 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#required' => $element['#required'],
       );
       $element['paja_course_price']['standard_fields']['distance_days_number_field'] = array(
-          '#type' => 'numberfield',
-          '#min' => 0,
-          '#max' => 255,
-          '#prefix' => '<div id="paja-course-distance-days-number" class="paja-course-price-number-field">',
-          '#suffix' => '</div>',
-          '#default_value' => isset($items[$delta]['distance_days']) ? $items[$delta]['distance_days'] : '5',
+        '#type' => 'numberfield',
+        '#min' => 0,
+        '#max' => 255,
+        '#prefix' => '<div id="paja-course-distance-days-number" class="paja-course-price-number-field">',
+        '#suffix' => '</div>',
+        '#default_value' => isset($items[$delta]['distance_days']) ? $items[$delta]['distance_days'] : '5',
       );
       
       $element['paja_course_price']['standard_fields']['local_days'] = array(
@@ -249,12 +249,12 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#required' => $element['#required'],
       );
       $element['paja_course_price']['standard_fields']['attendees_min_number_field'] = array(
-          '#type' => 'numberfield',
-          '#min' => 0,
-          '#max' => 255,
-          '#prefix' => '<div id="paja-course-attendees-min-number" class="paja-course-price-number-field">',
-          '#suffix' => '</div>',
-          '#default_value' => isset($items[$delta]['attendees_min']) ? $items[$delta]['attendees_min'] : '5',
+        '#type' => 'numberfield',
+        '#min' => 0,
+        '#max' => 255,
+        '#prefix' => '<div id="paja-course-attendees-min-number" class="paja-course-price-number-field">',
+        '#suffix' => '</div>',
+        '#default_value' => isset($items[$delta]['attendees_min']) ? $items[$delta]['attendees_min'] : '5',
       );
       
       $element['paja_course_price']['standard_fields']['attendees_max'] = array(
@@ -349,22 +349,22 @@ function paja_course_price_field_presave($entity_type, $entity, $field, $instanc
  */
 function paja_course_price_field_formatter_info() {
   return array(
-      'paja_course_price_default' => array(
-          'label' => t('Price'),
-          'field types' => array('paja_course_price'),
-      ),
-      'paja_course_price_mini_panel' => array(
-          'label' => t('Price mini panel hack'),
-          'field types' => array('paja_course_price'),
-      ),
-      'paja_course_price_attendees_min' => array(
-          'label' => t('Min attendees'),
-          'field types' => array('paja_course_price'),
-      ),
-      'paja_course_price_attendees_max' => array(
-          'label' => t('Max attendees'),
-          'field types' => array('paja_course_price'),
-      ),
+    'paja_course_price_default' => array(
+      'label' => t('Price'),
+      'field types' => array('paja_course_price'),
+    ),
+    'paja_course_price_mini_panel' => array(
+      'label' => t('Price mini panel hack'),
+      'field types' => array('paja_course_price'),
+    ),
+    'paja_course_price_attendees_min' => array(
+      'label' => t('Min attendees'),
+      'field types' => array('paja_course_price'),
+    ),
+    'paja_course_price_attendees_max' => array(
+      'label' => t('Max attendees'),
+      'field types' => array('paja_course_price'),
+    ),
   );
 }
 
@@ -380,31 +380,29 @@ function paja_course_price_field_formatter_view($entity_type, $entity, $field, $
           $element[$delta]['#markup'] = $item['price'] . "€";
         }
       }
-      break;
-      case 'paja_course_price_attendees_min' :
-        foreach ($items as $delta => $item) {
-          if (isset($item['attendees_min'])) {
-            $element[$delta]['#markup'] = $item['attendees_min'];
-          }
+    break;
+    case 'paja_course_price_attendees_min' :
+      foreach ($items as $delta => $item) {
+        if (isset($item['attendees_min'])) {
+          $element[$delta]['#markup'] = $item['attendees_min'];
         }
-        break;
-        case 'paja_course_price_attendees_max' :
-          foreach ($items as $delta => $item) {
-            if (isset($item['attendees_max'])) {
-              $element[$delta]['#markup'] = $item['attendees_max'];
-            }
-          }
-          break;
-          case 'paja_course_price_mini_panel' :
-          foreach ($items as $delta => $item) {
-            if (isset($item['price'])) {
-              $element[$delta]['#markup'] = '<div class="field-label">Hinta:&nbsp;</div>' . $item['price'] . "€";
-            }
-          }
-          break;
+      }
+    break;
+    case 'paja_course_price_attendees_max' :
+      foreach ($items as $delta => $item) {
+        if (isset($item['attendees_max'])) {
+          $element[$delta]['#markup'] = $item['attendees_max'];
+        }
+      }
+    break;
+    case 'paja_course_price_mini_panel' :
+    foreach ($items as $delta => $item) {
+      if (isset($item['price'])) {
+        $element[$delta]['#markup'] = '<div class="field-label">Hinta:&nbsp;</div>' . $item['price'] . "€";
+      }
+    }
+    break;
   }
   return $element;
 }
-
-
 
