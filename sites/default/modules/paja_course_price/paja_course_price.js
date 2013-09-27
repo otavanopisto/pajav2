@@ -6,7 +6,7 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
     var managementCostsPerAttendee  = parseFloat(Drupal.settings.paja_course_price.managementCostsPerAttendee); // 25.0;  // Toimisto ja opinnollistaminen
   
     var voPerLocalAttendee          = parseFloat(Drupal.settings.paja_course_price.voPerLocalAttendee); //152.0;
-//    var voPerDistanceAttendee       = voPerLocalAttendee * 0.6;
+    var voPerDistanceAttendee       = voPerLocalAttendee * 0.6;
     function round100(value) {
       return Math.round(value * 100) / 100;
     }
@@ -25,7 +25,9 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
       attendees = parseFloat($("#paja-course-attendees-min-number input[type='number']").val());
       instructorFee = parseFloat($("#paja-course-instructor-fee-number input[type='number']").val());
       miscellanousCosts = parseFloat($("#paja-course-miscellanous-costs-number input[type='number']").val());
-      credits = (localDays / 5) + ((distanceDays / 5) * 0.6);
+      distanceCredits = distanceDays / 5;
+      localCredits = localDays / 5;
+      credits = (localDays / 5) + (distanceDays / 5);
       totalCredits = round100(credits * attendees);
       coursePrice = parseFloat($("#paja-course-price-number input[type='number']").val());
         
@@ -34,10 +36,13 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
       premisesCosts = premisesCostsPerDay * localDays;
   
       costs = profitMargin + premisesCosts + instructorFees + miscellanousCosts;
-        
-      incomePerAttendee = coursePrice + credits * voPerLocalAttendee;
+      
+      incomeFromCredits = ((distanceCredits * voPerDistanceAttendee) + (localCredits * voPerLocalAttendee)) * attendees;
+      incomePerAttendee =  coursePrice * attendees;
+      
+//      incomePerAttendee = coursePrice + credits * voPerLocalAttendee;
   
-      totalIncome = round100(incomePerAttendee * attendees);
+      totalIncome = round100(incomePerAttendee + incomeFromCredits);
       
       costsWithoutManagementCosts = costs;
   
@@ -74,13 +79,12 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
       
       var incomeFromAttendees = coursePrice * attendees;
 //      var voIncome = voPerDistanceAttendee * attendees;
-      var voIncome = totalCredits * voPerLocalAttendee;
+//      var voIncome = (distanceCredits * voPerDistanceAttendee)  + (localCredits * voPerLocalAttendee) ;
 //      var totalIncome = incomeFromAttendees + voIncome;
       var managementCosts = attendees * managementCostsPerAttendee;
       var managementAndProfitMargin = managementCosts + profitMargin;
-      var totalCosts = instructorFees + managementAndProfitMargin + premisesCosts + miscellanousCosts;
-      var tableProfit = totalIncome - totalCosts;
-      tableProfit = round100(tableProfit);
+//      var totalCosts = instructorFees + managementAndProfitMargin + premisesCosts + miscellanousCosts;
+      var tableProfit = round100(profit);
   	  var budgetHTML = "<table class='paja-course-table'>" +
 	    "<th>Kurssin budjetti</th>" +
   		"<tr>" +
@@ -89,7 +93,7 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
 			"</tr>" +
 			"<tr>" +
 			"<td>Valtion osuudet</td>" +
-			"<td>" + voIncome + " €</td>" +
+			"<td>" + round100(incomeFromCredits) + " €</td>" +
 			"</tr>" +
 			"<tr class='budget-total-income'>" +
 			"<td class='budget-total-income-title'>Tulot yhteensä</td>" +
@@ -113,7 +117,7 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
   		"</tr>" +
       "<tr class='budget-total-costs'>" +
       "<td class='budget-total-costs-title'>Kustannukset yhteensä</td>" +
-      "<td class='budget-total-costs-value'>" + totalCosts + " €</td>" +
+      "<td class='budget-total-costs-value'>" + allCosts + " €</td>" +
   		"</tr>" +
       "<tr class='budget-profit'>" +
       "<td class='budget-profit-title'>Tulos</td>" +
