@@ -12,6 +12,7 @@
  
 @import url(http://fonts.googleapis.com/css?family=Rochester);
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
 @import "base";
 @import "forms";
 
@@ -2789,12 +2790,69 @@ form#search-form #edit-basic {
   color:#000;
 }
 
-/* CREATE CURSE FORM */
+/* CREATE/EDIT COURSE FORM */
 
 form#kurssi-node-form {
   
+  #edit-field-kurssi-alkaa {
+    float:left;
+    width:200px;
+  }
+  
+  #edit-field-kurssi-loppuu {
+    margin-left:200px;
+    width:200px;
+  }
+  
+  ul.horizontal-tabs-list,
+  ul.horizontal-tabs-list li {
+    padding:0;
+    margin:0;
+    border:0;
+    background:none;
+  }
+  
+  ul.horizontal-tabs-list {
+    border-bottom:1px solid #aaa;
+  }
+  
+  ul.horizontal-tabs-list li a strong {
+    font-weight:normal;
+  }
+  
+  ul.horizontal-tabs-list li a {
+    display:inline-block;
+    padding:6px 15px;
+    background:#ffffff;
+    text-transform:uppercase;
+    color:$linkColor;
+    border:0;
+    @include box-shadow(0 -1px 6px rgba(0, 0, 0, 0.15));
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    margin:0 5px;
+    font-size:0.925em;
+  }
+  
+  ul.horizontal-tabs-list li a:hover {
+    color:#ffffff;
+    background:#000000;
+  }
+  
+  ul.horizontal-tabs-list li.selected a,
+  ul.horizontal-tabs-list li.selected a strong,
+  ul.horizontal-tabs-list li.selected .form-required {
+    color:#ffffff;
+    background:#000000;
+    font-weight:normal;
+  }
+  
+  .horizontal-tabs {
+    border:0;
+  }
+  
   fieldset.horizontal-tabs-pane {
-    padding-top:1em;
+    padding:1em 0.5em 0 0.5em;
   }
   
   fieldset {
@@ -2832,6 +2890,53 @@ form#kurssi-node-form {
     
     }
     
+  
+  }
+  
+  span.file {
+    img {
+      display:none;
+    }
+    
+    a {
+      display:inline-block;
+      margin-right:5px;
+    }
+  }
+  
+  #field-kurssin-vetaja-add-more-wrapper {
+  
+    th.field-label {
+    
+      label {
+        margin-bottom:5px;
+      }
+    
+    }
+    
+  
+    tr.even,
+    tr.odd {
+      background:none;
+      border:0;
+      
+      a.tabledrag-handle {
+        margin:0;
+        height:auto;
+        display:block;
+        padding-right:2px;
+      }
+      
+      a.tabledrag-handle .handle  {
+        margin:0;
+        padding:0;
+        background-position:left top;
+        width:16px;
+        height:16px;
+      }
+
+      
+    }
   
   }
 
