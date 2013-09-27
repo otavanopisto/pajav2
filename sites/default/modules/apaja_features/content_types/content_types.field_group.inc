@@ -23,9 +23,9 @@ function content_types_field_group_info() {
     'label' => 'Aikataulu',
     'weight' => '26',
     'children' => array(
-      0 => 'field_kurssi_loppuu',
-      1 => 'group_access',
-      2 => 'field_kurssi_alkaa',
+      0 => 'field_kurssi_alkaa',
+      1 => 'field_kurssi_loppuu',
+      2 => 'group_access',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
@@ -54,10 +54,10 @@ function content_types_field_group_info() {
     'label' => 'Hintalaskuri',
     'weight' => '25',
     'children' => array(
-      0 => 'field_minimi_osallistujat',
-      1 => 'field_maksimi_osallistujat',
-      2 => 'field_hinta',
-      3 => 'field_hinnan_tyyppi',
+      0 => 'field_hinnan_tyyppi',
+      1 => 'field_hinta',
+      2 => 'field_maksimi_osallistujat',
+      3 => 'field_minimi_osallistujat',
       4 => 'field_hintalaskuri',
     ),
     'format_type' => 'htab',
@@ -119,10 +119,10 @@ function content_types_field_group_info() {
     'label' => 'Multipage container',
     'weight' => '0',
     'children' => array(
-      0 => 'group_sisalto',
+      0 => 'group_aikataulu',
       1 => 'group_hintalaskuri',
-      2 => 'group_aikataulu',
-      3 => 'group_lisatiedot',
+      2 => 'group_lisatiedot',
+      3 => 'group_sisalto',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(
