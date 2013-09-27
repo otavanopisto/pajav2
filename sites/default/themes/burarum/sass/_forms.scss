@@ -46,6 +46,8 @@
   border: $fieldBorder;
   @include form-field-padding;
   @include field-focus-animation;
+  font-family:$fontFamily;
+  font-size:1em;
 }
 
 #page form textarea:focus {
@@ -92,6 +94,10 @@ form#search-form #edit-basic label {
   display:none;
 }
 
+/* CKEDITOR */
 
-
-
+iframe html body.cke_show_borders {
+  font-family:$fontFamily;
+  font-size:1em;
+  
+}

@@ -4,6 +4,11 @@
   border:0;
 }
 
+#paja-course-wrapper fieldset,
+#paja-course-wrapper legend {
+  -webkit-margin-collapse: separate !important;
+}
+
 #paja-course-wrapper fieldset .fieldset-wrapper {
   padding:0;
   border:0;
@@ -29,11 +34,11 @@
   text-decoration:none;
   color:#fff;
   text-transform:uppercase;
-  font-size:0.8em;
+  font-size:0.9em;
 }
 
 #paja-course-wrapper fieldset #paja-course-extra-field-wrapper fieldset.form-wrapper div.fieldset-wrapper {
-  padding:0 10px 10px 10px;
+  padding:10px;
   border-left:4px solid #0099ff;
   margin-top:5px;
   margin-left:1px;
@@ -56,6 +61,7 @@ form#kurssi-node-form #edit-field-hintalaskuri #paja-course-wrapper fieldset #pa
   margin:0 0 20px 0;
   padding:0;
   box-shadow:none;
+  -webkit-margin-collapse: separate !important;
 }
 
 #paja-course-calculon > fieldset > legend span.fieldset-legend {
@@ -87,8 +93,8 @@ table.paja-course-table td {
   padding:15px 0 2px 0;
 }
 
-tr.budget-total-income,
-tr.budget-total-costs {
+table.paja-course-table tr.budget-total-income,
+table.paja-course-table tr.budget-total-costs {
   border-bottom:1px solid #7f7f7f;
 }
 
