@@ -11,6 +11,20 @@
   @include field-focus-animation;
 }
 
+#page form form-item input.error,
+page form form-item textarea.error,
+page form form-item select.error {
+  @include form-field-padding;
+  @include box-shadow(0 0 4px rgba(255,0,0,0.2));  
+  height: auto;
+  background: $fieldBackgroundColor;
+  border: #ff0000;
+  font-family: $fontFamily;
+  color: $fontColor;
+  font-size: inherit;
+  @include field-focus-animation;
+}
+
 #page form input:focus {
   @include box-shadow($shadow: $fieldFocusShadow);
 }
