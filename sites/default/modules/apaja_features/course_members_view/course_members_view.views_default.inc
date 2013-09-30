@@ -134,6 +134,125 @@ function course_members_view_views_default_views() {
       'label' => 'OG membership: Group ID',
     ),
   );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Kurssin osallistujat';
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    3 => '3',
+  );
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Kaikki -';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« ensimmäinen';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ edellinen';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'seuraava ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'viimeinen »';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['row_class'] = ' ';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['style_options']['columns'] = array(
+    'uid' => 'uid',
+    'field_account_etunimi' => 'field_account_etunimi',
+    'field_account_sukunimi' => 'field_account_sukunimi',
+    'mail' => 'mail',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'uid' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_account_etunimi' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_account_sukunimi' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'mail' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => 'views-align-left',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['override'] = FALSE;
+  $handler->display->display_options['style_options']['sticky'] = TRUE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: PHP */
+  $handler->display->display_options['header']['php']['id'] = 'php';
+  $handler->display->display_options['header']['php']['table'] = 'views';
+  $handler->display->display_options['header']['php']['field'] = 'php';
+  $handler->display->display_options['header']['php']['php_output'] = '<?php 
+$node = node_load(arg(1));
+echo \'<h3>\'. $node->title. \' osallistujat</h3>\';
+?>
+';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: User: Uid */
+  $handler->display->display_options['fields']['uid']['id'] = 'uid';
+  $handler->display->display_options['fields']['uid']['table'] = 'users';
+  $handler->display->display_options['fields']['uid']['field'] = 'uid';
+  $handler->display->display_options['fields']['uid']['label'] = '';
+  $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
+  /* Field: User: Etunimi */
+  $handler->display->display_options['fields']['field_account_etunimi']['id'] = 'field_account_etunimi';
+  $handler->display->display_options['fields']['field_account_etunimi']['table'] = 'field_data_field_account_etunimi';
+  $handler->display->display_options['fields']['field_account_etunimi']['field'] = 'field_account_etunimi';
+  $handler->display->display_options['fields']['field_account_etunimi']['label'] = '';
+  $handler->display->display_options['fields']['field_account_etunimi']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_account_etunimi']['element_label_colon'] = FALSE;
+  /* Field: User: Sukunimi */
+  $handler->display->display_options['fields']['field_account_sukunimi']['id'] = 'field_account_sukunimi';
+  $handler->display->display_options['fields']['field_account_sukunimi']['table'] = 'field_data_field_account_sukunimi';
+  $handler->display->display_options['fields']['field_account_sukunimi']['field'] = 'field_account_sukunimi';
+  $handler->display->display_options['fields']['field_account_sukunimi']['label'] = 'Nimi';
+  $handler->display->display_options['fields']['field_account_sukunimi']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_account_sukunimi']['alter']['text'] = '[field_account_etunimi] [field_account_sukunimi]';
+  $handler->display->display_options['fields']['field_account_sukunimi']['alter']['path'] = 'user/[uid]';
+  $handler->display->display_options['fields']['field_account_sukunimi']['element_label_colon'] = FALSE;
+  /* Field: User: E-mail */
+  $handler->display->display_options['fields']['mail']['id'] = 'mail';
+  $handler->display->display_options['fields']['mail']['table'] = 'users';
+  $handler->display->display_options['fields']['mail']['field'] = 'mail';
+  $handler->display->display_options['fields']['mail']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['mail']['link_to_user'] = '0';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: User: Etunimi (field_account_etunimi) */
+  $handler->display->display_options['sorts']['field_account_etunimi_value']['id'] = 'field_account_etunimi_value';
+  $handler->display->display_options['sorts']['field_account_etunimi_value']['table'] = 'field_data_field_account_etunimi';
+  $handler->display->display_options['sorts']['field_account_etunimi_value']['field'] = 'field_account_etunimi_value';
+  $handler->display->display_options['path'] = 'node/%/ogosallistujaprint';
+  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['title'] = 'Osallistujat printti';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['context'] = 0;
   $translatables['course_members'] = array(
     t('Defaults'),
     t('more'),
@@ -150,6 +269,17 @@ function course_members_view_views_default_views() {
     t('Content pane'),
     t('OG members'),
     t('View panes'),
+    t('Page'),
+    t('Kurssin osallistujat'),
+    t('Items per page'),
+    t('- Kaikki -'),
+    t('Offset'),
+    t('« ensimmäinen'),
+    t('‹ edellinen'),
+    t('seuraava ›'),
+    t('viimeinen »'),
+    t('Nimi'),
+    t('E-mail'),
   );
   $export['course_members'] = $view;
 
