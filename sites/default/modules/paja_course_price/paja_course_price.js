@@ -37,16 +37,16 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
   
       costs = profitMargin + premisesCosts + instructorFees + miscellanousCosts;
       
-      incomeFromCredits = ((distanceCredits * voPerDistanceAttendee) + (localCredits * voPerLocalAttendee)) * attendees;
-      incomePerAttendee =  coursePrice * attendees;
-      
+      incomeFromCredits = ((distanceCredits * voPerDistanceAttendee) * attendees) + ((localCredits * voPerLocalAttendee) * attendees);
+      incomeFromAttendees =  coursePrice * attendees;
+      incomePerAttendee = coursePrice + distanceCredits * voPerDistanceAttendee + localCredits * voPerLocalAttendee;
 //      incomePerAttendee = coursePrice + credits * voPerLocalAttendee;
   
-      totalIncome = round100(incomePerAttendee + incomeFromCredits);
+      totalIncome = round100(incomeFromAttendees + incomeFromCredits);
       
       costsWithoutManagementCosts = costs;
   
-      criticalPoint = roundUp((miscellanousCosts + premisesCosts + profitMargin) / (coursePrice + credits * voPerLocalAttendee - managementCostsPerAttendee - instructorFee * credits));
+      criticalPoint = roundUp((miscellanousCosts + premisesCosts + profitMargin) / (incomePerAttendee - managementCostsPerAttendee - instructorFee * credits));
       managementCosts = attendees * managementCostsPerAttendee;
       allCosts = costs + managementCosts;
       
@@ -85,50 +85,44 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
       var managementAndProfitMargin = managementCosts + profitMargin;
 //      var totalCosts = instructorFees + managementAndProfitMargin + premisesCosts + miscellanousCosts;
       var tableProfit = round100(profit);
-      var totalCosts = instructorFees + managementAndProfitMargin + premisesCosts + miscellanousCosts;
-      incomeFromAttendees = rounf100(incomeFromAttendees);
-      voIncome = round100(voIncome);  
-      managementCosts = round100(managementCosts);
-      totalCosts = round100(totalCosts);
-
-  	  var budgetHTML = "<table class='paja-course-table'>" +
-	    "<th>Kurssin budjetti</th>" +
-  		"<tr>" +
-  		"<td>Kurssimaksut</td>" +
-  		"<td>" + incomeFromAttendees + " €</td>" +
-			"</tr>" +
-			"<tr>" +
-			"<td>Valtion osuudet</td>" +
-			"<td>" + round100(incomeFromCredits) + " €</td>" +
-			"</tr>" +
-			"<tr class='budget-total-income'>" +
-			"<td class='budget-total-income-title'>Tulot yhteensä</td>" +
-			"<td class='budget-total-income-value'>" + totalIncome + " €</td>" +
-			"</tr>" +
+      var budgetHTML = "<table class='paja-course-table'>" +
+      "<th>Kurssin budjetti</th>" +
+      "<tr>" +
+      "<td>Kurssimaksut</td>" +
+      "<td>" + round100(incomeFromAttendees) + " €</td>" +
+      "</tr>" +
+      "<tr>" +
+      "<td>Valtion osuudet</td>" +
+      "<td>" + round100(incomeFromCredits) + " €</td>" +
+      "</tr>" +
+      "<tr class='budget-total-income'>" +
+      "<td class='budget-total-income-title'>Tulot yhteensä</td>" +
+      "<td class='budget-total-income-value'>" + totalIncome + " €</td>" +
+      "</tr>" +
       "<tr>" +
       "<td>Vetäjien palkkiot</td>" +
       "<td>" + instructorFees + " €</td>" +
-  		"</tr>" +
+      "</tr>" +
       "<tr>" +
       "<td>Hallinto</td>" +
-      "<td>" + managementAndProfitMargin + " €</td>" +
-  		"</tr>" +
+      "<td>" + round100(managementAndProfitMargin) + " €</td>" +
+      "</tr>" +
       "<tr>" +
       "<td>Kiinteistöt ja laitteet</td>" +
-      "<td>" + premisesCosts + " €</td>" +
-  		"</tr>" +
+      "<td>" + round100(premisesCosts) + " €</td>" +
+      "</tr>" +
       "<tr>" +
       "<td>Muut kustannukset</td>" +
-      "<td>" + miscellanousCosts + " €</td>" +
-  		"</tr>" +
+      "<td>" + round100(miscellanousCosts) + " €</td>" +
+      "</tr>" +
       "<tr class='budget-total-costs'>" +
       "<td class='budget-total-costs-title'>Kustannukset yhteensä</td>" +
-      "<td class='budget-total-costs-value'>" + allCosts + " €</td>" +
-  		"</tr>" +
+      "<td class='budget-total-costs-value'>" + round100(allCosts) + " €</td>" +
+      "</tr>" +
       "<tr class='budget-profit'>" +
       "<td class='budget-profit-title'>Tulos</td>" +
       "<td class='budget-profit-value'>" + tableProfit + " €</td>" +
-  		"</tr>" +
+      "</tr>" +
       "</table>";
 
       $("#paja-course-table").html(budgetHTML);
@@ -228,10 +222,3 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
   }
 };
 })(jQuery);
-
-
-
-
-
-
-
