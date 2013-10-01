@@ -1,0 +1,13 @@
+name = Header contexts
+description = Hesder login/logout/user info and register links
+core = 7.x
+package = Features
+version = 7.x-1.0
+project = header_contexts
+dependencies[] = block
+dependencies[] = context
+dependencies[] = custom_blocks
+features[context][] = header_login
+features[context][] = header_userinfo
+features[ctools][] = context:context:3
+features[features_api][] = api:1
