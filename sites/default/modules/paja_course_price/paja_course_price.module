@@ -85,15 +85,18 @@ function paja_course_price_field_validate($entity_type, $entity, $field, $instan
 * Implements hook_field_widget_form().
 */
 function paja_course_price_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {
+  $path = drupal_get_path('module', 'paja_course_price');
+  $element['#attached']['css'][] = "$path/paja_course_price.css";
+  $element['#attached']['js'][] = "$path/paja_course_price.js";
   switch ($instance['widget']['type']) {
-    case 'paja_course_price_field' :
+    case 'paja_course_price_field' :     
       $element['paja_course_price'] = array(
         '#type' => 'fieldset',
         '#title' => '',
-        '#attached' => array(
-            'css' => array(drupal_get_path('module', 'paja_course_price') . '/paja_course_price.css'),
-            'js' => array(drupal_get_path('module', 'paja_course_price') . '/paja_course_price.js'),
-        ),
+//         '#attached' => array(
+//             'css' => array(drupal_get_path('module', 'paja_course_price') . '/paja_course_price.css'),
+//             'js' => array(drupal_get_path('module', 'paja_course_price') . '/paja_course_price.js'),
+//         ),
         '#prefix' => '<div id="paja-course-wrapper">',
         '#suffix' => '</div>',
         '#tree' => TRUE,
