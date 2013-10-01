@@ -146,5 +146,40 @@ var pageLoad = false;
 
 		}
 	};
+	
+
+	Drupal.behaviors.loginBoxBehavior = {
+	// LoginBox effect and stuff
+		
+	  attach : function(context, settings) {
+		
+		$("#headerLoginLink").click(function () {
+		  $("#headerLoginLink").addClass('headerLoginLinkClicked');
+		  
+		  // Get position
+		  var containerWidth = 655;
+		  var extraOffset = 5;
+		  
+		  var linkLeftPos = $("#headerLoginLink").position().left + $("#headerLoginLink").outerWidth() + extraOffset;
+		  var linktopPos = $("#headerLoginLink").position().top + $("#headerLoginLink").outerHeight();
+		  var rightPosVar = containerWidth - linkLeftPos;
+		  $(".block-user-login").css({ right: rightPosVar + 'px', top: linktopPos });
+		  $(".block-user-login").show("fast", function() {
+			  $(document).bind('click', function(){
+			   	$(".block-user-login").hide("fast", function(){
+			   	  $("#headerLoginLink").removeClass('headerLoginLinkClicked');
+	              $(document).unbind('click');  
+			   	});
+			  });
+			  $(".block-user-login").bind('click', function(e){
+	            //return false;
+				  e.stopPropagation();
+			  });
+		  });
+		});
+		
+	  }
+
+	};
   
 }(jQuery));

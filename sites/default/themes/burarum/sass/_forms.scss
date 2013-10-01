@@ -11,14 +11,14 @@
   @include field-focus-animation;
 }
 
-#page form form-item input.error,
-page form form-item textarea.error,
-page form form-item select.error {
+#page form input[type='text'].error,
+#page form textarea.error,
+#page form select.error {
   @include form-field-padding;
   @include box-shadow(0 0 4px rgba(255,0,0,0.2));  
   height: auto;
   background: $fieldBackgroundColor;
-  border: #ff0000;
+  border:1px solid #ff0000;
   font-family: $fontFamily;
   color: $fontColor;
   font-size: inherit;
@@ -27,6 +27,12 @@ page form form-item select.error {
 
 #page form input:focus {
   @include box-shadow($shadow: $fieldFocusShadow);
+}
+
+#page form input.error:focus,
+#page form textarea.error:focus,
+#page form select.error:focus  {
+  @include box-shadow(0 0 6px rgba(255,0,0,0.7));
 }
 
 #page form input[type='submit'],
