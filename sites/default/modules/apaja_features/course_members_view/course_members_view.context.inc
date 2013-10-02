@@ -15,7 +15,7 @@ function course_members_view_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'kurssin_osallistuja_printti';
   $context->description = '';
-  $context->tag = 'sitewide';
+  $context->tag = 'Sitewide';
   $context->conditions = array(
     'path' => array(
       'values' => array(
@@ -62,7 +62,7 @@ function course_members_view_context_default_contexts() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('sitewide');
+  t('Sitewide');
   $export['kurssin_osallistuja_printti'] = $context;
 
   return $export;
