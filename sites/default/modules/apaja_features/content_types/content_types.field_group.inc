@@ -23,20 +23,17 @@ function content_types_field_group_info() {
     'label' => 'Aikataulu',
     'weight' => '26',
     'children' => array(
-      0 => 'field_kurssi_alkaa',
-      1 => 'field_kurssi_loppuu',
-      2 => 'group_access',
+      0 => 'field_kurssi_loppuu',
+      1 => 'field_kurssi_alkaa',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
-      'label' => 'Aikataulu',
-      'instance_settings' => array(
-        'required_fields' => 1,
-        'id' => '',
-        'classes' => '',
-        'description' => '',
-      ),
       'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => '',
+        'id' => '',
+      ),
     ),
   );
   $export['group_aikataulu|node|kurssi|form'] = $field_group;
@@ -54,22 +51,20 @@ function content_types_field_group_info() {
     'label' => 'Hintalaskuri',
     'weight' => '25',
     'children' => array(
-      0 => 'field_hinnan_tyyppi',
-      1 => 'field_hinta',
-      2 => 'field_maksimi_osallistujat',
-      3 => 'field_minimi_osallistujat',
+      0 => 'field_minimi_osallistujat',
+      1 => 'field_maksimi_osallistujat',
+      2 => 'field_hinta',
+      3 => 'field_hinnan_tyyppi',
       4 => 'field_hintalaskuri',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
-      'label' => 'Hintalaskuri',
-      'instance_settings' => array(
-        'required_fields' => 1,
-        'id' => '',
-        'classes' => '',
-        'description' => '',
-      ),
       'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => '',
+        'id' => '',
+      ),
     ),
   );
   $export['group_hintalaskuri|node|kurssi|form'] = $field_group;
@@ -94,14 +89,12 @@ function content_types_field_group_info() {
     ),
     'format_type' => 'htab',
     'format_settings' => array(
-      'label' => 'Lisätiedot',
-      'instance_settings' => array(
-        'required_fields' => 1,
-        'id' => '',
-        'classes' => '',
-        'description' => '',
-      ),
       'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => '',
+        'id' => '',
+      ),
     ),
   );
   $export['group_lisatiedot|node|kurssi|form'] = $field_group;
@@ -119,10 +112,10 @@ function content_types_field_group_info() {
     'label' => 'Multipage container',
     'weight' => '0',
     'children' => array(
-      0 => 'group_aikataulu',
+      0 => 'group_sisalto',
       1 => 'group_hintalaskuri',
-      2 => 'group_lisatiedot',
-      3 => 'group_sisalto',
+      2 => 'group_aikataulu',
+      3 => 'group_lisatiedot',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(

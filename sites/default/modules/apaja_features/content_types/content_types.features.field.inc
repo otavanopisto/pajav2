@@ -68,6 +68,7 @@ function content_types_field_default_fields() {
       'label' => 'Description',
       'required' => 0,
       'settings' => array(
+        'exclude_cv' => FALSE,
         'text_processing' => '1',
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
@@ -135,6 +136,7 @@ function content_types_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'description_field' => 0,
+        'exclude_cv' => FALSE,
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
       ),
@@ -217,6 +219,7 @@ function content_types_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'display_summary' => 0,
+        'exclude_cv' => FALSE,
         'text_processing' => '1',
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
@@ -292,6 +295,7 @@ function content_types_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'allow_clear' => 0,
+        'exclude_cv' => FALSE,
         'stars' => '5',
         'target' => 'none',
         'user_field_privacy' => FALSE,
@@ -366,6 +370,7 @@ function content_types_field_default_fields() {
       'label' => 'Hinnan tyyppi',
       'required' => 0,
       'settings' => array(
+        'exclude_cv' => FALSE,
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
       ),
@@ -434,6 +439,7 @@ function content_types_field_default_fields() {
       'label' => 'Hinta',
       'required' => 0,
       'settings' => array(
+        'exclude_cv' => FALSE,
         'max' => '',
         'min' => '',
         'prefix' => '',
@@ -523,6 +529,7 @@ function content_types_field_default_fields() {
       'label' => 'Hintalaskuri',
       'required' => 1,
       'settings' => array(
+        'exclude_cv' => FALSE,
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
       ),
@@ -609,6 +616,7 @@ function content_types_field_default_fields() {
         'default_value2' => 'same',
         'default_value_code' => '',
         'default_value_code2' => '',
+        'exclude_cv' => FALSE,
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
       ),
@@ -704,6 +712,7 @@ function content_types_field_default_fields() {
         'default_value2' => 'same',
         'default_value_code' => '',
         'default_value_code2' => '',
+        'exclude_cv' => FALSE,
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
       ),
@@ -792,6 +801,7 @@ function content_types_field_default_fields() {
       'settings' => array(
         'alt_field' => 1,
         'default_image' => 0,
+        'exclude_cv' => FALSE,
         'file_directory' => 'kurssikuvat',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
@@ -827,6 +837,9 @@ function content_types_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_kurssin_tila',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(),
       'indexes' => array(
         'value' => array(
@@ -848,7 +861,11 @@ function content_types_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'kurssi',
-      'default_value' => NULL,
+      'default_value' => array(
+        0 => array(
+          'value' => '0',
+        ),
+      ),
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -872,10 +889,12 @@ function content_types_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
+      'exclude_cv' => 0,
       'field_name' => 'field_kurssin_tila',
       'label' => 'Kurssin tila',
       'required' => 1,
       'settings' => array(
+        'exclude_cv' => FALSE,
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
       ),
@@ -961,6 +980,7 @@ function content_types_field_default_fields() {
       'label' => 'Kurssin vetäjä',
       'required' => 0,
       'settings' => array(
+        'exclude_cv' => FALSE,
         'text_processing' => '0',
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
@@ -1032,6 +1052,7 @@ function content_types_field_default_fields() {
       'label' => 'Maksimi osallistujamäärä',
       'required' => 0,
       'settings' => array(
+        'exclude_cv' => FALSE,
         'max' => '',
         'min' => '',
         'prefix' => '',
@@ -1104,6 +1125,7 @@ function content_types_field_default_fields() {
       'label' => 'Minimi osallistujamäärä',
       'required' => 0,
       'settings' => array(
+        'exclude_cv' => FALSE,
         'max' => '',
         'min' => '',
         'prefix' => '',
@@ -1182,6 +1204,7 @@ function content_types_field_default_fields() {
       'label' => 'Summary',
       'required' => 1,
       'settings' => array(
+        'exclude_cv' => FALSE,
         'text_processing' => '0',
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
@@ -1264,6 +1287,7 @@ function content_types_field_default_fields() {
       'label' => 'Tagit',
       'required' => 0,
       'settings' => array(
+        'exclude_cv' => FALSE,
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
       ),
@@ -1343,6 +1367,7 @@ function content_types_field_default_fields() {
       'label' => 'Tuottajan valinta',
       'required' => 0,
       'settings' => array(
+        'exclude_cv' => FALSE,
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
       ),
@@ -1355,91 +1380,6 @@ function content_types_field_default_fields() {
         'type' => 'options_onoff',
         'weight' => '4',
       ),
-    ),
-  );
-
-  // Exported field: 'node-kurssi-group_access'.
-  $fields['node-kurssi-group_access'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'group_access',
-      'foreign keys' => array(),
-      'indexes' => array(
-        'value' => array(
-          0 => 'value',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'list',
-      'no_ui' => TRUE,
-      'settings' => array(
-        'allowed_values' => array(
-          0 => 'Public - accessible to all site users',
-          1 => 'Private - accessible only to group members',
-        ),
-        'allowed_values_function' => '',
-      ),
-      'translatable' => '0',
-      'type' => 'list_boolean',
-    ),
-    'field_instance' => array(
-      'bundle' => 'kurssi',
-      'default_value' => array(
-        0 => array(
-          'value' => '0',
-        ),
-      ),
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '20',
-        ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'group_access',
-      'label' => 'Group visibility',
-      'required' => 1,
-      'settings' => array(
-        'user_field_privacy' => FALSE,
-        'user_register_form' => FALSE,
-      ),
-      'view modes' => array(
-        'full' => array(
-          'label' => 'above',
-          'type' => 'options_onoff',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'type' => 'options_onoff',
-        ),
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(),
-        'type' => 'options_buttons',
-        'weight' => '4',
-      ),
-      'widget_type' => 'options_select',
     ),
   );
 
@@ -1507,6 +1447,7 @@ function content_types_field_default_fields() {
       'label' => 'Group',
       'required' => 1,
       'settings' => array(
+        'exclude_cv' => FALSE,
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
       ),
@@ -1593,6 +1534,7 @@ function content_types_field_default_fields() {
       'label' => 'Alempi slogan',
       'required' => 0,
       'settings' => array(
+        'exclude_cv' => FALSE,
         'text_processing' => '0',
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
@@ -1667,6 +1609,7 @@ function content_types_field_default_fields() {
       'label' => 'Ylempi slogan',
       'required' => 0,
       'settings' => array(
+        'exclude_cv' => FALSE,
         'text_processing' => '0',
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
@@ -1752,6 +1695,7 @@ function content_types_field_default_fields() {
       'required' => 0,
       'settings' => array(
         'display_summary' => 1,
+        'exclude_cv' => FALSE,
         'text_processing' => '1',
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
@@ -1844,6 +1788,7 @@ function content_types_field_default_fields() {
           'url_cutoff' => '80',
         ),
         'enable_tokens' => 1,
+        'exclude_cv' => FALSE,
         'rel_remove' => 'default',
         'title' => 'required',
         'title_maxlength' => '255',
@@ -1938,6 +1883,7 @@ function content_types_field_default_fields() {
         'default_value2' => 'same',
         'default_value_code' => '',
         'default_value_code2' => '',
+        'exclude_cv' => FALSE,
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
       ),
@@ -2021,6 +1967,7 @@ function content_types_field_default_fields() {
       'label' => 'Tapahtuman osoite',
       'required' => 0,
       'settings' => array(
+        'exclude_cv' => FALSE,
         'text_processing' => '1',
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
@@ -2098,6 +2045,7 @@ function content_types_field_default_fields() {
       'label' => 'Yhteystiedot',
       'required' => 0,
       'settings' => array(
+        'exclude_cv' => FALSE,
         'text_processing' => '1',
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
@@ -2218,6 +2166,7 @@ function content_types_field_default_fields() {
             'status' => 1,
           ),
         ),
+        'exclude_cv' => FALSE,
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
       ),
@@ -2252,7 +2201,6 @@ function content_types_field_default_fields() {
   t('Determine if this is an OG group.');
   t('Embed video from youtube or vimeo.');
   t('Group');
-  t('Group visibility');
   t('Groups audience');
   t('Hinnan tyyppi');
   t('Hinta');

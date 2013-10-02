@@ -276,7 +276,7 @@ function content_types_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'title' => array(
-          'weight' => '13',
+          'weight' => '8',
         ),
         'path' => array(
           'weight' => '6',
