@@ -49,19 +49,20 @@ body {
 }
 
 .imagefield-crop-preview {
-  margin:0 0 10px 0;
-}
+  margin:4px 10px 10px 0;
+  display:inline-block;
+  float:left;
+  @include box-shadow(0 0 6px rgba(0, 0, 0, 0.2));
+  border:1px solid #000000;
 
-.imagefield-crop-preview img {
-  @include box-shadow;
 }
 
 .imagefield-crop-cropbox {
-  margin:0 0 10px 0;
-}
+  margin:4px 0 10px 0;
+  display:inline-block;
+  @include box-shadow(0 0 6px rgba(0, 0, 0, 0.2));
+  border:1px solid #000000;
 
-.imagefield-crop-cropbox img {
-  @include box-shadow;
 }
 
 /* LINKS */

@@ -795,6 +795,7 @@ function content_types_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
+      'exclude_cv' => 0,
       'field_name' => 'field_kurssin_kuva',
       'label' => 'Kurssin kuva',
       'required' => 1,
@@ -805,8 +806,8 @@ function content_types_field_default_fields() {
         'file_directory' => 'kurssikuvat',
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
-        'max_resolution' => '1024x1024',
-        'min_resolution' => '200x200',
+        'max_resolution' => '2048x2048',
+        'min_resolution' => '500x500',
         'title_field' => 1,
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,
@@ -816,7 +817,7 @@ function content_types_field_default_fields() {
         'module' => 'imagefield_crop',
         'settings' => array(
           'collapsible' => '2',
-          'croparea' => '500x500',
+          'croparea' => '500x267',
           'enforce_minimum' => 1,
           'enforce_ratio' => 1,
           'preview_image_style' => 'thumbnail',
@@ -1380,6 +1381,92 @@ function content_types_field_default_fields() {
         'type' => 'options_onoff',
         'weight' => '4',
       ),
+    ),
+  );
+
+  // Exported field: 'node-kurssi-group_access'.
+  $fields['node-kurssi-group_access'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'group_access',
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'list',
+      'no_ui' => TRUE,
+      'settings' => array(
+        'allowed_values' => array(
+          0 => 'Public - accessible to all site users',
+          1 => 'Private - accessible only to group members',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_boolean',
+    ),
+    'field_instance' => array(
+      'bundle' => 'kurssi',
+      'default_value' => array(
+        0 => array(
+          'value' => '0',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '20',
+        ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'group_access',
+      'label' => 'Group visibility',
+      'required' => 1,
+      'settings' => array(
+        'exclude_cv' => FALSE,
+        'user_field_privacy' => FALSE,
+        'user_register_form' => FALSE,
+      ),
+      'view modes' => array(
+        'full' => array(
+          'label' => 'above',
+          'type' => 'options_onoff',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'type' => 'options_onoff',
+        ),
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_buttons',
+        'weight' => '4',
+      ),
+      'widget_type' => 'options_select',
     ),
   );
 
@@ -2201,6 +2288,7 @@ function content_types_field_default_fields() {
   t('Determine if this is an OG group.');
   t('Embed video from youtube or vimeo.');
   t('Group');
+  t('Group visibility');
   t('Groups audience');
   t('Hinnan tyyppi');
   t('Hinta');
