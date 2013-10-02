@@ -15,7 +15,7 @@ function event_attending_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'tapahtuman_osallistuja_printti';
   $context->description = '';
-  $context->tag = 'sitewide';
+  $context->tag = 'Sitewide';
   $context->conditions = array(
     'path' => array(
       'values' => array(
@@ -28,30 +28,6 @@ function event_attending_context_default_contexts() {
       'delta_template' => 'tapahtuman_osallistuja_printti',
     ),
     'region' => array(
-      'bartik' => array(
-        'disable' => array(
-          'header' => 0,
-          'help' => 0,
-          'page_top' => 0,
-          'page_bottom' => 0,
-          'highlighted' => 0,
-          'featured' => 0,
-          'content' => 0,
-          'sidebar_first' => 0,
-          'sidebar_second' => 0,
-          'triptych_first' => 0,
-          'triptych_middle' => 0,
-          'triptych_last' => 0,
-          'footer_firstcolumn' => 0,
-          'footer_secondcolumn' => 0,
-          'footer_thirdcolumn' => 0,
-          'footer_fourthcolumn' => 0,
-          'footer' => 0,
-          'dashboard_main' => 0,
-          'dashboard_sidebar' => 0,
-          'dashboard_inactive' => 0,
-        ),
-      ),
       'burarum' => array(
         'disable' => array(
           'header_first' => 'header_first',
@@ -86,7 +62,7 @@ function event_attending_context_default_contexts() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('sitewide');
+  t('Sitewide');
   $export['tapahtuman_osallistuja_printti'] = $context;
 
   return $export;
