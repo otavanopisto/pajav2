@@ -12,7 +12,7 @@
  
 @import url(http://fonts.googleapis.com/css?family=Rochester);
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
 @import "base";
 @import "forms";
 
@@ -24,6 +24,7 @@
 
 body {
   font-family:$fontFamily;
+/*   font-weight:300; */
   color:$fontColor;
   font-size:$fontSize;
   background:url('../gfx/view-port-background.gif') repeat-x left top;
@@ -93,7 +94,7 @@ h1, h2, h3, h4, h5, h6, .h2-imitator {
 .h2-imitator {
   font-size:1.5em;
   margin:0 6px 0 10px;
-  font-weight:normal;
+  font-weight:300;
 }
 
 #page h1#page-title,
@@ -1513,9 +1514,8 @@ ul.tabs.primary li.active a {
     clear:both;
     display:table;
     width:100%;
-    padding-bottom:10px;
-    margin-bottom:10px;
-    border-bottom:1px solid #eee;
+    padding-bottom:5px;
+    margin-bottom:5px;
     
     &.views-row-last {
       padding-bottom:0px;
@@ -1524,16 +1524,17 @@ ul.tabs.primary li.active a {
     }
   
     .views-field-field-tapahtuman-aika {
-      float:left;
+/*       float:left; */
       padding:4px 5px 4px 4px;
-      display:inline-block;
+/*       display:inline-block; */
       line-height:1.2em;
       border-radius:$boxBorderRadius;
-      width:40px;
-      text-align:center;
+/*       width:40px; */
+/*       text-align:center; */
+      font-style:italic;
       margin:0 5px 0 0;
-      font-size:0.9em;
-      background:#f8f8f8;
+/*       font-size:0.9em; */
+/*       background:#f8f8f8; */
       
       
       .date-display-start {
@@ -1548,8 +1549,9 @@ ul.tabs.primary li.active a {
     
     .views-field-title {
       padding:0 3px 0 3px;
-      margin-left:55px;
+/*       margin-left:55px; */
       line-height:1.2em;
+      margin:4px 0;
       
       a {
         text-decoration:none;
@@ -1564,7 +1566,7 @@ ul.tabs.primary li.active a {
     
     .views-field-ops {
       padding:5px 3px 0 3px;
-      margin:3px 0 0 55px;
+/*       margin:3px 0 0 55px; */
       
       .flag-link-toggle {
         background:#0099FF;
@@ -1574,7 +1576,7 @@ ul.tabs.primary li.active a {
         font-size: 0.8em;
         white-space: nowrap;
         width: auto;
-        padding: 5px 8px 4px 8px;
+        padding: 3px 8px 3px 8px;
         text-decoration:none;
         text-transform:uppercase;
       }
@@ -3071,6 +3073,9 @@ form#kurssi-node-form {
 }
 
 
+a, p, ul, ol, li, img, span, strong, em {
 
+  font-family:"Open Sans" !important;
+}
 
 
