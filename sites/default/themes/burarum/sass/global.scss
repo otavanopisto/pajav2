@@ -514,11 +514,9 @@ form#user-login-form {
         display:block;
         font-weight:normal;
         text-transform:uppercase;
-        font-size:0.825em;
+        font-size:0.875em;
         padding:0 0 4px 0;
         background:#ffffff;
-        border-top-left-radius:2px;
-        border-top-right-radius:2px;
       }
     
    }
@@ -3082,4 +3080,107 @@ a, p, ul, ol, li, img, span, strong, em {
   font-family:"Open Sans" !important;
 }
 
-
+#modalContent {
+  
+  font-size:1em !important;
+  top:10% !important;
+  
+  .modal-forms-modal-content {
+      @include box-shadow(0 0px 30px rgba(0, 0, 0, 0.9));
+      @include rounded-borders;
+      border:5px solid #326F47;
+      background:#ffffff;
+      z-index:9998;
+      padding:10px 15px 15px 15px;
+      width:285px;
+      text-align:left;
+      font-size:1em !important;
+      height:auto !important;
+      font-family:$fontFamily;
+      
+        .popups-container {
+          border-radius:0;
+          
+          .popups-close {
+            position:absolute;
+            top:10px;
+            right:10px;
+          }
+        }
+      
+        .modal-header {
+          padding:0;
+        }
+      
+        #modal-title {
+          font-size:1.5em;
+          margin:0;
+          font-weight:300;
+          text-transform:uppercase;
+        }
+      
+        #modal-content {
+          padding:0;
+          width:100% !important;
+          height:auto !important;
+        }
+      
+        form#user-pass {
+        
+          label {
+            display:block;
+            font-weight:normal;
+            text-transform:uppercase;
+            font-size:0.875em;
+            padding:0 0 4px 0;
+            background:#ffffff;
+          }
+        
+          input.form-text {
+            padding:5px;
+            @include rounded-borders;
+            font-size:1.2em;
+            height:auto !important;
+            width:100%;
+            
+            @include form-field-padding;
+            @include box-shadow;  
+            height: auto;
+            background: $fieldBackgroundColor;
+            border: $fieldBorder;
+            font-family: $fontFamily;
+            color: $fontColor;
+            font-size: inherit;
+            @include field-focus-animation;
+            
+            &:focus {
+              @include box-shadow($shadow: $fieldFocusShadow);
+            }
+          }
+          
+          input.form-submit {
+            @include rounded-borders;
+            @include box-shadow;
+            @include form-field-padding;
+            height: auto;
+            background: $buttonBackgroundColor;
+            border: $buttonBorder;
+            font-family: $fontFamily;
+            color: $buttonFontColor;
+            font-size:1em !important;
+            text-shadow: none;
+            font-weight: normal;
+            @include text-shadow($shadow: $textShadow);
+            float:none;
+            clear:both;
+            display:inline-block;
+          }
+          
+          .form-actions {
+            margin-bottom:0;
+          }
+        
+       }
+  }
+  
+}
