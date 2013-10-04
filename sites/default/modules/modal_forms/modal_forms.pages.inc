@@ -88,7 +88,7 @@ function modal_forms_password($js = NULL) {
   ctools_include('modal');
   ctools_include('ajax');
   $form_state = array(
-    // 'title' => t('Request new password'),
+    'title' => t('Request new password'),
     'ajax' => TRUE,
   );
   $output = ctools_modal_form_wrapper('user_pass', $form_state);
