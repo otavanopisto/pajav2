@@ -1,3 +1,5 @@
+@CHARSET "UTF-8";
+
 /* This file will hold styles for the mobile version of your website (mobile first). */
 /* This also can include ANY global CSS that applies site-wide. Unless overwritten by a more specific style rule, CSS declarations in global.css will apply site-wide. */
 
@@ -2399,13 +2401,14 @@ ul.tabs.primary li.active a {
 }
 
 #page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-admin:before {
-  content:'Kurssin vetäjä';
+  content:"Kurssin vet&aumlj&auml";
   text-transform:uppercase;
   font-weight:normal;
   font-size:1em;
   display:block;
   color:$fontColor;
   margin:10px 0 0 0;
+ 
 }
 
 #page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapper {
@@ -2414,6 +2417,7 @@ ul.tabs.primary li.active a {
   position:absolute;
   margin-top:-50px;
   margin-left:-376px;
+  
   display:block;
   padding:15px;
   width:350px;

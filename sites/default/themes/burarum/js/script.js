@@ -175,6 +175,12 @@ var pageLoad = false;
 	            //return false;
 				  e.stopPropagation();
 			  });
+			  $("a.init-modal-forms-password-processed").bind('click', function(e){
+		        $(".block-user-login").hide("fast", function(){
+				  $("#headerLoginLink").removeClass('headerLoginLinkClicked');
+		          $(document).unbind('click');  
+				});    
+			  });
 		  });
 		});
 		
