@@ -3119,7 +3119,8 @@ a, p, ul, ol, li, img, span, strong, em {
           height:auto !important;
         }
       
-        form#user-pass {
+        form#user-pass,
+        form#user-register-form {
         
           label {
             display:block;
