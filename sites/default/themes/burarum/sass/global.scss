@@ -18,12 +18,6 @@
 @import "base";
 @import "forms";
 
-/* REMOVE THE PESKY STRICT PHP MESSAGES */
-
-.messages.error, #messages {
-   display:none !important; 
-}
-
 body {
   font-family:$fontFamily;
 /*   font-weight:300; */
