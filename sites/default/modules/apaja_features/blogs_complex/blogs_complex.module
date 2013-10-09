@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Blogs complex feature.
+ */
+
+include_once 'blogs_complex.features.inc';
