@@ -2795,6 +2795,34 @@ function custom_blocks_default_blockexport_settings() {
   'title' => '',
   'cache' => '-1',
 );
+  $export['block'][] = array(
+  'bid' => '212',
+  'module' => 'block',
+  'delta' => '8',
+  'theme' => 'burarum',
+  'status' => '0',
+  'weight' => '0',
+  'region' => '-1',
+  'custom' => '0',
+  'visibility' => '0',
+  'pages' => '',
+  'title' => 'Write to blog link',
+  'cache' => '-1',
+);
+  $export['block'][] = array(
+  'bid' => '213',
+  'module' => 'block',
+  'delta' => '8',
+  'theme' => 'seven',
+  'status' => '0',
+  'weight' => '0',
+  'region' => '',
+  'custom' => '0',
+  'visibility' => '0',
+  'pages' => '',
+  'title' => 'Write to blog link',
+  'cache' => '-1',
+);
   $export['block_custom'][] = array(
   'bid' => '1',
   'body' => '<div id="block-login-signup" class="block block-login-signup block-without-title">
@@ -2906,6 +2934,14 @@ $picture = \'<div class="fbss-comments-picture user-picture">\'. drupal_render($
         </div>
       </div>',
   'info' => 'Footer SoMe icons',
+  'format' => 'php_code',
+);
+  $export['block_custom'][] = array(
+  'bid' => '8',
+  'body' => '<div class="blog-new-entry">
+   <span class="blog-new-entry-container"><a href="/node/add/blog-entry"><?php echo t(\'Lisää uusi blogikirjoitus\'); ?></a>
+</div>',
+  'info' => 'Write to blog link',
   'format' => 'php_code',
 );
 return $export;
