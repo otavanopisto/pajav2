@@ -150,6 +150,12 @@ function oo_alterations_form_alter(&$form, $form_state, $form_id) {
       $form['destination']['#value'] = check_plain(filter_xss($_SERVER['HTTP_REFERER']));
       $form['#submit'][] = 'oo_alterations_user_login_submit';      
     }
+  }elseif($form_id == 'comment_node_blog_entry_form'){
+    unset($form['author']['_author']);
+    $js = 'jQuery(document).ready(function($) {
+        $("#' . $form['#id'] . ' fieldset.filter-wrapper").hide();
+      });';
+    drupal_add_js($js, 'inline');
   }
 }
 
