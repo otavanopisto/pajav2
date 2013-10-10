@@ -36,7 +36,7 @@ abstract class flag_handler_relationship extends views_handler_relationship {
       '@flag-name' => $this->options['flag'],
     );
     if (!$this->options['flag']) {
-      $errors[] = t('You must pick a flag to use for the relationship "@relationship-name".', $tokens);
+//       $errors[] = t('You must pick a flag to use for the relationship "@relationship-name".', $tokens);
     }
     elseif (!flag_get_flag($this->options['flag'])) {
       $errors[] = t('This view is looking for a flag by the name "@flag-name", but there is no such flag. Perhaps it was deleted. Please update the relationship "@relationship-name" in this view to use an existing flag.', $tokens);
