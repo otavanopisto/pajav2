@@ -13,10 +13,15 @@
     $author = user_load($node->uid); 
     $first_name = array_pop(field_get_items('user', $author, 'field_account_etunimi')); 
     $last_name = array_pop(field_get_items('user', $author, 'field_account_sukunimi')); 
-    $full_name = $first_name["safe_value"] . " " . $last_name['safe_value']; 
+    $full_name = $first_name["safe_value"] . " " . $last_name['safe_value'];
+    $author_link = "user/$author->uid";
+    if($alias = path_load($author_link)){
+      $author_link = $alias["alias"];
+    }
+    $author = '<a href="'. $author_link. '">' . $full_name . '</a>';
   ?>
   
-  <footer class="submitted"><?php print date( "l, F j, Y - H:i",$node->created); ?> <?php print $full_name; ?></footer>
+  <footer class="submitted"><?php print date( "l, F j, Y - H:i",$node->created); ?> <?php print $author; ?></footer>
   <?php endif; ?>  
   
   <div<?php print $content_attributes; ?>>

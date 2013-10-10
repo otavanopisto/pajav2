@@ -24,13 +24,18 @@
       $author = user_load($comment->uid); 
       $first_name = array_pop(field_get_items('user', $author, 'field_account_etunimi')); 
       $last_name = array_pop(field_get_items('user', $author, 'field_account_sukunimi')); 
-      $full_name = $first_name["safe_value"] . " " . $last_name['safe_value']; 
+      $full_name = $first_name["safe_value"] . " " . $last_name['safe_value'];
+      $author_link = "user/$author->uid";
+      if($alias = path_load($author_link)){
+        $author_link = $alias["alias"];
+      }
+      $author = '<a href="'. $author_link. '">' . $full_name . '</a>';
     ?>
   
    <?php 
       $created = date('l, F j, Y - H:i', strtotime($datetime));
       print t('Submitted by !username on !datetime',
-      array('!username' => $full_name, '!datetime' => '<time datetime="' . $datetime . '">' . $created . '</time>'));
+      array('!username' => $author, '!datetime' => '<time datetime="' . $datetime . '">' . $created . '</time>'));
     ?>
   </footer>
 
