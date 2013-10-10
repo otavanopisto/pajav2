@@ -29,7 +29,7 @@ function content_types_filter_default_formats() {
         'weight' => '1',
         'status' => '1',
         'settings' => array(
-          'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <img>',
+          'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd> <img> <p> <u> <i> <b> <strike> <table> <tr> <td> <th> <thead> <tbody>',
           'filter_html_help' => 1,
           'filter_html_nofollow' => 0,
         ),
