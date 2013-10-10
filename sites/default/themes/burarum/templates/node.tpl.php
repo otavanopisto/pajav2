@@ -18,7 +18,7 @@
     if($alias = path_load($author_link)){
       $author_link = $alias["alias"];
     }
-    $author = '<a href="/'. $author_link. '">' . $full_name . '</a>';
+    $author = '<a title="' . t('Bloggaajan käyttäjäprofiili') . '" href="/'. $author_link. '">' . $full_name . '</a>';
   ?>
   
   <footer class="submitted"><?php print date( "l, F j, Y - H:i",$node->created); ?> <?php print $author; ?></footer>

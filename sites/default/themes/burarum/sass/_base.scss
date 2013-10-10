@@ -63,6 +63,9 @@ $headerBorder:2px solid #000;
 /* Transitions for FIELDS */
 $fieldFocusAnimation: all 300ms linear;
 
+/* Transitions for ELEMENTS */
+$elementFocusAnimation: all 600ms linear;
+
 /* Transitions for CAROUSEL */
 $carouselHoverTransitionProperty:border,background,box-shadow;
 $carouselHoverTransitionDuration:800ms,500ms,100ms;
@@ -137,6 +140,14 @@ $tooltipRTLTransitionFunction:linear;
   -webkit-transition:$fieldFocusAnimation;
   -o-transition:$fieldFocusAnimation;
   -ms-transition: $fieldFocusAnimation;
+}
+
+@mixin element-focus-animation() {
+  transition:$elementFocusAnimation;
+  -moz-transition:$elementFocusAnimation;
+  -webkit-transition:$elementFocusAnimation;
+  -o-transition:$elementFocusAnimation;
+  -ms-transition: $elementFocusAnimation;
 }
 
 @mixin tooltip-rtl-animation($property: $tooltipRTLTransitionProperties, $duration: $tooltipRTLTransitionDurations, $function: $tooltipRTLTransitionFunction) {

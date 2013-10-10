@@ -3266,12 +3266,11 @@ a, p, ul, ol, li, img, span, strong, em {
           font-style:italic;
           display:inline-block;
           border-radius:2px;
-          padding:1px 2px;
+          padding:1px 5px;
           text-decoration:none;
           
           &:hover {
-            background:darken(#ff9900,3%);
-            color:#fff;
+            color:#ff9900;
           }
         }
       }
@@ -3324,12 +3323,11 @@ a, p, ul, ol, li, img, span, strong, em {
         font-style:italic;
         display:inline-block;
         border-radius:2px;
-        padding:1px 2px;
+        padding:1px 5px;
         text-decoration:none;
         
         &:hover {
-          background:darken(#ff9900,3%);
-          color:#fff;
+          color:#ff9900;
         }
       }
     }
@@ -3424,11 +3422,29 @@ a, p, ul, ol, li, img, span, strong, em {
       padding:20px;
       font-weight:300;
       border-radius:5px;
+      @include element-focus-animation;
+      
+      &:hover {
+        background:#fffff8;
+        border-left:4px solid #d4d4d4;
+      }
       
       footer.comment-submitted {
         margin:0 0 1em 0;
         font-style:italic;
         font-weight:400;
+        
+        a {
+          font-style:italic;
+          display:inline-block;
+          border-radius:2px;
+          padding:1px 5px;
+          text-decoration:none;
+          
+          &:hover {
+            color:#ff9900;
+          }
+        }
       }
       
       
@@ -3469,7 +3485,7 @@ a, p, ul, ol, li, img, span, strong, em {
             font-weight:400;
           
             &:hover {
-              color:#000;
+              background:darken(#ff9900,3%);
             }
 
           }        

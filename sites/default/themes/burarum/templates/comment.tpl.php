@@ -29,7 +29,7 @@
       if($alias = path_load($author_link)){
         $author_link = $alias["alias"];
       }
-      $author = '<a href="/'. $author_link. '">' . $full_name . '</a>';
+      $author = '<a title="' . t('Kommentoijan käyttäjäprofiili') . '" href="/'. $author_link. '">' . $full_name . '</a>';
     ?>
   
    <?php 
