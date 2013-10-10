@@ -39,7 +39,19 @@ function blogs_complex_default_panels_mini() {
     $pane->type = 'block';
     $pane->subtype = 'block-8';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'logic' => 'and',
+      'plugins' => array(
+        0 => array(
+          'name' => 'perm',
+          'settings' => array(
+            'perm' => 'create blog_entry content',
+          ),
+          'context' => 'logged-in-user',
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'override_title' => 1,
       'override_title_text' => '',
@@ -48,7 +60,10 @@ function blogs_complex_default_panels_mini() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'pane-block-new-blog-entry',
+    );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
@@ -75,7 +90,7 @@ function blogs_complex_default_panels_mini() {
       'url' => '',
       'display' => 'block',
       'override_title' => 1,
-      'override_title_text' => 'Blogien kirjoittajat',
+      'override_title_text' => 'Käyttäjien blogit',
     );
     $pane->cache = array();
     $pane->style = array(

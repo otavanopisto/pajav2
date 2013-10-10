@@ -160,105 +160,11 @@ h1, h2, h3, h4, h5, h6, .h2-imitator {
 }
 
 #page #node-course-panel .pane-course-members h2,
-#page #node-course-panel .pane-tulevat-kurssin-tapahtumat-panel-pane-1 h2 {
+#page #node-course-panel .pane-tulevat-kurssin-tapahtumat-panel-pane-1 h2,
+#page #node-blog-frontpage .pane-blogin-navigointi h2.pane-title,
+#page #node-blog-page .pane-blogin-navigointi h2.pane-title,
+#page #node-blog-entries .pane-blogin-navigointi h2.pane-title {
   margin:0 6px 10px 0;
-}
-
-#page article.node-blog {  
-  margin-bottom:1.5em;
-  padding-bottom:2em;
-  border-bottom:1px solid #eee;
-  
-  &:last-child {
-    border:0;
-  }
-
-  header h2.node-title { /* Override blog articles header in blog listing */
-    margin:0 0 0.2em 0;
-    font-size:1.5em;
-  
-    a {
-      text-decoration:none;
-      color:#0062A0;
-    }
-    
-  }
-  
-  footer {
-    margin:0 0 1em 0;
-    font-style:italic;
-    color:#757575;
-  }
-  
-  div.content {
-  
-    p {
-      margin:0 0 1em 0;
-    }
-  
-  }
-  
-  nav {
-  
-    ul {
-    
-      li {
-        padding:0 1em 0 0;
-        
-        &.blog_usernames_blog {
-        
-          a {
-            display:inline-block;
-            border-radius:2px;
-            padding:1px 8px;
-            background:#ff9900;
-            color:#fff;
-            text-decoration:none;
-            
-            &:hover {
-              background:darken(#ff9900,9%);
-            }
-          }
-
-        }
-      }
-    
-    }
-    
-  }
-  
-  div#comments {
-    margin-top:3em;
-    
-    h2, form {
-      margin:0 6px 10px 0;
-    }
-    
-    article.comment {
-      margin-bottom:1em;
-      padding-bottom:1em;
-      border-left:4px solid #eee;
-      padding-left:1em;
-      box-shadow:5px 5px 20px rgba(200, 200, 200, 0.1);
-      border-top:1px solid #fafafa; 
-    
-      header {
-      
-        h3 {
-          margin:10px 6px 0.2em 0;
-          
-          a {
-            text-decoration:none;
-            color:#0062A0;
-          }
-        }
-      
-      }
-    
-    }
-  
-  }
-
 }
 
 /* GENERIC LAYOUT */
@@ -470,7 +376,9 @@ h1, h2, h3, h4, h5, h6, .h2-imitator {
 }
 
 #region-menu .navigation ul a.active, 
-#region-menu .navigation.fixedPosition ul a.active {
+#region-menu .navigation.fixedPosition ul a.active,
+#region-menu .navigation ul a.active-trail, 
+#region-menu .navigation.fixedPosition ul a.active-trail {
   background:#fff;
   @include rounded-borders;
   color:#000;
@@ -571,6 +479,7 @@ h1, h2, h3, h4, h5, h6, .h2-imitator {
 #block-userinfo-logout .field-name-field-account-kuva img {
   width:32px;
   height:32px;
+  border-radius:2px;
 }
 
 /* LOGIN and SIGNUP FORM */
@@ -791,6 +700,7 @@ ul.tabs.primary li.active a {
 .view-editors-choise .jcarousel-item .views-field-field-kurssin-kuva img {
   width:100%;
   height:auto;
+  border-radius:2px;
 }
 
 .view-editors-choise .jcarousel-item .views-field-title {
@@ -959,6 +869,7 @@ ul.tabs.primary li.active a {
 .view-courses-ended .jcarousel-item .views-field-field-kurssin-kuva img {
   width:100%;
   height:auto;
+  border-radius:2px;
 }
 
 .view-courses-not .jcarousel-item .views-field-title,
@@ -1433,6 +1344,7 @@ ul.tabs.primary li.active a {
   width:100%;
   height:auto;
   @include box-shadow;
+  border-radius:2px;
 }
 
 #page #node-course-panel .field-type-fivestar {
@@ -1556,12 +1468,13 @@ ul.tabs.primary li.active a {
   width:32px;
   overflow:hidden;
   margin-right:5px;
-  border:1px solid #f2f2f2;
+/*   border:1px solid #f2f2f2; */
 }
 
 #page #node-course-panel .view-course-members .views-row .views-field-field-account-kuva img {
   height:32px;
   width:32px;
+  border-radius:2px;
 }
 
 #page #node-course-panel .view-course-members .views-row .views-field-field-account-sukunimi {
@@ -3276,4 +3189,230 @@ a, p, ul, ol, li, img, span, strong, em {
        }
   }
   
+}
+
+/* BLOG */
+
+#page #node-blog-frontpage,
+#page #node-blog-page,
+#page #node-blog-entries {  
+  
+  .panels-flexible-region-10-center {
+    width:100%;
+  }
+  
+  .grid-12 .view-blog-writers {
+    margin:0 0 0 10px;
+  }
+  
+  .grid-4 .view-blog-writers {
+  
+  }
+  
+  .view-blog-listing {
+    margin:0 0 0 10px;
+  }
+  
+  h2.pane-title {  
+    margin:0 0 5px 10px;
+  }
+  
+  .pane-content {
+
+    .views-row {
+      margin-top:1em;
+      margin-bottom:1em;
+
+      border-bottom:1px solid #eee;  
+      
+      .views-field-title { /* Override blog articles header in blog listing */
+        margin:0 0 0.2em 0;
+        font-size:1.5em;
+        font-weight:300;
+      
+        a {
+          text-decoration:none;
+          color:#0062A0;
+        }
+        
+      }
+      
+      &:last-child {
+        border:0;
+      }
+      
+      .views-field-created {
+        margin:0 0 1em 0;
+        font-style:italic;
+        color:#757575;
+        display:inline-block;
+      }
+      
+      .custom-writtenby {
+        font-style:italic;
+        display:inline-block;
+        margin:0 0 0 10px;
+      }
+      
+      .views-field-name {
+        display:inline-block;
+        
+        a {
+          font-style:italic;
+          display:inline-block;
+          border-radius:2px;
+          padding:1px 2px;
+          text-decoration:none;
+          
+          &:hover {
+            background:darken(#ff9900,3%);
+            color:#fff;
+          }
+        }
+      }
+    }
+
+  }
+  
+  .pane-node-comment-form {
+    margin:1em 0 0 0;
+    
+    .pane-content {
+      margin:0;
+    }
+      
+  }
+
+  .view-empty {
+    margin:1em 0 1em 10px;
+    padding:1em 0 1em 0;
+    text-align:left;
+    
+    h2 {
+      text-transform:none;
+      padding:0 0 1em 0;
+      margin:0;
+    }
+    
+  }
+  
+  .blog-new-entry {
+  
+    display:inline-block;
+  
+    a {
+      background:#0099FF;
+      border-radius:$boxBorderRadius;
+      box-shadow:$boxShadow;
+      color: #FFFFFF;
+      font-size: 0.8em;
+      white-space: nowrap;
+      width: auto;
+      padding: 5px 8px 4px 8px;
+      text-decoration:none;
+      text-transform:uppercase;
+    }
+    
+    
+  }
+  
+  article.node-blog-entry {
+    margin:0 0 0 10px;
+  
+    footer.submitted {
+      margin:0 0 1em 0;
+      font-style:italic;
+      color:#757575;
+      
+      a {
+        font-style:italic;
+        display:inline-block;
+        border-radius:2px;
+        padding:1px 2px;
+        text-decoration:none;
+        
+        &:hover {
+          background:darken(#ff9900,3%);
+          color:#fff;
+        }
+      }
+    }
+  
+    h1,h2,h3,h4,h5,h6 {
+      text-transform:none;
+      margin:0 0 5px 0;
+    }
+  
+  }
+  
+  .pane-block-new-blog-entry {
+  
+    .pane-content {
+      margin:5px 0 0 0;
+    
+    }
+  
+  }
+
+  .pane-blog-writers {
+  
+    .pane-content {
+      @include box-padding;
+      @include box-shadow;
+      background:#fff;
+      margin:0 14px 0 0;
+    
+      .views-row {
+        clear: both;
+        cursor: pointer;
+        display: block;
+        height: 32px;
+        padding-bottom: 4px;
+        padding-left: 4px;
+        padding-right: 4px;
+        padding-top: 4px;
+        margin:0;
+        border:0;
+        
+      
+        .views-field-field-account-kuva {
+          display:inline-block;
+          float:left;
+          
+          img {
+            border-radius:2px;
+            width:32px;
+            height:32px;
+          
+          }
+        
+        }
+        
+        .views-field-field-account-sukunimi {
+          display:inline-block;
+          margin:0 0 0 5px;
+          
+          a {
+            color: #0062A0;
+            display: inline-block;
+            height: 1em;
+            padding-bottom: 14px;
+            padding-left: 3px;
+            padding-right: 3px;
+            padding-top: 6px;
+            text-shadow: 0 0 2px #FFFFFF;
+            text-decoration:none;
+            
+            &:hover {
+              color:#ff9900;
+            }
+          }
+        }
+      
+      }
+    
+    }
+  
+  }
+
 }

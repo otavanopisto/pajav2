@@ -24,7 +24,7 @@ function blogs_complex_default_page_manager_handlers() {
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
     'body_classes_to_add' => '',
-    'css_id' => 'node-blog-archive-page',
+    'css_id' => 'node-blog-page',
     'css' => '',
     'contexts' => array(),
     'relationships' => array(),
@@ -71,7 +71,7 @@ function blogs_complex_default_page_manager_handlers() {
       'override_title' => 0,
       'override_title_text' => '',
       'identifier' => '',
-      'link' => 1,
+      'link' => 0,
       'leave_node_title' => 0,
       'build_mode' => 'full',
       'context' => 'argument_entity_id:node_1',
@@ -327,7 +327,7 @@ function blogs_complex_default_page_manager_pages() {
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
-      'override_title_text' => '%blog:field-account-etunimi %blog:field-account-sukunimi bloggaukset',
+      'override_title_text' => '%blog:field-account-etunimi %blog:field-account-sukunimi - bloggaukset',
     );
     $pane->cache = array();
     $pane->style = array(
