@@ -34,7 +34,7 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Relationship: Broken/missing handler */
+  /* Relationship: Flags: (Please select a flag) */
   $handler->display->display_options['relationships']['flag_content_rel']['id'] = 'flag_content_rel';
   $handler->display->display_options['relationships']['flag_content_rel']['table'] = 'statuses';
   $handler->display->display_options['relationships']['flag_content_rel']['field'] = 'flag_content_rel';
@@ -131,7 +131,7 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private] [private] [private] [private] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private]</div>
       [message]
       <div class="statuses-details">
         <div class="statuses-links">[edit] [delete] [ops] [repost]</div> [created]
@@ -201,12 +201,12 @@ function user_profile_page_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('flag_content_rel'),
+    t('flag'),
     t('<span class="statuses-sender">[name]</span>'),
     t('<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private] [private] [private] [private] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private]</div>
       [message]
       <div class="statuses-details">
         <div class="statuses-links">[edit] [delete] [ops] [repost]</div> [created]
@@ -549,12 +549,6 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'Käyttäjä ei ole ilmoittautunut yhteenkään tapahtumaan.';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
-  /* Relationship: Flags: event_attend */
-  $handler->display->display_options['relationships']['flag_content_rel']['id'] = 'flag_content_rel';
-  $handler->display->display_options['relationships']['flag_content_rel']['table'] = 'node';
-  $handler->display->display_options['relationships']['flag_content_rel']['field'] = 'flag_content_rel';
-  $handler->display->display_options['relationships']['flag_content_rel']['flag'] = 'event_attend';
-  $handler->display->display_options['relationships']['flag_content_rel']['user_scope'] = 'any';
   /* Field: Content: Tapahtuman aika */
   $handler->display->display_options['fields']['field_tapahtuman_aika']['id'] = 'field_tapahtuman_aika';
   $handler->display->display_options['fields']['field_tapahtuman_aika']['table'] = 'field_data_field_tapahtuman_aika';
@@ -592,15 +586,6 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['sorts']['field_tapahtuman_aika_value']['id'] = 'field_tapahtuman_aika_value';
   $handler->display->display_options['sorts']['field_tapahtuman_aika_value']['table'] = 'field_data_field_tapahtuman_aika';
   $handler->display->display_options['sorts']['field_tapahtuman_aika_value']['field'] = 'field_tapahtuman_aika_value';
-  /* Contextual filter: Flags: User uid */
-  $handler->display->display_options['arguments']['uid']['id'] = 'uid';
-  $handler->display->display_options['arguments']['uid']['table'] = 'flag_content';
-  $handler->display->display_options['arguments']['uid']['field'] = 'uid';
-  $handler->display->display_options['arguments']['uid']['relationship'] = 'flag_content_rel';
-  $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -608,14 +593,6 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'user/%/tapahtumat';
-  $handler->display->display_options['menu']['type'] = 'tab';
-  $handler->display->display_options['menu']['title'] = 'Tapahtumat';
-  $handler->display->display_options['menu']['weight'] = '0';
-  $handler->display->display_options['menu']['context'] = 0;
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
@@ -625,6 +602,13 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Flags: event_attend */
+  $handler->display->display_options['relationships']['flag_content_rel']['id'] = 'flag_content_rel';
+  $handler->display->display_options['relationships']['flag_content_rel']['table'] = 'node';
+  $handler->display->display_options['relationships']['flag_content_rel']['field'] = 'flag_content_rel';
+  $handler->display->display_options['relationships']['flag_content_rel']['flag'] = 'event_attend';
+  $handler->display->display_options['relationships']['flag_content_rel']['user_scope'] = 'any';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Tapahtuman aika */
   $handler->display->display_options['fields']['field_tapahtuman_aika']['id'] = 'field_tapahtuman_aika';
@@ -646,6 +630,16 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Flags: User uid */
+  $handler->display->display_options['arguments']['uid']['id'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['table'] = 'flag_content';
+  $handler->display->display_options['arguments']['uid']['field'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['relationship'] = 'flag_content_rel';
+  $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['argument_input'] = array(
     'uid' => array(
       'type' => 'context',
@@ -666,13 +660,12 @@ function user_profile_page_views_default_views() {
     t('Asc'),
     t('Desc'),
     t('Käyttäjä ei ole ilmoittautunut yhteenkään tapahtumaan.'),
-    t('flag'),
     t('Nettiosoite'),
     t('Tapahtuman osoite'),
     t('Yhteystiedot'),
-    t('All'),
-    t('Page'),
     t('Content pane'),
+    t('flag'),
+    t('All'),
     t('View panes'),
   );
   $export['users_events'] = $view;
