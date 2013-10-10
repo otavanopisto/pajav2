@@ -391,6 +391,18 @@ h1, h2, h3, h4, h5, h6, .h2-imitator {
 
 /* LOGIN, SIGNUP, USERINFO AND LOGOUT */
 
+form#user-login {
+  
+  .item-list {
+  
+    h3 {
+      margin:10px 6px 10px 0px; 
+    }
+  
+  }
+  
+}
+
 #user-register-form .text-format-wrapper #edit-field-account-kuvaus-und-0-format { /* Lets hide text format stuff beneath the editor */
   display:none;
 }
