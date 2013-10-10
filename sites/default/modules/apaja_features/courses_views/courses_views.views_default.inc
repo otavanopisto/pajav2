@@ -1079,7 +1079,7 @@ return max(array($value,0));';
   $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php']['php_output'] = '<?php 
-if($data->field_field_hinnan_tyyppi[0][\'raw\'][\'value\'] == 0){ 
+/**if($data->field_field_hinnan_tyyppi[0][\'raw\'][\'value\'] == 0){ 
 $query = db_select(\'users\', \'u\');
 $query ->condition(\'u.uid\', 0, \'<>\')
  ->condition(\'u.status\', 1, \'=\')
@@ -1096,7 +1096,7 @@ if($memberCount != 0){
  }else{ $price = $data->field_field_hinta[0][\'raw\'][\'value\']; }
 
 
- echo round($price, 2, PHP_ROUND_HALF_UP) . \'€\'; 
+ echo round($price, 2, PHP_ROUND_HALF_UP) . \'€\';  **/
 ?>';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
@@ -1299,7 +1299,7 @@ return max(array($value,0));';
   $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php']['php_output'] = '<?php 
-if($data->field_field_hinnan_tyyppi[0][\'raw\'][\'value\'] == 0){ 
+/**if($data->field_field_hinnan_tyyppi[0][\'raw\'][\'value\'] == 0){ 
 $query = db_select(\'users\', \'u\');
 $query ->condition(\'u.uid\', 0, \'<>\')
  ->condition(\'u.status\', 1, \'=\')
@@ -1316,7 +1316,7 @@ if($memberCount != 0){
  }else{ $price = $data->field_field_hinta[0][\'raw\'][\'value\']; }
 
 
- echo round($price, 2, PHP_ROUND_HALF_UP) . \'€\'; 
+ echo round($price, 2, PHP_ROUND_HALF_UP) . \'€\'; **/
 ?>';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
