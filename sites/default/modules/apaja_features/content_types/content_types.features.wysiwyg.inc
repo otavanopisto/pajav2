@@ -17,9 +17,9 @@ function content_types_wysiwyg_default_profiles() {
     'settings' => array(
       'default' => 1,
       'user_choose' => 0,
-      'show_toggle' => 1,
+      'show_toggle' => 0,
       'theme' => 'advanced',
-      'language' => 'en',
+      'language' => 'fi',
       'buttons' => array(
         'default' => array(
           'Bold' => 1,
@@ -40,9 +40,11 @@ function content_types_wysiwyg_default_profiles() {
           'Unlink' => 1,
           'Image' => 1,
           'Blockquote' => 1,
+          'Source' => 1,
           'Cut' => 1,
           'Copy' => 1,
           'PasteText' => 1,
+          'RemoveFormat' => 1,
           'SpecialChar' => 1,
           'Table' => 1,
           'Maximize' => 1,
@@ -59,8 +61,8 @@ function content_types_wysiwyg_default_profiles() {
       'apply_source_formatting' => 0,
       'paste_auto_cleanup_on_paste' => 1,
       'block_formats' => 'p,address,pre,h2,h3,h4,h5,h6,div',
-      'css_setting' => 'none',
-      'css_path' => '',
+      'css_setting' => 'self',
+      'css_path' => '/sites/default/themes/burarum/css/ckeditor-contents.css',
       'css_classes' => '',
     ),
     'rdf_mapping' => array(),
@@ -75,7 +77,7 @@ function content_types_wysiwyg_default_profiles() {
       'user_choose' => 0,
       'show_toggle' => 0,
       'theme' => 'advanced',
-      'language' => 'en',
+      'language' => 'fi',
       'buttons' => array(
         'default' => array(
           'Bold' => 1,

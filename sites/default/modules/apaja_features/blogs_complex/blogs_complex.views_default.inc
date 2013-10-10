@@ -169,7 +169,6 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['query']['options']['pure_distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '20';
@@ -182,7 +181,6 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  $handler->display->display_options['relationships']['uid']['required'] = TRUE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -257,7 +255,6 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['fields']['uid']['table'] = 'users';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
   $handler->display->display_options['fields']['uid']['relationship'] = 'uid';
-  $handler->display->display_options['fields']['uid']['group_type'] = 'count';
   $handler->display->display_options['fields']['uid']['label'] = '';
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
@@ -272,7 +269,7 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['fields']['field_account_kuva']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_account_kuva']['settings'] = array(
     'image_style' => 'avatar_thumbnail',
-    'image_link' => 'content',
+    'image_link' => '',
   );
   /* Field: User: Etunimi */
   $handler->display->display_options['fields']['field_account_etunimi']['id'] = 'field_account_etunimi';
