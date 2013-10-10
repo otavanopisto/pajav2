@@ -2816,7 +2816,7 @@ function custom_blocks_default_blockexport_settings() {
   'theme' => 'seven',
   'status' => '0',
   'weight' => '0',
-  'region' => '',
+  'region' => '-1',
   'custom' => '0',
   'visibility' => '0',
   'pages' => '',

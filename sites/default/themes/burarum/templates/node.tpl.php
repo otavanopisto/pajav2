@@ -8,7 +8,7 @@
   <?php endif; ?>
   <?php print render($title_suffix); ?>
   <?php if ($display_submitted): ?>
-  <footer class="submitted"><?php print date( "l, F j, Y - H:i",$node->created); ?> -- <?php print $name; ?></footer>
+  <footer class="submitted"><?php print date( "l, F j, Y - H:i",$node->created); ?> <?php print $name; ?></footer>
   <?php endif; ?>  
   
   <div<?php print $content_attributes; ?>>
