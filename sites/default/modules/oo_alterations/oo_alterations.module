@@ -186,6 +186,11 @@ function oo_alterations_block_info() {
   $blocks['oo_og_create_tapahtuma'] = array(
       'info' => t('Group tapahtuma creating block'),
   );
+  
+  $blocks['oo_blog_authors'] = array(
+      'info' => t('Shows user that have written blog entrys'),
+  );
+  
   return $blocks;
 }
 
@@ -199,6 +204,9 @@ function oo_alterations_block_configure($delta='') {
     case 'oo_og_create_tapahtuma' :
 
       break;
+    case 'oo_blog_authors' : 
+      
+      break;
   }
   return $form;
 }
@@ -209,6 +217,8 @@ function oo_alterations_block_configure($delta='') {
 function oo_alterations_block_save($delta = '', $edit = array()) {
   switch($delta) {
     case 'oo_og_create_tapahtuma' :
+      break;
+    case 'oo_blog_authors' :
       break;
   }
 }
@@ -223,8 +233,55 @@ function oo_alterations_block_view($delta='') {
     case 'oo_og_create_tapahtuma' :
       $block['content'] = _oo_og_create_link_view();
       break;
+    case 'oo_blog_authors' :
+      $block['content'] = _oo_blog_author_view();
+      break;
   }
 
+  return $block;
+}
+
+function _oo_blog_author_view(){
+  $block = array();
+  $block = array(
+    'content' => array(
+        '#prefix' => '<div class="oo-blog-author-block">',
+        '#type' => 'markup',
+        '#suffix' => '</div>',
+    ),
+  );
+  $nodeid = arg(1);
+  $result = db_query('SELECT DISTINCT users_node.uid AS uid FROM {node} node LEFT JOIN {users} users_node ON node.uid = users_node.uid 
+      WHERE (( (node.status = \'1\') )AND(( (node.type IN  (:content_type)) ))) ', array(':content_type' => 'blog_entry'));
+//   $result = db_query('SELECT n.nid, n.title, n.created FROM {node} n WHERE n.uid = :uid', array(':uid' => $uid));
+  // Result is returned as a iterable object that returns a stdClass object on each iteration
+  $items = array();
+  foreach ($result as $record) {
+    $author = user_load($record->uid);
+    $first_name = array_pop(field_get_items('user', $author, 'field_account_etunimi'));
+    $last_name = array_pop(field_get_items('user', $author, 'field_account_sukunimi'));
+    $full_name = $first_name["safe_value"] . " " . $last_name['safe_value'];
+    $custom_image_field = field_view_field('user', $author, 'field_account_kuva', array(
+        'type' => 'image',
+        'label' => 'hidden',
+        'settings' => array(
+            'image_style' => 'avatar_thumbnail',
+            'image_link' => 'none', // file or content.
+        ),
+    ));
+    $output = '<div class="blog-author-picture user-picture">'. drupal_render($custom_image_field) . '</div>';
+    $author_link = "user/$author->uid";
+    if($alias = path_load($author_link)){
+      $author_link = $alias["alias"];
+    }
+    $output .= '<div class="blog-author"><a href="'. $author_link. '">' . $full_name . '</a></div>';
+    $items[] = array('data' => $output);
+  }
+  $element['oo_blog_authors'] = array(
+    '#theme' => 'item_list',
+    '#items' => $items,
+  );
+  $block["#markup"] = drupal_render($element);
   return $block;
 }
 
@@ -243,7 +300,7 @@ function _oo_og_create_link_view(){
   }
   if (og_is_group_content_type('node', 'tapahtuma') && og_user_access('node', $nodeid, "create tapahtuma content")) {
     // Build links.
-    $options  = array(
+    $options = array(
         'query' => array('og_group_ref' => $nodeid),
     );
     
