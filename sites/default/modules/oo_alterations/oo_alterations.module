@@ -269,11 +269,11 @@ function _oo_blog_author_view(){
         ),
     ));
     $output = '<div class="blog-author-picture user-picture">'. drupal_render($custom_image_field) . '</div>';
-    $author_link = "user/$author->uid";
+    $author_link = "blog/$author->uid";
     if($alias = path_load($author_link)){
       $author_link = $alias["alias"];
     }
-    $output .= '<div class="blog-author"><a href="'. $author_link. '">' . $full_name . '</a></div>';
+    $output .= '<div class="blog-author"><a href="/'. $author_link. '">' . $full_name . '</a></div>';
     $items[] = array('data' => $output);
   }
   $element['oo_blog_authors'] = array(
