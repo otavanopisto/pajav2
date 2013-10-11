@@ -57,6 +57,12 @@ function blogs_complex_field_default_fields() {
           'type' => 'text_default',
           'weight' => 0,
         ),
+        'notifications' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'teaser' => array(
           'label' => 'hidden',
           'module' => 'text',
