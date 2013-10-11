@@ -45,6 +45,13 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
   /* Field: User: Etunimi */
   $handler->display->display_options['fields']['field_account_etunimi']['id'] = 'field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['table'] = 'field_data_field_account_etunimi';
@@ -87,6 +94,18 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['path'] = 'kayttajat/[name]';
   $handler->display->display_options['fields']['name']['alter']['alt'] = 'Bloggaajan käyttäjäprofiili';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Field: Content: Comment count */
+  $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
+  $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
+  $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
+  $handler->display->display_options['fields']['comment_count']['label'] = '';
+  $handler->display->display_options['fields']['comment_count']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['comment_count']['alter']['text'] = '<a href ="[path]#comments" class="blog-entry-comment-count-link">Kommentteja [comment_count]</a>';
+  $handler->display->display_options['fields']['comment_count']['alter']['path'] = '[path]';
+  $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['comment_count']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['comment_count']['empty_zero'] = TRUE;
+  $handler->display->display_options['fields']['comment_count']['separator'] = '';
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -147,6 +166,8 @@ function blogs_complex_views_default_views() {
     t('author'),
     t('[field_account_etunimi] [field_account_sukunimi]'),
     t('Bloggaajan käyttäjäprofiili'),
+    t('<a href ="[path]#comments" class="blog-entry-comment-count-link">Kommentteja [comment_count]</a>'),
+    t('.'),
     t('All'),
     t('Content pane'),
     t('View panes'),
@@ -305,6 +326,13 @@ function blogs_complex_views_default_views() {
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Path */
+  $handler->display->display_options['fields']['path']['id'] = 'path';
+  $handler->display->display_options['fields']['path']['table'] = 'node';
+  $handler->display->display_options['fields']['path']['field'] = 'path';
+  $handler->display->display_options['fields']['path']['label'] = '';
+  $handler->display->display_options['fields']['path']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
   /* Field: User: Etunimi */
   $handler->display->display_options['fields']['field_account_etunimi']['id'] = 'field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['table'] = 'field_data_field_account_etunimi';
@@ -346,6 +374,14 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['path'] = 'kayttajat/[name]';
   $handler->display->display_options['fields']['name']['alter']['alt'] = 'Bloggaajan käyttäjäprofiili';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Field: Content: Comment count */
+  $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
+  $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
+  $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
+  $handler->display->display_options['fields']['comment_count']['label'] = '';
+  $handler->display->display_options['fields']['comment_count']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['comment_count']['alter']['text'] = '<a href="[path]#comments" class="blog-entry-comment-count-link">Kommentteja [comment_count]</a>';
+  $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -397,6 +433,9 @@ function blogs_complex_views_default_views() {
     t('[field_account_etunimi] [field_account_sukunimi]'),
     t('Content pane'),
     t('Bloggaajan käyttäjäprofiili'),
+    t('<a href="[path]#comments" class="blog-entry-comment-count-link">Kommentteja [comment_count]</a>'),
+    t('.'),
+    t(','),
     t('View panes'),
   );
   $export['blog_writers'] = $view;
