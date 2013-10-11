@@ -3105,7 +3105,6 @@ a, p, ul, ol, li, img, span, strong, em {
 #modalContent {
   
   font-size:1em !important;
-  top:10% !important;
   
   .modal-forms-modal-content {
       @include box-shadow(0 0px 30px rgba(0, 0, 0, 0.9));
@@ -3415,7 +3414,7 @@ a, p, ul, ol, li, img, span, strong, em {
   
   }
 
-  .pane-blog-writers {
+  .pane-oo-alterations-oo-blog-authors {
   
     .pane-content {
       @include box-padding;
@@ -3423,7 +3422,12 @@ a, p, ul, ol, li, img, span, strong, em {
       background:#fff;
       margin:0 14px 0 0;
     
-      .views-row {
+      ul {
+        margin:0;
+        padding:0;
+      }
+    
+      ul li {
         clear: both;
         cursor: pointer;
         display: block;
@@ -3436,7 +3440,7 @@ a, p, ul, ol, li, img, span, strong, em {
         border:0;
         
       
-        .views-field-field-account-kuva {
+        .blog-author-picture {
           display:inline-block;
           float:left;
           width:32px;
@@ -3451,7 +3455,7 @@ a, p, ul, ol, li, img, span, strong, em {
         
         }
         
-        .views-field-field-account-sukunimi {
+        .blog-author {
           display:inline-block;
           margin:0 0 0 5px;
           
