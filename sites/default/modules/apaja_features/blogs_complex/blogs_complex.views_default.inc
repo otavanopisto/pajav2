@@ -103,8 +103,7 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['fields']['comment_count']['alter']['text'] = '<a href ="[path]#comments" class="blog-entry-comment-count-link">Kommentteja [comment_count]</a>';
   $handler->display->display_options['fields']['comment_count']['alter']['path'] = '[path]';
   $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['comment_count']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['comment_count']['empty_zero'] = TRUE;
+  $handler->display->display_options['fields']['comment_count']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['comment_count']['separator'] = '';
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
@@ -382,6 +381,7 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['fields']['comment_count']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['comment_count']['alter']['text'] = '<a href="[path]#comments" class="blog-entry-comment-count-link">Kommentteja [comment_count]</a>';
   $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['comment_count']['hide_alter_empty'] = FALSE;
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
