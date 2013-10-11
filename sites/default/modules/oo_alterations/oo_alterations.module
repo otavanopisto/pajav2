@@ -250,7 +250,6 @@ function _oo_blog_author_view(){
         '#suffix' => '</div>',
     ),
   );
-  $nodeid = arg(1);
   $result = db_query('SELECT DISTINCT users_node.uid AS uid FROM {node} node LEFT JOIN {users} users_node ON node.uid = users_node.uid 
       WHERE (( (node.status = \'1\') )AND(( (node.type IN  (:content_type)) ))) ', array(':content_type' => 'blog_entry'));
 //   $result = db_query('SELECT n.nid, n.title, n.created FROM {node} n WHERE n.uid = :uid', array(':uid' => $uid));
