@@ -1,5 +1,7 @@
 <?php
 /**
  * @file
- * Drupal needs this blank file.
+ * Code for the Custom Blocks and Modal forms feature.
  */
+
+include_once 'custom_blocks.features.inc';
