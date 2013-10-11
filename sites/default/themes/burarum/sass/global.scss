@@ -391,6 +391,18 @@ h1, h2, h3, h4, h5, h6, .h2-imitator {
 
 /* LOGIN, SIGNUP, USERINFO AND LOGOUT */
 
+form#user-login {
+  
+  .item-list {
+  
+    h3 {
+      margin:10px 6px 10px 0px; 
+    }
+  
+  }
+  
+}
+
 #user-register-form .text-format-wrapper #edit-field-account-kuvaus-und-0-format { /* Lets hide text format stuff beneath the editor */
   display:none;
 }
@@ -583,7 +595,7 @@ ul.tabs.primary li {
 
 ul.tabs.primary li a {
   display:inline-block;
-  padding:6px 20px;
+  padding:6px 20px 4px 20px;
   background:#ffffff;
   text-transform:uppercase;
   color:$linkColor;
@@ -3273,7 +3285,42 @@ a, p, ul, ol, li, img, span, strong, em {
             color:#ff9900;
           }
         }
+        
+        &:before {
+          content:"-";
+          margin:0 0 0 5px;
+          display:inline-block;
+        }
       }
+      
+      .views-field-comment-count {
+        display:inline-block;
+        margin:0;
+        
+        a {
+          color: #0062A0;
+          display: inline-block;
+          height: 1em;
+          padding-bottom: 14px;
+          padding-left: 3px;
+          padding-right: 3px;
+          padding-top: 6px;
+          text-shadow: 0 0 2px #FFFFFF;
+          text-decoration:none;
+          font-style:italic;
+          
+          &:hover {
+            color:#ff9900;
+          }
+        }
+        
+        &:before {
+          content:"-";
+          margin:0;
+          display:inline-block;
+        }
+      }
+      
     }
 
   }
@@ -3328,6 +3375,12 @@ a, p, ul, ol, li, img, span, strong, em {
         
         &:hover {
           color:#ff9900;
+        }
+        
+        &:before {
+          content:"-";
+          margin:0 10px 0 0;
+          display:inline-block;
         }
       }
     }
