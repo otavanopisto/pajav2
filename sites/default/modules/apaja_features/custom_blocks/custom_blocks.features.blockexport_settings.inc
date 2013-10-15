@@ -1388,7 +1388,7 @@ function custom_blocks_default_blockexport_settings() {
   'theme' => 'seven',
   'status' => '0',
   'weight' => '0',
-  'region' => '',
+  'region' => '-1',
   'custom' => '0',
   'visibility' => '0',
   'pages' => '',
@@ -2822,6 +2822,34 @@ function custom_blocks_default_blockexport_settings() {
   'pages' => '',
   'title' => 'Write to blog link',
   'cache' => '-1',
+);
+  $export['block'][] = array(
+  'bid' => '214',
+  'module' => 'oo_alterations',
+  'delta' => 'oo_blog_authors',
+  'theme' => 'burarum',
+  'status' => '0',
+  'weight' => '0',
+  'region' => '-1',
+  'custom' => '0',
+  'visibility' => '0',
+  'pages' => '',
+  'title' => '',
+  'cache' => '1',
+);
+  $export['block'][] = array(
+  'bid' => '215',
+  'module' => 'oo_alterations',
+  'delta' => 'oo_blog_authors',
+  'theme' => 'seven',
+  'status' => '0',
+  'weight' => '0',
+  'region' => '-1',
+  'custom' => '0',
+  'visibility' => '0',
+  'pages' => '',
+  'title' => '',
+  'cache' => '1',
 );
   $export['block_custom'][] = array(
   'bid' => '1',
