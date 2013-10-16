@@ -283,6 +283,7 @@
     // top of a form, etc.
     $('#modal-content').html(response.output).scrollTop(0);
     Drupal.attachBehaviors();
+    modalContentResize();
   }
 
   /**
@@ -417,11 +418,15 @@
 
     // Create our content div, get the dimensions, and hide it
     var modalContent = $('#modalContent').css('top','-1000px');
-    var mdcTop = wt + ( winHeight / 2 ) - (  modalContent.outerHeight() / 2);
-    var mdcLeft = ( winWidth / 2 ) - ( modalContent.outerWidth() / 2);
+    var mdcTop = wt + ( winHeight / 2 ) - (  modalContent.outerHeight(true) / 2);
+    var mdcLeft = ( winWidth / 2 ) - ( modalContent.outerWidth(true) / 2);
+    
     $('#modalBackdrop').css(css).css('top', 0).css('height', docHeight + 'px').css('width', docWidth + 'px').show();
     modalContent.css({top: mdcTop + 'px', left: mdcLeft + 'px'}).hide()[animation](speed);
 
+    // Bind a click to backdrop for closing modalContent
+    $('#modalBackdrop').bind('click', close);    
+    
     // Bind a click for closing the modalContent
     modalContentClose = function(){close(); return false;};
     $('.close').bind('click', modalContentClose);
@@ -461,6 +466,9 @@
 
     // Move and resize the modalBackdrop and modalContent on resize of the window
      modalContentResize = function(){
+      // Hide backdrop before calculations
+      $('#modalBackdrop').hide();
+
       // Get our heights
       var docHeight = $(document).height();
       var docWidth = $(document).width();
@@ -470,8 +478,13 @@
 
       // Get where we should move content to
       var modalContent = $('#modalContent');
-      var mdcTop = ( winHeight / 2 ) - (  modalContent.outerHeight() / 2);
-      var mdcLeft = ( winWidth / 2 ) - ( modalContent.outerWidth() / 2);
+      var mdcTop = wt + ( winHeight / 2 ) - (  modalContent.outerHeight(true) / 2);
+      var mdcLeft = ( winWidth / 2 ) - ( modalContent.outerWidth(true) / 2);
+      
+      // Set different top position if mocalContent's height is greater than viewport so modal wont render offscreen
+      if (modalContent.outerHeight(true) > winHeight) {
+    	  mdcTop = wt + 70;
+      }
 
       // Apply the changes
       $('#modalBackdrop').css('height', docHeight + 'px').css('width', docWidth + 'px').show();

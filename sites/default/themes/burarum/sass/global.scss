@@ -3102,7 +3102,24 @@ a, p, ul, ol, li, img, span, strong, em {
   font-family:"Open Sans" !important;
 }
 
+#modalBackdrop {
+  position:fixed !important;
+}
+
+
+
 #modalContent {
+  
+  #modal-throbber {
+  
+    .modal-throbber-wrapper {
+      
+      img {
+        padding:0;
+        margin:0;
+      }
+    }
+  }
   
   font-size:1em !important;
   
