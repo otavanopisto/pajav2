@@ -31,7 +31,7 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
       totalCredits = round100(credits * attendees);
       coursePrice = parseFloat($("#paja-course-price-number input[type='number']").val());
         
-      instructorFees = round100(instructorFee * totalCredits);
+      instructorFees = instructorFee;
         
       premisesCosts = premisesCostsPerDay * localDays;
   
@@ -46,7 +46,7 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
       
       costsWithoutManagementCosts = costs;
   
-      criticalPoint = roundUp((miscellanousCosts + premisesCosts + profitMargin) / (incomePerAttendee - managementCostsPerAttendee - instructorFee * credits));
+      criticalPoint = roundUp((miscellanousCosts + premisesCosts + profitMargin) / (incomePerAttendee - managementCostsPerAttendee - instructorFee));
       managementCosts = attendees * managementCostsPerAttendee;
       allCosts = costs + managementCosts;
       

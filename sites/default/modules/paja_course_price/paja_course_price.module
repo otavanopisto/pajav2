@@ -187,7 +187,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
       $element['paja_course_price']['standard_fields']['instructor_fee'] = array(
         '#type' => 'rangefield',
         '#min' => 0,
-        '#max' => 255,
+        '#max' => 10000,
         '#title' => t('Vetäjän palkkio opintoviikolta'),
         '#prefix' => '<div id="paja-course-instructor-fee" class="paja-course-price-range-field">',
         '#suffix' => '</div>',
@@ -197,7 +197,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
       $element['paja_course_price']['standard_fields']['instructor_fee_number_field'] = array(
         '#type' => 'numberfield',
         '#min' => 0,
-        '#max' => 255,
+        '#max' => 10000,
         '#prefix' => '<div id="paja-course-instructor-fee-number" class="paja-course-price-number-field">',
         '#suffix' => '</div>',
         '#default_value' => isset($items[$delta]['instructor_fee']) ? $items[$delta]['instructor_fee'] : '5',
