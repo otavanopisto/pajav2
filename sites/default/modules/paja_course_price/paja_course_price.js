@@ -44,12 +44,10 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
   
       totalIncome = round100(incomeFromAttendees + incomeFromCredits);
       
-      costsWithoutManagementCosts = costs;
-  
-      criticalPoint = roundUp((miscellanousCosts + premisesCosts + profitMargin) / (incomePerAttendee - managementCostsPerAttendee - instructorFees));
       managementCosts = attendees * managementCostsPerAttendee;
+      costsWithoutManagementCosts = costs;
       allCosts = costs + managementCosts;
-      
+      criticalPoint = Math.ceil(allCosts/(distanceCredits * voPerDistanceAttendee + localCredits * voPerLocalAttendee + coursePrice));   
       profit = totalIncome - allCosts;
       
       if (profit > 0) {
@@ -67,14 +65,14 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
       else {
         $("#paja-course-result").html("<p class=\"course-not-ok\"></p><p class=\"course-result-not-ok-title\">Tulot eivät riitä.</p>");
   
-//        if (incomePerAttendee > (managementCostsPerAttendee + instructorFees / attendees)) {
-//          $("#paja-course-result").append("<p class=\"course-result-desc\">" + "Kurssi muuttuu " +
-//            "kannattavaksi kun kurssilaisten määrää kasvatetaan vähintään " + criticalPoint + ":een. " +
-//            "Kannattavuuteen voit vaikuttaa mm. kasvattamalla kurssin laajuutta." + "</p>");
-//        }
-//        else {
-//          $("#paja-course-result").append("<p class=\"course-result-desc\">" + "Opiskelijakohtaiset tulot eivät kata kuluja. Kasvata joko kurssimaksua, lähi- tai etäpäivien määrää tai vastaavasti pienennä palkkioita." + "</p>");
-//        }
+        if (incomePerAttendee > (managementCostsPerAttendee + instructorFees / attendees)) {
+          $("#paja-course-result").append("<p class=\"course-result-desc\">" + "Kurssi muuttuu " +
+            "kannattavaksi kun kurssilaisten määrää kasvatetaan vähintään " + criticalPoint + ":een. " +
+            "Kannattavuuteen voit vaikuttaa mm. kasvattamalla kurssin laajuutta." + "</p>");
+        }
+        else {
+          $("#paja-course-result").append("<p class=\"course-result-desc\">" + "Tulot eivät kata kuluja. Kasvata joko kurssimaksua, lähi- tai etäpäivien määrää tai vastaavasti pienennä palkkioita." + "</p>");
+        }
       }
       
       var incomeFromAttendees = coursePrice * attendees;
