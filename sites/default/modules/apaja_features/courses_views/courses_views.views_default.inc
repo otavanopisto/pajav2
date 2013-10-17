@@ -36,7 +36,7 @@ function courses_views_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '0';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'jcarousel';
-  $handler->display->display_options['style_options']['wrap'] = 'last';
+  $handler->display->display_options['style_options']['wrap'] = '0';
   $handler->display->display_options['style_options']['skin'] = '';
   $handler->display->display_options['style_options']['visible'] = '';
   $handler->display->display_options['style_options']['scroll'] = '1';
@@ -45,7 +45,6 @@ function courses_views_views_default_views() {
   $handler->display->display_options['style_options']['animation'] = '200';
   $handler->display->display_options['style_options']['easing'] = '';
   $handler->display->display_options['style_options']['vertical'] = 0;
-  $handler->display->display_options['style_options']['ajax'] = 1;
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: Content: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
@@ -486,7 +485,7 @@ function courses_views_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '0';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'jcarousel';
-  $handler->display->display_options['style_options']['wrap'] = 'last';
+  $handler->display->display_options['style_options']['wrap'] = '0';
   $handler->display->display_options['style_options']['skin'] = '';
   $handler->display->display_options['style_options']['visible'] = '';
   $handler->display->display_options['style_options']['scroll'] = '1';
@@ -1137,7 +1136,7 @@ return max(array($value,0));';
   $handler->display->display_options['pager']['options']['items_per_page'] = '0';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'jcarousel';
-  $handler->display->display_options['style_options']['wrap'] = 'last';
+  $handler->display->display_options['style_options']['wrap'] = '0';
   $handler->display->display_options['style_options']['skin'] = '';
   $handler->display->display_options['style_options']['visible'] = '';
   $handler->display->display_options['style_options']['scroll'] = '1';
