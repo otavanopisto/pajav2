@@ -249,7 +249,9 @@ function blogs_complex_default_page_manager_pages() {
     $pane->type = 'panels_mini';
     $pane->subtype = 'blogin_navigointi';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(),
+    );
     $pane->configuration = array(
       'override_title' => 1,
       'override_title_text' => '',
