@@ -47,7 +47,7 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
       managementCosts = attendees * managementCostsPerAttendee;
       costsWithoutManagementCosts = costs;
       allCosts = costs + managementCosts;
-      criticalPoint = Math.ceil(allCosts/(distanceCredits * voPerDistanceAttendee + localCredits * voPerLocalAttendee + coursePrice));   
+      criticalPoint = roundUp(round100(allCosts)/((distanceCredits * voPerDistanceAttendee) + (localCredits * voPerLocalAttendee) + coursePrice));   
       profit = totalIncome - allCosts;
       
       if (profit > 0) {
