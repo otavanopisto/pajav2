@@ -56,7 +56,7 @@ function ajax_og_subscribe_join_course_callback($etid, $js){
     else {
       $join_html = '<span class="generic-empty-text">' . $login_link . '</span>';
     }
-    $ajax_commands[] = ajax_command_before('#join-course-block', "<div id='join-course-form-block'><div class='join-course-title-block'>" . t('Kirjaudu sisään ja liity kurssille') . "</div><div class='join-course-description-block'>" . t('Osallistuaksesi kurssille sinun pitää kirjautua sisään aPaja-sivustolle rekisteröidyillä tunnuksilla.') . "</div><div class='join-course-description-block'>$register_link " . t('tai rekisteröidy ulkoisen palvelun avulla mikäli et vielä omaa tunnuksia sivustolle.') . "</div>$join_html<div class='join-course-arrow-block'></div></div>");
+    $ajax_commands[] = ajax_command_before('#join-course-block', "<div id='join-course-form-block'><div class='join-course-title-block'>" . t('Join course') . "</div><div class='join-course-description-block'>" . t('Osallistuaksesi kurssille sinun pitää kirjautua sisään aPaja-sivustolle rekisteröidyillä tunnuksilla.') . "</div><div class='join-course-description-block'>$register_link " . t('tai rekisteröidy ulkoisen palvelun avulla mikäli et vielä omaa tunnuksia sivustolle.') . "</div>$join_html<div class='join-course-arrow-block'></div></div>");
     $ajax_commands[] = ajax_command_invoke('#join-course-form-block', 'hide');
     $ajax_commands[] = ajax_command_invoke('#join-course-form-block', 'fadeIn', array(300));
     return drupal_json_output($ajax_commands);
