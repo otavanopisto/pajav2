@@ -238,7 +238,7 @@ function _ajax_og_subscribe_view() {
   
   if (og_user_access($entity_type, $id, 'subscribe', $user) || og_user_access($entity_type, $id, 'subscribe without approval', $user)) {
     // Show the user a subscription link
-    $content = l("Liity kurssille", "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax', 'id' => 'join-course-bt')));
+    $content = l("Ilmoittadu kurssille", "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax', 'id' => 'join-course-bt')));
     $block["#markup"] = $content;
     return $block;
   }
