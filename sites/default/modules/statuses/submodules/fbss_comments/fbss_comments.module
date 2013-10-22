@@ -257,7 +257,7 @@ function theme_fbss_comments_item($variables) {
 //   Replace
 //   $output .= '<div class="fbss-comments-author"><a href="">' . theme('username', array('account' => $author)) . '</div>';
 // With this
-  $output .= '<div class="fbss-comments-author"><a href="'. $author_link. '">' . $full_name . '</a></div>';
+  $output .= '<div class="fbss-comments-author"><a href="/'. $author_link. '">' . $full_name . '</a></div>';
   $comment_text = _statuses_run_filter($comment->comment);
   $comment_text = nl2br($comment_text);
   $output .= '<div class="fbss-comments-text">' . $comment_text . '</div>';
