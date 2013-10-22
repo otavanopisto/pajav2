@@ -1,4 +1,4 @@
-.hybridauth-icon {
+.hybridauth-icon-hybridauth-48 {
   display: block;
   float: left;
   width: 48px;
@@ -6,104 +6,101 @@
   opacity: 0.75;
   filter: alpha(opacity=75);
 }
-.hybridauth-icon:hover {
+.hybridauth-icon-hybridauth-48:hover {
   opacity: 1;
   filter: alpha(opacity=100);
 }
-.hybridauth-none {
+.hybridauth-none-hybridauth-48 {
   background: transparent url(icons/openid.png) 0px 0px no-repeat;
 }
-.hybridauth-aol {
+.hybridauth-aol-hybridauth-48 {
   background: transparent url(icons/aol.png) 0px 0px no-repeat;
 }
-.hybridauth-facebook {
+.hybridauth-facebook-hybridauth-48 {
   background: transparent url(icons/facebook.png) 0px 0px no-repeat;
 }
-.hybridauth-foursquare {
+.hybridauth-foursquare-hybridauth-48 {
   background: transparent url(icons/foursquare.png) 0px 0px no-repeat;
 }
-.hybridauth-google {
+.hybridauth-google-hybridauth-48 {
   background: transparent url(icons/google.png) 0px 0px no-repeat;
 }
-.hybridauth-linkedin {
+.hybridauth-linkedin-hybridauth-48 {
   background: transparent url(icons/linkedin.png) 0px 0px no-repeat;
 }
-.hybridauth-live {
+.hybridauth-live-hybridauth-48 {
   background: transparent url(icons/live.png) 0px 0px no-repeat;
 }
-.hybridauth-myspace {
+.hybridauth-myspace-hybridauth-48 {
   background: transparent url(icons/myspace.png) 0px 0px no-repeat;
 }
-.hybridauth-openid {
+.hybridauth-openid-hybridauth-48 {
   background: transparent url(icons/openid.png) 0px 0px no-repeat;
 }
-.hybridauth-twitter {
+.hybridauth-twitter-hybridauth-48 {
   background: transparent url(icons/twitter.png) 0px 0px no-repeat;
 }
-.hybridauth-yahoo {
+.hybridauth-yahoo-hybridauth-48 {
   background: transparent url(icons/yahoo.png) 0px 0px no-repeat;
 }
 
-.hybridauth-px500 {
+.hybridauth-px500-hybridauth-48 {
   background: transparent url(icons/500px.png) 0px 0px no-repeat;
 }
-.hybridauth-disqus {
+.hybridauth-disqus-hybridauth-48 {
   background: transparent url(icons/disqus.png) 0px 0px no-repeat;
 }
-.hybridauth-github {
+.hybridauth-github-hybridauth-48 {
   background: transparent url(icons/github.png) 0px 0px no-repeat;
 }
-.hybridauth-goodreads {
+.hybridauth-goodreads-hybridauth-48 {
   background: transparent url(icons/goodreads.png) 0px 0px no-repeat;
 }
-.hybridauth-gowalla {
-  background: transparent url(icons/gowalla.png) 0px 0px no-repeat;
-}
-.hybridauth-identica {
+.hybridauth-identica-hybridauth-48 {
   background: transparent url(icons/identica.png) 0px 0px no-repeat;
 }
-.hybridauth-instagram {
+.hybridauth-instagram-hybridauth-48 {
   background: transparent url(icons/instagram.png) 0px 0px no-repeat;
 }
-.hybridauth-lastfm {
+.hybridauth-lastfm-hybridauth-48 {
   background: transparent url(icons/lastfm.png) 0px 0px no-repeat;
 }
-.hybridauth-mailru {
+.hybridauth-mailru-hybridauth-48 {
   background: transparent url(icons/mailru.png) 0px 0px no-repeat;
 }
-.hybridauth-murmur {
+.hybridauth-murmur-hybridauth-48 {
   background: transparent url(icons/murmur.png) 0px 0px no-repeat;
 }
-.hybridauth-odnoklassniki {
+.hybridauth-odnoklassniki-hybridauth-48 {
   background: transparent url(icons/odnoklassniki.png) 0px 0px no-repeat;
 }
-.hybridauth-pixnet {
+.hybridauth-pixnet-hybridauth-48 {
   background: transparent url(icons/pixnet.png) 0px 0px no-repeat;
 }
-.hybridauth-plurk {
+.hybridauth-plurk-hybridauth-48 {
   background: transparent url(icons/plurk.png) 0px 0px no-repeat;
 }
-.hybridauth-qq {
+.hybridauth-qq-hybridauth-48 {
   background: transparent url(icons/qq.png) 0px 0px no-repeat;
 }
-.hybridauth-sina {
+.hybridauth-sina-hybridauth-48 {
   background: transparent url(icons/sina.png) 0px 0px no-repeat;
 }
-.hybridauth-skyrock {
+.hybridauth-skyrock-hybridauth-48 {
   background: transparent url(icons/skyrock.png) 0px 0px no-repeat;
 }
-.hybridauth-tumblr {
+.hybridauth-tumblr-hybridauth-48 {
   background: transparent url(icons/tumblr.png) 0px 0px no-repeat;
 }
-.hybridauth-viadeo {
+.hybridauth-viadeo-hybridauth-48 {
   background: transparent url(icons/viadeo.png) 0px 0px no-repeat;
 }
-.hybridauth-vimeo {
+.hybridauth-vimeo-hybridauth-48 {
   background: transparent url(icons/vimeo.png) 0px 0px no-repeat;
 }
-.hybridauth-vkontakte {
+.hybridauth-vkontakte-hybridauth-48 {
   background: transparent url(icons/vkontakte.png) 0px 0px no-repeat;
 }
-.hybridauth-yandex {
+.hybridauth-yandex-hybridauth-48 {
   background: transparent url(icons/yandex.png) 0px 0px no-repeat;
 }
