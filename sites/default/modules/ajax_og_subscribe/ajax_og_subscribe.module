@@ -188,7 +188,7 @@ function _ajax_og_subscribe_view() {
     // Anonymous user can't request membership.
     $dest = drupal_get_destination();
     if (variable_get('user_register', 1)) {
-      $block["#markup"] = l("Kirjaudu sisään ja liity kurssille", "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax', 'id' => 'join-course-bt')));
+      $block["#markup"] = l("Join course", "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax', 'id' => 'join-course-bt')));
       return $block;
     }
   }
