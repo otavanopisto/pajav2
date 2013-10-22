@@ -214,7 +214,7 @@ h1, h2, h3, h4, h5, h6, .h2-imitator {
 }
 
 #block-system-main form {
-  margin:0 10px 0 10px;
+  margin:10px 0 10px 0;
 }
 
 /* BACKGROUNDS */
@@ -527,7 +527,7 @@ form#user-login {
   text-align:left;
 }
 
-form#user-login-form {
+form#user-login {
   
   .form-item {
     margin:0 0 12px 0;
@@ -553,6 +553,10 @@ form#user-login-form {
    
      ul > li.first {
        display:none;
+     }
+     
+     ul.hybridauth-widget {
+       margin-left:0;
      }
      
      ul.hybridauth-widget > li {
