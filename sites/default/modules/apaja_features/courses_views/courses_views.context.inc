@@ -83,9 +83,9 @@ function courses_views_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'block-5' => array(
+        'block-6' => array(
           'module' => 'block',
-          'delta' => '5',
+          'delta' => '6',
           'region' => 'header_first',
           'weight' => '-10',
         ),
@@ -101,9 +101,9 @@ function courses_views_context_default_contexts() {
           'region' => 'branding',
           'weight' => '-10',
         ),
-        'block-6' => array(
+        'block-7' => array(
           'module' => 'block',
-          'delta' => '6',
+          'delta' => '7',
           'region' => 'footer_first',
           'weight' => '-10',
         ),
@@ -111,13 +111,7 @@ function courses_views_context_default_contexts() {
           'module' => 'menu',
           'delta' => 'menu-footer-menu',
           'region' => 'footer_second',
-          'weight' => '-33',
-        ),
-        'block-7' => array(
-          'module' => 'block',
-          'delta' => '7',
-          'region' => 'footer_second',
-          'weight' => '-10',
+          'weight' => '-35',
         ),
       ),
     ),

@@ -110,7 +110,7 @@ function course_view_variant_default_page_manager_handlers() {
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
-      'override_title_text' => 'Kommentit',
+      'override_title_text' => 'Keskustele kurssista',
     );
     $pane->cache = array();
     $pane->style = array(

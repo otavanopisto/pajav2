@@ -25,6 +25,7 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['title'] = 'Statuses Conversation Custom';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'lisää';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'view all statuses';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -32,14 +33,23 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Käytä';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Palauta oletusarvoihin';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Lajittele';
   $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Merkintöjä sivua kohti';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Kaikki -';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« ensimmäinen';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ edellinen';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'seuraava ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'viimeinen »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relationship: Broken/missing handler */
+  /* Suhde: Rikkinäinen/puuttuva hallintakomento */
   $handler->display->display_options['relationships']['flag_content_rel']['id'] = 'flag_content_rel';
   $handler->display->display_options['relationships']['flag_content_rel']['table'] = 'statuses';
   $handler->display->display_options['relationships']['flag_content_rel']['field'] = 'flag_content_rel';
-  /* Field: User: Uid */
+  /* Kenttä: Käyttäjä: Uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'users';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
@@ -47,40 +57,40 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
-  /* Field: Statuses: Status ID */
+  /* Kenttä: Statuses: Status ID */
   $handler->display->display_options['fields']['sid']['id'] = 'sid';
   $handler->display->display_options['fields']['sid']['table'] = 'statuses';
   $handler->display->display_options['fields']['sid']['field'] = 'sid';
   $handler->display->display_options['fields']['sid']['label'] = '';
   $handler->display->display_options['fields']['sid']['exclude'] = TRUE;
-  /* Field: Statuses: Recipient ID */
+  /* Kenttä: Statuses: Recipient ID */
   $handler->display->display_options['fields']['recipient']['id'] = 'recipient';
   $handler->display->display_options['fields']['recipient']['table'] = 'statuses';
   $handler->display->display_options['fields']['recipient']['field'] = 'recipient';
   $handler->display->display_options['fields']['recipient']['label'] = '';
   $handler->display->display_options['fields']['recipient']['exclude'] = TRUE;
   $handler->display->display_options['fields']['recipient']['element_label_colon'] = FALSE;
-  /* Field: Statuses: Recipient type */
+  /* Kenttä: Statuses: Recipient type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'statuses';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['label'] = '';
   $handler->display->display_options['fields']['type']['exclude'] = TRUE;
   $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
-  /* Field: Statuses: Sender custom picture */
+  /* Kenttä: Statuses: Sender custom picture */
   $handler->display->display_options['fields']['sender_custom_pic']['id'] = 'sender_custom_pic';
   $handler->display->display_options['fields']['sender_custom_pic']['table'] = 'statuses';
   $handler->display->display_options['fields']['sender_custom_pic']['field'] = 'sender_custom_pic';
   $handler->display->display_options['fields']['sender_custom_pic']['label'] = '';
   $handler->display->display_options['fields']['sender_custom_pic']['exclude'] = TRUE;
   $handler->display->display_options['fields']['sender_custom_pic']['element_label_colon'] = FALSE;
-  /* Field: Statuses: HTML classes */
+  /* Kenttä: Statuses: HTML classes */
   $handler->display->display_options['fields']['classes']['id'] = 'classes';
   $handler->display->display_options['fields']['classes']['table'] = 'statuses';
   $handler->display->display_options['fields']['classes']['field'] = 'classes';
   $handler->display->display_options['fields']['classes']['label'] = '';
   $handler->display->display_options['fields']['classes']['exclude'] = TRUE;
-  /* Field: Global: PHP */
+  /* Kenttä: Yleinen: PHP */
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
   $handler->display->display_options['fields']['php']['field'] = 'php';
@@ -99,7 +109,7 @@ function statuses_views_and_account_fields_views_default_views() {
 ?>';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
-  /* Field: Global: PHP */
+  /* Kenttä: Yleinen: PHP */
   $handler->display->display_options['fields']['php_1']['id'] = 'php_1';
   $handler->display->display_options['fields']['php_1']['table'] = 'views';
   $handler->display->display_options['fields']['php_1']['field'] = 'php';
@@ -118,7 +128,7 @@ function statuses_views_and_account_fields_views_default_views() {
 ?>';
   $handler->display->display_options['fields']['php_1']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php_1']['php_click_sortable'] = '';
-  /* Field: User: Name */
+  /* Kenttä: Käyttäjä: Nimi */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -126,31 +136,31 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['text'] = '<span class="statuses-sender">[name]</span>';
-  /* Field: Statuses: Sender picture */
+  /* Kenttä: Statuses: Sender picture */
   $handler->display->display_options['fields']['sender_pic']['id'] = 'sender_pic';
   $handler->display->display_options['fields']['sender_pic']['table'] = 'statuses';
   $handler->display->display_options['fields']['sender_pic']['field'] = 'sender_pic';
   $handler->display->display_options['fields']['sender_pic']['label'] = '';
   $handler->display->display_options['fields']['sender_pic']['exclude'] = TRUE;
-  /* Field: Statuses: Status message */
+  /* Kenttä: Statuses: Tilanneviesti */
   $handler->display->display_options['fields']['message']['id'] = 'message';
   $handler->display->display_options['fields']['message']['table'] = 'statuses';
   $handler->display->display_options['fields']['message']['field'] = 'message';
   $handler->display->display_options['fields']['message']['label'] = '';
   $handler->display->display_options['fields']['message']['exclude'] = TRUE;
-  /* Field: Statuses: Edit */
+  /* Kenttä: Statuses: Muokkaa */
   $handler->display->display_options['fields']['edit']['id'] = 'edit';
   $handler->display->display_options['fields']['edit']['table'] = 'statuses';
   $handler->display->display_options['fields']['edit']['field'] = 'edit';
   $handler->display->display_options['fields']['edit']['label'] = '';
   $handler->display->display_options['fields']['edit']['exclude'] = TRUE;
-  /* Field: Statuses: Delete */
+  /* Kenttä: Statuses: Poista */
   $handler->display->display_options['fields']['delete']['id'] = 'delete';
   $handler->display->display_options['fields']['delete']['table'] = 'statuses';
   $handler->display->display_options['fields']['delete']['field'] = 'delete';
   $handler->display->display_options['fields']['delete']['label'] = '';
   $handler->display->display_options['fields']['delete']['exclude'] = TRUE;
-  /* Field: Statuses: Created time */
+  /* Kenttä: Statuses: Created time */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'statuses';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -158,33 +168,33 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['created']['exclude'] = TRUE;
   $handler->display->display_options['fields']['created']['alter']['path'] = 'statuses/[sid]';
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
-  /* Field: Statuses: Status comment box */
+  /* Kenttä: Statuses: Status comment box */
   $handler->display->display_options['fields']['comment-box']['id'] = 'comment-box';
   $handler->display->display_options['fields']['comment-box']['table'] = 'statuses';
   $handler->display->display_options['fields']['comment-box']['field'] = 'comment-box';
   $handler->display->display_options['fields']['comment-box']['label'] = '';
   $handler->display->display_options['fields']['comment-box']['exclude'] = TRUE;
-  /* Field: Statuses: The word "<em>(Private)</em>" if the status message is private */
+  /* Kenttä: Statuses: The word "<em>(Private)</em>" if the status message is private */
   $handler->display->display_options['fields']['private']['id'] = 'private';
   $handler->display->display_options['fields']['private']['table'] = 'statuses';
   $handler->display->display_options['fields']['private']['field'] = 'private';
   $handler->display->display_options['fields']['private']['label'] = '';
   $handler->display->display_options['fields']['private']['exclude'] = TRUE;
-  /* Field: Statuses: Usernames (context-aware) */
+  /* Kenttä: Statuses: Usernames (context-aware) */
   $handler->display->display_options['fields']['user_contextual']['id'] = 'user_contextual';
   $handler->display->display_options['fields']['user_contextual']['table'] = 'statuses';
   $handler->display->display_options['fields']['user_contextual']['field'] = 'user_contextual';
   $handler->display->display_options['fields']['user_contextual']['label'] = '';
   $handler->display->display_options['fields']['user_contextual']['exclude'] = TRUE;
   $handler->display->display_options['fields']['user_contextual']['element_label_colon'] = FALSE;
-  /* Field: Flags: Flag link */
+  /* Kenttä: Flags: Flag link */
   $handler->display->display_options['fields']['ops']['id'] = 'ops';
   $handler->display->display_options['fields']['ops']['table'] = 'flag_content';
   $handler->display->display_options['fields']['ops']['field'] = 'ops';
   $handler->display->display_options['fields']['ops']['relationship'] = 'flag_content_rel';
   $handler->display->display_options['fields']['ops']['label'] = '';
   $handler->display->display_options['fields']['ops']['exclude'] = TRUE;
-  /* Field: Global: Custom text */
+  /* Kenttä: Yleinen: Muokattu teksti */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -192,7 +202,7 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private] [private]</div>
       [message]
       <div class="statuses-details">
         <div class="statuses-links">[php_1] [php]</div> [created]
@@ -201,29 +211,30 @@ function statuses_views_and_account_fields_views_default_views() {
     </div>
   </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  /* Sort criterion: Statuses: Status ID */
+  /* Lajittelukriteeri: Statuses: Status ID */
   $handler->display->display_options['sorts']['sid']['id'] = 'sid';
   $handler->display->display_options['sorts']['sid']['table'] = 'statuses';
   $handler->display->display_options['sorts']['sid']['field'] = 'sid';
   $handler->display->display_options['sorts']['sid']['order'] = 'DESC';
-  /* Contextual filter: Statuses: User is sender or recipient */
+  /* Sisältöriippuvanen suodatin: Statuses: User is sender or recipient */
   $handler->display->display_options['arguments']['participant']['id'] = 'participant';
   $handler->display->display_options['arguments']['participant']['table'] = 'statuses';
   $handler->display->display_options['arguments']['participant']['field'] = 'participant';
   $handler->display->display_options['arguments']['participant']['default_action'] = 'not found';
   $handler->display->display_options['arguments']['participant']['exception']['title_enable'] = TRUE;
+  $handler->display->display_options['arguments']['participant']['exception']['title'] = 'Kaikki';
   $handler->display->display_options['arguments']['participant']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['participant']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['participant']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['participant']['validate']['type'] = 'user';
-  /* Filter criterion: Statuses: Status message */
+  /* Suodatinkriteeri: Statuses: Tilanneviesti */
   $handler->display->display_options['filters']['message']['id'] = 'message';
   $handler->display->display_options['filters']['message']['table'] = 'statuses';
   $handler->display->display_options['filters']['message']['field'] = 'message';
   $handler->display->display_options['filters']['message']['operator'] = '!=';
   $handler->display->display_options['filters']['message']['group'] = '0';
   $handler->display->display_options['filters']['message']['expose']['operator'] = FALSE;
-  /* Filter criterion: Statuses: Recipient type */
+  /* Suodatinkriteeri: Statuses: Recipient type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'statuses';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -235,7 +246,7 @@ function statuses_views_and_account_fields_views_default_views() {
     'user' => 'user',
     'domain' => 'domain',
   );
-  /* Filter criterion: Statuses: Show private status messages */
+  /* Suodatinkriteeri: Statuses: Show private status messages */
   $handler->display->display_options['filters']['private']['id'] = 'private';
   $handler->display->display_options['filters']['private']['table'] = 'statuses';
   $handler->display->display_options['filters']['private']['field'] = 'private';
@@ -249,19 +260,19 @@ function statuses_views_and_account_fields_views_default_views() {
   $translatables['statuses_conversation_profile'] = array(
     t('Defaults'),
     t('Statuses Conversation Custom'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
+    t('lisää'),
+    t('Käytä'),
+    t('Palauta oletusarvoihin'),
+    t('Lajittele'),
     t('Asc'),
     t('Desc'),
-    t('Items per page'),
-    t('- All -'),
+    t('Merkintöjä sivua kohti'),
+    t('- Kaikki -'),
     t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
+    t('« ensimmäinen'),
+    t('‹ edellinen'),
+    t('seuraava ›'),
+    t('viimeinen »'),
     t('flag_content_rel'),
     t('PHP delete'),
     t('PHP edit'),
@@ -269,7 +280,7 @@ function statuses_views_and_account_fields_views_default_views() {
     t('<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private] [private]</div>
       [message]
       <div class="statuses-details">
         <div class="statuses-links">[php_1] [php]</div> [created]
@@ -277,7 +288,7 @@ function statuses_views_and_account_fields_views_default_views() {
         [comment-box]
     </div>
   </div>'),
-    t('All'),
+    t('Kaikki'),
     t('Block'),
   );
   $export['statuses_conversation_profile'] = $view;
@@ -296,16 +307,20 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'lisää';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'view all statuses';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Käytä';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Palauta oletusarvoihin';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Lajittele';
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* No results behavior: Global: PHP */
+  /* Toiminta jos tuloksia ei löydy: Yleinen: PHP */
   $handler->display->display_options['empty']['php']['id'] = 'php';
   $handler->display->display_options['empty']['php']['table'] = 'views';
   $handler->display->display_options['empty']['php']['field'] = 'php';
@@ -320,15 +335,15 @@ function statuses_views_and_account_fields_views_default_views() {
   <?php } ?>
 </div>
 ';
-  /* Relationship: Statuses: Sender ID */
+  /* Suhde: Statuses: Sender ID */
   $handler->display->display_options['relationships']['sender']['id'] = 'sender';
   $handler->display->display_options['relationships']['sender']['table'] = 'statuses';
   $handler->display->display_options['relationships']['sender']['field'] = 'sender';
-  /* Relationship: Broken/missing handler */
+  /* Suhde: Rikkinäinen/puuttuva hallintakomento */
   $handler->display->display_options['relationships']['flag_content_rel']['id'] = 'flag_content_rel';
   $handler->display->display_options['relationships']['flag_content_rel']['table'] = 'statuses';
   $handler->display->display_options['relationships']['flag_content_rel']['field'] = 'flag_content_rel';
-  /* Field: User: Uid */
+  /* Kenttä: Käyttäjä: Uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'users';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
@@ -336,7 +351,7 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
-  /* Field: User: Etunimi */
+  /* Kenttä: Käyttäjä: Etunimi */
   $handler->display->display_options['fields']['field_account_etunimi']['id'] = 'field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['table'] = 'field_data_field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['field'] = 'field_account_etunimi';
@@ -344,7 +359,7 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['field_account_etunimi']['label'] = '';
   $handler->display->display_options['fields']['field_account_etunimi']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_account_etunimi']['element_label_colon'] = FALSE;
-  /* Field: User: Sukunimi */
+  /* Kenttä: Käyttäjä: Sukunimi */
   $handler->display->display_options['fields']['field_account_sukunimi']['id'] = 'field_account_sukunimi';
   $handler->display->display_options['fields']['field_account_sukunimi']['table'] = 'field_data_field_account_sukunimi';
   $handler->display->display_options['fields']['field_account_sukunimi']['field'] = 'field_account_sukunimi';
@@ -352,31 +367,31 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['field_account_sukunimi']['label'] = '';
   $handler->display->display_options['fields']['field_account_sukunimi']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_account_sukunimi']['element_label_colon'] = FALSE;
-  /* Field: Statuses: Sender custom picture */
+  /* Kenttä: Statuses: Sender custom picture */
   $handler->display->display_options['fields']['sender_custom_pic']['id'] = 'sender_custom_pic';
   $handler->display->display_options['fields']['sender_custom_pic']['table'] = 'statuses';
   $handler->display->display_options['fields']['sender_custom_pic']['field'] = 'sender_custom_pic';
   $handler->display->display_options['fields']['sender_custom_pic']['exclude'] = TRUE;
-  /* Field: Statuses: Status ID */
+  /* Kenttä: Statuses: Status ID */
   $handler->display->display_options['fields']['sid']['id'] = 'sid';
   $handler->display->display_options['fields']['sid']['table'] = 'statuses';
   $handler->display->display_options['fields']['sid']['field'] = 'sid';
   $handler->display->display_options['fields']['sid']['label'] = '';
   $handler->display->display_options['fields']['sid']['exclude'] = TRUE;
-  /* Field: Statuses: Recipient ID */
+  /* Kenttä: Statuses: Recipient ID */
   $handler->display->display_options['fields']['recipient']['id'] = 'recipient';
   $handler->display->display_options['fields']['recipient']['table'] = 'statuses';
   $handler->display->display_options['fields']['recipient']['field'] = 'recipient';
   $handler->display->display_options['fields']['recipient']['label'] = '';
   $handler->display->display_options['fields']['recipient']['exclude'] = TRUE;
   $handler->display->display_options['fields']['recipient']['element_label_colon'] = FALSE;
-  /* Field: Statuses: HTML classes */
+  /* Kenttä: Statuses: HTML classes */
   $handler->display->display_options['fields']['classes']['id'] = 'classes';
   $handler->display->display_options['fields']['classes']['table'] = 'statuses';
   $handler->display->display_options['fields']['classes']['field'] = 'classes';
   $handler->display->display_options['fields']['classes']['label'] = '';
   $handler->display->display_options['fields']['classes']['exclude'] = TRUE;
-  /* Field: User: Name */
+  /* Kenttä: Käyttäjä: Nimi */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -385,31 +400,31 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
-  /* Field: Statuses: Status message */
+  /* Kenttä: Statuses: Tilanneviesti */
   $handler->display->display_options['fields']['message']['id'] = 'message';
   $handler->display->display_options['fields']['message']['table'] = 'statuses';
   $handler->display->display_options['fields']['message']['field'] = 'message';
   $handler->display->display_options['fields']['message']['label'] = '';
   $handler->display->display_options['fields']['message']['exclude'] = TRUE;
-  /* Field: Statuses: Edit */
+  /* Kenttä: Statuses: Muokkaa */
   $handler->display->display_options['fields']['edit']['id'] = 'edit';
   $handler->display->display_options['fields']['edit']['table'] = 'statuses';
   $handler->display->display_options['fields']['edit']['field'] = 'edit';
   $handler->display->display_options['fields']['edit']['label'] = '';
   $handler->display->display_options['fields']['edit']['exclude'] = TRUE;
-  /* Field: Statuses: Delete */
+  /* Kenttä: Statuses: Poista */
   $handler->display->display_options['fields']['delete']['id'] = 'delete';
   $handler->display->display_options['fields']['delete']['table'] = 'statuses';
   $handler->display->display_options['fields']['delete']['field'] = 'delete';
   $handler->display->display_options['fields']['delete']['label'] = '';
   $handler->display->display_options['fields']['delete']['exclude'] = TRUE;
-  /* Field: Statuses: Re-post */
+  /* Kenttä: Statuses: Re-post */
   $handler->display->display_options['fields']['repost']['id'] = 'repost';
   $handler->display->display_options['fields']['repost']['table'] = 'statuses';
   $handler->display->display_options['fields']['repost']['field'] = 'repost';
   $handler->display->display_options['fields']['repost']['label'] = '';
   $handler->display->display_options['fields']['repost']['exclude'] = TRUE;
-  /* Field: Global: PHP */
+  /* Kenttä: Yleinen: PHP */
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
   $handler->display->display_options['fields']['php']['field'] = 'php';
@@ -429,7 +444,7 @@ function statuses_views_and_account_fields_views_default_views() {
 ?>';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
-  /* Field: Global: PHP */
+  /* Kenttä: Yleinen: PHP */
   $handler->display->display_options['fields']['php_1']['id'] = 'php_1';
   $handler->display->display_options['fields']['php_1']['table'] = 'views';
   $handler->display->display_options['fields']['php_1']['field'] = 'php';
@@ -449,7 +464,7 @@ function statuses_views_and_account_fields_views_default_views() {
 ?>';
   $handler->display->display_options['fields']['php_1']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php_1']['php_click_sortable'] = '';
-  /* Field: Statuses: Created time */
+  /* Kenttä: Statuses: Created time */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'statuses';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -457,26 +472,19 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['created']['exclude'] = TRUE;
   $handler->display->display_options['fields']['created']['alter']['path'] = 'statuses/[sid]';
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
-  /* Field: Statuses: Status comment box */
+  /* Kenttä: Statuses: Status comment box */
   $handler->display->display_options['fields']['comment-box']['id'] = 'comment-box';
   $handler->display->display_options['fields']['comment-box']['table'] = 'statuses';
   $handler->display->display_options['fields']['comment-box']['field'] = 'comment-box';
   $handler->display->display_options['fields']['comment-box']['label'] = '';
   $handler->display->display_options['fields']['comment-box']['exclude'] = TRUE;
-  /* Field: Statuses: The word "<em>(Private)</em>" if the status message is private */
+  /* Kenttä: Statuses: The word "<em>(Private)</em>" if the status message is private */
   $handler->display->display_options['fields']['private']['id'] = 'private';
   $handler->display->display_options['fields']['private']['table'] = 'statuses';
   $handler->display->display_options['fields']['private']['field'] = 'private';
   $handler->display->display_options['fields']['private']['label'] = '';
   $handler->display->display_options['fields']['private']['exclude'] = TRUE;
-  /* Field: Flags: Flag link */
-  $handler->display->display_options['fields']['ops']['id'] = 'ops';
-  $handler->display->display_options['fields']['ops']['table'] = 'flag_content';
-  $handler->display->display_options['fields']['ops']['field'] = 'ops';
-  $handler->display->display_options['fields']['ops']['relationship'] = 'flag_content_rel';
-  $handler->display->display_options['fields']['ops']['label'] = '';
-  $handler->display->display_options['fields']['ops']['exclude'] = TRUE;
-  /* Field: Global: Custom text */
+  /* Kenttä: Yleinen: Muokattu teksti */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -484,7 +492,7 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div id="statuses-item-[sid]" class="[classes]">
   [sender_custom_pic]
   <div class="content">
-    <div class="statuses-participants"><span class="statuses-sender"><a href="/kayttajat/[name] [private]">[field_account_etunimi] [field_account_sukunimi]</a> [private]</span></div>
+    <div class="statuses-participants"><span class="statuses-sender"><a href="/user/[uid]">[field_account_etunimi] [field_account_sukunimi]</a> [private]</span></div>
     [message]
     <div class="statuses-details">
       <div class="statuses-links">[php_1] [php]</div> [created]
@@ -493,19 +501,19 @@ function statuses_views_and_account_fields_views_default_views() {
   </div>
 </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  /* Sort criterion: Statuses: Status ID */
+  /* Lajittelukriteeri: Statuses: Status ID */
   $handler->display->display_options['sorts']['sid']['id'] = 'sid';
   $handler->display->display_options['sorts']['sid']['table'] = 'statuses';
   $handler->display->display_options['sorts']['sid']['field'] = 'sid';
   $handler->display->display_options['sorts']['sid']['order'] = 'DESC';
-  /* Filter criterion: Statuses: Status message */
+  /* Suodatinkriteeri: Statuses: Tilanneviesti */
   $handler->display->display_options['filters']['message']['id'] = 'message';
   $handler->display->display_options['filters']['message']['table'] = 'statuses';
   $handler->display->display_options['filters']['message']['field'] = 'message';
   $handler->display->display_options['filters']['message']['operator'] = '!=';
   $handler->display->display_options['filters']['message']['group'] = '0';
   $handler->display->display_options['filters']['message']['expose']['operator'] = FALSE;
-  /* Filter criterion: Statuses: Use current context */
+  /* Suodatinkriteeri: Statuses: Use current context */
   $handler->display->display_options['filters']['auto-type']['id'] = 'auto-type';
   $handler->display->display_options['filters']['auto-type']['table'] = 'statuses';
   $handler->display->display_options['filters']['auto-type']['field'] = 'auto-type';
@@ -518,20 +526,20 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['block_description'] = 'Statuses: Context-sensitive stream';
   $translatables['statuses_stream_custom'] = array(
     t('Defaults'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
+    t('lisää'),
+    t('Käytä'),
+    t('Palauta oletusarvoihin'),
+    t('Lajittele'),
     t('Asc'),
     t('Desc'),
     t('uid'),
     t('flag_content_rel'),
     t('Sender custom picture'),
-    t('Share'),
+    t('Jaa'),
     t('<div id="statuses-item-[sid]" class="[classes]">
   [sender_custom_pic]
   <div class="content">
-    <div class="statuses-participants"><span class="statuses-sender"><a href="/kayttajat/[name] [private]">[field_account_etunimi] [field_account_sukunimi]</a> [private]</span></div>
+    <div class="statuses-participants"><span class="statuses-sender"><a href="/user/[uid]">[field_account_etunimi] [field_account_sukunimi]</a> [private]</span></div>
     [message]
     <div class="statuses-details">
       <div class="statuses-links">[php_1] [php]</div> [created]
@@ -558,16 +566,20 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Käyttäjän tiedot';
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'lisää';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'access user profiles';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Käytä';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Palauta oletusarvoihin';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Lajittele';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: User: Name */
+  /* Kenttä: Käyttäjä: Nimi */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -575,7 +587,7 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
-  /* Field: User: Kuva */
+  /* Kenttä: Käyttäjä: Kuva */
   $handler->display->display_options['fields']['field_account_kuva']['id'] = 'field_account_kuva';
   $handler->display->display_options['fields']['field_account_kuva']['table'] = 'field_data_field_account_kuva';
   $handler->display->display_options['fields']['field_account_kuva']['field'] = 'field_account_kuva';
@@ -586,19 +598,19 @@ function statuses_views_and_account_fields_views_default_views() {
     'image_style' => 'avatar_normal',
     'image_link' => '',
   );
-  /* Field: User: Etunimi */
+  /* Kenttä: Käyttäjä: Etunimi */
   $handler->display->display_options['fields']['field_account_etunimi']['id'] = 'field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['table'] = 'field_data_field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['field'] = 'field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['label'] = '';
   $handler->display->display_options['fields']['field_account_etunimi']['element_label_colon'] = FALSE;
-  /* Field: User: Sukunimi */
+  /* Kenttä: Käyttäjä: Sukunimi */
   $handler->display->display_options['fields']['field_account_sukunimi']['id'] = 'field_account_sukunimi';
   $handler->display->display_options['fields']['field_account_sukunimi']['table'] = 'field_data_field_account_sukunimi';
   $handler->display->display_options['fields']['field_account_sukunimi']['field'] = 'field_account_sukunimi';
   $handler->display->display_options['fields']['field_account_sukunimi']['label'] = '';
   $handler->display->display_options['fields']['field_account_sukunimi']['element_label_colon'] = FALSE;
-  /* Field: User: Kuvaus */
+  /* Kenttä: Käyttäjä: Kuvaus */
   $handler->display->display_options['fields']['field_account_kuvaus']['id'] = 'field_account_kuvaus';
   $handler->display->display_options['fields']['field_account_kuvaus']['table'] = 'field_data_field_account_kuvaus';
   $handler->display->display_options['fields']['field_account_kuvaus']['field'] = 'field_account_kuvaus';
@@ -607,11 +619,12 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['fields']['field_account_kuvaus']['alter']['text'] = '<div class="user-description-label">Kuvaus</div>
 <div class="user-description">[field_account_kuvaus-value]</div>';
   $handler->display->display_options['fields']['field_account_kuvaus']['element_label_colon'] = FALSE;
-  /* Contextual filter: User: Uid */
+  /* Sisältöriippuvanen suodatin: Käyttäjä: Uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
   $handler->display->display_options['arguments']['uid']['table'] = 'users';
   $handler->display->display_options['arguments']['uid']['field'] = 'uid';
   $handler->display->display_options['arguments']['uid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['uid']['exception']['title'] = 'Kaikki';
   $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
@@ -619,7 +632,7 @@ function statuses_views_and_account_fields_views_default_views() {
   $handler->display->display_options['arguments']['uid']['specify_validation'] = TRUE;
   $handler->display->display_options['arguments']['uid']['validate']['type'] = 'user';
   $handler->display->display_options['arguments']['uid']['validate_options']['type'] = 'either';
-  /* Filter criterion: User: Active */
+  /* Suodatinkriteeri: Käyttäjä: Toiminnassa */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
@@ -633,15 +646,15 @@ function statuses_views_and_account_fields_views_default_views() {
   $translatables['user_profile_block'] = array(
     t('Master'),
     t('Käyttäjän tiedot'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
+    t('lisää'),
+    t('Käytä'),
+    t('Palauta oletusarvoihin'),
+    t('Lajittele'),
     t('Asc'),
     t('Desc'),
     t('<div class="user-description-label">Kuvaus</div>
 <div class="user-description">[field_account_kuvaus-value]</div>'),
-    t('All'),
+    t('Kaikki'),
     t('Block'),
   );
   $export['user_profile_block'] = $view;
