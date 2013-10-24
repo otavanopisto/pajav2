@@ -40,7 +40,7 @@ function ajax_og_subscribe_join_course_callback($etid, $js){
     // Anonymous user can't request membership.
     $dest = drupal_get_destination();
     if (variable_get('user_register', 1)) {
-      $login_link = l("Kirjaudu sisään", "login/nojs", array("attributes" => array("class" => array("subscribe-ajax-login"))));
+      $login_link = l(t('Kirjaudu sisään'), "login/nojs", array("attributes" => array("class" => array("subscribe-ajax-login"))));
       $register_link = l(t('Luo tunnukset'), 'modal_forms/nojs/register', array("attributes" => array("class" => array("ctools-use-modal ctools-modal-modal-popup-medium"))));
 //       $join_html = '<span class="generic-empty-text">' . $login_link . '</span>';
 //       $join_html .= '<span class="generic-empty-text"> tai </span>';
@@ -188,7 +188,7 @@ function _ajax_og_subscribe_view() {
     // Anonymous user can't request membership.
     $dest = drupal_get_destination();
     if (variable_get('user_register', 1)) {
-      $block["#markup"] = l("Ilmoittaudu kurssille", "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax', 'id' => 'join-course-bt')));
+      $block["#markup"] = l(t('Join course'), "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax', 'id' => 'join-course-bt')));
       return $block;
     }
   }
@@ -238,7 +238,7 @@ function _ajax_og_subscribe_view() {
   
   if (og_user_access($entity_type, $id, 'subscribe', $user) || og_user_access($entity_type, $id, 'subscribe without approval', $user)) {
     // Show the user a subscription link
-    $content = l("Ilmoittadu kurssille", "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax', 'id' => 'join-course-bt')));
+    $content = l(t('Join course'), "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax', 'id' => 'join-course-bt')));
     $block["#markup"] = $content;
     return $block;
   }
