@@ -151,7 +151,7 @@ h1, h2, h3, h4, h5, h6, .h2-imitator {
 }
 
 #login-register .panel-panel h2 {
-  margin:0;
+  margin:0 0 20px 0;
 }
 
 #page #node-course-panel h2,
@@ -525,6 +525,36 @@ form#user-login {
   padding:14px;
   width:285px;
   text-align:left;
+}
+
+form#user-register-form {
+  
+  .form-item {
+/*     margin:0 0 12px 0; */
+    padding:0;
+    position:relative;
+      
+      label {
+        display:block;
+        font-weight:normal;
+        text-transform:uppercase;
+        font-size:0.875em;
+        padding:0 0 4px 0;
+        background:#ffffff;
+      }
+    
+   }
+  
+  .item-list {
+  
+    h3 {
+      font-size:0.925em;
+      font-weight:normal;
+      margin:5px 0 5px 0;
+    }
+  
+  }
+  
 }
 
 form#user-login,
@@ -1400,13 +1430,16 @@ ul.tabs.primary li.active a {
 }
 
 #page #node-course-panel #join-course-block a {
-  @include buttonized-link;
-  @include rounded-borders;
-  @include box-shadow;
-}
-
-#page #node-course-panel #join-course-block a:hover {
-  @include text-shadow;
+  background:#0099FF;
+  border-radius:$boxBorderRadius;
+  box-shadow:$boxShadow;
+  color: #FFFFFF;
+  font-size: 0.8em;
+  white-space: nowrap;
+  width: auto;
+  padding: 3px 8px 3px 8px;
+  text-decoration:none;
+  text-transform:uppercase;
 }
 
 #page #node-course-panel .pane-node-body {
@@ -2437,7 +2470,7 @@ ul.tabs.primary li.active a {
 }
 
 #page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-admin:before {
-  content:"Kurssin vet&aumlj&auml";
+  content:'Kurssin vetaja';
   text-transform:uppercase;
   font-weight:normal;
   font-size:1em;
