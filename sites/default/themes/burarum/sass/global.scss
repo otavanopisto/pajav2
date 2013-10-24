@@ -557,8 +557,8 @@ form#user-register-form {
   
 }
 
-form#user-login,
-form#user-login-form {
+form#user-login, /* Modal login form */
+form#user-login-form { /* Dropdown loginform */
   
   .form-item {
     margin:0 0 12px 0;
@@ -613,6 +613,15 @@ form#user-login-form {
      margin:10px 0 0 0;
    }
   
+}
+
+form#user-login { /* Modal login form */
+  
+  .form-item {
+    margin:12px 0 12px 0;
+    padding:0;
+    position:relative;
+  }
 }
 
 /* CONTENT EDITING TABS */
@@ -3369,7 +3378,7 @@ a, p, ul, ol, li, img, span, strong, em {
   }
   
   .view-blog-listing {
-    margin:0 0 0 10px;
+    margin:0;
   }
   
   h2.pane-title {  
