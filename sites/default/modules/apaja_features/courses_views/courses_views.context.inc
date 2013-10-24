@@ -83,11 +83,11 @@ function courses_views_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'block-6' => array(
-          'module' => 'block',
-          'delta' => '6',
+        'oo_alterations-oo_create_course' => array(
+          'module' => 'oo_alterations',
+          'delta' => 'oo_create_course',
           'region' => 'header_first',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
         'search-form' => array(
           'module' => 'search',
