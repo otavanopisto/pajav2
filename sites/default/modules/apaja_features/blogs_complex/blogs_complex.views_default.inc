@@ -24,15 +24,25 @@ function blogs_complex_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Viimeisimmät bloggaukset';
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'lisää';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Käytä';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Palauta oletusarvoihin';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Lajittele';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Merkintöjä sivua kohti';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Kaikki -';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« ensimmäinen';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ edellinen';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'seuraava ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'viimeinen »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* No results behavior: Global: PHP */
+  /* Toiminta jos tuloksia ei löydy: Yleinen: PHP */
   $handler->display->display_options['empty']['php']['id'] = 'php';
   $handler->display->display_options['empty']['php']['table'] = 'views';
   $handler->display->display_options['empty']['php']['field'] = 'php';
@@ -41,18 +51,18 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['empty']['php']['php_output'] = '<h2>Blogi on valitettavasti tyhjä</h2>
 <p><?php echo t(\'aPajaan ei ole vielä kirjoitettu yhtään blogia. Ole ensimmäinen ja aloita bloggaamaan \'); ?><a href="/node/add/blog-entry"><?php echo t(\'lisäämällä uusi blogikirjoitus.\') ?></a></p>
 ';
-  /* Relationship: Content: Author */
+  /* Suhde: Sisältö: Tekijä */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Field: Content: Path */
+  /* Kenttä: Sisältö: Polku */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: User: Etunimi */
+  /* Kenttä: Käyttäjä: Etunimi */
   $handler->display->display_options['fields']['field_account_etunimi']['id'] = 'field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['table'] = 'field_data_field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['field'] = 'field_account_etunimi';
@@ -60,7 +70,7 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['fields']['field_account_etunimi']['label'] = '';
   $handler->display->display_options['fields']['field_account_etunimi']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_account_etunimi']['element_label_colon'] = FALSE;
-  /* Field: User: Sukunimi */
+  /* Kenttä: Käyttäjä: Sukunimi */
   $handler->display->display_options['fields']['field_account_sukunimi']['id'] = 'field_account_sukunimi';
   $handler->display->display_options['fields']['field_account_sukunimi']['table'] = 'field_data_field_account_sukunimi';
   $handler->display->display_options['fields']['field_account_sukunimi']['field'] = 'field_account_sukunimi';
@@ -68,21 +78,21 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['fields']['field_account_sukunimi']['label'] = '';
   $handler->display->display_options['fields']['field_account_sukunimi']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_account_sukunimi']['element_label_colon'] = FALSE;
-  /* Field: Content: Title */
+  /* Kenttä: Sisältö: Otsikko */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Post date */
+  /* Kenttä: Sisältö: Lähetetty */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['label'] = '';
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'long';
-  /* Field: User: Name */
+  /* Kenttä: Käyttäjä: Nimi */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -94,7 +104,7 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['path'] = 'kayttajat/[name]';
   $handler->display->display_options['fields']['name']['alter']['alt'] = 'Bloggaajan käyttäjäprofiili';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Field: Content: Comment count */
+  /* Kenttä: Sisältö: Kommenttien lukumäärä */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
@@ -105,7 +115,7 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['comment_count']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['comment_count']['separator'] = '';
-  /* Field: Content: Body */
+  /* Kenttä: Sisältö: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -115,27 +125,28 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '600',
   );
-  /* Sort criterion: Content: Post date */
+  /* Lajittelukriteeri: Sisältö: Lähetetty */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Content: Author uid */
+  /* Sisältöriippuvanen suodatin: Sisältö: Kirjoittajan käyttäjä ID (uid) */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
   $handler->display->display_options['arguments']['uid']['table'] = 'node';
   $handler->display->display_options['arguments']['uid']['field'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['exception']['title'] = 'Kaikki';
   $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
-  /* Filter criterion: Content: Published */
+  /* Suodatinkriteeri: Sisältö: Julkaistu */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Suodatinkriteeri: Sisältö: Tyyppi */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -148,26 +159,26 @@ function blogs_complex_views_default_views() {
   $translatables['blog_listing'] = array(
     t('Master'),
     t('Viimeisimmät bloggaukset'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
+    t('lisää'),
+    t('Käytä'),
+    t('Palauta oletusarvoihin'),
+    t('Lajittele'),
     t('Asc'),
     t('Desc'),
-    t('Items per page'),
-    t('- All -'),
+    t('Merkintöjä sivua kohti'),
+    t('- Kaikki -'),
     t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
+    t('« ensimmäinen'),
+    t('‹ edellinen'),
+    t('seuraava ›'),
+    t('viimeinen »'),
     t('On Empty'),
-    t('author'),
+    t('kirjoittaja'),
     t('[field_account_etunimi] [field_account_sukunimi]'),
     t('Bloggaajan käyttäjäprofiili'),
     t('<a href ="[path]#comments" class="blog-entry-comment-count-link">Kommentteja [comment_count]</a>'),
     t('.'),
-    t('All'),
+    t('Kaikki'),
     t('Content pane'),
     t('View panes'),
   );
@@ -186,41 +197,51 @@ function blogs_complex_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'lisää';
   $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Käytä';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Palauta oletusarvoihin';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Lajittele';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '20';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_label'] = 'Merkintöjä sivua kohti';
+  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Kaikki -';
+  $handler->display->display_options['pager']['options']['tags']['first'] = '« ensimmäinen';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ edellinen';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'seuraava ›';
+  $handler->display->display_options['pager']['options']['tags']['last'] = 'viimeinen »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relationship: Content: Author */
+  /* Suhde: Sisältö: Tekijä */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Field: Content: Title */
+  /* Kenttä: Sisältö: Otsikko */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Post date */
+  /* Kenttä: Sisältö: Lähetetty */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['label'] = '';
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'long';
-  /* Field: Content: Author uid */
+  /* Kenttä: Sisältö: Kirjoittajan käyttäjä ID (uid) */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'node';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
   $handler->display->display_options['fields']['uid']['label'] = '';
   $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
-  /* Field: Content: Body */
+  /* Kenttä: Sisältö: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -230,33 +251,34 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['fields']['body']['settings'] = array(
     'trim_length' => '600',
   );
-  /* Field: User: Etunimi */
+  /* Kenttä: Käyttäjä: Etunimi */
   $handler->display->display_options['fields']['field_account_etunimi']['id'] = 'field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['table'] = 'field_data_field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['field'] = 'field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['relationship'] = 'uid';
-  /* Sort criterion: Content: Post date */
+  /* Lajittelukriteeri: Sisältö: Lähetetty */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Content: Author uid */
+  /* Sisältöriippuvanen suodatin: Sisältö: Kirjoittajan käyttäjä ID (uid) */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
   $handler->display->display_options['arguments']['uid']['table'] = 'node';
   $handler->display->display_options['arguments']['uid']['field'] = 'uid';
   $handler->display->display_options['arguments']['uid']['default_action'] = 'empty';
+  $handler->display->display_options['arguments']['uid']['exception']['title'] = 'Kaikki';
   $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
-  /* Filter criterion: Content: Published */
+  /* Suodatinkriteeri: Sisältö: Julkaistu */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 0;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Suodatinkriteeri: Sisältö: Tyyppi */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -270,7 +292,7 @@ function blogs_complex_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: User: Uid */
+  /* Kenttä: Käyttäjä: Uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'users';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
@@ -279,7 +301,7 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
-  /* Field: User: Kuva */
+  /* Kenttä: Käyttäjä: Kuva */
   $handler->display->display_options['fields']['field_account_kuva']['id'] = 'field_account_kuva';
   $handler->display->display_options['fields']['field_account_kuva']['table'] = 'field_data_field_account_kuva';
   $handler->display->display_options['fields']['field_account_kuva']['field'] = 'field_account_kuva';
@@ -291,7 +313,7 @@ function blogs_complex_views_default_views() {
     'image_style' => 'avatar_thumbnail',
     'image_link' => '',
   );
-  /* Field: User: Etunimi */
+  /* Kenttä: Käyttäjä: Etunimi */
   $handler->display->display_options['fields']['field_account_etunimi']['id'] = 'field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['table'] = 'field_data_field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['field'] = 'field_account_etunimi';
@@ -299,7 +321,7 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['fields']['field_account_etunimi']['label'] = '';
   $handler->display->display_options['fields']['field_account_etunimi']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_account_etunimi']['element_label_colon'] = FALSE;
-  /* Field: User: Sukunimi */
+  /* Kenttä: Käyttäjä: Sukunimi */
   $handler->display->display_options['fields']['field_account_sukunimi']['id'] = 'field_account_sukunimi';
   $handler->display->display_options['fields']['field_account_sukunimi']['table'] = 'field_data_field_account_sukunimi';
   $handler->display->display_options['fields']['field_account_sukunimi']['field'] = 'field_account_sukunimi';
@@ -311,11 +333,12 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['fields']['field_account_sukunimi']['alter']['path'] = 'blog/[uid]';
   $handler->display->display_options['fields']['field_account_sukunimi']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Type */
+  /* Sisältöriippuvanen suodatin: Sisältö: Tyyppi */
   $handler->display->display_options['arguments']['type']['id'] = 'type';
   $handler->display->display_options['arguments']['type']['table'] = 'node';
   $handler->display->display_options['arguments']['type']['field'] = 'type';
   $handler->display->display_options['arguments']['type']['group_type'] = 'count';
+  $handler->display->display_options['arguments']['type']['exception']['title'] = 'Kaikki';
   $handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
@@ -325,14 +348,14 @@ function blogs_complex_views_default_views() {
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Path */
+  /* Kenttä: Sisältö: Polku */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: User: Etunimi */
+  /* Kenttä: Käyttäjä: Etunimi */
   $handler->display->display_options['fields']['field_account_etunimi']['id'] = 'field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['table'] = 'field_data_field_account_etunimi';
   $handler->display->display_options['fields']['field_account_etunimi']['field'] = 'field_account_etunimi';
@@ -340,7 +363,7 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['fields']['field_account_etunimi']['label'] = '';
   $handler->display->display_options['fields']['field_account_etunimi']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_account_etunimi']['element_label_colon'] = FALSE;
-  /* Field: User: Sukunimi */
+  /* Kenttä: Käyttäjä: Sukunimi */
   $handler->display->display_options['fields']['field_account_sukunimi']['id'] = 'field_account_sukunimi';
   $handler->display->display_options['fields']['field_account_sukunimi']['table'] = 'field_data_field_account_sukunimi';
   $handler->display->display_options['fields']['field_account_sukunimi']['field'] = 'field_account_sukunimi';
@@ -348,20 +371,20 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['fields']['field_account_sukunimi']['label'] = '';
   $handler->display->display_options['fields']['field_account_sukunimi']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_account_sukunimi']['element_label_colon'] = FALSE;
-  /* Field: Content: Title */
+  /* Kenttä: Sisältö: Otsikko */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Post date */
+  /* Kenttä: Sisältö: Lähetetty */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['label'] = '';
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'long';
-  /* Field: User: Name */
+  /* Kenttä: Käyttäjä: Nimi */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -373,7 +396,7 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['path'] = 'kayttajat/[name]';
   $handler->display->display_options['fields']['name']['alter']['alt'] = 'Bloggaajan käyttäjäprofiili';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  /* Field: Content: Comment count */
+  /* Kenttä: Sisältö: Kommenttien lukumäärä */
   $handler->display->display_options['fields']['comment_count']['id'] = 'comment_count';
   $handler->display->display_options['fields']['comment_count']['table'] = 'node_comment_statistics';
   $handler->display->display_options['fields']['comment_count']['field'] = 'comment_count';
@@ -382,7 +405,7 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['fields']['comment_count']['alter']['text'] = '<a href="[path]#comments" class="blog-entry-comment-count-link">Kommentteja [comment_count]</a>';
   $handler->display->display_options['fields']['comment_count']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['comment_count']['hide_alter_empty'] = FALSE;
-  /* Field: Content: Body */
+  /* Kenttä: Sisältö: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -413,22 +436,22 @@ function blogs_complex_views_default_views() {
   );
   $translatables['blog_writers'] = array(
     t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
+    t('lisää'),
+    t('Käytä'),
+    t('Palauta oletusarvoihin'),
+    t('Lajittele'),
     t('Asc'),
     t('Desc'),
-    t('Items per page'),
-    t('- All -'),
+    t('Merkintöjä sivua kohti'),
+    t('- Kaikki -'),
     t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('author'),
+    t('« ensimmäinen'),
+    t('‹ edellinen'),
+    t('seuraava ›'),
+    t('viimeinen »'),
+    t('kirjoittaja'),
     t('Etunimi'),
-    t('All'),
+    t('Kaikki'),
     t('Block'),
     t('[field_account_etunimi] [field_account_sukunimi]'),
     t('Content pane'),

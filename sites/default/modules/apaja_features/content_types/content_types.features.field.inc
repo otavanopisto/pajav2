@@ -214,8 +214,9 @@ function content_types_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
+      'exclude_cv' => 0,
       'field_name' => 'body',
-      'label' => 'Content',
+      'label' => 'Sisältö',
       'required' => 0,
       'settings' => array(
         'display_summary' => 0,
@@ -307,152 +308,6 @@ function content_types_field_default_fields() {
         'settings' => array(),
         'type' => 'exposed',
         'weight' => '7',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-kurssi-field_hinnan_tyyppi'.
-  $fields['node-kurssi-field_hinnan_tyyppi'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_hinnan_tyyppi',
-      'field_permissions' => array(
-        'type' => '2',
-      ),
-      'foreign keys' => array(),
-      'indexes' => array(
-        'value' => array(
-          0 => 'value',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'list',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => 'Dynaaminen hinta',
-          1 => 'Kiinteä hinta per henkilö',
-        ),
-        'allowed_values_function' => '',
-      ),
-      'translatable' => '0',
-      'type' => 'list_integer',
-    ),
-    'field_instance' => array(
-      'bundle' => 'kurssi',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'hidden',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '13',
-        ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '11',
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_hinnan_tyyppi',
-      'label' => 'Hinnan tyyppi',
-      'required' => 0,
-      'settings' => array(
-        'exclude_cv' => FALSE,
-        'user_field_privacy' => FALSE,
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(),
-        'type' => 'options_buttons',
-        'weight' => '7',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-kurssi-field_hinta'.
-  $fields['node-kurssi-field_hinta'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_hinta',
-      'field_permissions' => array(
-        'type' => '2',
-      ),
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'locked' => '0',
-      'module' => 'number',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'number_integer',
-    ),
-    'field_instance' => array(
-      'bundle' => 'kurssi',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'inline',
-          'module' => 'number',
-          'settings' => array(
-            'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
-            'scale' => 0,
-            'thousand_separator' => ' ',
-          ),
-          'type' => 'number_integer',
-          'weight' => '7',
-        ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '8',
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_hinta',
-      'label' => 'Hinta',
-      'required' => 0,
-      'settings' => array(
-        'exclude_cv' => FALSE,
-        'max' => '',
-        'min' => '',
-        'prefix' => '',
-        'suffix' => '€',
-        'user_field_privacy' => FALSE,
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 0,
-        'module' => 'number',
-        'settings' => array(),
-        'type' => 'number',
-        'weight' => '8',
       ),
     ),
   );
@@ -1006,152 +861,6 @@ function content_types_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-kurssi-field_maksimi_osallistujat'.
-  $fields['node-kurssi-field_maksimi_osallistujat'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_maksimi_osallistujat',
-      'field_permissions' => array(
-        'type' => '2',
-      ),
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'locked' => '0',
-      'module' => 'number',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'number_integer',
-    ),
-    'field_instance' => array(
-      'bundle' => 'kurssi',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'inline',
-          'module' => 'number',
-          'settings' => array(
-            'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
-            'scale' => 0,
-            'thousand_separator' => ' ',
-          ),
-          'type' => 'number_integer',
-          'weight' => '6',
-        ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '2',
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_maksimi_osallistujat',
-      'label' => 'Maksimi osallistujamäärä',
-      'required' => 0,
-      'settings' => array(
-        'exclude_cv' => FALSE,
-        'max' => '',
-        'min' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'user_field_privacy' => FALSE,
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 0,
-        'module' => 'number',
-        'settings' => array(),
-        'type' => 'number',
-        'weight' => '14',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-kurssi-field_minimi_osallistujat'.
-  $fields['node-kurssi-field_minimi_osallistujat'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_minimi_osallistujat',
-      'field_permissions' => array(
-        'type' => '2',
-      ),
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'locked' => '0',
-      'module' => 'number',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'number_integer',
-    ),
-    'field_instance' => array(
-      'bundle' => 'kurssi',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'inline',
-          'module' => 'number',
-          'settings' => array(
-            'decimal_separator' => '.',
-            'prefix_suffix' => TRUE,
-            'scale' => 0,
-            'thousand_separator' => ' ',
-          ),
-          'type' => 'number_integer',
-          'weight' => '5',
-        ),
-        'notifications' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '3',
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_minimi_osallistujat',
-      'label' => 'Minimi osallistujamäärä',
-      'required' => 0,
-      'settings' => array(
-        'exclude_cv' => FALSE,
-        'max' => '',
-        'min' => '',
-        'prefix' => '',
-        'suffix' => '',
-        'user_field_privacy' => FALSE,
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 0,
-        'module' => 'number',
-        'settings' => array(),
-        'type' => 'number',
-        'weight' => '13',
-      ),
-    ),
-  );
-
   // Exported field: 'node-kurssi-field_summary'.
   $fields['node-kurssi-field_summary'] = array(
     'field_config' => array(
@@ -1186,7 +895,7 @@ function content_types_field_default_fields() {
       'bundle' => 'kurssi',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => '<i>Lyhyt listauksissa näytettävä kuvaus kurssista</i>',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -1209,8 +918,9 @@ function content_types_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
+      'exclude_cv' => 0,
       'field_name' => 'field_summary',
-      'label' => 'Summary',
+      'label' => 'Yhteenveto',
       'required' => 1,
       'settings' => array(
         'exclude_cv' => FALSE,
@@ -2203,16 +1913,14 @@ function content_types_field_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('<i>Lyhyt listauksissa näytettävä kuvaus kurssista</i>');
   t('Alempi slogan');
   t('Arvio');
-  t('Content');
   t('Description');
   t('Determine if this is an OG group.');
   t('Embed video from youtube or vimeo.');
   t('Group');
   t('Groups audience');
-  t('Hinnan tyyppi');
-  t('Hinta');
   t('Hintalaskuri');
   t('Kurssi alkaa');
   t('Kurssi loppuu');
@@ -2220,15 +1928,14 @@ function content_types_field_default_fields() {
   t('Kurssin tila');
   t('Kurssin vetäjä');
   t('Kuvaus');
-  t('Maksimi osallistujamäärä');
-  t('Minimi osallistujamäärä');
   t('Nettiosoite');
-  t('Summary');
+  t('Sisältö');
   t('Tagit');
   t('Tapahtuman aika');
   t('Tapahtuman osoite');
   t('Tuottajan valinta');
   t('Video');
+  t('Yhteenveto');
   t('Yhteystiedot');
   t('Ylempi slogan');
 

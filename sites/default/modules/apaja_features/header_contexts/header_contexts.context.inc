@@ -26,9 +26,9 @@ function header_contexts_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'block-1' => array(
+        'block-3' => array(
           'module' => 'block',
-          'delta' => '1',
+          'delta' => '3',
           'region' => 'header_second',
           'weight' => '-1',
         ),
@@ -65,9 +65,9 @@ function header_contexts_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'block-2' => array(
+        'block-4' => array(
           'module' => 'block',
-          'delta' => '2',
+          'delta' => '4',
           'region' => 'header_second',
           'weight' => '-1',
         ),

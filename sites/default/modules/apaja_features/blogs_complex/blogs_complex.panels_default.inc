@@ -37,12 +37,9 @@ function blogs_complex_default_panels_mini() {
     $pane->pid = 'new-1';
     $pane->panel = 'center';
     $pane->type = 'block';
-    $pane->subtype = 'block-8';
+    $pane->subtype = 'block-9';
     $pane->shown = TRUE;
-    $pane->access = array(
-      'logic' => 'and',
-      'plugins' => array(),
-    );
+    $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
       'override_title_text' => '',
@@ -51,10 +48,7 @@ function blogs_complex_default_panels_mini() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'pane-block-new-blog-entry',
-    );
+    $pane->css = array();
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
