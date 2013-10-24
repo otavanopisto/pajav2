@@ -389,7 +389,7 @@ function oo_createcourse_button_callback($js){
   else {
     $join_html = '<span class="generic-empty-text">' . $login_link . '</span>';
   }
-  $ajax_commands[] = ajax_command_after('#block-oo-alterations-oo-create-course', "<div id='create-course-form-block'><div class='create-course-title-block'>" . t('Perusta uusi kurssi') . "</div><div class='join-course-description-block'>" . t('Luodaksesi kurssin sinun tulee olla rekisteröitynyt ja kirjautunut sisään aPajaan.') . "</div><div class='join-course-description-block'>$register_link " . t('tai kirjaudu ulkoisen palvelun avulla mikäli et vielä omaa tunnuksia sivustolle.') . "</div>$join_html<div class='join-course-arrow-block'></div></div>");
+  $ajax_commands[] = ajax_command_after('#block-oo-alterations-oo-create-course', "<div id='create-course-form-block'><div class='create-course-title-block'>" . t('Perusta uusi kurssi') . "</div><div class='create-course-description-block'>" . t('Luodaksesi kurssin sinun tulee olla rekisteröitynyt ja kirjautunut sisään aPajaan.') . "</div><div class='create-course-description-block'>$register_link " . t('tai kirjaudu ulkoisen palvelun avulla mikäli et vielä omaa tunnuksia sivustolle.') . "</div>$join_html<div class='create-course-arrow-block'></div></div>");
   $ajax_commands[] = ajax_command_invoke('#create-course-form-block', 'hide');
   $ajax_commands[] = ajax_command_invoke('#create-course-form-block', 'fadeIn', array(300));
   return drupal_json_output($ajax_commands);
