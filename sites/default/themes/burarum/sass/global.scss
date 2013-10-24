@@ -530,7 +530,7 @@ form#user-login {
 form#user-register-form {
   
   .form-item {
-    margin:0 0 12px 0;
+/*     margin:0 0 12px 0; */
     padding:0;
     position:relative;
       
@@ -1430,13 +1430,16 @@ ul.tabs.primary li.active a {
 }
 
 #page #node-course-panel #join-course-block a {
-  @include buttonized-link;
-  @include rounded-borders;
-  @include box-shadow;
-}
-
-#page #node-course-panel #join-course-block a:hover {
-  @include text-shadow;
+  background:#0099FF;
+  border-radius:$boxBorderRadius;
+  box-shadow:$boxShadow;
+  color: #FFFFFF;
+  font-size: 0.8em;
+  white-space: nowrap;
+  width: auto;
+  padding: 3px 8px 3px 8px;
+  text-decoration:none;
+  text-transform:uppercase;
 }
 
 #page #node-course-panel .pane-node-body {

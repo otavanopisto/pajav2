@@ -1990,7 +1990,7 @@ function custom_blocks_default_blockexport_settings() {
   'theme' => 'bartik',
   'status' => '0',
   'weight' => '0',
-  'region' => '-1',
+  'region' => '',
   'custom' => '0',
   'visibility' => '0',
   'pages' => '',
@@ -2018,7 +2018,7 @@ function custom_blocks_default_blockexport_settings() {
   'theme' => 'seven',
   'status' => '0',
   'weight' => '0',
-  'region' => '-1',
+  'region' => '',
   'custom' => '0',
   'visibility' => '0',
   'pages' => '',
@@ -3007,7 +3007,7 @@ function custom_blocks_default_blockexport_settings() {
   'bid' => '3',
   'body' => '<div id="block-login-signup" class="block block-login-signup block-without-title">
   <span class="login-link"><a href="#" id="headerLoginLink"><?php echo t(\'Login\'); ?></a></span>
-  <span class="signup-link"><?php echo "<a class=\\"ctools-use-modal ctools-modal-modal-popup-medium\\" href=\\"/modal_forms/nojs/register\\">Luo uusi tili</a>" ?></span>
+  <span class="signup-link"><?php echo "<a class=\\"ctools-use-modal ctools-modal-modal-popup-medium\\" href=\\"/modal_forms/nojs/register\\">Luo tunnukset</a>" ?></span>
 </div>',
   'info' => 'Login and register links',
   'format' => 'php_code',
