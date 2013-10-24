@@ -12,4 +12,17 @@
     }
   };
 
+  Drupal.behaviors.handleCreateCoursePopupClose = {  
+      attach : function(context, settings) {
+        if ($('#create-course-form-block').length > 0) {
+          $('#create-course-form-block').click(function(event){
+             event.stopPropagation();
+          });
+          $('.html').click(function(event){
+            $('#create-course-form-block').empty();
+            $('#create-course-form-block').remove();
+          });
+        }
+      }
+    };
 })(jQuery);

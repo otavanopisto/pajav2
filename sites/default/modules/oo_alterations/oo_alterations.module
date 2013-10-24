@@ -1,13 +1,14 @@
 <?php
 function oo_alterations_init() {
+  // Load in our custom JavaScript.
+  drupal_add_js(drupal_get_path('module', 'oo_alterations') . '/js/oo_alterations.js', array('weight' => 99));
   if (!drupal_installation_attempted() && (arg(0) == 'node' && arg(1) != '')) {
     $done = &drupal_static(__FUNCTION__, NULL);
     if (!isset($done['oo_alterations_init'])) {
       $done['oo_alterations_init'] = TRUE;
       // Load in Drupal core AJAX library.
       drupal_add_library('system', 'drupal.ajax');
-      // Load in our custom JavaScript.
-      drupal_add_js(drupal_get_path('module', 'oo_alterations') . '/js/oo_alterations.js', array('weight' => 99));
+
       drupal_add_js(drupal_get_path('module', 'hybridauth') . '/js/hybridauth.js');
       drupal_add_css(drupal_get_path('module', 'hybridauth') . '/css/hybridauth.css');
       $icon_pack = hybridauth_get_icon_pack(variable_get('hybridauth_widget_icon_pack', 'hybridauth_32'));
@@ -279,8 +280,6 @@ function _oo_blog_author_view(){
   );
   $result = db_query('SELECT DISTINCT users_node.uid AS uid FROM {node} node LEFT JOIN {users} users_node ON node.uid = users_node.uid 
       WHERE (( (node.status = \'1\') )AND(( (node.type IN  (:content_type)) ))) ', array(':content_type' => 'blog_entry'));
-//   $result = db_query('SELECT n.nid, n.title, n.created FROM {node} n WHERE n.uid = :uid', array(':uid' => $uid));
-  // Result is returned as a iterable object that returns a stdClass object on each iteration
   $items = array();
   foreach ($result as $record) {
     $author = user_load($record->uid);
@@ -345,6 +344,29 @@ function _oo_og_create_link_view(){
 }
 
 function _oo_create_course_button_view(){
+  global $user;
+  
+  $block = array();
+  // Block output in HTML with div wrapper
+  $block = array(
+    'content' => array(
+      '#prefix' => '<span class="create-link-container">',
+      '#type' => 'markup',
+      '#suffix' => '</span>',
+    ),
+  );
+
+  if (!$user->uid) {
+    if (variable_get('user_register', 1)) {
+      $block["#markup"] = '<div class="header-discover-search-links-wrapper"><span class="discover-link-container"><a href="/kurssit/kurssitarjonta"><span class="discover-link-big">Etsi</span> <span class="discover-link-small">kursseja</span></a></span><span class="create-link-container">' . 
+        l("<span class=\"create-link-big\">Perusta</span><span class=\"create-link-small\">uusi kurssi</span>", "createcourse/nojs", array('html' => true, 'attributes' => array('class' => 'use-ajax', 'id' => 'create-course-bt'))) . '</span></div>';
+      return $block;
+    }
+  }else{
+    $block["#markup"] = '<div class="header-discover-search-links-wrapper"><span class="discover-link-container"><a href="/kurssit/kurssitarjonta"><span class="discover-link-big">Etsi</span> <span class="discover-link-small">kursseja</span></a></span><span class="create-link-container">' .
+      l("<span class=\"create-link-big\">Perusta</span><span class=\"create-link-small\">uusi kurssi</span>", "node/add/kurssi", array('html' => true, 'attributes' => array('id' => 'create-course-bt'))) . '</span></div>';
+    return $block;    
+  }
   
 }
 
@@ -354,6 +376,24 @@ function oo_createcourse_button_callback($js){
     drupal_goto("user/login");
     return;
   }
+  global $user;
+  $join_html = "";
+  if (variable_get('user_register', 1)) {
+    $login_link = l("Kirjaudu sisään", "login/nojs", array("attributes" => array("class" => array("subscribe-ajax-login"))));
+    $register_link = l(t('Luo tunnukset'), 'modal_forms/nojs/register', array("attributes" => array("class" => array("ctools-use-modal ctools-modal-modal-popup-medium"))));
+    $join_html = drupal_render(drupal_get_form('user_login'));
+    if($_SESSION['messages']['error']){
+      drupal_goto($_SERVER['HTTP_REFERER']);
+    }
+  }
+  else {
+    $join_html = '<span class="generic-empty-text">' . $login_link . '</span>';
+  }
+  $ajax_commands[] = ajax_command_after('#block-oo-alterations-oo-create-course', "<div id='create-course-form-block'><div class='create-course-title-block'>" . t('Perusta uusi kurssi') . "</div><div class='join-course-description-block'>" . t('Luodaksesi kurssin sinun tulee olla rekisteröitynyt ja kirjautunut sisään aPajaan.') . "</div><div class='join-course-description-block'>$register_link " . t('tai kirjaudu ulkoisen palvelun avulla mikäli et vielä omaa tunnuksia sivustolle.') . "</div>$join_html<div class='join-course-arrow-block'></div></div>");
+  $ajax_commands[] = ajax_command_invoke('#create-course-form-block', 'hide');
+  $ajax_commands[] = ajax_command_invoke('#create-course-form-block', 'fadeIn', array(300));
+  return drupal_json_output($ajax_commands);
+ 
 }
 
 ?>
