@@ -1851,7 +1851,21 @@ ul.tabs.primary li.active a {
   }
   
 }
-
+/* Petja be raping here */
+#create-course-form-block {
+  position:absolute;
+  top:35px;
+  left:-10px;
+  width:350px;
+  min-height:50px;
+  background:#fff;
+  @include box-padding($padding: 10px 15px);
+  @include box-shadow(0 -4px 20px rgba(0,0,0,0.3));
+  @include rounded-borders;
+  border:1px solid #aaaaaa;
+  z-index:999;
+}
+/* Rape Ends */
 /* AJAX COURSE JOINING */
 
 #page #mini-panel-kurssi_minipanel ul {
