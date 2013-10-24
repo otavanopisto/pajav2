@@ -39,6 +39,22 @@ function oo_alterations_menu(){
     'type' => MENU_CALLBACK,
   );
   
+  $items['createcourse/ajax'] = array(
+    'title' => 'ajax callback for create new course button',
+    'page callback' => 'oo_createcourse_button_callback',
+    'page arguments' => array(1),
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  
+  $items['createcourse/nojs'] = array(
+    'title' => 'non ajax callback for create course button',
+    'page callback' => 'oo_createcourse_button_callback',
+    'page arguments' => array(1),
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  
   return $items;
 }
 
@@ -190,6 +206,10 @@ function oo_alterations_block_info() {
   $blocks['oo_blog_authors'] = array(
       'info' => t('Shows user that have written blog entrys'),
   );
+
+  $blocks['oo_create_course'] = array(
+      'info' => t('Creates "Perusta uusi kurssi" button to be used in header.'),
+  );
   
   return $blocks;
 }
@@ -199,12 +219,14 @@ function oo_alterations_block_info() {
  */
 function oo_alterations_block_configure($delta='') {
   $form = array();
-
   switch($delta) {
     case 'oo_og_create_tapahtuma' :
 
       break;
     case 'oo_blog_authors' : 
+      
+      break;
+    case 'oo_create_course' :
       
       break;
   }
@@ -219,6 +241,8 @@ function oo_alterations_block_save($delta = '', $edit = array()) {
     case 'oo_og_create_tapahtuma' :
       break;
     case 'oo_blog_authors' :
+      break;
+    case 'oo_create_course' :
       break;
   }
 }
@@ -235,6 +259,9 @@ function oo_alterations_block_view($delta='') {
       break;
     case 'oo_blog_authors' :
       $block['content'] = _oo_blog_author_view();
+      break;
+    case 'oo_create_course' :
+      $block['content'] = _oo_create_course_button_view();
       break;
   }
 
@@ -315,6 +342,18 @@ function _oo_og_create_link_view(){
   }
 
   return $block;
+}
+
+function _oo_create_course_button_view(){
+  
+}
+
+function oo_createcourse_button_callback($js){
+  if($js == 'nojs'){
+    drupal_set_message('Sinulla täytyy olla javascript päällä selaimessasi, jotta sivusto toimisi oikein.', 'error');
+    drupal_goto("user/login");
+    return;
+  }
 }
 
 ?>
