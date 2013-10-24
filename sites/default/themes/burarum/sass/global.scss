@@ -1851,84 +1851,133 @@ ul.tabs.primary li.active a {
   }
   
 }
-/* Petja be raping here */
-#create-course-form-block {
+
+/* CREATE COURSE WHEN USER NOT LOGGED IN */
+
+#page #region-header-first #create-course-form-block {
   position:absolute;
-  top:35px;
-  left:-10px;
+  top:45px;
+  left:70px;
   width:350px;
   min-height:50px;
   background:#fff;
   @include box-padding($padding: 10px 15px);
-  @include box-shadow(0 -4px 20px rgba(0,0,0,0.3));
+  @include box-shadow(0 -4px 100px rgba(0, 0, 0, 0.6));
   @include rounded-borders;
   border:1px solid #aaaaaa;
   z-index:999;
+  
+   form {
+     margin:10px 0;
+   }
+  
+  .create-course-title-block {
+    text-transform:uppercase;
+    font-size:1.1em;
+    margin:0 0 5px 0;
+  }
+  
+  .create-course-description-block {
+    color:$altFontColor;
+    font-size:0.95em;
+    margin:2px 0 2px 0;
+  }
+  
+  .create-course-arrow-block {
+    position:absolute;
+    top:-10px;
+    left:50px;
+    height:9px;
+    width:15px;
+    background:url('../gfx/arrow-top.png') no-repeat;
+  }
+  
+  h3 {
+    font-weight:normal;
+    font-size:1em;
+  }
+  
+  label {
+    font-weight:normal;
+    font-size:0.90em;
+  }
+  
+  .form-actions {
+    margin:15px 0 5px 0;
+  }
+  
 }
-/* Rape Ends */
+
+#block-oo-alterations-oo-create-course .create-link-container  div.ajax-progress { /* Remove that pesky ajax throbber */
+  display:none;
+}
+
 /* AJAX COURSE JOINING */
 
 #page #mini-panel-kurssi_minipanel ul {
   position:relative;
+  
+  .join-course-title-block {
+    text-transform:uppercase;
+    font-size:1.1em;
+    margin:0 0 5px 0;
+  }
+  
+  .join-course-description-block {
+    color:$altFontColor;
+    font-size:0.95em;
+    margin:2px 0 2px 0;
+  }
+  
+  .form-item .description {
+    color:$altFontColor;
+    font-size:0.95em;
+  }
+  
+  .join-course-arrow-block {
+    position:absolute;
+    bottom:-10px;
+    left:50px;
+    height:9px;
+    width:15px;
+    background:url('../gfx/arrow-bottom.png') no-repeat;
+  }
+  
+  div.ajax-progress {
+    display:none;
+  }
+  
+  #join-course-form-block {
+    position:absolute;
+    bottom:35px;
+    left:-10px;
+    width:350px;
+    min-height:50px;
+    background:#fff;
+    @include box-padding($padding: 10px 15px);
+    @include box-shadow(0 -4px 100px rgba(0, 0, 0, 0.6));
+    @include rounded-borders;
+    border:1px solid #aaaaaa;
+    z-index:999;
+    
+    h3 {
+      font-weight:normal;
+      font-size:1em;
+    }
+    
+    label {
+      font-weight:normal;
+      font-size:0.90em;
+    }
+    
+    .form-actions {
+      margin:15px 0 5px 0;
+    }
+    
+  }
+  
 }
 
-#page #mini-panel-kurssi_minipanel ul #join-course-form-block {
-  position:absolute;
-  bottom:35px;
-  left:-10px;
-  width:350px;
-  min-height:50px;
-  background:#fff;
-  @include box-padding($padding: 10px 15px);
-  @include box-shadow(0 -4px 20px rgba(0,0,0,0.3));
-  @include rounded-borders;
-  border:1px solid #aaaaaa;
-  z-index:999;
-}
-
-#page #mini-panel-kurssi_minipanel ul #join-course-form-block h3 {
-  font-weight:normal;
-  font-size:1em;
-}
-
-#page #mini-panel-kurssi_minipanel ul #join-course-form-block label {
-  font-weight:normal;
-  font-size:0.90em;
-}
-
-#page #mini-panel-kurssi_minipanel ul #join-course-form-block  .form-actions {
-  margin:15px 0 5px 0;
-}
-
-#page #mini-panel-kurssi_minipanel ul .join-course-title-block {
-  text-transform:uppercase;
-  font-size:1.1em;
-  margin:0 0 5px 0;
-}
-
-#page #mini-panel-kurssi_minipanel ul .join-course-description-block {
-  color:$altFontColor;
-  font-size:0.95em;
-  margin:2px 0 2px 0;
-}
-
-#page #mini-panel-kurssi_minipanel ul .form-item .description {
-  color:$altFontColor;
-  font-size:0.95em;
-}
-
-#page #mini-panel-kurssi_minipanel ul .join-course-arrow-block {
-  position:absolute;
-  bottom:-10px;
-  left:50px;
-  height:9px;
-  width:15px;
-  background:url('../gfx/arrow-bottom.png') no-repeat;
-}
-
-#page #mini-panel-kurssi_minipanel ul div.ajax-progress {
-  display:none;
-}
 
 #page #join-course-form-block form label {
   text-transform:uppercase;
