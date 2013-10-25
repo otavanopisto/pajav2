@@ -345,7 +345,6 @@ function _oo_og_create_link_view(){
 
 function _oo_create_course_button_view(){
   global $user;
-  
   $block = array();
   // Block output in HTML with div wrapper
   $block = array(
@@ -357,11 +356,9 @@ function _oo_create_course_button_view(){
   );
 
   if (!$user->uid) {
-    if (variable_get('user_register', 1)) {
-      $block["#markup"] = '<div class="header-discover-search-links-wrapper"><span class="discover-link-container"><a href="/kurssit/kurssitarjonta"><span class="discover-link-big">Etsi</span> <span class="discover-link-small">kursseja</span></a></span><span class="create-link-container">' . 
-        l("<span class=\"create-link-big\">Perusta</span><span class=\"create-link-small\">uusi kurssi</span>", "createcourse/nojs", array('html' => true, 'attributes' => array('class' => 'use-ajax', 'id' => 'create-course-bt'))) . '</span></div>';
-      return $block;
-    }
+    $block["#markup"] = '<div class="header-discover-search-links-wrapper"><span class="discover-link-container"><a href="/kurssit/kurssitarjonta"><span class="discover-link-big">Etsi</span> <span class="discover-link-small">kursseja</span></a></span><span class="create-link-container">' . 
+      l("<span class=\"create-link-big\">Perusta</span><span class=\"create-link-small\">uusi kurssi</span>", "createcourse/nojs", array('html' => true, 'query' => array('destination' => 'node/add/kurssi') ,'attributes' => array('class' => 'use-ajax', 'id' => 'create-course-bt'))) . '</span></div>';
+    return $block;
   }else{
     $block["#markup"] = '<div class="header-discover-search-links-wrapper"><span class="discover-link-container"><a href="/kurssit/kurssitarjonta"><span class="discover-link-big">Etsi</span> <span class="discover-link-small">kursseja</span></a></span><span class="create-link-container">' .
       l("<span class=\"create-link-big\">Perusta</span><span class=\"create-link-small\">uusi kurssi</span>", "node/add/kurssi", array('html' => true, 'attributes' => array('id' => 'create-course-bt'))) . '</span></div>';
@@ -376,7 +373,6 @@ function oo_createcourse_button_callback($js){
     drupal_goto("user/login");
     return;
   }
-  global $user;
   $join_html = "";
   if (variable_get('user_register', 1)) {
     $login_link = l("Kirjaudu sisään", "login/nojs", array("attributes" => array("class" => array("subscribe-ajax-login"))));
