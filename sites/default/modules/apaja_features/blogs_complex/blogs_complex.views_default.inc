@@ -49,7 +49,17 @@ function blogs_complex_views_default_views() {
   $handler->display->display_options['empty']['php']['label'] = 'On Empty';
   $handler->display->display_options['empty']['php']['empty'] = TRUE;
   $handler->display->display_options['empty']['php']['php_output'] = '<h2>Blogi on valitettavasti tyhjä</h2>
-<p><?php echo t(\'aPajaan ei ole vielä kirjoitettu yhtään blogia. Ole ensimmäinen ja aloita bloggaamaan \'); ?><a href="/node/add/blog-entry"><?php echo t(\'lisäämällä uusi blogikirjoitus.\') ?></a></p>
+<?php 
+global $user;
+if (!$user->uid) {
+	echo "<p>";
+	echo t(\'aPajaan ei ole vielä kirjoitettu yhtään blogia.\') . " " . l(t(\'Kirjaudu sisään\'), \'modal_forms/nojs/login\', array("attributes" => array("class" => array("ctools-use-modal ctools-modal-modal-popup-medium")))) . "<span> tai </span>" . l(t(\'rekisteröidy\'), \'modal_forms/nojs/register\', array("attributes" => array("class" => array("ctools-use-modal ctools-modal-modal-popup-medium"))))  . " " . "<span>" . t(\'lisätäksesi uusi blogikirjoitus\') . "</span>";
+	echo "</p>";
+}
+else {
+	echo "<p>" . t(\'aPajaan ei ole vielä kirjoitettu yhtään blogia. Ole ensimmäinen ja aloita bloggaamaan\') . " " . "<a href=\'/node/add/blog-entry\'>" . t(\'lisäämällä uusi blogikirjoitus.\') . "</a></p>";
+}
+?>
 ';
   /* Suhde: Sisältö: Tekijä */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
