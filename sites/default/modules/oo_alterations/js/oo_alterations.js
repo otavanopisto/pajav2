@@ -25,4 +25,18 @@
         }
       }
     };
+  
+  Drupal.behaviors.createNewCourseButtonClick = {  
+      attach : function(context, settings) {
+        if ($('#create-course-bt').length > 0) {
+          $('#create-course-bt').click(function(event){
+            if ($('#create-course-form-block')) {
+              $('#create-course-form-block').remove();
+            }
+            event.preventDefault();
+            event.stopPropagation();
+          });
+        }
+      }
+    };
 })(jQuery);
