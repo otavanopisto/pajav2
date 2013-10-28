@@ -1916,6 +1916,11 @@ ul.tabs.primary li.active a {
     margin:15px 0 5px 0;
   }
   
+  form input.form-text {
+    max-width: 100%;
+    min-width: 95%;
+  }
+  
 }
 
 #block-oo-alterations-oo-create-course .create-link-container  div.ajax-progress { /* Remove that pesky ajax throbber */
