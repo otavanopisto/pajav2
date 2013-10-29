@@ -1444,10 +1444,10 @@ ul.tabs.primary li.active a {
   border-radius:$boxBorderRadius;
   box-shadow:$boxShadow;
   color: #FFFFFF;
-  font-size: 0.8em;
+  font-size: 0.85em;
   white-space: nowrap;
   width: auto;
-  padding: 3px 8px 3px 8px;
+  padding: 4px 8px 4px 8px;
   text-decoration:none;
   text-transform:uppercase;
 }
@@ -1493,6 +1493,7 @@ ul.tabs.primary li.active a {
 #page #node-course-panel .show-more-link,
 #page #node-course-panel .show-less-link {
   @include expanding-buttonized-link;
+  font-size:0.85em;
 }
 
 #page #node-course-panel .show-less-link {
@@ -1653,7 +1654,7 @@ ul.tabs.primary li.active a {
         border-radius:$boxBorderRadius;
         box-shadow:$boxShadow;
         color: #FFFFFF;
-        font-size: 0.8em;
+        font-size: 0.85em;
         white-space: nowrap;
         width: auto;
         padding: 3px 8px 3px 8px;
@@ -1747,7 +1748,7 @@ ul.tabs.primary li.active a {
       border-radius:$boxBorderRadius;
       box-shadow:$boxShadow;
       color: #FFFFFF;
-      font-size: 0.8em;
+      font-size: 0.85em;
       white-space: nowrap;
       width: auto;
       padding: 5px 8px 4px 8px;
@@ -1788,7 +1789,7 @@ ul.tabs.primary li.active a {
       border-radius:$boxBorderRadius;
       box-shadow:$boxShadow;
       color: #FFFFFF;
-      font-size: 0.8em;
+      font-size: 0.85em;
       white-space: nowrap;
       width: auto;
       padding: 5px 8px 4px 8px;
@@ -1889,8 +1890,12 @@ ul.tabs.primary li.active a {
   
   .create-course-description-block {
     color:$altFontColor;
-    font-size:0.95em;
     margin:2px 0 2px 0;
+  }
+  
+  .form-item .description {
+    color:$altFontColor;
+    font-size:0.95em;
   }
   
   .create-course-arrow-block {
@@ -1942,7 +1947,6 @@ ul.tabs.primary li.active a {
   
   .join-course-description-block {
     color:$altFontColor;
-    font-size:0.95em;
     margin:2px 0 2px 0;
   }
   
