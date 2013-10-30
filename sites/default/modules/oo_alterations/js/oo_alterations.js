@@ -1,5 +1,5 @@
 (function($) {
-  Drupal.behaviors.commentAjaxLogin= {
+  Drupal.behaviors.commentAjaxLogin = {
     attach : function(context, settings) {
       if ($('.comment-ajax-login').length > 0) {
     	  var commentAjaxLink = $('.comment-ajax-login');
