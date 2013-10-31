@@ -17,3 +17,6 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq sshpass
   - unset GEM_PATH
+# omitting "script:" will default to phpunit
+# use the $DB env variable to determine the phpunit.xml to use
+script: phpunit --version
