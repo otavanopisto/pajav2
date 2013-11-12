@@ -6,17 +6,13 @@ php:
 # Global environment variables
 env:
   global:
-    - secure: "nIqSSbU/CCRF1UjikWnVhlLvnKfMpELAVS34aDC7iNSr2UrUPGb2acd33dlrwRm8SsgUB6irirgKvd1mYELvzzH+D1GiqHuKFHAgcBZpebRuUXRV0tPXGJmHdCVJjyxA37795fAp4lftJ+UKiXUN5EwNaCLlUnJw+vhXWqIj7ww="
-    - secure: "r1FFuWaXPWdjVdL9mRAZ6HBkW2z/KmPFHeX27vGP0+HLG+KUmIS/tlg2umKnnsFQS3Hn8Ll9wqYBogV6c8DQJ2yqpMyzgY9dCBYzaTDIs2jMf8srAAQyko9k3pRpRcA1wm65+j6FbWz0vAZMfPup7caOtzf/WDy3elIdsY6FYW4="
-    - secure: "Att/ULVmmTRhzaSgnaxGixKu0FkncYr7U5GqprD+dkKTDUXuFGq0ru8s0FiO1pDDbEZaiL+wAbjllbhu8mOTr7WeVrdteRPxYd5Q1KSXBoptjXDJ61yXuvBje2XEo1FcpP/r3novrov+eINALaGYNB0L0oACbJSIutrWNravX/g="
-    - secure: "foKpT4DDThLR+fGQC7v/N0YWTNQeklt1f52r255rmffIMC3S+1n0ZH5afpzhbI0WhvcA3YPo+sbzucdAutt1lTSjt40axOArXiJb4ZdnT+2NwRpZ0hS8LnNXG8W8Bpbl2o3wAYf3e6ok/7rxMrsHNKShi1hdhQ7j9SeuN+neGWE="
-
+    - secure: "zBHrPo1QiZwMPBCThfhb+zK7VqZIGt1hM6VIV2VUhhdLZrleM8iFWFzAIMfdtPvgFZzxqewCTeEc8tAmDySlMVwrN78mHhyCR98B9gZldEqOgvxntGX5VMqj7N/CiQUknUk5w9zmO9S8Wq0IBCN2W/fVmYFuN3EeknmitPt5t0I="
 # Install required packages
 # Fix for See https://github.com/Jasig/sass-maven-plugin/issues/47
 before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq sshpass
   - unset GEM_PATH
 # omitting "script:" will default to phpunit
-# use the $DB env variable to determine the phpunit.xml to use
 script: phpunit --version
+# Tell staging to pull latest code from git
+after_success:
+  - wget DEPLOY_PING
