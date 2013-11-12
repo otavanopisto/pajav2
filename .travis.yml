@@ -15,4 +15,4 @@ before_install:
 script: phpunit --version
 # Tell staging to pull latest code from git
 after_success:
-  - wget DEPLOY_PING
+  - wget $DEPLOY_PING
