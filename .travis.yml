@@ -7,10 +7,6 @@ php:
 env:
   global:
     - secure: "aCHNvIaUQmeQhS/25hTTL41vA70Uq79tgD28JktcML8ggCV4QMdVMxrrhX97469TkURokCdhc3mvPGfLmii18cR9eIZr606fkrmGMOOh5YCDpnDRod3lGWhyGz/ICcujLpbV4ujMCRU4iGni3dV9mupBWaTRUMymj95iBFGHm/A="
-# Install required packages
-# Fix for See https://github.com/Jasig/sass-maven-plugin/issues/47
-before_install:
-  - unset GEM_PATH
 # omitting "script:" will default to phpunit
 script: phpunit --version
 # Tell staging to pull latest code from git
