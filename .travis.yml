@@ -11,4 +11,4 @@ env:
 script: phpunit --version
 # Tell staging to pull latest code from git
 after_success:
-  - wget $DEPLOY_PING
+  - wget -q $DEPLOY_PING
