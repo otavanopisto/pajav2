@@ -107,6 +107,7 @@ function content_types_wysiwyg_default_profiles() {
           'RemoveFormat' => 1,
           'SpecialChar' => 1,
           'FontSize' => 1,
+          'Styles' => 1,
           'Table' => 1,
           'Flash' => 1,
           'Iframe' => 1,
