@@ -51,9 +51,92 @@ function paja_course_price_field_schema($field) {
           'length' => 'medium',
           'not null' => FALSE,
       ),
+      'price_undetermined' => array(
+          'type' => 'int',
+          'size' => 'tiny',
+          'not null' => FALSE,
+      ),
     );
   return array(
     'columns' => $columns,
   );
 }
 
+function paja_course_price_field_schema_7100($field) {
+  $columns = array(
+      'profit_margin' => array(
+          'type' => 'int',
+          'length' => 'medium',
+          'not null' => FALSE,
+      ),
+      'premises_costs_per_day' => array(
+          'type' => 'int',
+          'length' => 'medium',
+          'not null' => FALSE,
+      ),
+      'management_costs_per_attendee' => array(
+          'type' => 'int',
+          'length' => 'medium',
+          'not null' => FALSE,
+      ),
+      'instructor_fee' => array(
+          'type' => 'int',
+          'length' => 'medium',
+          'not null' => FALSE,
+      ),
+      'distance_days' => array(
+          'type' => 'int',
+          'length' => 'small',
+          'not null' => FALSE,
+      ),
+      'local_days' => array(
+          'type' => 'int',
+          'length' => 'small',
+          'not null' => FALSE,
+      ),
+      'attendees_min' => array(
+          'type' => 'int',
+          'length' => 'small',
+          'not null' => FALSE,
+      ),
+      'attendees_max' => array(
+          'type' => 'int',
+          'length' => 'small',
+          'not null' => FALSE,
+      ),
+      'miscellanous_costs' => array(
+          'type' => 'int',
+          'length' => 'medium',
+          'not null' => FALSE,
+      ),
+      'price' => array(
+          'type' => 'int',
+          'length' => 'medium',
+          'not null' => FALSE,
+      ),
+      'price_undetermined' => array(
+          'type' => 'int',
+          'size' => 'tiny',
+          'not null' => FALSE,
+      ),
+  );
+  return array(
+      'columns' => $columns,
+  );
+}
+
+function paja_course_price_update_7100(&$sandbox) {
+  $fields = field_info_fields();
+  foreach ($fields as $field_name => $field) {
+    if ($field['type'] == 'paja_course_price' && $field['storage']['type'] == 'field_sql_storage') {
+      $schema = paja_course_price_field_schema_7100($field);
+      foreach ($field['storage']['details']['sql'] as $type => $table_info) {
+        foreach ($table_info as $table_name => $columns) {
+          $column_name = _field_sql_storage_columnname($field_name, 'price_undetermined');
+          db_add_field($table_name, $column_name, $schema['columns']['price_undetermined']);
+        }
+      }
+    }
+  }
+  field_cache_clear();
+}
