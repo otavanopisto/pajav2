@@ -416,7 +416,7 @@ function paja_course_price_field_formatter_view($entity_type, $entity, $field, $
     case 'paja_course_price_mini_panel' :
     foreach ($items as $delta => $item) {
       if($item['price_undetermined'] == 1){
-        $element[$delta]['#markup'] = '<div class="field-label">Hinta:&nbsp;</div>Hintaa ei ole vielä päätetty';        
+        $element[$delta]['#markup'] = '<div class="field-label">Hinta:&nbsp;</div>Kurssia ei ole vielä hinnoiteltu';        
       }elseif (isset($item['price'])) {
         $element[$delta]['#markup'] = '<div class="field-label">Hinta:&nbsp;</div>' . $item['price'] . "€";
       }
