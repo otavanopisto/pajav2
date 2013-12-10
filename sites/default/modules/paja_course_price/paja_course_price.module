@@ -320,7 +320,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
       
       $element['paja_course_price']['standard_fields']['price_undetermined'] = array(
         '#type' => 'checkbox',
-        '#title' => t('Kurssilla ei ole vielä hintaa.'),
+        '#title' => t('Kurssia ei ole vielä hinnoiteltu'),
         '#return_value' => 1,
         '#attributes' => ($items[$delta]['price_undetermined'] == 1) ? array('checked' => array('checked')) : '',
         '#default_value' => ($items[$delta]['price_undetermined'] == 1) ? $items[$delta]['price_undetermined'] : 0,
