@@ -55,12 +55,12 @@ function paja_course_price_field_is_empty($item, $field) {
     return TRUE;
   }elseif (!isset($item['paja_course_price']['standard_fields']['price'])) {
     return TRUE;
-  }elseif (!isset($item['paja_course_price']['extra_fields']['profit_margin'])) {
-    return TRUE;
-  }elseif (!isset($item['paja_course_price']['extra_fields']['premises_costs_per_day'])) {
-    return TRUE;
-  }elseif (!isset($item['paja_course_price']['extra_fields']['management_costs_per_attendee'])) {
-    return TRUE;
+//   }elseif (!isset($item['paja_course_price']['extra_fields']['profit_margin'])) {
+//     return TRUE;
+//   }elseif (!isset($item['paja_course_price']['extra_fields']['premises_costs_per_day'])) {
+//     return TRUE;
+//   }elseif (!isset($item['paja_course_price']['extra_fields']['management_costs_per_attendee'])) {
+//     return TRUE;
   }
   return FALSE;
 }
