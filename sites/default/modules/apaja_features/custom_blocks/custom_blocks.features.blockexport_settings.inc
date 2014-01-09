@@ -2032,7 +2032,7 @@ function custom_blocks_default_blockexport_settings() {
   'theme' => 'bartik',
   'status' => '0',
   'weight' => '0',
-  'region' => '-1',
+  'region' => '',
   'custom' => '0',
   'visibility' => '0',
   'pages' => '',
@@ -2060,7 +2060,7 @@ function custom_blocks_default_blockexport_settings() {
   'theme' => 'seven',
   'status' => '0',
   'weight' => '0',
-  'region' => '-1',
+  'region' => '',
   'custom' => '0',
   'visibility' => '0',
   'pages' => '',
@@ -3074,6 +3074,7 @@ $picture = \'<div class="fbss-comments-picture user-picture">\'. drupal_render($
 <div id="block-userinfo-logout" class="block block-userinfo-logout block-without-title">
  <span class="userinfo-picture"><?php echo $picture ?></span>
  <span class="userinfo-link"><?php print l($user->name, $userpath); ?></span>
+ <span class="user-courses-link"><?php echo l(t(\'Omat kurssit\'), "omat-kurssit"); ?></span>
  <span class="logout-link"><?php echo l(t(\'Logout\'), "user/logout"); ?></span>
 </div>',
   'info' => 'Username and logout links',
