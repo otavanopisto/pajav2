@@ -55,12 +55,12 @@ function paja_course_price_field_is_empty($item, $field) {
     return TRUE;
   }elseif (!isset($item['paja_course_price']['standard_fields']['price'])) {
     return TRUE;
-  }elseif (!isset($item['paja_course_price']['extra_fields']['profit_margin'])) {
-    return TRUE;
-  }elseif (!isset($item['paja_course_price']['extra_fields']['premises_costs_per_day'])) {
-    return TRUE;
-  }elseif (!isset($item['paja_course_price']['extra_fields']['management_costs_per_attendee'])) {
-    return TRUE;
+//   }elseif (!isset($item['paja_course_price']['extra_fields']['profit_margin'])) {
+//     return TRUE;
+//   }elseif (!isset($item['paja_course_price']['extra_fields']['premises_costs_per_day'])) {
+//     return TRUE;
+//   }elseif (!isset($item['paja_course_price']['extra_fields']['management_costs_per_attendee'])) {
+//     return TRUE;
   }
   return FALSE;
 }
@@ -69,7 +69,7 @@ function paja_course_price_field_is_empty($item, $field) {
 * Implements hook_field_validate().
 */
 function paja_course_price_field_validate($entity_type, $entity, $field, $instance, $langcode, $items, &$errors) {
-  // Loop through field items in the case of multiple values.
+// Loop through field items in the case of multiple values.
 //   foreach ($items as $delta => $item) {
 //     if (isset($item['jotain']) && $item['jotain'] != '') {
 //       if (!valid_license_plate($item['jotain'])) {
@@ -318,10 +318,27 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#default_value' => isset($items[$delta]['price']) ? $items[$delta]['price'] : '5',
       );
       
+      $price_undetermided = 0;
+      $price_undetermided_attributes = '';
+      if(isset($items[$delta]['price_undetermined'])){
+        $price_undetermided = $items[$delta]['price_undetermined'];
+        if($price_undetermided == 1){
+          $price_undetermided_attributes = array('checked' => array('checked'));
+        }
+      }
+      
+      $element['paja_course_price']['standard_fields']['price_undetermined'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Kurssia ei ole vielä hinnoiteltu'),
+        '#return_value' => 1,
+        '#attributes' => $price_undetermided_attributes,
+        '#default_value' => $price_undetermided,
+      );
+      
       $element['paja_course_price']['table'] = array(
         '#title' => t(''),
         '#prefix' => '<div id="paja-course-table">',
-      	'#suffix' => '</div>',
+        '#suffix' => '</div>',
       );
       
       $element['paja_course_price']['result'] = array(
@@ -350,6 +367,7 @@ function paja_course_price_field_presave($entity_type, $entity, $field, $instanc
     $items[$delta]['attendees_max'] = $item['paja_course_price']['standard_fields']['attendees_max'];
     $items[$delta]['miscellanous_costs'] = $item['paja_course_price']['standard_fields']['miscellanous_costs'];
     $items[$delta]['price'] = $item['paja_course_price']['standard_fields']['price'];
+    $items[$delta]['price_undetermined'] = $item['paja_course_price']['standard_fields']['price_undetermined'];
   }
 }
 
@@ -406,7 +424,9 @@ function paja_course_price_field_formatter_view($entity_type, $entity, $field, $
     break;
     case 'paja_course_price_mini_panel' :
     foreach ($items as $delta => $item) {
-      if (isset($item['price'])) {
+      if($item['price_undetermined'] == 1){
+        $element[$delta]['#markup'] = '<div class="field-label">Hinta:&nbsp;</div>Kurssia ei ole vielä hinnoiteltu';        
+      }elseif (isset($item['price'])) {
         $element[$delta]['#markup'] = '<div class="field-label">Hinta:&nbsp;</div>' . $item['price'] . "€";
       }
     }
