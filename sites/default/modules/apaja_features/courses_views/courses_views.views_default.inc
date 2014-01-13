@@ -1846,6 +1846,17 @@ return max(array($value,0));';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['relationships']['uid']['required'] = TRUE;
+  /* Kenttä: Sisältö: Kurssin kuva */
+  $handler->display->display_options['fields']['field_kurssin_kuva']['id'] = 'field_kurssin_kuva';
+  $handler->display->display_options['fields']['field_kurssin_kuva']['table'] = 'field_data_field_kurssin_kuva';
+  $handler->display->display_options['fields']['field_kurssin_kuva']['field'] = 'field_kurssin_kuva';
+  $handler->display->display_options['fields']['field_kurssin_kuva']['label'] = '';
+  $handler->display->display_options['fields']['field_kurssin_kuva']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_kurssin_kuva']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_kurssin_kuva']['settings'] = array(
+    'image_style' => 'group-thumbnail',
+    'image_link' => 'content',
+  );
   /* Kenttä: Sisältö: Otsikko */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';

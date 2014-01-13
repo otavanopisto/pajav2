@@ -3799,3 +3799,65 @@ a, p, ul, ol, li, img, span, strong, em {
   }
   
 }
+
+/* USERS COURSES */
+
+div.view-omat-kurssit {
+  
+  table.views-table {
+    width:98%;
+    margin:0 10px 20px 10px;
+    
+    tbody tr {
+      background:none;
+      border-bottom:1px solid #eee;
+    }
+    
+    tbody tr.views-row-last {
+      border:0;
+    }
+    
+    td {
+      vertical-align:middle;
+      padding:5px 0;
+      
+      &.active {
+        background:none;
+      }  
+      
+    }
+    
+    td.views-field-field-kurssin-kuva {
+      width:70px;
+    
+      a {
+        height:48px;
+        width:48px;
+        overflow:hidden;
+        display:block;
+        
+        img {
+          height:48px;
+          width:auto;
+        }
+      }
+    
+    }
+    
+    td.views-field-title {
+      width:560px;
+
+    
+      a {
+        color:#AF6700;
+        text-decoration:none;
+      }
+    
+    }
+  }
+  
+}
+
+
+
+
