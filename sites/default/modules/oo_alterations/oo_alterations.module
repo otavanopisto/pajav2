@@ -150,6 +150,7 @@ function oo_alterations_form_alter(&$form, $form_state, $form_id) {
     $form['field_account_postitoimipaikka']['user_field_privacy']['#default_value'] = true;
     $form['field_account_postitoimipaikka']['user_field_privacy']['#attributes']['disabled'] = true;
     $form['field_account_postitoimipaikka']['user_field_privacy']['#type'] = 'hidden';
+    // User language switcher
     $form['locale']['#type'] = 'hidden';
   }elseif($form_id == 'user_register_form'){
     $form['field_account_lahiosoite']['user_field_privacy']['#default_value'] = true;
@@ -361,13 +362,14 @@ function _oo_create_course_button_view(){
     return $block;
   }else{
     $block["#markup"] = '<div class="header-discover-search-links-wrapper"><span class="discover-link-container"><a href="/kurssit/kurssitarjonta"><span class="discover-link-big">Etsi</span> <span class="discover-link-small">kursseja</span></a></span><span class="create-link-container">' .
-      l("<span class=\"create-link-big\">Perusta</span><span class=\"create-link-small\">uusi kurssi</span>", "node/add/kurssi", array('html' => true, 'attributes' => array('id' => 'create-course-bt'))) . '</span></div>';
+      l("<span class=\"create-link-big\">Perusta</span><span class=\"create-link-small\">uusi kurssi</span>", "node/add/kurssi", array('html' => true)) . '</span></div>';
     return $block;    
   }
   
 }
 
 function oo_createcourse_button_callback($js){
+  global $user;
   if($js == 'nojs'){
     drupal_set_message('Sinulla täytyy olla javascript päällä selaimessasi, jotta sivusto toimisi oikein.', 'error');
     drupal_goto("user/login");
@@ -389,7 +391,6 @@ function oo_createcourse_button_callback($js){
   $ajax_commands[] = ajax_command_invoke('#create-course-form-block', 'hide');
   $ajax_commands[] = ajax_command_invoke('#create-course-form-block', 'fadeIn', array(300));
   return drupal_json_output($ajax_commands);
- 
 }
 
 /**
