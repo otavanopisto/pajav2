@@ -602,6 +602,9 @@ function content_types_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_kurssin_kuva',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(
         'fid' => array(
           'columns' => array(
@@ -666,7 +669,7 @@ function content_types_field_default_fields() {
         'file_extensions' => 'png gif jpg jpeg',
         'max_filesize' => '',
         'max_resolution' => '2048x2048',
-        'min_resolution' => '500x500',
+        'min_resolution' => '500x270',
         'title_field' => 1,
         'user_field_privacy' => FALSE,
         'user_register_form' => FALSE,

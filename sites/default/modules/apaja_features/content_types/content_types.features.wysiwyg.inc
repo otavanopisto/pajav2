@@ -46,6 +46,8 @@ function content_types_wysiwyg_default_profiles() {
           'PasteText' => 1,
           'RemoveFormat' => 1,
           'SpecialChar' => 1,
+          'FontSize' => 1,
+          'Styles' => 1,
           'Table' => 1,
           'Maximize' => 1,
         ),
