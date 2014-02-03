@@ -357,17 +357,19 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
 */
 function paja_course_price_field_presave($entity_type, $entity, $field, $instance, $langcode, &$items) {
   foreach ($items as $delta => $item) {
-    $items[$delta]['profit_margin'] = $item['paja_course_price']['extra_fields']['profit_margin'];
-    $items[$delta]['premises_costs_per_day'] = $item['paja_course_price']['extra_fields']['premises_costs_per_day'];
-    $items[$delta]['management_costs_per_attendee'] = $item['paja_course_price']['extra_fields']['management_costs_per_attendee'];
-    $items[$delta]['instructor_fee'] = $item['paja_course_price']['standard_fields']['instructor_fee'];
-    $items[$delta]['distance_days'] = $item['paja_course_price']['standard_fields']['distance_days'];
-    $items[$delta]['local_days'] = $item['paja_course_price']['standard_fields']['local_days'];
-    $items[$delta]['attendees_min'] = $item['paja_course_price']['standard_fields']['attendees_min'];
-    $items[$delta]['attendees_max'] = $item['paja_course_price']['standard_fields']['attendees_max'];
-    $items[$delta]['miscellanous_costs'] = $item['paja_course_price']['standard_fields']['miscellanous_costs'];
-    $items[$delta]['price'] = $item['paja_course_price']['standard_fields']['price'];
-    $items[$delta]['price_undetermined'] = $item['paja_course_price']['standard_fields']['price_undetermined'];
+    if(is_array($item['paja_course_price'])){
+      $items[$delta]['profit_margin'] = $item['paja_course_price']['extra_fields']['profit_margin'];
+      $items[$delta]['premises_costs_per_day'] = $item['paja_course_price']['extra_fields']['premises_costs_per_day'];
+      $items[$delta]['management_costs_per_attendee'] = $item['paja_course_price']['extra_fields']['management_costs_per_attendee'];
+      $items[$delta]['instructor_fee'] = $item['paja_course_price']['standard_fields']['instructor_fee'];
+      $items[$delta]['distance_days'] = $item['paja_course_price']['standard_fields']['distance_days'];
+      $items[$delta]['local_days'] = $item['paja_course_price']['standard_fields']['local_days'];
+      $items[$delta]['attendees_min'] = $item['paja_course_price']['standard_fields']['attendees_min'];
+      $items[$delta]['attendees_max'] = $item['paja_course_price']['standard_fields']['attendees_max'];
+      $items[$delta]['miscellanous_costs'] = $item['paja_course_price']['standard_fields']['miscellanous_costs'];
+      $items[$delta]['price'] = $item['paja_course_price']['standard_fields']['price'];
+      $items[$delta]['price_undetermined'] = $item['paja_course_price']['standard_fields']['price_undetermined'];
+    }
   }
 }
 
