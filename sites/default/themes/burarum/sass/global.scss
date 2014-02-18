@@ -159,6 +159,8 @@ h1, h2, h3, h4, h5, h6, .h2-imitator {
   margin:0 6px 10px 10px;
 }
 
+#page #node-course-panel .pane-oo-alterations-oo-course-attendees h2,
+#page #node-course-panel .pane-course-admin-members h2,
 #page #node-course-panel .pane-course-members h2,
 #page #node-course-panel .pane-tulevat-kurssin-tapahtumat-panel-pane-1 h2,
 #page #node-blog-frontpage .pane-blogin-navigointi h2.pane-title,
@@ -166,6 +168,12 @@ h1, h2, h3, h4, h5, h6, .h2-imitator {
 #page #node-blog-entries .pane-blogin-navigointi h2.pane-title {
   margin:0 6px 10px 0;
 }
+
+#page #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins ul,
+#page #node-course-panel .pane-oo-alterations-oo-course-attendees ul li{
+	margin: 0;
+}
+
 
 /* GENERIC LAYOUT */
 
@@ -1223,6 +1231,7 @@ ul.tabs.primary li.active a {
   @include carousel-hover-transition;
 }
 
+.view-courses-not .views-row,
 .view-courses-not .views-row.courses-not-page-row,
 .view-courses-started .views-row.courses-started-page-row,
 .view-courses-ended .views-row.courses-ended-page-row,
@@ -1384,6 +1393,8 @@ ul.tabs.primary li.active a {
   display:table;
 }
 
+#page #node-course-panel .pane-oo-alterations-oo-course-attendees .pane-content,
+#page #node-course-panel .pane-course-admin-members .pane-content,
 #page #node-course-panel .pane-course-members .pane-content,
 #page #node-course-panel .pane-tulevat-kurssin-tapahtumat-panel-pane-1 .pane-content {
   @include box-padding;
@@ -1392,6 +1403,8 @@ ul.tabs.primary li.active a {
   margin:0 14px 0 0;
 }
 
+#page #node-course-panel .pane-oo-alterations-oo-course-attendees,
+#page #node-course-panel .pane-course-members,
 #page #node-course-panel .pane-tulevat-kurssin-tapahtumat-panel-pane-1 {
     margin:25px 0 0 0;
 }
@@ -1433,6 +1446,11 @@ ul.tabs.primary li.active a {
 
 #page #node-course-panel .field-label {
   @include generic-course-meta-info-label;
+}
+
+#page #node-course-panel .pane-oo-alterations-oo-get-group-admins h3{
+  font-weight: bold;
+	@include generic-course-meta-info-label;
 }
 
 #page #node-course-panel #join-course-block {
@@ -1525,6 +1543,9 @@ ul.tabs.primary li.active a {
   margin:10px 0 0 0;
 }
 
+#page #node-course-panel .pane-oo-alterations-oo-get-group-admins ul li,
+#page #node-course-panel .course-attendees-row,
+#page #node-course-panel .view-course-admin-members .views-row,
 #page #node-course-panel .view-course-members .views-row {
   clear:both;
   height:32px;
@@ -1533,11 +1554,18 @@ ul.tabs.primary li.active a {
   cursor:pointer;
 }
 
+#page #node-course-panel .pane-oo-alterations-oo-get-group-admins .group-admin a,
+#page #node-course-panel .course-attendees-row .course-attendee-name a,
+#page #node-course-panel .course-attendees-row:hover .course-attendee-name a,
+#page #node-course-panel .view-course-admin-members .views-row .views-field-field-account-sukunimi a,
 #page #node-course-panel .view-course-members .views-row:hover .views-field-field-account-sukunimi a {
   color:$linkHoverColorUser;
   text-decoration:none;
 }
 
+#page #node-course-panel .pane-oo-alterations-oo-get-group-admins .group-admin-picture,
+#page #node-course-panel .group-course-attendee-picture .field-name-field-account-kuva,
+#page #node-course-panel .view-course-admin-members .views-row .views-field-field-account-kuva,
 #page #node-course-panel .view-course-members .views-row .views-field-field-account-kuva {
   float:left;
   height:32px;
@@ -1547,16 +1575,25 @@ ul.tabs.primary li.active a {
 /*   border:1px solid #f2f2f2; */
 }
 
+#page #node-course-panel .pane-oo-alterations-oo-get-group-admins .group-admin-picture img,
+#page #node-course-panel .group-course-attendee-picture .field-name-field-account-kuva img,
+#page #node-course-panel .view-course-admin-members .views-row .views-field-field-account-kuva img,
 #page #node-course-panel .view-course-members .views-row .views-field-field-account-kuva img {
   height:32px;
   width:32px;
   border-radius:2px;
 }
 
+#page #node-course-panel .pane-oo-alterations-oo-get-group-admins .group-admin a,
+#page #node-course-panel .pane-oo-alterations-oo-course-attendees .course-attendee-name a,
+#page #node-course-panel .view-course-admin-members .views-row .views-field-field-account-sukunimi,
 #page #node-course-panel .view-course-members .views-row .views-field-field-account-sukunimi {
   float:left;
 }
 
+#page #node-course-panel .pane-oo-alterations-oo-get-group-admins .group-admin a,
+#page #node-course-panel .pane-oo-alterations-oo-course-attendees .course-attendee-name a,
+#page #node-course-panel .view-course-admin-members .views-row .views-field-field-account-sukunimi a,
 #page #node-course-panel .view-course-members .views-row .views-field-field-account-sukunimi a {
   color:$linkColorUser;
   text-decoration:none;
@@ -1566,11 +1603,17 @@ ul.tabs.primary li.active a {
   display:inline-block;
 }
 
+#page #node-course-panel .pane-oo-alterations-oo-get-group-admins .group-admin a:hover,
+#page #node-course-panel .pane-oo-alterations-oo-course-attendees .course-attendee-name a:hover,
+#page #node-course-panel .view-course-admin-members .views-row .views-field-field-account-sukunimi a:hover,
 #page #node-course-panel .view-course-members .views-row .views-field-field-account-sukunimi a:hover {
   color:$linkHoverColorUser;
   text-decoration:none;
 }
 
+#page #node-course-panel .pane-oo-alterations-oo-get-group-admins .group-admin a:focus,
+#page #node-course-panel .pane-oo-alterations-oo-course-attendees .course-attendee-name a:focus,
+#page #node-course-panel .view-course-admin-members .views-row .views-field-field-account-sukunimi a:focus,
 #page #node-course-panel .view-course-members .views-row .views-field-field-account-sukunimi a:focus {
   color:$linkFocusColorUser;
   text-decoration:none;
