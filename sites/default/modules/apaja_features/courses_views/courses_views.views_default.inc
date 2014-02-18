@@ -659,8 +659,10 @@ return max(array($value,0));';
   $handler->display->display_options['fields']['field_hintalaskuri_2']['id'] = 'field_hintalaskuri_2';
   $handler->display->display_options['fields']['field_hintalaskuri_2']['table'] = 'field_data_field_hintalaskuri';
   $handler->display->display_options['fields']['field_hintalaskuri_2']['field'] = 'field_hintalaskuri';
-  $handler->display->display_options['fields']['field_hintalaskuri_2']['label'] = 'Hinta';
+  $handler->display->display_options['fields']['field_hintalaskuri_2']['label'] = '';
+  $handler->display->display_options['fields']['field_hintalaskuri_2']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_hintalaskuri_2']['click_sort_column'] = 'profit_margin';
+  $handler->display->display_options['fields']['field_hintalaskuri_2']['type'] = 'paja_course_price_mini_panel';
   /* Sort criterion: Content: Updated date */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
@@ -1172,7 +1174,6 @@ return max(array($value,0));';
     t('Kurssin tila'),
     t('Member count'),
     t('<span class="views-label">Ilmoittautuneita [php] / [field_hintalaskuri] (enintään [field_hintalaskuri_1])</span>'),
-    t('Hinta'),
     t('Kurssin tila (field_kurssin_tila)'),
     t('Block'),
     t('<a href="/kurssit/kurssitarjonta">Kurssitarjonta</a>'),
@@ -1182,6 +1183,7 @@ return max(array($value,0));';
     t('<span id="kurssitarjonta-link"><a href="/kurssit/kurssitarjonta">Kurssitarjonta</a></span><span id="kurssilistaus-link"><a href="/kurssit/kurssilistaus">Kurssilistaus</a></span>'),
     t('<span class="views-label">Ilmoittautuneita [php_1] / [field_minimi_osallistujat] (enintään [field_maksimi_osallistujat])</span>'),
     t('Kurssin alkamispäivämäärä'),
+    t('Hinta'),
   );
   $export['courses_not'] = $view;
 
