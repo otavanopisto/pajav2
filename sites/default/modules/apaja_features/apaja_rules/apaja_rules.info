@@ -1,0 +1,11 @@
+name = aPaja rules
+description = Workflow rules for aPaja
+core = 7.x
+package = Features
+version = 7.x-1.0
+project = apaja_rules
+dependencies[] = entity
+dependencies[] = php
+dependencies[] = rules
+features[features_api][] = api:1
+features[rules_config][] = rules_course_expire
