@@ -137,6 +137,16 @@ function oo_alterations_preprocess_field(&$vars){
 }
 
 /**
+ * Implementation of hook_mail_alter()
+ */
+function oo_alterations_mail_alter(&$message) {
+  $message['Content-Type'] = $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed';
+  $message['From'] = $message['headers']['From'] = '"aPaja" <apaja@otavanopisto.fi>';
+  $message['Reply-to'] = $message['headers']['Reply-to'] = '"aPaja" <apaja@otavanopisto.fi>';
+  $message['Return-Path'] = $message['headers']['Return-Path'] = '"aPaja" <apaja@otavanopisto.fi>';
+}
+
+/**
  * Implementation of hook_form_alter
  **/
 function oo_alterations_form_alter(&$form, $form_state, $form_id) {
@@ -213,6 +223,13 @@ function oo_alterations_block_info() {
       'info' => t('Creates "Perusta uusi kurssi" button to be used in header.'),
   );
   
+  $blocks['oo_get_group_admins'] = array(
+      'info' => t('Groups admin list with avatars'),
+  );
+
+  $blocks['oo_course_attendees'] = array(
+      'info' => t('Course attendees'),
+  );
   return $blocks;
 }
 
@@ -223,13 +240,14 @@ function oo_alterations_block_configure($delta='') {
   $form = array();
   switch($delta) {
     case 'oo_og_create_tapahtuma' :
-
       break;
     case 'oo_blog_authors' : 
-      
       break;
     case 'oo_create_course' :
-      
+      break;
+    case 'oo_get_group_admins' :
+      break;
+    case 'oo_course_attendees' : 
       break;
   }
   return $form;
@@ -245,6 +263,10 @@ function oo_alterations_block_save($delta = '', $edit = array()) {
     case 'oo_blog_authors' :
       break;
     case 'oo_create_course' :
+      break;
+    case 'oo_get_group_admins' :
+      break;
+    case 'oo_course_attendees' :
       break;
   }
 }
@@ -265,8 +287,112 @@ function oo_alterations_block_view($delta='') {
     case 'oo_create_course' :
       $block['content'] = _oo_create_course_button_view();
       break;
+    case 'oo_get_group_admins' :
+      $block['content'] = _oo_get_group_admins_view();
+      break;
+    case 'oo_course_attendees' :
+      $block['content'] = _oo_get_course_attendees_view();
+      break;
   }
 
+  return $block;
+}
+
+function _oo_get_course_attendees_view(){
+  $block = array();
+  $block = array(
+    'content' => array(
+      '#prefix' => '<div class="oo-course-attendees-block">',
+      '#type' => 'markup',
+      '#suffix' => '</div>',
+    ),
+  );
+  $gid = arg(1);
+  $result = db_query(
+      'SELECT etid FROM {og_membership} og_membership WHERE entity_type = \'user\' AND gid = :gid
+        AND etid NOT IN (
+        SELECT DISTINCT users.uid FROM {users} users
+          INNER JOIN {og_users_roles} og_users_roles ON users.uid = og_users_roles.uid
+          INNER JOIN {og_membership} og_membership ON og_users_roles.gid = og_membership.gid
+        WHERE og_membership.gid = :gid)', array(':gid' => $gid));
+  $items = array();
+  foreach ($result as $record) {
+    $output = '';
+    $author = user_load($record->etid);
+    $first_name = array_pop(field_get_items('user', $author, 'field_account_etunimi'));
+    $last_name = array_pop(field_get_items('user', $author, 'field_account_sukunimi'));
+    $full_name = $first_name["safe_value"] . " " . $last_name['safe_value'];
+    $custom_image_field = field_view_field('user', $author, 'field_account_kuva', array(
+        'type' => 'image',
+        'label' => 'hidden',
+        'settings' => array(
+            'image_style' => 'avatar_thumbnail',
+            'image_link' => 'none', // file or content.
+        ),
+    ));
+    $output = '<div class="course-attendees-row"><div class="group-course-attendee-picture user-picture">'. drupal_render($custom_image_field) . '</div>';
+    $author_link = "user/$author->uid";
+    if($alias = path_load($author_link)){
+      $author_link = $alias["alias"];
+    }
+    $output .= '<div class="course-attendees course-attendee-name"><a href="/'. $author_link. '">' . $full_name . '</a></div></div>';
+    $items[] = array('data' => $output);
+  }
+  $element['oo_course_attendees'] = array(
+      '#theme' => 'item_list',
+      '#items' => $items,
+  );
+  $block["#markup"] = drupal_render($element);
+  return $block;
+}
+
+function _oo_get_group_admins_view(){
+  $block = array();
+  $block = array(
+      'content' => array(
+          '#prefix' => '<div class="oo-group-admins-block">',
+          '#type' => 'markup',
+          '#suffix' => '</div>',
+      ),
+  );
+  $gid = arg(1);
+  $result = db_query(
+    'SELECT DISTINCT users.uid FROM {users} users
+       INNER JOIN {og_users_roles} og_users_roles ON users.uid = og_users_roles.uid
+       INNER JOIN {og_membership} og_membership ON og_users_roles.gid = og_membership.gid
+     WHERE og_membership.gid = :gid AND og_users_roles.rid = 3', array(':gid' => $gid));
+  $items = array();
+  foreach ($result as $record) {
+    $output = '';
+    $author = user_load($record->uid);
+    $first_name = array_pop(field_get_items('user', $author, 'field_account_etunimi'));
+    $last_name = array_pop(field_get_items('user', $author, 'field_account_sukunimi'));
+    $full_name = $first_name["safe_value"] . " " . $last_name['safe_value'];
+    $custom_image_field = field_view_field('user', $author, 'field_account_kuva', array(
+        'type' => 'image',
+        'label' => 'hidden',
+        'settings' => array(
+            'image_style' => 'avatar_thumbnail',
+            'image_link' => 'none', // file or content.
+        ),
+    ));
+    $output .= '<div class="group-admins-container">';
+    $output .= '<div class="group-admin-picture user-picture">'. drupal_render($custom_image_field) . '</div>';
+    $author_link = "user/$author->uid";
+    if($alias = path_load($author_link)){
+      $author_link = $alias["alias"];
+    }
+    $output .= '<div class="group-admin"><a href="/'. $author_link. '">' . $full_name . '</a></div>';
+    $output .= '<div class="group-admin group-admin-mail"><a href="mailto:'. $author->mail. '">Ota yhteyttä</a></div>';
+    $output .= '</div>';
+    $items[] = array('data' => $output);
+  }
+  $element['oo_group_admins'] = array(
+      '#theme' => 'item_list',
+      '#items' => $items,
+      '#title' => 'Kurssin vetäjä',
+  );
+  $block["#markup"] = drupal_render($element);
   return $block;
 }
 
