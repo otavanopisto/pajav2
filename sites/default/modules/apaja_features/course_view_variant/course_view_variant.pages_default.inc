@@ -125,26 +125,11 @@ function course_view_variant_default_page_manager_handlers() {
     $pane = new stdClass();
     $pane->pid = 'new-4';
     $pane->panel = 'right';
-    $pane->type = 'views';
-    $pane->subtype = 'course_members';
+    $pane->type = 'block';
+    $pane->subtype = 'oo_alterations-oo_course_attendees';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 0,
-      'nodes_per_page' => '0',
-      'pager_id' => '0',
-      'offset' => '0',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 1,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'block_1',
-      'context' => array(
-        0 => 'argument_entity_id:node_1.nid',
-      ),
       'override_title' => 1,
       'override_title_text' => 'Kurssin osallistujat',
     );
@@ -489,7 +474,7 @@ function course_view_variant_default_page_manager_handlers() {
     $display->content['new-15'] = $pane;
     $display->panels['right'][3] = 'new-15';
   $display->hide_title = PANELS_TITLE_NONE;
-  $display->title_pane = 'new-7';
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $export['node_view_panel_context_2'] = $handler;
 
