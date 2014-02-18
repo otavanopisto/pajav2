@@ -82,41 +82,6 @@ function courses_views_default_panels_mini() {
     $pane->pid = 'new-2';
     $pane->panel = 'left';
     $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_arvio';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'label' => 'hidden',
-      'formatter' => 'fivestar_formatter_default',
-      'delta_limit' => 0,
-      'delta_offset' => '0',
-      'delta_reversed' => FALSE,
-      'formatter_settings' => array(
-        'widget' => array(
-          'fivestar_widget' => 'sites/default/modules/fivestar/widgets/basic/basic.css',
-        ),
-        'style' => 'average',
-        'text' => 'none',
-        'expose' => 1,
-      ),
-      'context' => 'requiredcontext_entity:node_1',
-      'override_title' => 1,
-      'override_title_text' => '',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $display->content['new-2'] = $pane;
-    $display->panels['left'][1] = 'new-2';
-    $pane = new stdClass();
-    $pane->pid = 'new-3';
-    $pane->panel = 'left';
-    $pane->type = 'entity_field';
     $pane->subtype = 'node:field_kurssi_alkaa';
     $pane->shown = TRUE;
     $pane->access = array();
@@ -144,27 +109,20 @@ function courses_views_default_panels_mini() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 1;
     $pane->locks = array();
-    $display->content['new-3'] = $pane;
-    $display->panels['left'][2] = 'new-3';
+    $display->content['new-2'] = $pane;
+    $display->panels['left'][1] = 'new-2';
     $pane = new stdClass();
-    $pane->pid = 'new-4';
+    $pane->pid = 'new-3';
     $pane->panel = 'left';
-    $pane->type = 'entity_field';
-    $pane->subtype = 'node:field_kurssin_vetaja';
+    $pane->type = 'block';
+    $pane->subtype = 'oo_alterations-oo_get_group_admins';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'label' => 'above',
-      'formatter' => 'text_default',
-      'delta_limit' => '0',
-      'delta_offset' => '0',
-      'delta_reversed' => 0,
-      'formatter_settings' => array(),
-      'context' => 'requiredcontext_entity:node_1',
       'override_title' => 0,
-      'override_title_text' => 'Vetäjä',
+      'override_title_text' => 'Kurssin järjestäjä',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -172,12 +130,12 @@ function courses_views_default_panels_mini() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 2;
     $pane->locks = array();
-    $display->content['new-4'] = $pane;
-    $display->panels['left'][3] = 'new-4';
+    $display->content['new-3'] = $pane;
+    $display->panels['left'][2] = 'new-3';
     $pane = new stdClass();
-    $pane->pid = 'new-5';
+    $pane->pid = 'new-4';
     $pane->panel = 'left';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_hintalaskuri';
@@ -200,12 +158,12 @@ function courses_views_default_panels_mini() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 3;
     $pane->locks = array();
-    $display->content['new-5'] = $pane;
-    $display->panels['left'][4] = 'new-5';
+    $display->content['new-4'] = $pane;
+    $display->panels['left'][3] = 'new-4';
     $pane = new stdClass();
-    $pane->pid = 'new-6';
+    $pane->pid = 'new-5';
     $pane->panel = 'left';
     $pane->type = 'block';
     $pane->subtype = 'ajax_og_subscribe-ajax_og_subscribe_block';
@@ -224,12 +182,12 @@ function courses_views_default_panels_mini() {
       'css_class' => '',
     );
     $pane->extras = array();
-    $pane->position = 5;
+    $pane->position = 4;
     $pane->locks = array();
-    $display->content['new-6'] = $pane;
-    $display->panels['left'][5] = 'new-6';
+    $display->content['new-5'] = $pane;
+    $display->panels['left'][4] = 'new-5';
     $pane = new stdClass();
-    $pane->pid = 'new-7';
+    $pane->pid = 'new-6';
     $pane->panel = 'right';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:body';
@@ -259,10 +217,10 @@ function courses_views_default_panels_mini() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-7'] = $pane;
-    $display->panels['right'][0] = 'new-7';
+    $display->content['new-6'] = $pane;
+    $display->panels['right'][0] = 'new-6';
     $pane = new stdClass();
-    $pane->pid = 'new-8';
+    $pane->pid = 'new-7';
     $pane->panel = 'right';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -287,10 +245,10 @@ function courses_views_default_panels_mini() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $display->content['new-8'] = $pane;
-    $display->panels['right'][1] = 'new-8';
+    $display->content['new-7'] = $pane;
+    $display->panels['right'][1] = 'new-7';
     $pane = new stdClass();
-    $pane->pid = 'new-9';
+    $pane->pid = 'new-8';
     $pane->panel = 'right';
     $pane->type = 'entity_field';
     $pane->subtype = 'node:field_tagit';
@@ -326,10 +284,10 @@ function courses_views_default_panels_mini() {
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
-    $display->content['new-9'] = $pane;
-    $display->panels['right'][2] = 'new-9';
+    $display->content['new-8'] = $pane;
+    $display->panels['right'][2] = 'new-8';
     $pane = new stdClass();
-    $pane->pid = 'new-10';
+    $pane->pid = 'new-9';
     $pane->panel = 'right';
     $pane->type = 'block';
     $pane->subtype = 'sharethis-sharethis_block';
@@ -347,8 +305,8 @@ function courses_views_default_panels_mini() {
     $pane->extras = array();
     $pane->position = 3;
     $pane->locks = array();
-    $display->content['new-10'] = $pane;
-    $display->panels['right'][3] = 'new-10';
+    $display->content['new-9'] = $pane;
+    $display->panels['right'][3] = 'new-9';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $mini->display = $display;
