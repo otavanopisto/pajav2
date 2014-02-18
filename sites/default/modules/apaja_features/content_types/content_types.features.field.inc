@@ -307,7 +307,7 @@ function content_types_field_default_fields() {
         'module' => 'fivestar',
         'settings' => array(),
         'type' => 'exposed',
-        'weight' => '7',
+        'weight' => '8',
       ),
     ),
   );
@@ -714,8 +714,9 @@ function content_types_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           0 => 'Kurssia valmistellaan',
-          1 => 'Kurssi on käynnissä',
-          2 => 'Kurssi on päättynyt',
+          1 => 'Kurssi on tarjolla',
+          2 => 'Kurssi on käynnissä',
+          3 => 'Kurssi on päättynyt',
         ),
         'allowed_values_function' => '',
       ),
