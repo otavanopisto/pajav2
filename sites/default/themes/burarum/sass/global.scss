@@ -1443,8 +1443,42 @@ ul.tabs.primary li.active a {
 
 #mini-panel-kurssi_minipanel ul li {
   margin:0;
+  clear: both; /** Petja raping **/
+}
+/** Petja raping **/
+#page #node-course-panel #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins .group-admin-picture img{
+	height: 48px;
+	width: 48px;
+	border-radius: 2px;
+}
+#page #node-course-panel #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins .group-admin-picture{
+	float: left;
+	height: 48px;
+	width: 48px;
+	overflow: hidden;
+	margin-right: 5px;
 }
 
+#page #node-course-panel #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins .group-admin{
+  display: block;
+  width: 295px;
+  height: 21px;
+}
+
+#page #node-course-panel #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins .group-admin a{
+  color: #0062a0;
+  display: block;
+  padding: 0;
+}
+
+#page #node-course-panel #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins .group-admin-mail{
+	color: #757575;
+}
+
+#page #node-course-panel #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins{
+	margin-bottom: 18px;
+}
+/** Petja stops raping **/
 #page #node-course-panel .field-label {
   @include generic-course-meta-info-label;
 }
@@ -1544,7 +1578,6 @@ ul.tabs.primary li.active a {
   margin:10px 0 0 0;
 }
 
-#page #node-course-panel .pane-oo-alterations-oo-get-group-admins ul li,
 #page #node-course-panel .course-attendees-row,
 #page #node-course-panel .view-course-admin-members .views-row,
 #page #node-course-panel .view-course-members .views-row {
@@ -1553,6 +1586,11 @@ ul.tabs.primary li.active a {
   padding:4px;
   display:block;
   cursor:pointer;
+}
+
+#mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins ul li{
+	height: 48px;
+	margin-top: 5px;
 }
 
 #page #node-course-panel .pane-oo-alterations-oo-get-group-admins .group-admin a,
@@ -1564,7 +1602,6 @@ ul.tabs.primary li.active a {
   text-decoration:none;
 }
 
-#page #node-course-panel .pane-oo-alterations-oo-get-group-admins .group-admin-picture,
 #page #node-course-panel .group-course-attendee-picture .field-name-field-account-kuva,
 #page #node-course-panel .view-course-admin-members .views-row .views-field-field-account-kuva,
 #page #node-course-panel .view-course-members .views-row .views-field-field-account-kuva {
@@ -1576,7 +1613,6 @@ ul.tabs.primary li.active a {
 /*   border:1px solid #f2f2f2; */
 }
 
-#page #node-course-panel .pane-oo-alterations-oo-get-group-admins .group-admin-picture img,
 #page #node-course-panel .group-course-attendee-picture .field-name-field-account-kuva img,
 #page #node-course-panel .view-course-admin-members .views-row .views-field-field-account-kuva img,
 #page #node-course-panel .view-course-members .views-row .views-field-field-account-kuva img {
@@ -1592,7 +1628,6 @@ ul.tabs.primary li.active a {
   float:left;
 }
 
-#page #node-course-panel .pane-oo-alterations-oo-get-group-admins .group-admin a,
 #page #node-course-panel .pane-oo-alterations-oo-course-attendees .course-attendee-name a,
 #page #node-course-panel .view-course-admin-members .views-row .views-field-field-account-sukunimi a,
 #page #node-course-panel .view-course-members .views-row .views-field-field-account-sukunimi a {
