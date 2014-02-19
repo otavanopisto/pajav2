@@ -383,7 +383,7 @@ function _oo_get_group_admins_view(){
       $author_link = $alias["alias"];
     }
     $output .= '<div class="group-admin"><a href="/'. $author_link. '">' . $full_name . '</a></div>';
-    $output .= '<div class="group-admin group-admin-mail"><a href="mailto:'. $author->mail. '">Ota yhteyttä</a></div>';
+    $output .= '<div class="group-admin group-admin-mail">'. $author->mail .'</div>';
     $output .= '</div>';
     $items[] = array('data' => $output);
   }
