@@ -127,11 +127,17 @@ function oo_alterations_preprocess_field(&$vars){
   elseif($vars['element']['#field_name'] == 'field_kurssi_alkaa'){
     $entity_type = $vars['element']['#entity_type'];
     $entity = $vars['element']['#object'];
-    $begins_date = array_pop(field_get_items($entity_type, $entity, 'field_kurssi_alkaa'));
-    $begins_date = $begins_date['value'];
-    $begins_date = strtotime($begins_date);
-    if($begins_date < time()){
-      $vars['items'][0]['#markup'] = t("Kurssi on käynnissä");
+    $course_state = array_pop(field_get_items($entity_type, $entity, 'field_kurssin_tila'));
+    $course_state = $course_state['value'];
+    if($course_state == 3){
+      $vars['items'][0]['#markup'] = t("Kurssi on päättynyt");
+    }else{
+      $begins_date = array_pop(field_get_items($entity_type, $entity, 'field_kurssi_alkaa'));
+      $begins_date = $begins_date['value'];
+      $begins_date = strtotime($begins_date);
+      if($begins_date < time()){
+        $vars['items'][0]['#markup'] = t("Kurssi on käynnissä");
+      }      
     }
   }
 }
