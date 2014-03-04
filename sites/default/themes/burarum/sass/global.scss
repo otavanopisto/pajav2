@@ -1209,6 +1209,11 @@ ul.tabs.primary li.active a {
   position:relative;
 }
 
+.view-courses-not .view-header,
+.view-courses-not .view-filters{
+	margin-left: 10px;
+}
+
 .view-courses-not.view-display-id-page_list_all,
 .view-courses-started.view-display-id-page_list_all,
 .view-courses-ended.view-display-id-page_list_all,
