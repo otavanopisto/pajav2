@@ -1103,6 +1103,9 @@ return max(array($value,0));';
   $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['empty'] = TRUE;
+  $handler->display->display_options['header']['area_text_custom']['content'] = '<p>Kurssitarjonta sivulla voit tutustua ja ilmoittautua aPajiin. Jos itseä innostavaa ja kiinnostavaa aPajaa ei löydy, luo oma unelmien aPaja.</p>
+<p></p>
+<p>Käytä alla olevia valikkoja eri vaiheessa olevien aPajien etsimiseen. Valmisteilla olevia aPajia suunnitellaan yhteisöllisesti ja olet tervetullut mukaan alusta alkaen! Valmisteilla olevaan aPajaan sitovan ilmoittautumisen voit tehdä vasta myöhemmin. Tarjolla olevat kurssit ovat valmiita aPajia, joille voit ilmoittautua sitovasti.</p>';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Kurssi alkaa (field_kurssi_alkaa) */
   $handler->display->display_options['sorts']['field_kurssi_alkaa_value']['id'] = 'field_kurssi_alkaa_value';
@@ -1182,6 +1185,9 @@ return max(array($value,0));';
     t('Page'),
     t('<span id="kurssitarjonta-link"><a href="/kurssit/kurssitarjonta">Kurssitarjonta</a></span><span id="kurssilistaus-link"><a href="/kurssit/kurssilistaus">Kurssilistaus</a></span>'),
     t('<span class="views-label">Ilmoittautuneita [php_1] / [field_minimi_osallistujat] (enintään [field_maksimi_osallistujat])</span>'),
+    t('<p>Kurssitarjonta sivulla voit tutustua ja ilmoittautua aPajiin. Jos itseä innostavaa ja kiinnostavaa aPajaa ei löydy, luo oma unelmien aPaja.</p>
+<p></p>
+<p>Käytä alla olevia valikkoja eri vaiheessa olevien aPajien etsimiseen. Valmisteilla olevia aPajia suunnitellaan yhteisöllisesti ja olet tervetullut mukaan alusta alkaen! Valmisteilla olevaan aPajaan sitovan ilmoittautumisen voit tehdä vasta myöhemmin. Tarjolla olevat kurssit ovat valmiita aPajia, joille voit ilmoittautua sitovasti.</p>'),
     t('Kurssin alkamispäivämäärä'),
     t('Hinta'),
   );
