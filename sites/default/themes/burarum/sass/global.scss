@@ -1595,7 +1595,11 @@ ul.tabs.primary li.active a {
   cursor:pointer;
 }
 
-#mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins ul li{
+.pane-oo-alterations-oo-get-group-admins .field-item{
+	color: #757575;
+}
+
+#mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins ul li>.group-admins-container{
 	height: 48px;
 	margin-top: 5px;
 }
