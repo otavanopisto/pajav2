@@ -315,12 +315,11 @@ function _oo_get_course_attendees_view(){
   );
   $gid = arg(1);
   $result = db_query(
-      'SELECT etid FROM {og_membership} og_membership WHERE entity_type = \'user\' AND gid = :gid
+  'SELECT etid FROM {og_membership} og_membership WHERE entity_type = \'user\' AND gid = :gid
         AND etid NOT IN (
         SELECT DISTINCT users.uid FROM {users} users
           INNER JOIN {og_users_roles} og_users_roles ON users.uid = og_users_roles.uid
-          INNER JOIN {og_membership} og_membership ON og_users_roles.gid = og_membership.gid
-        WHERE og_membership.gid = :gid)', array(':gid' => $gid));
+        WHERE og_users_roles.rid = 4)', array(':gid' => $gid));
   $items = array();
   foreach ($result as $record) {
     $output = '';
@@ -366,7 +365,7 @@ function _oo_get_group_admins_view(){
     'SELECT DISTINCT users.uid FROM {users} users
        INNER JOIN {og_users_roles} og_users_roles ON users.uid = og_users_roles.uid
        INNER JOIN {og_membership} og_membership ON og_users_roles.gid = og_membership.gid
-     WHERE og_membership.gid = :gid AND og_users_roles.rid = 3', array(':gid' => $gid));
+     WHERE og_membership.gid = :gid AND og_users_roles.rid = 4', array(':gid' => $gid));
   $items = array();
   foreach ($result as $record) {
     $output = '';
