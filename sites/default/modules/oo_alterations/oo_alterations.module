@@ -393,11 +393,24 @@ function _oo_get_group_admins_view(){
     $output .= '</div>';
     $items[] = array('data' => $output);
   }
-  $element['oo_group_admins'] = array(
+  $element['oo_group_instructors1'] = array(
       '#theme' => 'item_list',
       '#items' => $items,
       '#title' => 'Kurssin vetäjät:',
   );
+  
+  $entity = entity_load_single('node', $gid);
+  $attendee_field = field_get_items('node', $entity, 'field_kurssin_vetaja');
+  foreach ($attendee_field as $value) {
+    $attendee_text = '<div class="field-item even">'. $value['safe_value'] .'</div>';
+    $items2[] = array('data' => $attendee_text);
+  }
+  $element['oo_group_instructors2'] = array(
+      '#theme' => 'item_list',
+      '#items' => $items2,
+    
+  );
+  
   $block["#markup"] = drupal_render($element);
   return $block;
 }
