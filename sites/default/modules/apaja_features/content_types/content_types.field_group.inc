@@ -21,7 +21,7 @@ function content_types_field_group_info() {
   $field_group->parent_name = 'group_multipage_container';
   $field_group->data = array(
     'label' => 'Aikataulu',
-    'weight' => '26',
+    'weight' => '25',
     'children' => array(
       0 => 'field_kurssi_alkaa',
       1 => 'field_kurssi_loppuu',
@@ -49,7 +49,7 @@ function content_types_field_group_info() {
   $field_group->parent_name = 'group_multipage_container';
   $field_group->data = array(
     'label' => 'Hintalaskuri',
-    'weight' => '25',
+    'weight' => '24',
     'children' => array(
       0 => 'field_hintalaskuri',
     ),
@@ -76,7 +76,7 @@ function content_types_field_group_info() {
   $field_group->parent_name = 'group_multipage_container';
   $field_group->data = array(
     'label' => 'Lisätiedot',
-    'weight' => '24',
+    'weight' => '23',
     'children' => array(
       0 => 'field_arvio',
       1 => 'field_kurssin_vetaja',
@@ -108,10 +108,11 @@ function content_types_field_group_info() {
     'label' => 'Multipage container',
     'weight' => '0',
     'children' => array(
-      0 => 'group_aikataulu',
-      1 => 'group_hintalaskuri',
-      2 => 'group_lisatiedot',
-      3 => 'group_sisalto',
+      0 => 'group_ilmoittautumisviesti',
+      1 => 'group_aikataulu',
+      2 => 'group_hintalaskuri',
+      3 => 'group_lisatiedot',
+      4 => 'group_sisalto',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(

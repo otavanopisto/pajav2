@@ -279,7 +279,7 @@ function content_types_strongarm() {
           'weight' => '8',
         ),
         'path' => array(
-          'weight' => '6',
+          'weight' => '2',
         ),
       ),
       'display' => array(),

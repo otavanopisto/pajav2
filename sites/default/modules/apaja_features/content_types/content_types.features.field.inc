@@ -398,6 +398,85 @@ function content_types_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-kurssi-field_ilmoittautumisviesti'.
+  $fields['node-kurssi-field_ilmoittautumisviesti'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_ilmoittautumisviesti',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_long',
+    ),
+    'field_instance' => array(
+      'bundle' => 'kurssi',
+      'default_value' => array(
+        0 => array(
+          'value' => '<p>Hei @jasenen_nimi!<br /><br />Kiitos ilmoittautumisesta @kurssin_nimi kurssille osoitteessa @kurssin_osoite.</p><p>Tervetuloa!<br />Kurssi alkaa @kurssi_alkaa. Lisätietoja kurssista saat kurssin järjestäjältä.<br />Kurssi-ilmoittautumisen voi peruuttaa maksutta ilmoittautumisajan päättymiseen (PVM 1 viikko ennen kurssin alkamista) saakka. Tämän jälkeen tapahtuneesta peruutuksesta/kurssilta poisjäännistä veloitamme puolet (50 %) kurssimaksusta. Pidätämme oikeudet muutoksiin.</p>',
+          'format' => 'filtered_html',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '<p>Teksti, joka lähetetään sähköpostilla juuri liittyneelle kurssin jäsenelle.</p>
+<p>Parametrit jotka korvautuu tekstissä</p><p>@kurssin_nimi kurssin nimi<br />@kurssin_osoite kurssin osoite<br />@kurssi_alkaa kurssin alkamispäivämäärä<br />@kurssi_loppuu kurssin loppumispäivämäärä<br />@jasenen_nimi liittyneen jäsenen koko nimi</p>',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 22,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'exclude_cv' => 1,
+      'field_name' => 'field_ilmoittautumisviesti',
+      'label' => 'Ilmoittautumisviesti',
+      'required' => 0,
+      'settings' => array(
+        'exclude_cv' => FALSE,
+        'text_processing' => '1',
+        'user_field_privacy' => FALSE,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'rows' => '5',
+        ),
+        'type' => 'text_textarea',
+        'weight' => '17',
+      ),
+    ),
+  );
+
   // Exported field: 'node-kurssi-field_kurssi_alkaa'.
   $fields['node-kurssi-field_kurssi_alkaa'] = array(
     'field_config' => array(
@@ -1190,7 +1269,7 @@ function content_types_field_default_fields() {
           'og_hide' => 1,
         ),
         'type' => 'options_onoff',
-        'weight' => '7',
+        'weight' => '3',
       ),
     ),
   );
@@ -1913,6 +1992,8 @@ function content_types_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('<i>Lyhyt listauksissa näytettävä kuvaus kurssista</i>');
+  t('<p>Teksti, joka lähetetään sähköpostilla juuri liittyneelle kurssin jäsenelle.</p>
+<p>Parametrit jotka korvautuu tekstissä</p><p>@kurssin_nimi kurssin nimi<br />@kurssin_osoite kurssin osoite<br />@kurssi_alkaa kurssin alkamispäivämäärä<br />@kurssi_loppuu kurssin loppumispäivämäärä<br />@jasenen_nimi liittyneen jäsenen koko nimi</p>');
   t('Alempi slogan');
   t('Arvio');
   t('Description');
@@ -1921,6 +2002,7 @@ function content_types_field_default_fields() {
   t('Group');
   t('Groups audience');
   t('Hintalaskuri');
+  t('Ilmoittautumisviesti');
   t('Kurssi alkaa');
   t('Kurssi loppuu');
   t('Kurssin kuva');
