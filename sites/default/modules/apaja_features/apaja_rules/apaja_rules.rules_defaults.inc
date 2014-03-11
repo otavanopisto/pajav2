@@ -19,39 +19,5 @@ function apaja_rules_default_rules_configuration() {
       ]
     }
   }');
-  $items['rules_course_member_subscribe'] = entity_import('rules_config', '{ "rules_course_member_subscribe" : {
-      "LABEL" : "Course member subscribe",
-      "PLUGIN" : "reaction rule",
-      "REQUIRES" : [ "rules", "og" ],
-      "ON" : [ "og_user_insert" ],
-      "IF" : [
-        { "data_is" : { "data" : [ "og-membership:state" ], "value" : "1" } },
-        { "entity_is_of_type" : { "entity" : [ "og-membership:group" ], "type" : "node" } }
-      ],
-      "DO" : [
-        { "variable_add" : {
-            "USING" : { "type" : "node", "value" : [ "og-membership:group" ] },
-            "PROVIDE" : { "variable_added" : { "group" : "Added variable" } }
-          }
-        },
-        { "mail" : {
-            "to" : [ "account:mail" ],
-            "subject" : "Olet liittynyt kurssille \\u0027[group:title]\\u0027\\r\\n",
-            "message" : "Hei! \\u003Cbr\\/\\u003E\\r\\nKiitos ilmoittautumisesta ([group:title]) kurssille osoitteessa ([group:url]). \\r\\n\\u003Cbr\\u003E\\r\\nTervetuloa!\\u003Cbr\\u003E\\r\\nKurssi alkaa ([group:field-kurssi-alkaa]).\\u003Cbr\\u003E\\r\\nKurssi-ilmoittautumisen voi peruuttaa maksutta ilmoittautumisajan p\\u00e4\\u00e4ttymiseen (PVM 1 viikko ennen kurssin alkamista) saakka. T\\u00e4m\\u00e4n j\\u00e4lkeen tapahtuneesta peruutuksesta\\/kurssilta poisj\\u00e4\\u00e4nnist\\u00e4 veloitamme puolet (50 %) kurssimaksusta.\\r\\nPid\\u00e4t\\u00e4mme oikeudet muutoksiin.",
-            "from" : "apaja@otavanopisto.fi",
-            "language" : [ "" ]
-          }
-        },
-        { "mail" : {
-            "to" : [ "group:author:mail" ],
-            "subject" : "[account:name] liittyi kurssille [group:title]",
-            "message" : "Hei [group:author:name],\\r\\n\\u003Cbr\\u003E\\r\\n[account:name] liittyi kurssille [group:title] osoitteessa [group:url].\\r\\n",
-            "from" : "apaja@otavanopisto.fi",
-            "language" : [ "" ]
-          }
-        }
-      ]
-    }
-  }');
   return $items;
 }
