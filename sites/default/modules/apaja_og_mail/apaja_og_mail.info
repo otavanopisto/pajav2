@@ -1,0 +1,4 @@
+; $Id$
+name = Apaja OG Mail
+description = Apaja related OG action mailer (Otavan Opisto)
+core = 7.x

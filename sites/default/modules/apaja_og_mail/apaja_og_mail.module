@@ -1,0 +1,63 @@
+<?php
+function apaja_og_mail_menu(){
+  // Returns AJAX commands if the user has JavaScript turned on.
+//   $items['login/ajax'] = array(
+//     'title' => 'ajax callback',
+//     'page callback' => 'oo_alterations_login_ajax_callback',
+//     'page arguments' => array(1),
+//     'access callback' => 'user_is_anonymous',
+//     'type' => MENU_CALLBACK,
+//   );
+  
+//   return $items;
+  
+}
+
+function apaja_og_mail_og_membership_insert(OgMembership $og_membership){
+  $course = entity_load_single('node', $og_membership->gid);
+  $member = user_load($og_membership->etid);
+  $subscribe_message_item = field_get_items($og_membership->group_type, $course, 'field_ilmoittautumisviesti', $og_membership->language);
+  $subscribe_message = array_pop($subscribe_message_item);
+  if ($subscribe_message == false){
+    $instance = field_info_instance('node', 'field_ilmoittautumisviesti', 'kurssi');
+    $subscribe_message = array_pop(field_get_default_value($og_membership->group_type, $course, 'field_ilmoittautumisviesti', $instance, $langcode = NULL));
+    $subscribe_message = $subscribe_message['value'];
+  }else{
+    $subscribe_message = $subscribe_message['safe_value'];
+  }
+  
+  $course_address = 'node/' . $course->nid;
+  $course_link = url($course_address, array('absolute' => true));
+  $first_name = array_pop(field_get_items('user', $member, 'field_account_etunimi'));
+  $last_name = array_pop(field_get_items('user', $member, 'field_account_sukunimi'));
+  $member_name = $first_name['safe_value'] . ' ' . $last_name['safe_value'];
+  $course_start = array_pop(field_get_items($og_membership->group_type, $course, 'field_kurssi_alkaa', $og_membership->language));
+  $course_start = $course_start['value'];
+  $course_start = date('d.n.Y', strtotime($course_start));
+  $course_end = array_pop(field_get_items($og_membership->group_type, $course, 'field_kurssi_loppuu', $og_membership->language));
+  $course_end = $course_end['value'];
+  $course_end = date('d.n.Y' ,strtotime($course_end));
+  $subject = 'Olet liittynyt kurssille ' . $course->title;
+  $subscribe_message = format_string($subscribe_message, array(
+    '@kurssin_nimi' => $course->title,
+    '@kurssin_osoite' => $course_link, 
+    '@jasenen_nimi' => $member_name,
+    '@kurssi_alkaa' => $course_start,
+    '@kurssi_loppuu' => $course_end,
+  ));
+  $params['subject'] = $subject;
+  $params['message'] = $subscribe_message;
+  drupal_mail('apaja_og_mail', 'member_subscribe', $member->mail, $language, $params, 'no-reply@otavanopisto.fi');
+}
+
+function apaja_og_mail_mail($key, &$message, $params){
+  switch($key) {
+    case 'member_subscribe':
+      $langcode = $message['language']->language;
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['message'];
+      break;
+  }
+}
+
+?>
