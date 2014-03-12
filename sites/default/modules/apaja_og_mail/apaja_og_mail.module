@@ -47,7 +47,18 @@ function apaja_og_mail_og_membership_insert(OgMembership $og_membership){
   ));
   $params['subject'] = $subject;
   $params['message'] = $subscribe_message;
-  drupal_mail('apaja_og_mail', 'member_subscribe', $member->mail, $language, $params, 'no-reply@otavanopisto.fi');
+  drupal_mail('apaja_og_mail', 'member_subscribe', $member->mail, $language, $params, 'apaja@otavanopisto.fi');
+  // Message to course admin
+  $admin = user_load($course->uid);
+  $admin_first_name = array_pop(field_get_items('user', $admin, 'field_account_etunimi'));
+  $admin_last_name = array_pop(field_get_items('user', $admin, 'field_account_sukunimi'));
+  $admin_name = $admin_first_name['safe_value'] . ' ' . $admin_last_name['safe_value'];
+  $params['subject'] = $member_name . ' liittyi kurssille ' . $course->title;
+  $params['message'] = 'Hei ' . $admin_name . ',
+                        <br>
+                        ' . $member_name . ' liittyi kurssille ' . $course->title . ' osoitteessa ' . $course_link . '.';
+  $member_name . ' liittyi kurssille ' . $course->title;
+  drupal_mail('apaja_og_mail', 'member_subscribe_admin_message', $admin->mail, $language, $params, 'apaja@otavanopisto.fi');
 }
 
 function apaja_og_mail_mail($key, &$message, $params){
@@ -56,6 +67,12 @@ function apaja_og_mail_mail($key, &$message, $params){
       $langcode = $message['language']->language;
       $message['subject'] = $params['subject'];
       $message['body'][] = $params['message'];
+      break;
+    case 'member_subscribe_admin_message':
+      $langcode = $message['language']->language;
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['message'];
+      break;
       break;
   }
 }
