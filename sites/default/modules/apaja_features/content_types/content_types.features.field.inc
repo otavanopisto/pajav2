@@ -438,7 +438,7 @@ function content_types_field_default_fields() {
       ),
       'deleted' => '0',
       'description' => '<p>Teksti, joka lähetetään sähköpostilla juuri liittyneelle kurssin jäsenelle.</p>
-<p>Parametrit jotka korvautuu tekstissä</p><p>@kurssin_nimi kurssin nimi<br />@kurssin_osoite kurssin osoite<br />@kurssi_alkaa kurssin alkamispäivämäärä<br />@kurssi_loppuu kurssin loppumispäivämäärä<br />@jasenen_nimi liittyneen jäsenen koko nimi</p>',
+<p>Parametrit jotka korvautuu tekstissä</p><p>@kurssin_nimi kurssin nimi<br />@kurssin_osoite kurssin osoite<br />@kurssi_alkaa kurssin alkamispäivämäärä<br />@kurssi_loppuu kurssin loppumispäivämäärä<br />@jasenen_nimi liittyneen jäsenen koko nimi<br/>@jarjestajan_email kurssin järjestäjän sähköpostiosoite</p>',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -1993,7 +1993,7 @@ function content_types_field_default_fields() {
   // Included for use with string extractors like potx.
   t('<i>Lyhyt listauksissa näytettävä kuvaus kurssista</i>');
   t('<p>Teksti, joka lähetetään sähköpostilla juuri liittyneelle kurssin jäsenelle.</p>
-<p>Parametrit jotka korvautuu tekstissä</p><p>@kurssin_nimi kurssin nimi<br />@kurssin_osoite kurssin osoite<br />@kurssi_alkaa kurssin alkamispäivämäärä<br />@kurssi_loppuu kurssin loppumispäivämäärä<br />@jasenen_nimi liittyneen jäsenen koko nimi</p>');
+<p>Parametrit jotka korvautuu tekstissä</p><p>@kurssin_nimi kurssin nimi<br />@kurssin_osoite kurssin osoite<br />@kurssi_alkaa kurssin alkamispäivämäärä<br />@kurssi_loppuu kurssin loppumispäivämäärä<br />@jasenen_nimi liittyneen jäsenen koko nimi<br/>@jarjestajan_email kurssin järjestäjän sähköpostiosoite</p>');
   t('Alempi slogan');
   t('Arvio');
   t('Description');
