@@ -37,6 +37,11 @@ function apaja_og_mail_og_membership_insert(OgMembership $og_membership){
   $course_end = array_pop(field_get_items($og_membership->group_type, $course, 'field_kurssi_loppuu', $og_membership->language));
   $course_end = $course_end['value'];
   $course_end = date('d.n.Y' ,strtotime($course_end));
+  $admin = user_load($course->uid);
+  $admin_first_name = array_pop(field_get_items('user', $admin, 'field_account_etunimi'));
+  $admin_last_name = array_pop(field_get_items('user', $admin, 'field_account_sukunimi'));
+  $admin_name = $admin_first_name['safe_value'] . ' ' . $admin_last_name['safe_value'];
+  $admin_mail = $admin->mail;
   $subject = 'Olet liittynyt kurssille ' . $course->title;
   $subscribe_message = format_string($subscribe_message, array(
     '@kurssin_nimi' => $course->title,
@@ -44,15 +49,12 @@ function apaja_og_mail_og_membership_insert(OgMembership $og_membership){
     '@jasenen_nimi' => $member_name,
     '@kurssi_alkaa' => $course_start,
     '@kurssi_loppuu' => $course_end,
+    '@jarjestajan_email' => $admin_mail,
   ));
   $params['subject'] = $subject;
   $params['message'] = $subscribe_message;
   drupal_mail('apaja_og_mail', 'member_subscribe', $member->mail, $language, $params, 'apaja@otavanopisto.fi');
   // Message to course admin
-  $admin = user_load($course->uid);
-  $admin_first_name = array_pop(field_get_items('user', $admin, 'field_account_etunimi'));
-  $admin_last_name = array_pop(field_get_items('user', $admin, 'field_account_sukunimi'));
-  $admin_name = $admin_first_name['safe_value'] . ' ' . $admin_last_name['safe_value'];
   $params['subject'] = $member_name . ' liittyi kurssille ' . $course->title;
   $params['message'] = 'Hei ' . $admin_name . ',
                         <br>
