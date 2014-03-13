@@ -59,7 +59,7 @@ function apaja_og_mail_og_membership_insert(OgMembership $og_membership){
   $params['message'] = 'Hei ' . $admin_name . ',
                         <br>
                         ' . $member_name . ' liittyi kurssille ' . $course->title . ' osoitteessa ' . $course_link . '.';
-  $member_name . ' liittyi kurssille ' . $course->title;
+
   drupal_mail('apaja_og_mail', 'member_subscribe_admin_message', $admin->mail, $language, $params, 'apaja@otavanopisto.fi');
 }
 
