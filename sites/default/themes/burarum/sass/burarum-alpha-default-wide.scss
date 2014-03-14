@@ -43,14 +43,16 @@ html body {
 .view-courses-not .views-row,
 .view-courses-started .views-row,
 .view-courses-ended .views-row,
-.view-editors-choise .views-row {
+.view-editors-choise .views-row,
+.view-blogikirjoutukset .views-row {
   max-width:260px;
 }
 
 .view-courses-not .views-row .views-field-field-kurssin-kuva,
 .view-courses-started .views-row .views-field-field-kurssin-kuva,
 .view-courses-ended .views-row .views-field-field-kurssin-kuva,
-.view-editors-choise .views-row .views-field-field-kurssin-kuva {
+.view-editors-choise .views-row .views-field-field-kurssin-kuva,
+.view-blogikirjoutukset .views-row .views-field-field-blogin-kuva {
   overflow:hidden;
   max-height:176px;
 }
@@ -58,7 +60,8 @@ html body {
 .view-courses-not .views-row .views-field-field-summary .field-content,
 .view-courses-started .views-row .views-field-field-summary .field-content,
 .view-courses-ended .views-row .views-field-field-summary .field-content,
-.view-editors-choise .views-row .views-field-field-summary .field-content {
+.view-editors-choise .views-row .views-field-field-summary .field-content,
+.view-blogikirjoutukset .views-row .views-field-body .field-content {
   min-height:155px;
   max-height:155px;
 }

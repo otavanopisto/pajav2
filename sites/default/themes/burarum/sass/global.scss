@@ -1200,12 +1200,48 @@ ul.tabs.primary li.active a {
   min-height:82px;
 }
 
-/* NOT STARTED COURSES LISTING / STARTED COURSES LISTING / ENDED COURSES LISTING / EDITORS CHOISES LISTING */
+/* NOT STARTED COURSES LISTING / STARTED COURSES LISTING / ENDED COURSES LISTING / EDITORS CHOISES LISTING / BLOG LISTING */
+
+.view-blogikirjoutukset .blog-listing-page-row {
+  
+  position:relative;
+ 
+  .views-field-field-account-sukunimi {
+    top:25px;
+    position:absolute;
+    left:0;
+    right:0;
+    
+    .view-field-postdate-wrapper {
+      
+      a {
+        text-decoration:none;
+        background:#fff;
+        padding:4px 8px;
+        color:#0099ff;
+        margin-right:10px;
+        text-transform:uppercase;
+        display:inline-block;
+      }
+    
+    }
+  
+  }
+  
+  .views-field-created {
+    text-align:right;
+    color:#666;
+    font-style:italic;
+    padding-right:4px;
+  }
+ 
+}
 
 .view-courses-started, 
 .view-courses-not,
 .view-courses-ended,
-.view-editors-choise {
+.view-editors-choise,
+.view-blogikirjoutukset {
   position:relative;
 }
 
@@ -1217,7 +1253,8 @@ ul.tabs.primary li.active a {
 .view-courses-not.view-display-id-page_list_all,
 .view-courses-started.view-display-id-page_list_all,
 .view-courses-ended.view-display-id-page_list_all,
-.view-editors-choise.view-display-id-page_list_all {
+.view-editors-choise.view-display-id-page_list_all,
+.view-blogikirjoutukset.view-display-id-page_list_all {
   margin:5px 0 0 0;
   padding:0;
 }
@@ -1225,11 +1262,11 @@ ul.tabs.primary li.active a {
 .view-courses-not .views-row,
 .view-courses-started .views-row,
 .view-courses-ended .views-row,
-.view-editors-choise .views-row {
+.view-editors-choise .views-row,
+.view-blogikirjoutukset .views-row {
   float:left;
   max-width:205px;
   padding:6px;
-
   @include box-shadow;
   background:#ffffff;
   border:1px solid #ffffff;
@@ -1240,14 +1277,16 @@ ul.tabs.primary li.active a {
 .view-courses-not .views-row.courses-not-page-row,
 .view-courses-started .views-row.courses-started-page-row,
 .view-courses-ended .views-row.courses-ended-page-row,
-.view-editors-choise .views-row.editors-choise-page-row {
+.view-editors-choise .views-row.editors-choise-page-row,
+.view-blogikirjoutukset .views-row.blog-listing-page-row {
    margin:0px 10px 20px 10px;
 }
 
 .view-courses-not .views-row:hover,
 .view-courses-started .views-row:hover,
 .view-courses-ended .views-row:hover,
-.view-editors-choise .views-row:hover {
+.view-editors-choise .views-row:hover,
+.view-blogikirjoutukset .views-row:hover {
   border:1px solid #7ca246;
   @include box-shadow($shadow: 0 0 8px rgba(167,196,90,0.9));
   background:#ffffff;
@@ -1256,7 +1295,8 @@ ul.tabs.primary li.active a {
 .view-courses-not .views-row .views-field-field-kurssin-kuva,
 .view-courses-started .views-row .views-field-field-kurssin-kuva,
 .view-courses-ended .views-row .views-field-field-kurssin-kuva,
-.view-editors-choise .views-row .views-field-field-kurssin-kuva {
+.view-editors-choise .views-row .views-field-field-kurssin-kuva,
+.view-blogikirjoutukset .views-row .views-field-field-blogin-kuva {
   width:100%;
   overflow:hidden;
   max-height:137px;
@@ -1265,7 +1305,8 @@ ul.tabs.primary li.active a {
 .view-courses-not .views-row img,
 .view-courses-started .views-row img,
 .view-courses-ended .views-row img,
-.view-editors-choise .views-row img {
+.view-editors-choise .views-row img,
+.view-blogikirjoutukset .views-row img {
   width:100%;
   height:auto;
 }
@@ -1273,7 +1314,8 @@ ul.tabs.primary li.active a {
 .view-courses-not .views-row .views-field-title,
 .view-courses-started .views-row .views-field-title,
 .view-courses-ended .views-row .views-field-title,
-.view-editors-choise .views-row .views-field-title {
+.view-editors-choise .views-row .views-field-title,
+.view-blogikirjoutukset .views-row .views-field-title {
   margin:10px 0 3px 0;
   height:1.5em;
   overflow:hidden;
@@ -1282,7 +1324,8 @@ ul.tabs.primary li.active a {
 .view-courses-not .views-row .views-field-title a,
 .view-courses-started .views-row .views-field-title a,
 .view-courses-ended .views-row .views-field-title a,
-.view-editors-choise .views-row .views-field-title a {
+.view-editors-choise .views-row .views-field-title a,
+.view-blogikirjoutukset .views-row .views-field-title a {
   text-transform:uppercase;
   font-size:1.1em;
   color:$linkColorCourse;
@@ -1292,21 +1335,24 @@ ul.tabs.primary li.active a {
 .view-courses-not .views-row .views-field-title a:hover,
 .view-courses-started .views-row .views-field-title a:hover,
 .view-courses-ended .views-row .views-field-title a:hover,
-.view-editors-choise .views-row .views-field-title a:hover {
+.view-editors-choise .views-row .views-field-title a:hover,
+.view-blogikirjoutukset .views-row .views-field-title a:hover {
   color:$linkHoverColorCourse;
 }
 
 .view-courses-not .views-row .views-field-title a:focus,
 .view-courses-started .views-row .views-field-title a:focus,
 .view-courses-ended .views-row .views-field-title a:focus,
-.view-editors-choise .views-row .views-field-title a:focus {
+.view-editors-choise .views-row .views-field-title a:focus,
+.view-blogikirjoutukset .views-row .views-field-title a:focus {
   color:$linkFocusColorCourse;
 }
 
 .view-courses-not .views-row .views-field-field-summary .field-content,
 .view-courses-started .views-row .views-field-field-summary .field-content,
 .view-courses-ended .views-row .views-field-field-summary .field-content,
-.view-editors-choise .views-row .views-field-field-summary .field-content {
+.view-editors-choise .views-row .views-field-field-summary .field-content,
+.view-blogikirjoutukset .views-row .views-field-body .field-content {
   margin:0 0 5px 0;
   padding:0 0 15px 0;
   min-height:190px;
@@ -1451,38 +1497,38 @@ ul.tabs.primary li.active a {
   clear: both; /** Petja raping **/
 }
 /** Petja raping **/
-#page #node-course-panel #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins .group-admin-picture img{
-	height: 48px;
-	width: 48px;
+#page #node-course-panel #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins .group-admin-picture img {
+	height: 36px;
+	width: 36px;
 	border-radius: 2px;
 }
-#page #node-course-panel #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins .group-admin-picture{
+#page #node-course-panel #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins .group-admin-picture {
 	float: left;
-	height: 48px;
-	width: 48px;
+	height: 36px;
+	width: 36px;
 	overflow: hidden;
-	margin-right: 5px;
+	margin-right: 8px;
 }
 
-#page #node-course-panel #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins .group-admin{
+#page #node-course-panel #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins .group-admin {
   display: block;
   width: 295px;
   height: 21px;
 }
 
-#page #node-course-panel #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins .group-admin a{
+#page #node-course-panel #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins .group-admin a {
   color: #0062a0;
   display: block;
   padding: 0;
 }
 
-#page #node-course-panel #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins .group-admin-mail{
+#page #node-course-panel #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins .group-admin-mail {
 	color: #757575;
 	word-break: break-all;
 	font-size: 85%;
 }
 
-#page #node-course-panel #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins{
+#page #node-course-panel #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins {
 	margin-bottom: 18px;
 }
 /** Petja stops raping **/
@@ -1490,7 +1536,7 @@ ul.tabs.primary li.active a {
   @include generic-course-meta-info-label;
 }
 
-#page #node-course-panel .pane-oo-alterations-oo-get-group-admins h3{
+#page #node-course-panel .pane-oo-alterations-oo-get-group-admins h3 {
   font-weight: bold;
 	@include generic-course-meta-info-label;
 }
@@ -1600,7 +1646,7 @@ ul.tabs.primary li.active a {
 }
 
 #mini-panel-kurssi_minipanel .pane-oo-alterations-oo-get-group-admins ul li>.group-admins-container{
-	height: 48px;
+	height: 40px;
 	margin-top: 5px;
 }
 
@@ -3486,35 +3532,60 @@ a, p, ul, ol, li, img, span, strong, em {
 
 /* BLOG */
 
+.view-blogikirjoutukset {
+  position:relative;
+
+  .blog-new-entry {
+    position:absolute;
+    top:-40px;
+    right:20px;
+  
+    display:inline-block;
+  
+    a {
+      background:#0099FF;
+      border-radius:$boxBorderRadius;
+      box-shadow:$boxShadow;
+      color: #FFFFFF;
+      font-size: 0.8em;
+      white-space: nowrap;
+      width: auto;
+      padding: 5px 8px 4px 8px;
+      text-decoration:none;
+      text-transform:uppercase;
+    }
+    
+    
+  }
+  
+}
+
+form#blog-entry-node-form {
+  margin:0 10px;
+}
+
 #page #node-blog-frontpage,
 #page #node-blog-page,
 #page #node-blog-entries {  
-  
-  .panels-flexible-region-10-center {
-    width:100%;
-  }
-  
-  .grid-12 .view-blog-writers {
-    margin:0 0 0 10px;
-  }
-  
-  .grid-4 .view-blog-writers {
-  
-  }
-  
-  .view-blog-listing {
-    margin:0;
-  }
   
   h2.pane-title {  
     margin:0 0 5px 10px;
   }
   
   .pane-content {
+  
+    .field-name-field-blogin-kuva {
+      display:inline-block;
+      width:400px;
+      float:left;
+      margin:0 30px 10px 0;
+    }
 
     .views-row {
       margin-top:1em;
       margin-bottom:1em;
+      margin-left:20px;
+      margin-right:20px;
 
       border-bottom:1px solid #eee;  
       
@@ -3614,28 +3685,8 @@ a, p, ul, ol, li, img, span, strong, em {
     
   }
   
-  .blog-new-entry {
-  
-    display:inline-block;
-  
-    a {
-      background:#0099FF;
-      border-radius:$boxBorderRadius;
-      box-shadow:$boxShadow;
-      color: #FFFFFF;
-      font-size: 0.8em;
-      white-space: nowrap;
-      width: auto;
-      padding: 5px 8px 4px 8px;
-      text-decoration:none;
-      text-transform:uppercase;
-    }
-    
-    
-  }
-  
   article.node-blog-entry {
-    margin:0 0 0 10px;
+    margin:0 10px 0 10px;
   
     footer.submitted {
       margin:0 0 1em 0;
@@ -3676,83 +3727,19 @@ a, p, ul, ol, li, img, span, strong, em {
     }
   
   }
-
-  .pane-oo-alterations-oo-blog-authors {
-  
-    .pane-content {
-      @include box-padding;
-      @include box-shadow;
-      background:#fff;
-      margin:0 14px 0 0;
-    
-      ul {
-        margin:0;
-        padding:0;
-      }
-    
-      ul li {
-        clear: both;
-        cursor: pointer;
-        display: block;
-        height: 32px;
-        padding-bottom: 4px;
-        padding-left: 4px;
-        padding-right: 4px;
-        padding-top: 4px;
-        margin:0;
-        border:0;
-        
-      
-        .blog-author-picture {
-          display:inline-block;
-          float:left;
-          width:32px;
-          height:32px;
-          
-          img {
-            border-radius:2px;
-            width:32px;
-            height:32px;
-          
-          }
-        
-        }
-        
-        .blog-author {
-          display:inline-block;
-          margin:0 0 0 5px;
-          
-          a {
-            color: #0062A0;
-            display: inline-block;
-            height: 1em;
-            padding-bottom: 14px;
-            padding-left: 3px;
-            padding-right: 3px;
-            padding-top: 6px;
-            text-shadow: 0 0 2px #FFFFFF;
-            text-decoration:none;
-            
-            &:hover {
-              color:#ff9900;
-            }
-          }
-        }
-      
-      }
-    
-    }
-  
-  }
   
   .pane-node-comments {
-    margin:2em 0 0 0;
+    margin:2em 10px 0 10px;
+    
+    h2 {
+      margin-left:0;
+    }
     
     article.comment {
       @include box-shadow(4px 4px 40px rgba(200, 200, 200, 0.2));
       border-left:4px solid #eee;
       border-top:1px solid #eee;
-      margin:0 0 1em 10px;
+      margin:0 10px 1em 0px;
       padding:20px;
       font-weight:300;
       border-radius:5px;
@@ -3841,7 +3828,11 @@ a, p, ul, ol, li, img, span, strong, em {
   }
   
   .pane-node-comment-form {
-    margin:2em 0 0 0;
+    margin:2em 10px 0 10px;
+    
+    h2 {
+      margin-left:0;
+    }
     
     .pane-content {
       margin:0;
