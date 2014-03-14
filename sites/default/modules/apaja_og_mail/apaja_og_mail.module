@@ -1,18 +1,4 @@
 <?php
-function apaja_og_mail_menu(){
-  // Returns AJAX commands if the user has JavaScript turned on.
-//   $items['login/ajax'] = array(
-//     'title' => 'ajax callback',
-//     'page callback' => 'oo_alterations_login_ajax_callback',
-//     'page arguments' => array(1),
-//     'access callback' => 'user_is_anonymous',
-//     'type' => MENU_CALLBACK,
-//   );
-  
-//   return $items;
-  
-}
-
 function apaja_og_mail_og_membership_insert(OgMembership $og_membership){
   $course = entity_load_single('node', $og_membership->gid);
   $member = user_load($og_membership->etid);
