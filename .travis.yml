@@ -1,14 +1,11 @@
-# Language 
-
 language: php
 php:
-  - "5.3"
-# Global environment variables
-env:
-  global:
-    - secure: "aCHNvIaUQmeQhS/25hTTL41vA70Uq79tgD28JktcML8ggCV4QMdVMxrrhX97469TkURokCdhc3mvPGfLmii18cR9eIZr606fkrmGMOOh5YCDpnDRod3lGWhyGz/ICcujLpbV4ujMCRU4iGni3dV9mupBWaTRUMymj95iBFGHm/A="
-# omitting "script:" will default to phpunit
+- '5.3'
 script: phpunit --version
-# Tell staging to pull latest code from git
-after_success:
-  - wget -q $DEPLOY_PING
+notifications:
+  webhooks:
+    urls:
+    - http://build.staging.fi/travis.php
+    on_success: always
+    on_failure: never
+    on_start: false
