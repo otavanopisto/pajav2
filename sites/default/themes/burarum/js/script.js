@@ -2,25 +2,18 @@ var pageLoad = false;
 (function($) {
 	Drupal.behaviors.MessagesFadeout = {
 		attach : function(context, settings) {
-
-		  var messageBox = $('div#messages');
-		  if(messageBox){
-  		  var timedThing = setTimeout(function() {
-    		    messageBox.fadeOut('slow', function() {
-    					messageBox.remove();
-    				});
-  			}, 5000);
-  		  messageBox.hover(function(){
-          clearTimeout(timedThing);
-  		  });
-  		  messageBox.mouseleave(function(){
-  		    timedThing = setTimeout(function() {
-            messageBox.fadeOut('slow', function() {
-              messageBox.remove();
-            });
-        }, 3000);
+      var messageBox = $('div#messages');
+  		  if (messageBox.length > 0) {
+  		    messageBox.click(function(event){
+             event.stopPropagation();
+             event.preventDefault();
+          });
+        $('body').click(function(event){
+          messageBox.fadeOut('slow', function() {
+            messageBox.remove();
+          });
         });
-		  }
+  		  }
       }
 	};	
 
@@ -157,7 +150,7 @@ var pageLoad = false;
 		  $("#headerLoginLink").addClass('headerLoginLinkClicked');
 		  
 		  // Get position
-		  var containerWidth = 655;
+		  var containerWidth = 880;
 		  var extraOffset = 5;
 		  
 		  var linkLeftPos = $("#headerLoginLink").position().left + $("#headerLoginLink").outerWidth() + extraOffset;

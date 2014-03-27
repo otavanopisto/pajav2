@@ -165,7 +165,8 @@ h1, h2, h3, h4, h5, h6, .h2-imitator {
 #page #node-course-panel .pane-tulevat-kurssin-tapahtumat-panel-pane-1 h2,
 #page #node-blog-frontpage .pane-blogin-navigointi h2.pane-title,
 #page #node-blog-page .pane-blogin-navigointi h2.pane-title,
-#page #node-blog-entries .pane-blogin-navigointi h2.pane-title {
+#page #node-blog-entries .pane-blogin-navigointi h2.pane-title,
+#page #node-course-panel .pane-node-field-jarjestajan-logo h2{
   margin:0 6px 10px 0;
 }
 
@@ -1315,7 +1316,7 @@ ul.tabs.primary li.active a {
 .view-courses-started .views-row .views-field-title,
 .view-courses-ended .views-row .views-field-title,
 .view-editors-choise .views-row .views-field-title,
-.view-blogikirjoutukset .views-row .views-field-title {
+.view-blogikirjoutukset .views-row .views-field-title  {
   margin:10px 0 3px 0;
   height:1.5em;
   overflow:hidden;
@@ -1448,7 +1449,8 @@ ul.tabs.primary li.active a {
 #page #node-course-panel .pane-oo-alterations-oo-course-attendees .pane-content,
 #page #node-course-panel .pane-course-admin-members .pane-content,
 #page #node-course-panel .pane-course-members .pane-content,
-#page #node-course-panel .pane-tulevat-kurssin-tapahtumat-panel-pane-1 .pane-content {
+#page #node-course-panel .pane-tulevat-kurssin-tapahtumat-panel-pane-1 .pane-content,
+#page #node-course-panel .pane-node-field-jarjestajan-logo .pane-content {
   @include box-padding;
   @include box-shadow;
   background:#fff;
@@ -2480,7 +2482,8 @@ ul.tabs.primary li.active a {
   font-size:1.4em;
 }
 
-#page #node-user-panel .pane-user-courses .pane-content {
+#page #node-user-panel .pane-user-courses .pane-content,
+#page #node-user-panel .pane-userblogs-panel-pane-1 .pane-content {
   @include box-padding;
   @include box-shadow;
   background:#fff;
@@ -2494,7 +2497,8 @@ ul.tabs.primary li.active a {
   margin:0 14px 0 0; 
 }
 
-#page #node-user-panel .pane-user-courses .views-row {
+#page #node-user-panel .pane-user-courses .views-row,
+#page #node-user-panel .pane-userblogs-panel-pane-1 .views-row {
   clear:both;
   height:32px;
   padding:4px;
@@ -2504,13 +2508,15 @@ ul.tabs.primary li.active a {
   display:table;
 }
 
-#page #node-user-panel .pane-user-courses .views-row:hover {
+#page #node-user-panel .pane-user-courses .views-row:hover,
+#page #node-user-panel .pane-userblogs-panel-pane-1 .views-row:hover {
   border-left:2px solid #000000;
   padding:4px 4px 4px 2px;
   background:#f8f8f8;
 }
 
-#page #node-user-panel .pane-user-courses .views-field-field-kurssin-kuva {
+#page #node-user-panel .pane-user-courses .views-field-field-kurssin-kuva,
+#page #node-user-panel .pane-userblogs-panel-pane-1 .views-field-field-blogin-kuva {
   width:32px;
   height:32px;
   overflow:hidden;
@@ -2519,22 +2525,26 @@ ul.tabs.primary li.active a {
   border:1px solid #f2f2f2;
 }
 
-#page #node-user-panel .pane-user-courses .views-field-field-kurssin-kuva img {
+#page #node-user-panel .pane-user-courses .views-field-field-kurssin-kuva img,
+#page #node-user-panel .pane-userblogs-panel-pane-1 .views-field-field-blogin-kuva img {
   width:auto;
   height:32px;
 }
 
-#page #node-user-panel .pane-user-courses .views-row .views-field-title {
+#page #node-user-panel .pane-user-courses .views-row .views-field-title,
+#page #node-user-panel .pane-userblogs-panel-pane-1 .views-field-title  {
   float:left;
   width:205px;
 }
 
-#page #node-user-panel .pane-user-courses .views-row:hover .views-field-title a {
+#page #node-user-panel .pane-user-courses .views-row:hover .views-field-title a,
+#page #node-user-panel .pane-userblogs-panel-pane-1 .views-row:hover .views-field-title a {
   color:$linkHoverColorCourse;
   text-decoration:none;
 }
 
-#page #node-user-panel .pane-user-courses .views-row .views-field-title a {
+#page #node-user-panel .pane-user-courses .views-row .views-field-title a,
+#page #node-user-panel .pane-userblogs-panel-pane-1 .views-row .views-field-title a {
   color:$linkColorCourse;
   text-decoration:none;
   padding:6px 3px 14px 3px;
@@ -2543,12 +2553,14 @@ ul.tabs.primary li.active a {
   display:inline-block;
 }
 
-#page #node-user-panel .pane-user-courses .views-row .views-field-title a:hover {
+#page #node-user-panel .pane-user-courses .views-row .views-field-title a:hover,
+#page #node-user-panel .pane-userblogs-panel-pane-1 .views-row .views-field-title a:hover  {
   color:$linkHoverColorCourse;
   text-decoration:none;
 }
 
-#page #node-user-panel .pane-user-courses .views-row .views-field-title a:focus {
+#page #node-user-panel .pane-user-courses .views-row .views-field-title a:focus,
+#page #node-user-panel .pane-userblogs-panel-pane-1 .views-row .views-field-title a:focus {
   color:$linkFocusColorCourse;
   text-decoration:none;
 }
@@ -2666,31 +2678,36 @@ ul.tabs.primary li.active a {
 }
 
 /* USERS COURSES TOOLTIP */
-
-#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-image {
+/* USERS BLOGS TOOLTIP */
+#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-image,
+#page #node-user-panel .pane-userblogs-panel-pane-1 .generic-tooltip-wrapper .users-blogs-tooltip-image {
   width:48px;
   height:48px;
   overflow:hidden;
   float:left;
 }
 
-#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper img{
+#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper img,
+#page #node-user-panel .pane-userblogs-panel-pane-1 .generic-tooltip-wrapper img{
   width:auto;
   height:48px;
 }
 
-#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-title {
+#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-title,
+#page #node-user-panel .pane-userblogs-panel-pane-1 .generic-tooltip-wrapper .users-blogs-tooltip-title {
   margin:0 0 5px 63px;
 
 }
 
-#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-title a {
+#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-title a,
+#page #node-user-panel .pane-userblogs-panel-pane-1 .generic-tooltip-wrapper .users-blogs-tooltip-title a {
   color:$linkColorCourse;
   text-decoration:none;
   text-transform:uppercase;
 }
 
-#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-desc {
+#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-desc,
+#page #node-user-panel .pane-userblogs-panel-pane-1 .generic-tooltip-wrapper .users-blogs-tooltip-desc {
   margin:0 0 5px 63px;
   max-height:115px;
   overflow:hidden;
@@ -2706,7 +2723,8 @@ ul.tabs.primary li.active a {
   display:none;
 }
 
-#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-admin {
+#page #node-user-panel .pane-user-courses .generic-tooltip-wrapper .users-courses-tooltip-admin,
+#page #node-user-panel .pane-userblogs-panel-pane-1 .generic-tooltip-wrapper .users-blogs-tooltip-date {
   margin:0 0 0 63px;
   font-size:0.9em;
   color:$altFontColor;
@@ -2723,7 +2741,8 @@ ul.tabs.primary li.active a {
  
 }
 
-#page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapper {
+#page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapper,
+#page #node-user-panel .pane-userblogs-panel-pane-1 .generic-tooltip-wrapper {
   opacity:0;
   visibility:hidden;
   position:absolute;
@@ -2739,7 +2758,12 @@ ul.tabs.primary li.active a {
   @include tooltip-rtl-animation;
 }
 
-#page #node-user-panel .pane-user-courses .views-row:hover .generic-tooltip-wrapper {
+#page #node-user-panel .pane-userblogs-panel-pane-1 .views-row .generic-tooltip-wrapper {
+	min-height:175px;
+}
+
+#page #node-user-panel .pane-user-courses .views-row:hover .generic-tooltip-wrapper,
+#page #node-user-panel .pane-userblogs-panel-pane-1 .views-row:hover .generic-tooltip-wrapper {
   visibility:visible;
   background:#ffffff;
   position:absolute;
@@ -2749,14 +2773,16 @@ ul.tabs.primary li.active a {
   opacity:1;
 }
 
-body #page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapper.preventOverLappingTop {
+body #page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapper.preventOverLappingTop,
+body #page #node-user-panel .pane-userblogs-panel-pane-1 .views-row .generic-tooltip-wrapper.preventOverLappingTop {
   position:fixed;
   z-index:9999;
   margin-top:38px;
   top:0;
 }
 
-body #page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapper.preventOverLappingBottom {
+body #page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapper.preventOverLappingBottom,
+body #page #node-user-panel .pane-userblogs-panel-pane-1 .views-row .generic-tooltip-wrapper.preventOverLappingBottom {
   position:fixed;
   z-index:9999;
   margin-bottom:5px;
@@ -3021,16 +3047,20 @@ body #page #node-user-panel .pane-user-courses .views-row .generic-tooltip-wrapp
   max-width:400px;
 }
 
+#messages .messages.status h3 {
+	margin: 0 0 5px 0;
+}
+
 #messages .messages.status {
-  margin:0 0 20px auto;
-  border:0;
-  border-radius:5px;
-  display:inline-block;
-  background-color:#000;
-  color:#fff;
-  padding-right:20px;
-  box-shadow:0px 0px 10px rgba(0,0,0,0.6);
-  text-align:left;
+	margin: 0 0 20px auto;
+	border: 0;
+	border-radius: 5px;
+	display: inline-block;
+	background-color: #F3FFEF;
+	color: #757575;
+	padding-right: 20px;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.6);
+	text-align: left;
 }
 
 #messages .messages.error {
@@ -3882,8 +3912,9 @@ form#blog-entry-node-form {
 }
 
 /* USERS COURSES */
-
-div.view-omat-kurssit {
+/* USERS BLOGS */
+div.view-omat-kurssit,
+div.view-omat-blogit {
   
   table.views-table {
     width:98%;
@@ -3908,7 +3939,8 @@ div.view-omat-kurssit {
       
     }
     
-    td.views-field-field-kurssin-kuva {
+    td.views-field-field-kurssin-kuva,
+    td.views-field-field-blogin-kuva {
       width:70px;
     
       a {
