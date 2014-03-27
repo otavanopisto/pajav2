@@ -102,7 +102,7 @@ function statuses_views_and_account_fields_field_default_fields() {
       'locked' => '0',
       'module' => 'image',
       'settings' => array(
-        'default_image' => '129',
+        'default_image' => '80',
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -125,13 +125,12 @@ function statuses_views_and_account_fields_field_default_fields() {
         ),
       ),
       'entity_type' => 'user',
-      'exclude_cv' => 0,
       'field_name' => 'field_account_kuva',
       'label' => 'Kuva',
       'required' => 0,
       'settings' => array(
         'alt_field' => 0,
-        'default_image' => '128',
+        'default_image' => '79',
         'exclude_cv' => FALSE,
         'file_directory' => '',
         'file_extensions' => 'png gif jpg jpeg',
@@ -219,7 +218,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'rows' => '5',
         ),
         'type' => 'text_textarea',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
@@ -285,7 +284,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '4',
+        'weight' => '8',
       ),
     ),
   );
@@ -351,7 +350,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '5',
+        'weight' => '9',
       ),
     ),
   );
@@ -417,7 +416,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '7',
+        'weight' => '10',
       ),
     ),
   );
@@ -552,7 +551,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '8',
+        'weight' => '11',
       ),
     ),
   );
@@ -622,7 +621,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '9',
+        'weight' => '12',
       ),
     ),
   );

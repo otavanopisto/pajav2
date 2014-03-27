@@ -477,6 +477,92 @@ function content_types_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-kurssi-field_jarjestajan_logo'.
+  $fields['node-kurssi-field_jarjestajan_logo'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_jarjestajan_logo',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'image',
+      'settings' => array(
+        'default_image' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'image',
+    ),
+    'field_instance' => array(
+      'bundle' => 'kurssi',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'image',
+          'settings' => array(
+            'image_link' => '',
+            'image_style' => '',
+          ),
+          'type' => 'image',
+          'weight' => 23,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'exclude_cv' => 1,
+      'field_name' => 'field_jarjestajan_logo',
+      'label' => 'Järjestäjän logo',
+      'required' => 0,
+      'settings' => array(
+        'alt_field' => 1,
+        'default_image' => 0,
+        'exclude_cv' => FALSE,
+        'file_directory' => 'kurssikuvat/jarjestajan_kuvat',
+        'file_extensions' => 'png gif jpg jpeg',
+        'max_filesize' => '1 MB',
+        'max_resolution' => '508x160',
+        'min_resolution' => '254x80',
+        'title_field' => 1,
+        'user_field_privacy' => FALSE,
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'image',
+        'settings' => array(
+          'preview_image_style' => 'group-thumbnail',
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'image_image',
+        'weight' => '18',
+      ),
+    ),
+  );
+
   // Exported field: 'node-kurssi-field_kurssi_alkaa'.
   $fields['node-kurssi-field_kurssi_alkaa'] = array(
     'field_config' => array(
@@ -936,6 +1022,96 @@ function content_types_field_default_fields() {
         ),
         'type' => 'text_textfield',
         'weight' => '6',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-kurssi-field_logon_linkki'.
+  $fields['node-kurssi-field_logon_linkki'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_logon_linkki',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => '0',
+      'module' => 'link',
+      'settings' => array(
+        'attributes' => array(
+          'class' => '',
+          'rel' => '',
+          'target' => 'default',
+        ),
+        'display' => array(
+          'url_cutoff' => 80,
+        ),
+        'enable_tokens' => 1,
+        'title' => 'optional',
+        'title_maxlength' => 128,
+        'title_value' => '',
+        'url' => 0,
+      ),
+      'translatable' => '0',
+      'type' => 'link_field',
+    ),
+    'field_instance' => array(
+      'bundle' => 'kurssi',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Nettisivu johon järjestäjän logo vie',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'link',
+          'settings' => array(),
+          'type' => 'link_default',
+          'weight' => 24,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'exclude_cv' => 1,
+      'field_name' => 'field_logon_linkki',
+      'label' => 'Logon linkki',
+      'required' => 0,
+      'settings' => array(
+        'attributes' => array(
+          'class' => '',
+          'configurable_title' => 0,
+          'rel' => '',
+          'target' => '_blank',
+          'title' => '',
+        ),
+        'display' => array(
+          'url_cutoff' => '80',
+        ),
+        'enable_tokens' => 0,
+        'exclude_cv' => FALSE,
+        'rel_remove' => 'default',
+        'title' => 'none',
+        'title_maxlength' => '128',
+        'title_value' => '',
+        'url' => 0,
+        'user_field_privacy' => FALSE,
+        'user_register_form' => FALSE,
+        'validate_url' => 1,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_field',
+        'weight' => '19',
       ),
     ),
   );
@@ -2003,13 +2179,16 @@ function content_types_field_default_fields() {
   t('Groups audience');
   t('Hintalaskuri');
   t('Ilmoittautumisviesti');
+  t('Järjestäjän logo');
   t('Kurssi alkaa');
   t('Kurssi loppuu');
   t('Kurssin kuva');
   t('Kurssin tila');
   t('Kurssin vetäjä');
   t('Kuvaus');
+  t('Logon linkki');
   t('Nettiosoite');
+  t('Nettisivu johon järjestäjän logo vie');
   t('Sisältö');
   t('Tagit');
   t('Tapahtuman aika');

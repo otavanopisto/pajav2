@@ -113,6 +113,7 @@ function content_types_field_group_info() {
       2 => 'group_hintalaskuri',
       3 => 'group_lisatiedot',
       4 => 'group_sisalto',
+      5 => 'group_jarjestajan_tiedot',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(

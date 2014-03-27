@@ -34,7 +34,7 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Relationship: Flags: (Please select a flag) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['flag_content_rel']['id'] = 'flag_content_rel';
   $handler->display->display_options['relationships']['flag_content_rel']['table'] = 'statuses';
   $handler->display->display_options['relationships']['flag_content_rel']['field'] = 'flag_content_rel';
@@ -131,7 +131,7 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private] [private] [private]</div>
       [message]
       <div class="statuses-details">
         <div class="statuses-links">[edit] [delete] [ops] [repost]</div> [created]
@@ -201,12 +201,12 @@ function user_profile_page_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('flag'),
+    t('flag_content_rel'),
     t('<span class="statuses-sender">[name]</span>'),
     t('<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private] [private] [private]</div>
       [message]
       <div class="statuses-details">
         <div class="statuses-links">[edit] [delete] [ops] [repost]</div> [created]
@@ -252,6 +252,14 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['relationships']['og_membership_related_node_group']['id'] = 'og_membership_related_node_group';
   $handler->display->display_options['relationships']['og_membership_related_node_group']['table'] = 'og_membership';
   $handler->display->display_options['relationships']['og_membership_related_node_group']['field'] = 'og_membership_related_node_group';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['relationship'] = 'og_membership_related_node_group';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: Content: Kurssin kuva */
   $handler->display->display_options['fields']['field_kurssin_kuva']['id'] = 'field_kurssin_kuva';
   $handler->display->display_options['fields']['field_kurssin_kuva']['table'] = 'field_data_field_kurssin_kuva';
@@ -280,23 +288,6 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['exclude'] = TRUE;
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  /* Field: Content: Arvio */
-  $handler->display->display_options['fields']['field_arvio']['id'] = 'field_arvio';
-  $handler->display->display_options['fields']['field_arvio']['table'] = 'field_data_field_arvio';
-  $handler->display->display_options['fields']['field_arvio']['field'] = 'field_arvio';
-  $handler->display->display_options['fields']['field_arvio']['relationship'] = 'og_membership_related_node_group';
-  $handler->display->display_options['fields']['field_arvio']['label'] = '';
-  $handler->display->display_options['fields']['field_arvio']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_arvio']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_arvio']['click_sort_column'] = 'rating';
-  $handler->display->display_options['fields']['field_arvio']['settings'] = array(
-    'widget' => array(
-      'fivestar_widget' => 'sites/default/modules/fivestar/widgets/basic/basic.css',
-    ),
-    'expose' => 0,
-    'style' => 'average',
-    'text' => 'none',
-  );
   /* Field: Content: Kurssin vetäjä */
   $handler->display->display_options['fields']['field_kurssin_vetaja']['id'] = 'field_kurssin_vetaja';
   $handler->display->display_options['fields']['field_kurssin_vetaja']['table'] = 'field_data_field_kurssin_vetaja';
@@ -305,6 +296,42 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['fields']['field_kurssin_vetaja']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_kurssin_vetaja']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_kurssin_vetaja']['delta_offset'] = '0';
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php']['id'] = 'php';
+  $handler->display->display_options['fields']['php']['table'] = 'views';
+  $handler->display->display_options['fields']['php']['field'] = 'php';
+  $handler->display->display_options['fields']['php']['label'] = '';
+  $handler->display->display_options['fields']['php']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php']['php_output'] = '<?php
+  $gid = $row->nid;
+  $rid = 4;
+  $output = \'\';
+  $result = db_query(
+    \'SELECT DISTINCT users.uid FROM {users} users
+       INNER JOIN {og_users_roles} og_users_roles ON users.uid = og_users_roles.uid
+       INNER JOIN {og_membership} og_membership ON og_users_roles.gid = og_membership.gid
+     WHERE og_membership.gid = :gid AND og_users_roles.rid = :rid\', array(\':gid\' => $gid, \':rid\' => $rid));
+  $items = array();
+  foreach ($result as $record) {
+    $author = user_load($record->uid);
+    $first_name = array_pop(field_get_items(\'user\', $author, \'field_account_etunimi\'));
+    $last_name = array_pop(field_get_items(\'user\', $author, \'field_account_sukunimi\'));
+    $full_name = $first_name["safe_value"] . " " . $last_name[\'safe_value\'];
+    $output .= $full_name . \', \';
+  }
+  $entity = entity_load_single(\'node\', $gid);
+  $attendee_field = field_get_items(\'node\', $entity, \'field_kurssin_vetaja\');
+
+  foreach ($attendee_field as $value) {
+    $output .= $value[\'safe_value\'] .\', \';
+  }
+  $output = rtrim($output,\', \');
+echo $output;
+?>';
+  $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -314,8 +341,7 @@ function user_profile_page_views_default_views() {
   <div class="users-courses-tooltip-image">[field_kurssin_kuva]</div>
   <div class="users-courses-tooltip-title">[title]</div>
   <div class="users-courses-tooltip-desc">[body]</div>
-  <div class="users-courses-tooltip-rating">[field_arvio]</div>
-  <div class="users-courses-tooltip-admin">[field_kurssin_vetaja]</div>
+  <div class="users-courses-tooltip-admin">[php]</div>
 </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Sort criterion: Content: Title */
@@ -351,11 +377,6 @@ function user_profile_page_views_default_views() {
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['relationship'] = 'og_membership_related_node_group';
   $handler->display->display_options['filters']['status']['value'] = '1';
-  /* Filter criterion: OG membership: Entity_type */
-  $handler->display->display_options['filters']['entity_type']['id'] = 'entity_type';
-  $handler->display->display_options['filters']['entity_type']['table'] = 'og_membership';
-  $handler->display->display_options['filters']['entity_type']['field'] = 'entity_type';
-  $handler->display->display_options['filters']['entity_type']['value'] = 'user';
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
@@ -390,8 +411,7 @@ function user_profile_page_views_default_views() {
   <div class="users-courses-tooltip-image">[field_kurssin_kuva]</div>
   <div class="users-courses-tooltip-title">[title]</div>
   <div class="users-courses-tooltip-desc">[body]</div>
-  <div class="users-courses-tooltip-rating">[field_arvio]</div>
-  <div class="users-courses-tooltip-admin">[field_kurssin_vetaja]</div>
+  <div class="users-courses-tooltip-admin">[php]</div>
 </div>'),
     t('All'),
     t('%1 groups'),

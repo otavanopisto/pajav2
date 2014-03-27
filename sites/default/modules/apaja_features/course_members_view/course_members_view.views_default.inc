@@ -28,8 +28,7 @@ function course_members_view_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
+  $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -145,16 +144,8 @@ function course_members_view_views_default_views() {
     3 => '3',
   );
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '20';
+  $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['quantity'] = '9';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all_label'] = '- Kaikki -';
-  $handler->display->display_options['pager']['options']['tags']['first'] = '« ensimmäinen';
-  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ edellinen';
-  $handler->display->display_options['pager']['options']['tags']['next'] = 'seuraava ›';
-  $handler->display->display_options['pager']['options']['tags']['last'] = 'viimeinen »';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['row_class'] = ' ';
@@ -253,6 +244,53 @@ echo \'<h3>\'. $node->title. \' osallistujat</h3>\';
   $handler->display->display_options['menu']['title'] = 'Osallistujat printti';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['context'] = 0;
+
+  /* Display: Data export */
+  $handler = $view->new_display('views_data_export', 'Data export', 'views_data_export_1');
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'og_context';
+  $handler->display->display_options['access']['perm'] = 'administer group';
+  $handler->display->display_options['access']['group_id_arg'] = '1';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+  $handler->display->display_options['style_options']['provide_file'] = 1;
+  $handler->display->display_options['style_options']['filename'] = 'osallistujat.csv';
+  $handler->display->display_options['style_options']['parent_sort'] = 0;
+  $handler->display->display_options['style_options']['quote'] = 0;
+  $handler->display->display_options['style_options']['trim'] = 0;
+  $handler->display->display_options['style_options']['replace_newlines'] = 0;
+  $handler->display->display_options['style_options']['header'] = 0;
+  $handler->display->display_options['style_options']['keep_html'] = 0;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: User: Etunimi */
+  $handler->display->display_options['fields']['field_account_etunimi']['id'] = 'field_account_etunimi';
+  $handler->display->display_options['fields']['field_account_etunimi']['table'] = 'field_data_field_account_etunimi';
+  $handler->display->display_options['fields']['field_account_etunimi']['field'] = 'field_account_etunimi';
+  $handler->display->display_options['fields']['field_account_etunimi']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_account_etunimi']['element_label_colon'] = FALSE;
+  /* Field: User: Sukunimi */
+  $handler->display->display_options['fields']['field_account_sukunimi']['id'] = 'field_account_sukunimi';
+  $handler->display->display_options['fields']['field_account_sukunimi']['table'] = 'field_data_field_account_sukunimi';
+  $handler->display->display_options['fields']['field_account_sukunimi']['field'] = 'field_account_sukunimi';
+  $handler->display->display_options['fields']['field_account_sukunimi']['label'] = 'Nimi';
+  $handler->display->display_options['fields']['field_account_sukunimi']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_account_sukunimi']['alter']['text'] = '[field_account_etunimi] [field_account_sukunimi]';
+  $handler->display->display_options['fields']['field_account_sukunimi']['alter']['path'] = 'user/[uid]';
+  $handler->display->display_options['fields']['field_account_sukunimi']['element_label_colon'] = FALSE;
+  /* Field: User: E-mail */
+  $handler->display->display_options['fields']['mail']['id'] = 'mail';
+  $handler->display->display_options['fields']['mail']['table'] = 'users';
+  $handler->display->display_options['fields']['mail']['field'] = 'mail';
+  $handler->display->display_options['fields']['mail']['label'] = 'Sähköpostiosoite';
+  $handler->display->display_options['fields']['mail']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['mail']['link_to_user'] = '0';
+  $handler->display->display_options['path'] = 'node/%/export';
+  $handler->display->display_options['displays'] = array(
+    'page_1' => 'page_1',
+    'default' => 0,
+    'block_1' => 0,
+    'panel_pane_1' => 0,
+  );
   $translatables['course_members'] = array(
     t('Defaults'),
     t('more'),
@@ -271,15 +309,11 @@ echo \'<h3>\'. $node->title. \' osallistujat</h3>\';
     t('View panes'),
     t('Page'),
     t('Kurssin osallistujat'),
-    t('Items per page'),
-    t('- Kaikki -'),
-    t('Offset'),
-    t('« ensimmäinen'),
-    t('‹ edellinen'),
-    t('seuraava ›'),
-    t('viimeinen »'),
     t('Nimi'),
     t('E-mail'),
+    t('Data export'),
+    t('Etunimi'),
+    t('Sähköpostiosoite'),
   );
   $export['course_members'] = $view;
 
