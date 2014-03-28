@@ -123,8 +123,7 @@ function oo_alterations_preprocess_field(&$vars){
         $vars['items'][0]['#markup'] = filter_xss(round($price_calculated, 2, PHP_ROUND_HALF_UP) . '€');
       }
     }
-  }
-  elseif($vars['element']['#field_name'] == 'field_kurssi_alkaa'){
+  }elseif($vars['element']['#field_name'] == 'field_kurssi_alkaa'){
     $entity_type = $vars['element']['#entity_type'];
     $entity = $vars['element']['#object'];
     $course_state = array_pop(field_get_items($entity_type, $entity, 'field_kurssin_tila'));
@@ -139,9 +138,31 @@ function oo_alterations_preprocess_field(&$vars){
         $vars['items'][0]['#markup'] = t("Kurssi on käynnissä");
       }      
     }
+  }elseif($vars['element']['#field_name'] == 'field_jarjestajan_logo'){
+    $entity_type = $vars['element']['#entity_type'];
+    $entity = $vars['element']['#object'];
+    $link = array_pop(field_get_items($entity_type, $entity, 'field_logon_linkki'));
+    $link = $link['url'];
+    if(startsWith($link, 'http://') || startsWith($link, 'https://')){
+      $vars['items'][0]['#path'] = array(
+        'path' => $link,
+        'options' => array('html' => TRUE, 'absolute' => TRUE, 'target' => '_blank'),
+      );
+    }else{
+      $link = 'http://' . $link;
+      $vars['items'][0]['#path'] = array(
+        'path' => $link,
+        'options' => array('html' => TRUE, 'absolute' => TRUE, 'target' => '_blank'),
+      );
+    }
+
   }
 }
-
+function startsWith($haystack, $needle)
+{
+  $length = strlen($needle);
+  return (substr($haystack, 0, $length) === $needle);
+}
 /**
  * Implementation of hook_mail_alter()
  */
@@ -583,6 +604,13 @@ function oo_alterations_wysiwyg_editor_settings_alter(&$settings, $context) {
     // To see what's in $settings and $context, install the devel module
     // And run the variables through the dpm() function.
   }
+}
+
+function oo_alterations_user_login(&$edit, $account) {
+  drupal_set_message('<h3>Tervetuloa aPaja-sivustolle!</h3>
+    aPajassa voit osallistua ja rekisteröityä mukaan tarjolla oleville kursseille tai luoda oman unelmien kurssisi.
+    Omat kurssisi löydät sivun oikeassa yläkulmassa olevan linkin takaa. <br/><br/>Jos sinulla on mitä tahansa kysyttävää, tai ideoita aPajan -sivuston kehitykseen, ole yhteydessä meihin sähköpostilla apaja@otavanopisto.fi
+    <br/><br/>Yst.t. aPaja tiimin puolesta, Johanna', $type = 'status', $repeat = FALSE);
 }
 
 ?>
