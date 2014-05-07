@@ -269,7 +269,7 @@ function statuses_views_and_account_fields_views_default_views() {
     t('<div id="statuses-item-[sid]" class="[classes]">
     [sender_custom_pic]
     <div class="content">
-      <div class="statuses-participants">[user_contextual] [private]</div>
+      <div class="statuses-participants">[user_contextual] [private] [private]</div>
       [message]
       <div class="statuses-details">
         <div class="statuses-links">[php_1] [php]</div> [created]

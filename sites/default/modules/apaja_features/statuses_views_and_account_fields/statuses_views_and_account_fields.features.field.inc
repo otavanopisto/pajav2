@@ -70,7 +70,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '1',
+        'weight' => '2',
       ),
     ),
   );
@@ -102,7 +102,7 @@ function statuses_views_and_account_fields_field_default_fields() {
       'locked' => '0',
       'module' => 'image',
       'settings' => array(
-        'default_image' => '80',
+        'default_image' => '308',
         'uri_scheme' => 'public',
       ),
       'translatable' => '0',
@@ -125,12 +125,13 @@ function statuses_views_and_account_fields_field_default_fields() {
         ),
       ),
       'entity_type' => 'user',
+      'exclude_cv' => 0,
       'field_name' => 'field_account_kuva',
       'label' => 'Kuva',
       'required' => 0,
       'settings' => array(
         'alt_field' => 0,
-        'default_image' => '79',
+        'default_image' => '307',
         'exclude_cv' => FALSE,
         'file_directory' => '',
         'file_extensions' => 'png gif jpg jpeg',
@@ -154,7 +155,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'resolution' => '160x160',
         ),
         'type' => 'imagefield_crop_widget',
-        'weight' => '0',
+        'weight' => '1',
       ),
     ),
   );
@@ -284,7 +285,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '8',
+        'weight' => '5',
       ),
     ),
   );
@@ -350,7 +351,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '9',
+        'weight' => '6',
       ),
     ),
   );
@@ -416,7 +417,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '10',
+        'weight' => '7',
       ),
     ),
   );
@@ -481,7 +482,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '2',
+        'weight' => '3',
       ),
     ),
   );
@@ -551,7 +552,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '11',
+        'weight' => '8',
       ),
     ),
   );
@@ -564,6 +565,9 @@ function statuses_views_and_account_fields_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_account_taitoni',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(
         'tid' => array(
           'columns' => array(
@@ -594,7 +598,7 @@ function statuses_views_and_account_fields_field_default_fields() {
       'bundle' => 'user',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Listaa tähän kenttään taitojasi tagi tyyliin pilkuilla eroteiltuina. Esim. kalastus, golf, joukkohypnoosi',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -605,6 +609,7 @@ function statuses_views_and_account_fields_field_default_fields() {
         ),
       ),
       'entity_type' => 'user',
+      'exclude_cv' => 0,
       'field_name' => 'field_account_taitoni',
       'label' => 'Taitoni',
       'required' => 0,
@@ -621,7 +626,7 @@ function statuses_views_and_account_fields_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '12',
+        'weight' => '9',
       ),
     ),
   );
@@ -632,6 +637,7 @@ function statuses_views_and_account_fields_field_default_fields() {
   t('Etunimi');
   t('Kuva');
   t('Kuvaus');
+  t('Listaa tähän kenttään taitojasi tagi tyyliin pilkuilla eroteiltuina. Esim. kalastus, golf, joukkohypnoosi');
   t('Lähiosoite');
   t('Postinumero');
   t('Postitoimipaikka');
