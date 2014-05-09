@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Added views feature.
+ */
+
+include_once 'added_views.features.inc';
