@@ -264,18 +264,21 @@ function _ajax_og_subscribe_view() {
   return $block;
 }
 
-function ajax_og_subscribe_og_membership_presave(OgMembership $og_membership){
+function ajax_og_subscribe_og_membership_presave(OgMembership &$og_membership){
   $path .= 'node/' . arg(1);
   $gid = $og_membership->gid;
   if(_ajax_og_subscribe_is_course_full()){
     drupal_goto($path);    
-  } 
+  }
+  return true;
 }
 
 function _ajax_og_subscribe_is_course_full($gid){
-  $entity = entity_load_single('node', $gid);
-  $field_hintalaskuri = array_pop(field_get_items('node', $entity, 'field_hintalaskuri'));
-  $max_participants = $field_hintalaskuri['attendees_max'];
+  $max_participants = 0;
+  $attendee_query_result = db_query("SELECT field_hintalaskuri_attendees_max FROM {field_data_field_hintalaskuri} field_data_field_hintalaskuri WHERE entity_id = :gid;", array(':gid' => $gid));
+  foreach ($attendee_query_result as $max_att){
+    $max_participants = $max_att->field_hintalaskuri_attendees_max;
+  }
   $query1 = db_select('users', 'u');
   $query1
   ->condition('u.uid', 0, '<>')
@@ -287,15 +290,15 @@ function _ajax_og_subscribe_is_course_full($gid){
   $result1 = $query1->execute();
   $admin_count = $result1->rowCount();
   
-  $query = db_select('users', 'u');
-  $query
+  $query2 = db_select('users', 'u');
+  $query2
   ->condition('u.uid', 0, '<>')
   ->condition('u.status', 1, '=')
   ->fields('u', array('uid', 'name'))
   ->join('og_membership', 'ogm', "ogm.gid = :gid AND u.uid = ogm.etid AND ogm.entity_type = 'user'", array(':gid' => $gid));
-  $result = $query->execute();
-  $rows = $result->rowCount();
-  $value = $result->rowCount() - $admin_count;
+  $result2 = $query2->execute();
+  $rows = $result2->rowCount();
+  $value = $result2->rowCount() - $admin_count;
   $count = max(array($value,0));
   if($count >= $max_participants){
     return true;
