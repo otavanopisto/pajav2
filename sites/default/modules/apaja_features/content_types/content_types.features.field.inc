@@ -195,7 +195,7 @@ function content_types_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '2',
+          'weight' => '1',
         ),
         'notifications' => array(
           'label' => 'above',
@@ -275,7 +275,7 @@ function content_types_field_default_fields() {
             ),
           ),
           'type' => 'fivestar_formatter_default',
-          'weight' => '10',
+          'weight' => '7',
         ),
         'notifications' => array(
           'label' => 'above',
@@ -364,7 +364,7 @@ function content_types_field_default_fields() {
           'module' => 'paja_course_price',
           'settings' => array(),
           'type' => 'paja_course_price_default',
-          'weight' => 21,
+          'weight' => '9',
         ),
         'notifications' => array(
           'label' => 'above',
@@ -445,7 +445,7 @@ function content_types_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 22,
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -523,7 +523,7 @@ function content_types_field_default_fields() {
             'image_style' => '',
           ),
           'type' => 'image',
-          'weight' => 23,
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -612,10 +612,9 @@ function content_types_field_default_fields() {
             'multiple_from' => '',
             'multiple_number' => '',
             'multiple_to' => '',
-            'show_repeat_rule' => 'show',
           ),
           'type' => 'date_default',
-          'weight' => '8',
+          'weight' => '4',
         ),
         'notifications' => array(
           'label' => 'above',
@@ -633,7 +632,7 @@ function content_types_field_default_fields() {
       'entity_type' => 'node',
       'exclude_cv' => 1,
       'field_name' => 'field_kurssi_alkaa',
-      'label' => 'Kurssi alkaa',
+      'label' => 'aPaja alkaa',
       'required' => 0,
       'settings' => array(
         'default_value' => 'now',
@@ -710,10 +709,9 @@ function content_types_field_default_fields() {
             'multiple_from' => '',
             'multiple_number' => '',
             'multiple_to' => '',
-            'show_repeat_rule' => 'show',
           ),
           'type' => 'date_default',
-          'weight' => '9',
+          'weight' => '5',
         ),
         'notifications' => array(
           'label' => 'above',
@@ -731,7 +729,7 @@ function content_types_field_default_fields() {
       'entity_type' => 'node',
       'exclude_cv' => 1,
       'field_name' => 'field_kurssi_loppuu',
-      'label' => 'Kurssi loppuu',
+      'label' => 'aPaja loppuu',
       'required' => 0,
       'settings' => array(
         'default_value' => 'now',
@@ -796,7 +794,7 @@ function content_types_field_default_fields() {
     'field_instance' => array(
       'bundle' => 'kurssi',
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Kuvan koko vähintään 500*270 pikseliä. Suurin mahdollinen koko 2048*2048, josta kuva rajataan pienemmäksi.',
       'display' => array(
         'default' => array(
           'label' => 'hidden',
@@ -806,7 +804,7 @@ function content_types_field_default_fields() {
             'image_style' => '',
           ),
           'type' => 'image',
-          'weight' => '1',
+          'weight' => '0',
         ),
         'notifications' => array(
           'label' => 'above',
@@ -824,7 +822,7 @@ function content_types_field_default_fields() {
       'entity_type' => 'node',
       'exclude_cv' => 0,
       'field_name' => 'field_kurssin_kuva',
-      'label' => 'Kurssin kuva',
+      'label' => 'aPajan kuva',
       'required' => 1,
       'settings' => array(
         'alt_field' => 1,
@@ -878,10 +876,10 @@ function content_types_field_default_fields() {
       'module' => 'list',
       'settings' => array(
         'allowed_values' => array(
-          0 => 'Kurssia valmistellaan',
-          1 => 'Kurssi on tarjolla',
-          2 => 'Kurssi on käynnissä',
-          3 => 'Kurssi on päättynyt',
+          0 => 'aPajaa valmistellaan',
+          1 => 'aPaja on tarjolla',
+          2 => 'aPaja on käynnissä',
+          3 => 'aPaja on päättynyt',
         ),
         'allowed_values_function' => '',
       ),
@@ -902,7 +900,7 @@ function content_types_field_default_fields() {
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '0',
+          'weight' => '14',
         ),
         'notifications' => array(
           'label' => 'above',
@@ -920,7 +918,7 @@ function content_types_field_default_fields() {
       'entity_type' => 'node',
       'exclude_cv' => 0,
       'field_name' => 'field_kurssin_tila',
-      'label' => 'Kurssin tila',
+      'label' => 'aPajan tila',
       'required' => 1,
       'settings' => array(
         'exclude_cv' => FALSE,
@@ -945,6 +943,9 @@ function content_types_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_kurssin_vetaja',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(
         'format' => array(
           'columns' => array(
@@ -989,7 +990,7 @@ function content_types_field_default_fields() {
             'textformatter_type' => 'comma',
           ),
           'type' => 'textformatter_list',
-          'weight' => '4',
+          'weight' => '3',
         ),
         'notifications' => array(
           'label' => 'above',
@@ -1005,8 +1006,9 @@ function content_types_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
+      'exclude_cv' => 0,
       'field_name' => 'field_kurssin_vetaja',
-      'label' => 'Kurssin vetäjä',
+      'label' => 'aPajan vetäjä',
       'required' => 0,
       'settings' => array(
         'exclude_cv' => FALSE,
@@ -1070,7 +1072,7 @@ function content_types_field_default_fields() {
           'module' => 'link',
           'settings' => array(),
           'type' => 'link_default',
-          'weight' => 24,
+          'weight' => '12',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1150,14 +1152,14 @@ function content_types_field_default_fields() {
       'bundle' => 'kurssi',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '<i>Lyhyt listauksissa näytettävä kuvaus kurssista</i>',
+      'description' => '<i>Lyhyt listauksissa näytettävä kuvaus aPajasta</i>',
       'display' => array(
         'default' => array(
           'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '12',
+          'weight' => '8',
         ),
         'notifications' => array(
           'label' => 'above',
@@ -1240,7 +1242,7 @@ function content_types_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '3',
+          'weight' => '2',
         ),
         'notifications' => array(
           'label' => 'above',
@@ -1321,7 +1323,7 @@ function content_types_field_default_fields() {
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '14',
+          'weight' => '15',
         ),
         'notifications' => array(
           'label' => 'above',
@@ -1400,7 +1402,7 @@ function content_types_field_default_fields() {
             'field_name' => '0',
           ),
           'type' => 'og_group_subscribe',
-          'weight' => '10',
+          'weight' => '6',
         ),
         'notifications' => array(
           'label' => 'above',
@@ -2167,7 +2169,7 @@ function content_types_field_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('<i>Lyhyt listauksissa näytettävä kuvaus kurssista</i>');
+  t('<i>Lyhyt listauksissa näytettävä kuvaus aPajasta</i>');
   t('<p>Teksti, joka lähetetään sähköpostilla juuri liittyneelle kurssin jäsenelle.</p>
 <p>Parametrit jotka korvautuu tekstissä</p><p>@kurssin_nimi kurssin nimi<br />@kurssin_osoite kurssin osoite<br />@kurssi_alkaa kurssin alkamispäivämäärä<br />@kurssi_loppuu kurssin loppumispäivämäärä<br />@jasenen_nimi liittyneen jäsenen koko nimi<br/>@jarjestajan_email kurssin järjestäjän sähköpostiosoite</p>');
   t('Alempi slogan');
@@ -2180,11 +2182,7 @@ function content_types_field_default_fields() {
   t('Hintalaskuri');
   t('Ilmoittautumisviesti');
   t('Järjestäjän logo');
-  t('Kurssi alkaa');
-  t('Kurssi loppuu');
-  t('Kurssin kuva');
-  t('Kurssin tila');
-  t('Kurssin vetäjä');
+  t('Kuvan koko vähintään 500*270 pikseliä. Suurin mahdollinen koko 2048*2048, josta kuva rajataan pienemmäksi.');
   t('Kuvaus');
   t('Logon linkki');
   t('Nettiosoite');
@@ -2198,6 +2196,11 @@ function content_types_field_default_fields() {
   t('Yhteenveto');
   t('Yhteystiedot');
   t('Ylempi slogan');
+  t('aPaja alkaa');
+  t('aPaja loppuu');
+  t('aPajan kuva');
+  t('aPajan tila');
+  t('aPajan vetäjä');
 
   return $fields;
 }

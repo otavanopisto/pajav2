@@ -32,7 +32,7 @@ function content_types_node_info() {
       'help' => '',
     ),
     'kurssi' => array(
-      'name' => t('Kurssi'),
+      'name' => t('aPaja'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',

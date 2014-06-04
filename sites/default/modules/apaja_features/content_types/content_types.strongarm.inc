@@ -272,6 +272,9 @@ function content_types_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -282,7 +285,14 @@ function content_types_strongarm() {
           'weight' => '2',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'webform' => array(
+          'default' => array(
+            'weight' => '13',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__kurssi'] = $strongarm;
