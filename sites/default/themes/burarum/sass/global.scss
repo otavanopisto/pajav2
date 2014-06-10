@@ -878,7 +878,7 @@ ul.tabs.primary li.active a {
 }
 
 /* JCAROUSEL */
-
+.view-kurssitarjontasivu,
 .view-courses-not,
 .view-courses-started,
 .view-courses-ended {
@@ -1141,7 +1141,8 @@ ul.tabs.primary li.active a {
 }
 
 .view-courses-not .jkarousel-add-new-item .views-field-title,
-.view-courses-not .views-row.courses-not-create-new .views-field-title {
+.view-courses-not .views-row.courses-not-create-new .views-field-title,
+.view-kurssitarjontasivu .views-row.courses-not-create-new .views-field-title {
   margin:30px 20px 50px 20px;
   overflow:visible;
   text-align:center;
@@ -1149,13 +1150,15 @@ ul.tabs.primary li.active a {
 }
 
 .view-courses-not .jkarousel-add-new-item .views-field-title a,
-.view-courses-not .views-row.courses-not-create-new .views-field-title a  {
-  color:#5f9911;
+.view-courses-not .views-row.courses-not-create-new .views-field-title a,
+.view-kurssitarjontasivu .views-row.courses-not-create-new .views-field-title a{
+	color:#5f9911;
   font-size:1.3em;
 }
 
 .addNewExcursionSlide,
-.view-courses-not .views-row.courses-not-create-new .addNewExcursionSlide {
+.view-courses-not .views-row.courses-not-create-new .addNewExcursionSlide,
+.view-kurssitarjontasivu .views-row.courses-not-create-new .addNewExcursionSlide{
   background: url("../gfx/plus.png") no-repeat center center;
   background-size:50%;
   display: block;
@@ -1182,12 +1185,14 @@ ul.tabs.primary li.active a {
 .jkarousel-add-new-item .jcarousel-item-padding:hover .addNewExcursionSlide,
 .view-courses-not .views-row.courses-not-create-new:hover .addNewExcursionSlide,
 .addNewExcursionSlide:hover,
-.view-courses-not .views-row.courses-not-create-new .addNewExcursionSlide:hover {
+.view-courses-not .views-row.courses-not-create-new .addNewExcursionSlide:hover,
+.view-kurssitarjontasivu .views-row.courses-not-create-new .addNewExcursionSlide:hover{
   opacity:1;
 }
 
 .view-courses-not .jkarousel-add-new-item .views-field-field-summary,
-.view-courses-not .views-row.courses-not-create-new .views-field-field-summary {
+.view-courses-not .views-row.courses-not-create-new .views-field-field-summary,
+.view-kurssitarjontasivu .views-row.courses-not-create-new .views-field-field-summary{
   margin:50px 20px 30px 20px;
   overflow:visible;
   text-align:center;
@@ -1196,7 +1201,8 @@ ul.tabs.primary li.active a {
 }
 
 .view-courses-not .jkarousel-add-new-item .views-field-field-summary .field-content,
-.view-courses-not .views-row.courses-not-create-new .views-field-field-summary .field-content {
+.view-courses-not .views-row.courses-not-create-new .views-field-field-summary .field-content,
+.view-kurssitarjontasivu .views-row.courses-not-create-new .views-field-field-summary .field-content {
   max-height:82px;
   min-height:82px;
 }
@@ -1240,17 +1246,21 @@ ul.tabs.primary li.active a {
 
 .view-courses-started, 
 .view-courses-not,
+.view-kurssitarjontasivu,
 .view-courses-ended,
 .view-editors-choise,
 .view-blogikirjoutukset {
   position:relative;
 }
 
+.view-kurssitarjontasivu .view-header,
+.view-kurssitarjontasivu .view-filters,
 .view-courses-not .view-header,
 .view-courses-not .view-filters{
 	margin-left: 10px;
 }
 
+.view-kurssitarjontasivu.view-display-id-page_list_all,
 .view-courses-not.view-display-id-page_list_all,
 .view-courses-started.view-display-id-page_list_all,
 .view-courses-ended.view-display-id-page_list_all,
@@ -1260,6 +1270,7 @@ ul.tabs.primary li.active a {
   padding:0;
 }
 
+.view-kurssitarjontasivu .views-row,
 .view-courses-not .views-row,
 .view-courses-started .views-row,
 .view-courses-ended .views-row,
@@ -1274,6 +1285,8 @@ ul.tabs.primary li.active a {
   @include carousel-hover-transition;
 }
 
+.view-kurssitarjontasivu .views-row,
+.view-kurssitarjontasivu .views-row.courses-not-page-row,
 .view-courses-not .views-row,
 .view-courses-not .views-row.courses-not-page-row,
 .view-courses-started .views-row.courses-started-page-row,
@@ -1283,6 +1296,7 @@ ul.tabs.primary li.active a {
    margin:0px 10px 20px 10px;
 }
 
+.view-kurssitarjontasivu .views-row:hover,
 .view-courses-not .views-row:hover,
 .view-courses-started .views-row:hover,
 .view-courses-ended .views-row:hover,
@@ -1293,6 +1307,7 @@ ul.tabs.primary li.active a {
   background:#ffffff;
 }
 
+.view-kurssitarjontasivu .views-row .views-field-field-kurssin-kuva,
 .view-courses-not .views-row .views-field-field-kurssin-kuva,
 .view-courses-started .views-row .views-field-field-kurssin-kuva,
 .view-courses-ended .views-row .views-field-field-kurssin-kuva,
@@ -1303,6 +1318,7 @@ ul.tabs.primary li.active a {
   max-height:137px;
 }
 
+.view-kurssitarjontasivu .views-row img,
 .view-courses-not .views-row img,
 .view-courses-started .views-row img,
 .view-courses-ended .views-row img,
@@ -1312,16 +1328,18 @@ ul.tabs.primary li.active a {
   height:auto;
 }
 
+.view-kurssitarjontasivu .views-row .views-field-title,
 .view-courses-not .views-row .views-field-title,
 .view-courses-started .views-row .views-field-title,
 .view-courses-ended .views-row .views-field-title,
 .view-editors-choise .views-row .views-field-title,
-.view-blogikirjoutukset .views-row .views-field-title  {
+.view-blogikirjoutukset .views-row .views-field-title {
   margin:10px 0 3px 0;
   height:1.5em;
   overflow:hidden;
 }
 
+.view-kurssitarjontasivu .views-row .views-field-title a,
 .view-courses-not .views-row .views-field-title a,
 .view-courses-started .views-row .views-field-title a,
 .view-courses-ended .views-row .views-field-title a,
@@ -1333,6 +1351,7 @@ ul.tabs.primary li.active a {
   text-decoration:none;
 }
 
+.view-kurssitarjontasivu .views-row .views-field-title a:hover,
 .view-courses-not .views-row .views-field-title a:hover,
 .view-courses-started .views-row .views-field-title a:hover,
 .view-courses-ended .views-row .views-field-title a:hover,
@@ -1341,6 +1360,7 @@ ul.tabs.primary li.active a {
   color:$linkHoverColorCourse;
 }
 
+.view-kurssitarjontasivu .views-row .views-field-title a:focus,
 .view-courses-not .views-row .views-field-title a:focus,
 .view-courses-started .views-row .views-field-title a:focus,
 .view-courses-ended .views-row .views-field-title a:focus,
@@ -1349,6 +1369,7 @@ ul.tabs.primary li.active a {
   color:$linkFocusColorCourse;
 }
 
+.view-kurssitarjontasivu .views-row .views-field-field-summary .field-content,
 .view-courses-not .views-row .views-field-field-summary .field-content,
 .view-courses-started .views-row .views-field-field-summary .field-content,
 .view-courses-ended .views-row .views-field-field-summary .field-content,
@@ -1362,6 +1383,7 @@ ul.tabs.primary li.active a {
   display:block;
 }
 
+.view-kurssitarjontasivu .views-row .views-field-field-arvio .field-content,
 .view-courses-not .views-row .views-field-field-arvio .field-content, 
 .view-courses-started .views-row .views-field-field-arvio .field-content,
 .view-courses-ended .views-row .views-field-field-arvio .field-content,
@@ -1371,6 +1393,7 @@ ul.tabs.primary li.active a {
   display:block;
 }
 
+.view-kurssitarjontasivu .views-row .views-field-field-arvio .fivestar-widget-static,
 .view-courses-not .views-row .views-field-field-arvio .fivestar-widget-static,
 .view-courses-started .views-row .views-field-field-arvio .fivestar-widget-static,
 .view-courses-ended .views-row .views-field-field-arvio .fivestar-widget-static,
@@ -1379,6 +1402,8 @@ ul.tabs.primary li.active a {
   float:right;
 }
 
+.view-kurssitarjontasivu .views-row .field-content .field-label,
+.view-kurssitarjontasivu .views-row span.views-label,
 .view-courses-not .views-row .field-content .field-label,
 .view-courses-not .views-row span.views-label,
 .view-courses-started .views-row span.views-label,
@@ -1388,6 +1413,7 @@ ul.tabs.primary li.active a {
   @include generic-course-meta-info-label;
 }
 
+.view-kurssitarjontasivu .views-row .field-content,
 .view-courses-not .views-row .field-content,
 .view-courses-started .views-row .field-content,
 .view-courses-ended .views-row .field-content,
@@ -1395,6 +1421,7 @@ ul.tabs.primary li.active a {
    @include generic-course-meta-info-field;
 }
 
+.view-kurssitarjontasivu .views-row .views-field-field-kurssin-vetaja,
 .view-courses-not .views-row .views-field-field-kurssin-vetaja,
 .view-courses-started .views-row .views-field-field-kurssin-vetaja,
 .view-courses-ended .views-row .views-field-field-kurssin-vetaja,
@@ -1402,6 +1429,7 @@ ul.tabs.primary li.active a {
    position:relative;
 }
 
+.view-kurssitarjontasivu .views-row .views-field-field-kurssin-vetaja .field-content,
 .view-courses-not .views-row .views-field-field-kurssin-vetaja .field-content,
 .view-courses-started .views-row .views-field-field-kurssin-vetaja .field-content,
 .view-courses-ended .views-row .views-field-field-kurssin-vetaja .field-content,
@@ -1411,6 +1439,7 @@ ul.tabs.primary li.active a {
    max-height:1.5em;
 }
 
+.view-kurssitarjontasivu .views-row .field-content .attendancies-indicator-wrapper,
 .view-courses-not .views-row .field-content .attendancies-indicator-wrapper {
   width:100%;
   background:#f8f8f8;
@@ -1418,12 +1447,14 @@ ul.tabs.primary li.active a {
   @include rounded-borders;
 }
 
+.view-kurssitarjontasivu .views-row .field-content .attendancies-indicator,
 .view-courses-not .views-row .field-content .attendancies-indicator {
   text-align:right;
   background:#3bf210;
   @include rounded-borders;
 }
 
+.view-kurssitarjontasivu .views-row .field-content .attendancies-percent,
 .view-courses-not .views-row .field-content .attendancies-percent {
   padding:2px 4px 2px 0px;
 }
@@ -3911,6 +3942,34 @@ form#blog-entry-node-form {
   
 }
 
+
+/* WEBFORM SUBMISSIONS */
+div.zone-content{
+	table {
+    width:98%;
+    margin:0 10px 20px 10px;
+    
+    tbody tr {
+      background:none;
+      border-bottom:1px solid #eee;
+    }
+    
+    /* tbody tr.views-row-last {
+      border:0;
+    } */
+    
+    td {
+      vertical-align:middle;
+      padding:5px 0;
+      
+      &.active {
+        background:none;
+      }  
+      
+    }
+
+  }
+}
 /* USERS COURSES */
 /* USERS BLOGS */
 div.view-omat-kurssit,

@@ -36,6 +36,7 @@ html body {
 
 /* LIST ALL COURSES VIEW */
 
+.view-kurssitarjontasivu .views-row,
 .view-courses-not .views-row,
 .view-courses-started .views-row,
 .view-courses-ended .views-row,
@@ -43,6 +44,7 @@ html body {
   max-width:205px;
 }
 
+.view-kurssitarjontasivu .views-row .views-field-field-kurssin-kuva,
 .view-courses-not .views-row .views-field-field-kurssin-kuva,
 .view-courses-started .views-row .views-field-field-kurssin-kuva,
 .view-courses-ended .views-row .views-field-field-kurssin-kuva,
@@ -51,6 +53,7 @@ html body {
   max-height:137px;
 }
 
+.view-kurssitarjontasivu .views-row .views-field-field-summary .field-content,
 .view-courses-not .views-row .views-field-field-summary .field-content,
 .view-courses-started .views-row .views-field-field-summary .field-content,
 .view-courses-ended .views-row .views-field-field-summary .field-content,
