@@ -51,7 +51,7 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
       profit = totalIncome - allCosts;
       
       if (profit > 0) {
-        $("#paja-course-result").html("<p class=\"course-ok\"></p><p class=\"course-result-ok-title\">Kurssi on kannattava</p>");
+        $("#paja-course-result").html("<p class=\"course-ok\"></p><p class=\"course-result-ok-title\">aPaja on kannattava</p>");
   
         instructorFeeGross = round100(instructorFees / 1.3);
         instructorFeeFirm = round100(instructorFees / 1.24);
@@ -66,9 +66,9 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
         $("#paja-course-result").html("<p class=\"course-not-ok\"></p><p class=\"course-result-not-ok-title\">Tulot eivät riitä.</p>");
   
         if (incomePerAttendee > (managementCostsPerAttendee + instructorFees / attendees)) {
-          $("#paja-course-result").append("<p class=\"course-result-desc\">" + "Kurssi muuttuu " +
+          $("#paja-course-result").append("<p class=\"course-result-desc\">" + "aPaja muuttuu " +
             "kannattavaksi kun kurssilaisten määrää kasvatetaan vähintään " + criticalPoint + ":een. " +
-            "Kannattavuuteen voit vaikuttaa mm. kasvattamalla kurssin laajuutta." + "</p>");
+            "Kannattavuuteen voit vaikuttaa mm. kasvattamalla aPajan laajuutta." + "</p>");
         }
         else {
           $("#paja-course-result").append("<p class=\"course-result-desc\">" + "Tulot eivät kata kuluja. Kasvata joko kurssimaksua, lähi- tai etäpäivien määrää tai vastaavasti pienennä palkkioita." + "</p>");
@@ -84,7 +84,7 @@ Drupal.behaviors.pajaCoursePriceFieldValueChangeBehaviour = {
 //      var totalCosts = instructorFees + managementAndProfitMargin + premisesCosts + miscellanousCosts;
       var tableProfit = round100(profit);
       var budgetHTML = "<table class='paja-course-table'>" +
-      "<th>Kurssin budjetti</th>" +
+      "<th>aPajan budjetti</th>" +
       "<tr>" +
       "<td>Kurssimaksut</td>" +
       "<td>" + round100(incomeFromAttendees) + " €</td>" +

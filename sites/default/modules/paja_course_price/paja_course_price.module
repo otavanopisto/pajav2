@@ -178,7 +178,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
       
       $element['paja_course_price']['standard_fields'] = array(
         '#type' => 'fieldset',
-        '#title' => 'Kurssilaskuri',
+        '#title' => 'aPaja laskuri',
         '#prefix' => '<div id="paja-course-calculon">',
         '#suffix' => '</div>',
         '#tree' => TRUE,
@@ -247,7 +247,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#max' => 255,
         '#prefix' => '<div id="paja-course-attendees-min" class="paja-course-price-range-field">',
         '#suffix' => '</div>',
-        '#title' => t('Osallistujamäärä, jolla kurssi toteutuu'),
+        '#title' => t('Osallistujamäärä, jolla aPaja toteutuu'),
         '#default_value' => isset($items[$delta]['attendees_min']) ? $items[$delta]['attendees_min'] : '5',
         '#required' => $element['#required'],
       );
@@ -266,7 +266,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
         '#max' => 255,
         '#prefix' => '<div id="paja-course-attendees-max" class="paja-course-price-range-field">',
         '#suffix' => '</div>',
-        '#title' => t('Suurin mahdollinen osallistujamäärä kurssille'),
+        '#title' => t('Suurin mahdollinen osallistujamäärä'),
         '#default_value' => isset($items[$delta]['attendees_max']) ? $items[$delta]['attendees_max'] : '5',
         '#required' => $element['#required'],
       );
@@ -329,7 +329,7 @@ function paja_course_price_field_widget_form(&$form, &$form_state, $field, $inst
       
       $element['paja_course_price']['standard_fields']['price_undetermined'] = array(
         '#type' => 'checkbox',
-        '#title' => t('Kurssia ei ole vielä hinnoiteltu'),
+        '#title' => t('aPajaa ei ole vielä hinnoiteltu'),
         '#return_value' => 1,
         '#attributes' => $price_undetermided_attributes,
         '#default_value' => $price_undetermided,
@@ -427,7 +427,7 @@ function paja_course_price_field_formatter_view($entity_type, $entity, $field, $
     case 'paja_course_price_mini_panel' :
     foreach ($items as $delta => $item) {
       if($item['price_undetermined'] == 1){
-        $element[$delta]['#markup'] = '<div class="field-label">Hinta:&nbsp;</div>Kurssia ei ole vielä hinnoiteltu';        
+        $element[$delta]['#markup'] = '<div class="field-label">Hinta:&nbsp;</div>aPajaa ei ole vielä hinnoiteltu';        
       }elseif (isset($item['price'])) {
         $element[$delta]['#markup'] = '<div class="field-label">Hinta:&nbsp;</div>' . $item['price'] . "€";
       }
