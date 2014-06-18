@@ -1,0 +1,7 @@
+name = Statuses Formatting Info
+description = "Javascript button into statuses form to inform about formatting options."
+dependencies[] = statuses
+package = Statuses
+core = 7.x
+
+files[] = statuses_formatting_info.module

@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+#statuses-formatting-info{
+/* 	background: none repeat scroll 0 0 #0099FF;
+	border-radius: 2px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+	color: #FFFFFF;
+	font-size: 1em;
+	font-weight: bold;
+	padding: 5px 12px;
+	position: absolute;
+	right: 42px;
+	text-decoration: none;
+	text-transform: uppercase;
+	white-space: nowrap;
+	width: auto;
+	cursor: pointer; */
+}
+
+#statuses-format-help{
+/* 	display: none; */
+}

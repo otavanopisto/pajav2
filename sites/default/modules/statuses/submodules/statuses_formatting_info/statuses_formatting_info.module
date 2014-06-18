@@ -1,0 +1,137 @@
+<?php
+
+function statuses_formatting_info_init(){
+  drupal_add_js(drupal_get_path('module', 'statuses_formatting_info') . '/statuses_formatting_info.js', array('weight' => 98));
+  if (!drupal_installation_attempted() && (arg(0) == 'node' && arg(1) != '')) {
+    drupal_add_css(drupal_get_path('module', 'statuses_formatting_info') . '/statuses_formatting_info.css');
+  }
+}
+
+function statuses_formatting_info_menu(){
+  $items['statusinfo/%/ajax'] = array(
+      'title' => 'ajax callback for showing formatting info',
+      'page callback' => 'statusinfo_callback',
+      'page arguments' => array(1,2),
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+  );
+
+  $items['statusinfo/%/nojs'] = array(
+      'title' => 'non ajax for showing formatting info',
+      'page callback' => 'statusinfo_callback',
+      'page arguments' => array(1,2),
+      'access arguments' => array('access content'),
+      'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+function statusinfo_callback($etid, $js){
+  if($js == 'nojs'){
+    drupal_set_message('Sinulla täytyy olla javascript päällä selaimessasi, jotta sivusto toimisi oikein.', 'error');
+    drupal_goto("/node/$etid/");
+    return;
+  }
+  $info_html = '<span class="generic-empty-text">'.
+        '[b] Lihavoitu teksti esim. [b]<b>Lihavoitu</b>[/b] <br>'.
+        '[h3] 3. tason otsikko esim. [h3]Otsikko teksti[/h3]. <br>'.
+        '[h4] 4. tason otsikko esim. [h4]Otsikko teksti[/h4] <br>'.
+        '[h5] 5. tason otsikko esim. [h5]Otsikko teksti[/h5] <br>'.
+        '[hr] Horisontaali viiva <br>'.
+        '[i] Vino teksti (italic) esim. [i]<i>Italic teksti</i>[/i] <br>'.
+//         '[list] Formats a list. ol and ul may be entered as an option, making the list items numbered or non-numbered. <br>'.
+        '[quote] Lainaus. esim. [quote]Lainattu teksti[/quote] <br>'.
+        '[u] Alleviivattu teksti esim. [u]<u>Alleviivattua tekstiä</u>[/u] <br>'.
+        '[url] Tekee linkin. esim. [url=http://apaja.otavanopisto.fi]aPaja[/url]'.
+      '</span>';
+  $ajax_commands[] = ajax_command_before('#statuses-formatting-info-wrapper', "<div id='statuses-formatting-help-block'><div id='statuses-formatting-info-description-block'>".$info_html."</div><div class='statuses-formatting-info-arrow-block'></div></div>");
+  $ajax_commands[] = ajax_command_invoke('#statuses-formatting-help-block', 'hide');
+  $ajax_commands[] = ajax_command_invoke('#statuses-formatting-help-block', 'fadeIn', array(300));
+  return drupal_json_output($ajax_commands);
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function statuses_formatting_info_block_info() {
+  $blocks = array();
+  $blocks['statuses_formatting_info_block'] = array(
+      'info' => t('Statuses text formatting info block'),
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function statuses_formatting_info_block_configure($delta='') {
+  $form = array();
+
+  switch($delta) {
+    case 'statuses_formatting_info_block' :
+
+      break;
+  }
+  return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function statuses_formatting_info_block_save($delta = '', $edit = array()) {
+  switch($delta) {
+    case 'statuses_formatting_info_block' :
+      break;
+  }
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function statuses_formatting_info_block_view($delta='') {
+  $block = array();
+
+  switch($delta) {
+    case 'statuses_formatting_info_block' :
+      $block['content'] = _statuses_formatting_info_view();
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Custom function to assemble renderable array for block content.
+ * Returns a renderable array with the block content.
+ * @return
+ *   returns a renderable array of block content.
+ */
+function _statuses_formatting_info_view() {
+  $block = array();
+  // Block output in HTML with div wrapper
+  $block = array(
+    'content' => array(
+      '#prefix' => '<div id="statuses-formatting-info-block">',
+      '#type' => 'markup',
+      '#suffix' => '</div>',
+    ),
+  );
+
+  $block["#markup"] = l(t('Tekstin muotoilu'), "statusinfo/".arg(1)."/nojs", array('attributes' => array('class' => 'use-ajax', 'id' => 'statuses-formatting-info-bt')));
+  return $block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
