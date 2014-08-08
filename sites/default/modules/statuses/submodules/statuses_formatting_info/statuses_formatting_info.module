@@ -45,7 +45,7 @@ function statusinfo_callback($etid, $js){
         '[u] Alleviivattu teksti esim. [u]<u>Alleviivattua tekstiä</u>[/u] <br>'.
         '[url] Tekee linkin. esim. [url=http://apaja.otavanopisto.fi]aPaja[/url]'.
       '</span>';
-  $ajax_commands[] = ajax_command_before('#statuses-formatting-info-wrapper', "<div id='statuses-formatting-help-block'><div id='statuses-formatting-info-description-block'>".$info_html."</div><div class='statuses-formatting-info-arrow-block'></div></div>");
+  $ajax_commands[] = ajax_command_after('#statuses-formatting-info-wrapper', "<div id='statuses-formatting-wrap'><div id='statuses-formatting-help-block'><div id='statuses-formatting-info-description-block'>".$info_html."</div><div class='statuses-formatting-info-arrow-block'></div></div><div>");
   $ajax_commands[] = ajax_command_invoke('#statuses-formatting-help-block', 'hide');
   $ajax_commands[] = ajax_command_invoke('#statuses-formatting-help-block', 'fadeIn', array(300));
   return drupal_json_output($ajax_commands);
