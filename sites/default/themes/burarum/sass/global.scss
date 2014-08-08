@@ -1997,6 +1997,58 @@ ul.tabs.primary li.active a {
     }
   
 }
+/* TEXT FORMATTING LINK */
+.pane-statuses-formatting-info-statuses-formatting-info-block {
+	bottom: -73px;
+  display: inline-block;
+  left: 270px;
+  position: relative;
+  text-align: left;
+  text-decoration:none;
+	text-transform:uppercase;
+	font-size: 0.85em;
+	padding: 2px;
+	height: 20px;
+	z-index: 9;
+}
+
+#statuses-formatting-info-bt{
+
+}
+
+#statuses-formatting-wrap{
+  position: absolute;
+}
+
+#statuses-formatting-help-block{
+  background: white;
+  border: 1px solid #AAAAAA;
+  border-radius: 2px;
+  box-shadow: 0 -4px 100px rgba(0, 0, 0, 0.6);
+  /* left: -10px; */
+  min-height: 50px;
+  padding: 10px 15px;
+  position: absolute;
+  bottom: -35px;
+  width: 380px;
+  z-index: 999;
+  
+ 	.generic-empty-text{
+		color: #666666;
+    margin: 2px 0;
+	}
+  
+}
+
+.statuses-formatting-info-arrow-block{
+	position:absolute;
+	bottom:-10px;
+	right:50px;
+	height:9px;
+	width:15px;
+	background:url('../gfx/arrow-bottom.png') no-repeat;	
+}
+
 
 /* EVENT ATTENDANTS LISTING */
 
