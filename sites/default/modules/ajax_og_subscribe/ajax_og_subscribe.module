@@ -1,7 +1,7 @@
 <?php
 function ajax_og_subscribe_init() {
   if (!drupal_installation_attempted() && (arg(0) == 'node' && arg(1) != '')) {
-    // Load in Drupal core AJAX library.
+    // Load in Drupal core AJAX library. Duh.
 //     drupal_add_library('system', 'drupal.ajax');
     // Load in our custom JavaScript.
     drupal_add_js(drupal_get_path('module', 'ajax_og_subscribe') . '/ajax_og_subscribe.js', array('weight' => 98));
