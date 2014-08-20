@@ -34,6 +34,7 @@ function statusinfo_callback($etid, $js){
     return;
   }
   $info_html = '<span class="generic-empty-text">'.
+    		'<b>Voit käyttää foorumeilta tuttuja taqeja</b><br>'.
         '[b] Lihavoitu teksti esim. [b]<b>Lihavoitu</b>[/b] <br>'.
         '[h3] 3. tason otsikko esim. [h3]Otsikko teksti[/h3]. <br>'.
         '[h4] 4. tason otsikko esim. [h4]Otsikko teksti[/h4] <br>'.
