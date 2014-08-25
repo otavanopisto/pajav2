@@ -2,9 +2,9 @@
 
 function statuses_formatting_info_init(){
   drupal_add_js(drupal_get_path('module', 'statuses_formatting_info') . '/statuses_formatting_info.js', array('weight' => 98));
-  if (!drupal_installation_attempted() && (arg(0) == 'node' && arg(1) != '')) {
-    drupal_add_css(drupal_get_path('module', 'statuses_formatting_info') . '/statuses_formatting_info.css');
-  }
+//   if (!drupal_installation_attempted() && (arg(0) == 'node' && arg(1) != '')) {
+//     drupal_add_css(drupal_get_path('module', 'statuses_formatting_info') . '/statuses_formatting_info.css');
+//   }
 }
 
 function statuses_formatting_info_menu(){
@@ -122,17 +122,4 @@ function _statuses_formatting_info_view() {
   $block["#markup"] = l(t('Tekstin muotoilu'), "statusinfo/".arg(1)."/nojs", array('attributes' => array('class' => 'use-ajax', 'id' => 'statuses-formatting-info-bt')));
   return $block;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
