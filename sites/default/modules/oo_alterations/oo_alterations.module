@@ -211,6 +211,12 @@ function oo_alterations_form_alter(&$form, $form_state, $form_id) {
         $("#' . $form['#id'] . ' fieldset.filter-wrapper").hide();
       });';
     drupal_add_js($js, 'inline');
+  }elseif($form_id == 'tapahtuma_node_form'){
+  	$form['field_yhteystiedot']['und']['0']['#format'] = 'filtered_html';
+  	$form['field_tapahtuman_osoite']['und']['0']['#format'] = 'filtered_html';
+  	$form['body']['und']['0']['#format'] = 'filtered_html';
+  }elseif($form_id == 'kurssi_node_form'){
+  	$form['body']['und']['0']['#format'] = 'filtered_html';
   }
 }
 
