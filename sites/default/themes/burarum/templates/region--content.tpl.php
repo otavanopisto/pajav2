@@ -1,16 +1,7 @@
 <div<?php print $attributes; ?>>
   <div<?php print $content_attributes; ?>>
     <a id="main-content"></a>
-    <?php if ($tabs && !empty($tabs['#primary'])): ?>
-      <?php if (!empty($tabs['#secondary'])): ?>
-        <?php $secondaryTabs = $tabs['#secondary']; ?>      
-        <?php unset($tabs['#secondary']); ?>
-      <?php endif; ?>
-      <div class="tabs clearfix"><?php print render($tabs); ?></div>
-    <?php endif; ?>   
-     <?php if($secondaryTabs): ?>
-       <div class="secondary-tabs clearfix"><?php print render($secondaryTabs); ?></div>
-     <?php endif; ?>
+    <?php if ($tabs && !empty($tabs['#primary'])): ?><div class="tabs clearfix"><?php print render($tabs); ?></div><?php endif; ?>    
     <?php print render($title_prefix); ?>
     <?php if ($title): ?>
     <?php if ($title_hidden): ?><div class="element-invisible"><?php endif; ?>

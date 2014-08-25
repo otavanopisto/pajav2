@@ -56,7 +56,7 @@
       <?php print $rows; ?>
     <div class="views-row views-row-1 views-row-odd views-row-first views-row-last courses-not-page-row courses-not-create-new">
       <div class="views-field views-field-title">
-        <span class="field-content"><a href="/node/add/kurssi">Puuttuuko sinun aPajasi täältä?</a></span>
+        <span class="field-content"><a href="/node/add/kurssi">Puuttuuko sinun kurssisi täältä?</a></span>
       </div>    
       <div class="views-field views-field-field-kurssin-kuva">
         <div class="field-content">
@@ -64,7 +64,7 @@
         </div>
       </div>  
       <div class="views-field views-field-field-summary">
-        <span class="field-content">Luo oma aPaja ja kerää muut asiasta kiinnostuneet mukaan</span>
+        <span class="field-content">Luo oma kurssi ja kerää muut asiasta kiinnostuneet mukaan</span>
       </div>
     </div>
   </div>
