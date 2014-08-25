@@ -679,6 +679,41 @@ ul.tabs.primary li.active a {
   background:#000000;
 }
 
+/** Petja destroys! Urgh! **/
+.secondary-tabs{
+  border-bottom: 1px solid #AAA;
+  padding: 4px
+}
+.secondary-tabs li{
+  display: inline;
+  list-style-type: none;
+  
+  padding: 0px;
+	margin: 0px;
+	border: 0px none;
+	background: none repeat scroll 0% 0% transparent;
+}
+.secondary-tabs li a{
+ 	text-decoration: none;
+	padding: 6px 15px;
+	background: none repeat scroll 0% 0% #FFF;
+	text-transform: uppercase;
+	color: #0062A0;
+	border: 0px none;
+	box-shadow: 0px -1px 6px rgba(0, 0, 0, 0.15);
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	margin: 0px 5px;
+	font-size: 0.925em;
+}
+
+.secondary-tabs li.active a{
+  color: #ffffff;
+  background: #616761;
+}
+
+/** Petja stops raging! Ugh! */
+
 /* FRONTPAGE INTRO VIDEO  */
 
 #region-content-intro-video.grid-12 { /* Override for the front page */
