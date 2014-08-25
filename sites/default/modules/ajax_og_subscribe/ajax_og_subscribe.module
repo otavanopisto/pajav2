@@ -188,13 +188,20 @@ function _ajax_og_subscribe_view() {
     return $block;
   }
   
-  if (!$user->uid) {
-    // Anonymous user can't request membership.
-    $dest = drupal_get_destination();
-    if (variable_get('user_register', 1)) {
-      $block["#markup"] = l(t('Join course'), "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax', 'id' => 'join-course-bt')));
-      return $block;
-    }
+  $course_state = array_pop(field_get_items($entity_type, $entity, 'field_kurssin_tila'));
+  $course_state = $course_state['value'];
+  if($course_state == 3){
+    $content = t('');
+    $block["#markup"] = $content;
+  }else{
+	  if (!$user->uid) {
+	    // Anonymous user can't request membership.
+	    $dest = drupal_get_destination();
+	    if (variable_get('user_register', 1)) {
+	      $block["#markup"] = l(t('Join course'), "course/".arg(1)."/subscribe/nojs", array('attributes' => array('class' => 'use-ajax', 'id' => 'join-course-bt')));
+	      return $block;
+	    }
+	  }
   }
   
   $redirect = FALSE;
